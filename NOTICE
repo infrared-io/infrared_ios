@@ -1,0 +1,16 @@
+   =========================================================================
+   ==  NOTICE file for use with the Apache License, Version 2.0,          ==
+   ==  for infrared_ios project.                                          ==
+   =========================================================================
+
+   infrared_ios library
+   Copyright 2015 infrared.io (uros@infrared.io)
+
+
+   This products inludes following external project which are under ther own
+   license:
+   1) Watch.JS (https://github.com/melanke/Watch.JS/)
+
+   Project is using number of external projects which are downloaded through
+   cocoapods system. List of those can be found in "Podfile". All those 
+   projects are under their own license.
