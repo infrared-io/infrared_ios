@@ -1,5 +1,4 @@
 # infrared_ios
-============
 
 ## License
 
