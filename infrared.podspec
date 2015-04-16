@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "infrared"
+  s.name         = "Infrared"
   s.version      = "0.9"
   s.summary      = "Library for declarative (out of code) UI development on iOS."
 
@@ -59,7 +59,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://bitbucket.org/infraredio/infrared_ios.git", :tag => "0.9.0.7" }
+  s.source       = { :git => "https://github.com/infrared-io/infrared_ios.git", :tag => "0.9" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -72,11 +72,6 @@ Pod::Spec.new do |s|
 
   s.source_files  = 'infrared_ios/Library/**/*.{h,m}'
 
-  # s.exclude_files = 'infrared_ios/IRAppDelegate.*', 'infrared_ios/main.m'
-
-  # s.exclude_files = "Classes/Exclude"
-  # s.public_header_files = "Classes/**/*.h"
-
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -86,12 +81,7 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
-
   s.resources = "infrared_ios/Library/JSExtensions/**/*.js"
-
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -100,12 +90,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
-
     s.frameworks = "SystemConfiguration", "MapKit", "CoreGraphics"
-
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -121,6 +106,5 @@ Pod::Spec.new do |s|
   s.dependency 'RESideMenu', '~> 4.0.7'
   s.dependency 'IQKeyboardManager'
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
 end
