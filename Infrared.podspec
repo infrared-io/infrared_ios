@@ -61,7 +61,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/infrared-io/infrared_ios.git", :tag => "0.9" }
+  s.source       = { :git => "https://github.com/infrared-io/infrared_ios.git", :tag => "0.9.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
