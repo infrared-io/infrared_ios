@@ -1,6 +1,8 @@
 # Infrared
 
-![Infrared](https://github.com/infrared-io/infrared_ios/wiki/images/iphone_app@3x.png)
+<div style="text-align:center">
+<img src ="https://github.com/infrared-io/infrared_ios/wiki/images/iphone_app@3x.png" />
+</div>
 
 ## Introduction  
 
@@ -119,5 +121,5 @@ IMPORTANT:
 
 ## License
 
-infrared_ios is released under the Apache License, Version 2.0. See
+Infrared iOS libarary (infrared_ios) is released under the Apache License, Version 2.0. See
 [LICENSE](https://github.com/infrared-io/infrared_ios/blob/master/NOTICE).
