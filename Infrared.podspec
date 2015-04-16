@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Infrared"
-  s.version      = "0.9"
+  s.version      = "0.9.0.1"
   s.summary      = "Library for declarative (out of code) UI development on iOS."
 
   s.homepage     = "http://infrared.io"
