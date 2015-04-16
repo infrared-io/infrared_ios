@@ -1,8 +1,8 @@
 # Infrared
 
-<div style="text-align:center">
-<img src ="https://github.com/infrared-io/infrared_ios/wiki/images/iphone_app@3x.png" />
-</div>
+<p align="center">
+  <img src ="https://github.com/infrared-io/infrared_ios/wiki/images/iphone_app@3x.png" alt='Infrared'/>
+</p>
 
 ## Introduction  
 
