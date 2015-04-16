@@ -22,11 +22,11 @@ all resources used by app can be updated at any time. This includes localization
 {
   "id" : "label_id",
   "type" : "label",
-    "backgroundColor" : "#ff000080",
-    "text" : "IR Label",
-    "textAlignment" : "NSTextAlignmentCenter",
-    "textColor" : "#ffffffaa",
-    "font" : "SystemBold, 16"
+  "backgroundColor" : "#ff000080",
+  "text" : "IR Label",
+  "textAlignment" : "NSTextAlignmentCenter",
+  "textColor" : "#ffffffaa",
+  "font" : "SystemBold, 16"
 }
 ```
 
@@ -87,7 +87,7 @@ Entry point for Infrared based app is App.json where files for defining UI, Inte
 
 ## Setup
 
-Simplest way to use podfile and initiate library in AppDelegate.
+Simplest way is to use podfile and initiate library in AppDelegate.
 
 ### Podfile
 
@@ -110,7 +110,7 @@ pod "Infrared"
 
 ## Documentation
 
-Detailed documentation can be find in projects [wiki page](https://github.com/infrared-io/infrared_ios/wiki)
+Detailed documentation can be find in project's [wiki page](https://github.com/infrared-io/infrared_ios/wiki)
 
 ----
 IMPORTANT:  
