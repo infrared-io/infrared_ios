@@ -1,7 +1,6 @@
 # Infrared
 
-[[/infrared-io/infrared_ios/wiki/images/iphone_app@3x.png]]
-
+![Infrared](https://github.com/infrared-io/infrared_ios/wiki/images/iphone_app@3x.png)
 
 ## Introduction  
 
