@@ -21,6 +21,8 @@ Pod::Spec.new do |s|
 
   s.homepage     = "http://infrared.io"
 
+  s.documentation_url = "https://github.com/infrared-io/infrared_ios/wiki"
+
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
