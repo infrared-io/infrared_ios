@@ -1,0 +1,24 @@
+{
+  "id": "infrared",
+  "screens": [
+    {
+      "deviceType": "phone",
+      "path": "ir_main_screen.json"
+    },
+    {
+      "deviceType": "phone",
+      "path": "ir_table_view.json"
+    }
+  ],
+  "jsLibraries": [],
+  "mainScreenId": "ir_main_screen",
+  "i18n": {
+    "default": "en",
+    "languages": {
+      "en": "en.json",
+      "sr": "sr.json"
+    }
+  },
+  "label": "dev",
+  "version": 1
+}

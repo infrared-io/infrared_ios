@@ -1,0 +1,307 @@
+{
+  "id" : "ir_main_screen",
+  "controller" : {
+    "id" : "ir_main_screen_vc",
+    "useExistingClass" : "",
+    "controllerType" : "viewController",
+    "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
+    "title" : "i18n.ir_main_vc_title",
+    "jsPluginPath" : "ir_main_screen_plugin.js",
+    "navigationController" : {
+      "autoAddIfNeeded" : true,
+      "hideNavigationBar" : false
+    }
+  },
+  "view" : {
+    "id": "root_view",
+    "type": "view",
+    "subviews": [
+      {
+        "id" : "whole_ui",
+        "type" : "view",
+        "backgroundColor" : "#00ff0080",
+        "subviews" : [
+          {
+            "id" : "internal_scroll_view",
+            "type" : "scrollView",
+            "backgroundColor" : "#ffffff80",
+            "contentSize_" : {
+              "width" : 300,
+              "height" : 300
+            },
+            "subviews" : [
+              {
+                "id" : "internal_view",
+                "type" : "view",
+                "backgroundColor" : "#0000ff80",
+                "subviews" : [
+                  {
+                    "id" : "title_label",
+                    "type" : "label",
+                    "backgroundColor" : "#ff000080",
+                    "text" : "IR Label",
+                    "textAlignment" : "NSTextAlignmentCenter",
+                    "textColor" : "#ffffffaa",
+                    "font" : "SystemBold, 16",
+                    "numberOfLines" : 0,
+                    "dataBinding" : [
+                      {
+                        "property" : "text",
+                        "data" : "this.firstLabelData.text"
+                      },
+                      {
+                        "property_" : "textColor",
+                        "data" : "this.firstLabelData.color"
+                      }
+                    ],
+                    "gestureRecognizers" : [
+                      {
+                        "id" : "tapGROnIRLabel",
+                        "gestureType" : "tap",
+                        "numberOfTapsRequired" : 1,
+                        "numberOfTouchesRequired" : 1,
+                        "requireGestureRecognizerToFail" : "doubleTapGROnIRLabel",
+                        "gestureActions" : "this.gestureRecognizer1();"
+                      },
+                      {
+                        "id" : "doubleTapGROnIRLabel",
+                        "gestureType" : "tap",
+                        "numberOfTapsRequired" : 2,
+                        "numberOfTouchesRequired" : 1,
+                        "gestureActions" : "this.gestureRecognizer2();"
+                      }
+                    ]
+                  },
+                  {
+                    "id" : "text_field",
+                    "type" : "textField",
+                    "backgroundColor" : "#ff000080",
+                    "textColor" : "#ffffffaa",
+                    "placeholder" : "i18n.ir_text_field_placeholder",
+                    "borderStyle" : "UITextBorderStyleLine",
+                    "font" : "System, 16",
+                    "dataBinding" : [
+                      {
+                        "property" : "text",
+                        "mode" : "twoWay",
+                        "data" : "this.firstLabelData.text"
+                      }
+                    ]
+                  },
+                  {
+                    "id" : "text_field2",
+                    "type" : "textField",
+                    "backgroundColor" : "#00ff0080",
+                    "text" : "TH Label",
+                    "textAlignment" : "NSTextAlignmentCenter",
+                    "textColor" : "#ffffffaa",
+                    "font" : "SystemBold, 16",
+                    "numberOfLines" : 0,
+                    "dataBinding" : [
+                      {
+                        "property" : "text",
+                        "mode" : "twoWay",
+                        "data" : "this.textFieldText"
+                      }
+                    ]
+                  },
+                  {
+                    "id" : "bottom_button1",
+                    "type" : "button",
+                    "backgroundColor" : "#ff000080",
+                    "normalTitle" : "i18n.ir_button_1",
+                    "normalTitleColor" : "#ffffffaa",
+                    "highlightedTitleColor" : "#ffffff80",
+                    "font" : "SystemBold, 16",
+                    "touchUpInsideActions" : "this.pushViewControllerWithScreenIdAnimated('ir_table_view', true);"
+                  },
+                  {
+                    "id" : "bottom_button2",
+                    "type" : "button",
+                    "backgroundColor" : "#ff000080",
+                    "normalTitle" : "i18n.ir_button_2",
+                    "normalTitleColor" : "#ffffffaa",
+                    "highlightedTitleColor" : "#ffffff80",
+                    "font" : "SystemBold, 16",
+                    "touchUpInsideActions" : "this.button2Action();"
+                  },
+                  {
+                    "id" : "bottom_button3",
+                    "type" : "button",
+                    "backgroundColor" : "#ff000080",
+                    "normalTitle" : "i18n.ir_button_3",
+                    "normalTitleColor" : "#ffffffaa",
+                    "highlightedTitleColor" : "#ffffff80",
+                    "font" : "SystemBold, 16",
+                    "touchUpInsideActions" : "this.button3Action(control, event);"
+                  }
+                ],
+                "constraints" : [
+                  {
+                    "visualFormat" : "H:|-[title_label(>=100)]-|",
+                    "views" : [
+                      "title_label"
+                    ]
+                  },
+                  {
+                    "visualFormat" : "H:|-[text_field(>=100)]-|",
+                    "views" : [
+                      "text_field"
+                    ]
+                  },
+                  {
+                    "visualFormat" : "H:|-[text_field2(>=100)]-|",
+                    "views" : [
+                      "text_field2"
+                    ]
+                  },
+                  {
+                    "visualFormat" : "V:|-[title_label(==40)]-[text_field(==40)]-[text_field2(==40)]-50-[bottom_button1(==30)]-[bottom_button2(==30)]-[bottom_button3(==30)]-|",
+                    "views" : [
+                      "title_label",
+                      "text_field",
+                      "text_field2",
+                      "bottom_button1",
+                      "bottom_button2",
+                      "bottom_button3"
+                    ]
+                  },
+                  {
+                    "visualFormat" : "H:|-105-[bottom_button1(>=100)]-105-|",
+                    "views" : [
+                      "bottom_button1"
+                    ]
+                  },
+                  {
+                    "visualFormat" : "H:|-105-[bottom_button2(>=100)]-105-|",
+                    "views" : [
+                      "bottom_button2"
+                    ]
+                  },
+                  {
+                    "visualFormat" : "H:|-105-[bottom_button3(>=100)]-105-|",
+                    "views" : [
+                      "bottom_button3"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "constraints" : [
+              {
+                "visualFormat_" : "H:|[internal_view]|",
+                "views" : [
+                  "internal_view"
+                ]
+              },
+              {
+                "visualFormat_" : "V:|[internal_view]|",
+                "views" : [
+                  "internal_view"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "toolbar_object",
+            "type": "toolbar",
+            "barStyle": "UIBarStyleBlack",
+            "backgroundColor" : "#ff000080",
+            "items": [
+              {
+                "id": "bar_button_1",
+                "type": "barButtonItem",
+                "style": "UIBarButtonItemStylePlain",
+                "title": "i18n.ir_bar_button_1",
+                "backgroundColor" : "#ff000080",
+                "action" : "this.barButtonItemAction(control);"
+              },
+              {
+                "id": "bar_button_2",
+                "type": "barButtonItem",
+                "identifier": "UIBarButtonSystemItemFixedSpace",
+                "width": 50
+              },
+              {
+                "id": "bar_button_3",
+                "type": "barButtonItem",
+                "identifier": "UIBarButtonSystemItemAdd",
+                "action" : "this.barButtonItemAction(control);"
+              },
+              {
+                "id": "bar_button_4",
+                "type": "barButtonItem",
+                "identifier": "UIBarButtonSystemItemFlexibleSpace"
+              },
+              {
+                "id": "bar_button_5",
+                "type": "barButtonItem",
+                "style": "UIBarButtonItemStylePlain",
+                "title": "i18n.ir_bar_button_3",
+                "action" : "this.barButtonItemAction(control);"
+              }
+            ]
+          }
+        ],
+        "constraints" : [
+          {
+            "visualFormat" : "H:|-5-[internal_scroll_view]-5-|",
+            "views" : [
+              "internal_scroll_view"
+            ]
+          },
+          {
+            "visualFormat" : "H:|-0-[toolbar_object]-0-|",
+            "views" : [
+              "toolbar_object"
+            ]
+          },
+          {
+            "visualFormat" : "V:|[internal_view]|",
+            "views" : [
+              "internal_view"
+            ]
+          },
+          {
+            "withItem": "internal_view",
+            "withItemAttribute": "NSLayoutAttributeLeading",
+            "relatedBy": "NSLayoutRelationEqual",
+            "toItem": "whole_ui",
+            "toItemAttribute": "NSLayoutAttributeLeft",
+            "multiplier": "1",
+            "constant": "5"
+          },
+          {
+            "withItem": "internal_view",
+            "withItemAttribute": "NSLayoutAttributeTrailing",
+            "relatedBy": "NSLayoutRelationEqual",
+            "toItem": "whole_ui",
+            "toItemAttribute": "NSLayoutAttributeRight",
+            "multiplier": "1",
+            "constant": "-5"
+          },
+          {
+            "visualFormat" : "V:|-5-[internal_scroll_view]-5-[toolbar_object]-0-|",
+            "views" : [
+              "internal_scroll_view", "toolbar_object"
+            ]
+          }
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "visualFormat": "H:|-0-[whole_ui]-0-|",
+        "views": [
+          "whole_ui"
+        ]
+      },
+      {
+        "visualFormat": "V:|-0-[whole_ui]-0-|",
+        "views": [
+          "whole_ui"
+        ]
+      }
+    ]
+  }
+}

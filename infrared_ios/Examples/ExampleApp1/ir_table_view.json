@@ -1,0 +1,756 @@
+{
+  "id" : "ir_table_view",
+  "controller" : {
+    "id" : "ir_table_view_vc",
+    "controllerType" : "viewController",
+    "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
+    "title" : "i18n.ir_table_view_vc_title",
+    "jsPluginPath" : "ir_table_view_plugin.js",
+    "navigationController" : {
+      "autoAddIfNeeded" : true,
+      "hideNavigationBar" : false
+    }
+  },
+  "view" : {
+    "id" : "root_view",
+    "backgroundColor" : "#00ff00",
+    "subviews" : [
+      {
+        "id" : "internal_table_view",
+        "type" : "tableView",
+        "rowHeight" : 50,
+        "backgroundColor" : "#ffffff",
+        "accessoryButtonAction" : "this.updateSectionOne();",
+        "selectRowAction" : "",
+        "sectionItemName" : "section",
+        "cellItemName" : "cell",
+        "dataBinding" : [
+          {
+            "property" : "tableData",
+            "data" : "this.tableData"
+          }
+        ],
+        "tableHeaderView" : {
+          "id" : "tableHeaderView1",
+          "type" : "view",
+          "backgroundColor" : "#f1f1f1",
+          "frame" : {
+            "x" : 0,
+            "y" : 0,
+            "width" : 0,
+            "height" : 100
+          },
+          "subviews" : [
+            {
+              "id" : "tableHeaderViewImage1",
+              "type" : "imageView",
+              "backgroundColor" : "#82A2C4",
+              "cornerRadius" : 5,
+              "borderColor" : "#000000",
+              "borderWidth" : 2,
+              "dataBinding_" : [
+                {
+                  "property" : "image",
+                  "data" : "this.tableHeader.imagePath"
+                }
+              ]
+            },
+            {
+              "id" : "tableHeaderViewLabel1",
+              "type" : "label",
+              "textAlignment" : "NSTextAlignmentLeft",
+              "textColor" : "#000000aa",
+              "backgroundColor" : "#ffffff30",
+              "font" : "SystemBold, 16",
+              "numberOfLines" : 0,
+              "dataBinding" : [
+                {
+                  "property" : "text",
+                  "data" : "this.tableHeader.text1",
+                  "data_" : "this.tableHeaderText1"
+                }
+              ]
+            },
+            {
+              "id" : "tableHeaderViewLabel2",
+              "type" : "label",
+              "textAlignment" : "NSTextAlignmentLeft",
+              "textColor" : "#000000aa",
+              "backgroundColor" : "#ffffff30",
+              "font" : "SystemBold, 12",
+              "numberOfLines" : 0,
+              "dataBinding" : [
+                {
+                  "property" : "text",
+                  "data" : "this.tableHeader.text2"
+                }
+              ]
+            }
+          ],
+          "constraints" : [
+            {
+              "visualFormat" : "H:|-[tableHeaderViewImage1(==84)]-[tableHeaderViewLabel1]-|",
+              "views" : [
+                "tableHeaderViewImage1", "tableHeaderViewLabel1"
+              ]
+            },
+            {
+              "visualFormat" : "H:[tableHeaderViewImage1]-[tableHeaderViewLabel2]-|",
+              "views" : [
+                "tableHeaderViewImage1", "tableHeaderViewLabel2"
+              ]
+            },
+            {
+              "visualFormat" : "V:|-[tableHeaderViewImage1]-|",
+              "views" : [
+                "tableHeaderViewImage1"
+              ]
+            },
+            {
+              "visualFormat" : "V:|-[tableHeaderViewLabel1]-[tableHeaderViewLabel2]-|",
+              "views" : [
+                "tableHeaderViewLabel1", "tableHeaderViewLabel2"
+              ]
+            }
+          ]
+        },
+        "tableFooterView" : {
+          "id" : "tableFooterView1",
+          "type" : "view",
+          "backgroundColor" : "#f1f1f1",
+          "frame" : {
+            "x" : 0,
+            "y" : 0,
+            "width" : 0,
+            "height" : 80
+          },
+          "subviews" : [
+            {
+              "id" : "tableFooterViewLabel1",
+              "type" : "label",
+              "textAlignment" : "NSTextAlignmentCenter",
+              "textColor" : "#000000aa",
+              "backgroundColor" : "#82A2C4",
+              "font" : "SystemBold, 16",
+              "numberOfLines" : 0,
+              "dataBinding" : [
+                {
+                  "property" : "text",
+                  "data" : "this.tableFooter.text1"
+                }
+              ]
+            }
+          ],
+          "constraints" : [
+            {
+              "visualFormat" : "H:|-[tableFooterViewLabel1]-|",
+              "views" : [
+                "tableFooterViewLabel1"
+              ]
+            },
+            {
+              "visualFormat" : "V:|-[tableFooterViewLabel1]-|",
+              "views" : [
+                "tableFooterViewLabel1"
+              ]
+            }
+          ]
+        },
+        "cells" : [
+          {
+            "id" : "cell1",
+            "type" : "tableViewCell",
+            "accessoryType" : "UITableViewCellAccessoryDetailDisclosureButton",
+            "subviews" : [
+              {
+                "id" : "image1",
+                "type" : "imageView",
+                "backgroundColor" : "#F3BD56",
+                "dataBinding_" : [
+                  {
+                    "property" : "image",
+                    "data" : "cell.imagePath"
+                  }
+                ]
+              },
+              {
+                "id" : "label1",
+                "type" : "label",
+                "textAlignment" : "NSTextAlignmentLeft",
+                "textColor" : "#000000cc",
+                "backgroundColor" : "#ff000000",
+                "font" : "SystemBold, 16",
+                "numberOfLines" : 1,
+                "dataBinding" : [
+                  {
+                    "property" : "text",
+                    "data" : "cell.name"
+                  }
+                ]
+              },
+              {
+                "id" : "label2",
+                "type" : "label",
+                "textAlignment" : "NSTextAlignmentLeft",
+                "textColor" : "#000000aa",
+                "backgroundColor" : "#0000ff00",
+                "font" : "SystemBold, 12",
+                "numberOfLines" : 0,
+                "dataBinding" : [
+                  {
+                    "property" : "text",
+                    "data" : "cell.description"
+                  }
+                ]
+              },
+              {
+                "id" : "button1",
+                "type" : "button",
+                "backgroundColor" : "#BAC385",
+                "normalTitle" : "IR btn",
+                "normalTitleColor" : "#ffffffaa",
+                "highlightedTitleColor" : "#00000080",
+                "font" : "SystemBold, 16",
+                "touchUpInsideActions_" : "this.actionTableViewIndexPathControlEvent(tableView, indexPath, control, event);",
+                "touchUpInsideActions_" : "this.buttonActionInTV(tableView, indexPath, control, event);",
+                "touchUpInsideActions" : "this.action(control, event, extra);"
+              }
+            ],
+            "constraints" : [
+              {
+                "visualFormat" : "H:|-4-[image1(==42)]-4-[label1]-4-[button1(==50)]-4-|",
+                "views" : [
+                  "image1", "label1", "button1"
+                ]
+              },
+              {
+                "visualFormat" : "H:|-4-[image1]-4-[label2]-4-[button1(==50)]-4-|",
+                "views" : [
+                  "image1", "label2", "button1"
+                ]
+              },
+              {
+                "visualFormat" : "V:|-4-[image1(==42)]",
+                "views" : [
+                  "image1"
+                ]
+              },
+              {
+                "visualFormat" : "V:|-4-[label1]-4-[label2]",
+                "views" : [
+                  "label1", "label2"
+                ]
+              },
+              {
+                "visualFormat" : "V:|-4-[button1]-4-|",
+                "options_" : "NSLayoutFormatAlignAllCenterX",
+                "views" : [
+                  "button1"
+                ]
+              }
+            ]
+          }
+        ],
+        "sectionHeaders" : [
+          {
+            "id" : "tableSectionHeaderView1",
+            "type" : "view",
+            "backgroundColor" : "#A67375",
+            "subviews" : [
+              {
+                "id" : "tableSectionHeaderLabel1",
+                "type" : "label",
+                "textAlignment" : "NSTextAlignmentCenter",
+                "textColor" : "#ffffffaa",
+                "backgroundColor" : "#ff000000",
+                "font" : "SystemBold, 16",
+                "numberOfLines" : 1,
+                "dataBinding" : [
+                  {
+                    "property" : "text",
+                    "data" : "section.title"
+                  }
+                ]
+              }
+            ],
+            "constraints" : [
+              {
+                "visualFormat" : "H:|-[tableSectionHeaderLabel1]-|",
+                "views" : [
+                  "tableSectionHeaderLabel1"
+                ]
+              },
+              {
+                "visualFormat" : "V:|-0-[tableSectionHeaderLabel1]-0-|",
+                "views" : [
+                  "tableSectionHeaderLabel1"
+                ]
+              }
+            ]
+          }
+        ],
+        "sectionFooters" : [
+          {
+            "id" : "tableSectionFooterView1",
+            "type" : "view",
+            "backgroundColor" : "#EC786D",
+            "subviews" : [
+              {
+                "id" : "tableSectionFooterLabel1",
+                "type" : "label",
+                "textAlignment" : "NSTextAlignmentRight",
+                "textColor" : "#ffffffaa",
+                "backgroundColor" : "#ff000000",
+                "font" : "SystemBold, 16",
+                "numberOfLines" : 1,
+                "dataBinding" : [
+                  {
+                    "property" : "text",
+                    "data" : "section.title"
+                  }
+                ]
+              }
+            ],
+            "constraints" : [
+              {
+                "visualFormat" : "H:|-[tableSectionFooterLabel1]-|",
+                "views" : [
+                  "tableSectionFooterLabel1"
+                ]
+              },
+              {
+                "visualFormat" : "V:|-0-[tableSectionFooterLabel1]-0-|",
+                "views" : [
+                  "tableSectionFooterLabel1"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "toolbar_object",
+        "type": "toolbar",
+        "barStyle_": "UIBarStyleBlack",
+        "restrictToOrientations": "UIInterfaceOrientationPortrait | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
+        "backgroundColor" : "#ff000080",
+        "items": [
+          {
+            "id": "bar_button_1",
+            "type": "barButtonItem",
+            "style": "UIBarButtonItemStylePlain",
+            "title": "i18n.ir_bar_button_1",
+            "backgroundColor" : "#ff000080",
+            "action" : "this.barButtonItemAction(control);"
+          },
+          {
+            "id": "bar_button_2",
+            "type": "barButtonItem",
+            "identifier": "UIBarButtonSystemItemFlexibleSpace"
+          },
+          {
+            "id": "bar_button_3",
+            "type": "barButtonItem",
+            "style": "UIBarButtonItemStylePlain",
+            "title": "i18n.ir_bar_button_2",
+            "action" : "this.barButtonItemAction(control);"
+          }
+        ]
+      }
+    ],
+    "constraints" : [
+      {
+        "visualFormat" : "H:|-0-[internal_table_view]-0-|",
+        "views" : [
+          "internal_table_view"
+        ]
+      },
+      {
+        "visualFormat" : "H:|-0-[toolbar_object]-0-|",
+        "views" : [
+          "toolbar_object"
+        ]
+      },
+      {
+        "visualFormat" : "V:|-0-[internal_table_view]-0-[toolbar_object(==44)]-0-|",
+        "views" : [
+          "internal_table_view", "toolbar_object"
+        ]
+      }
+    ]
+  },
+  "view_" : [
+    {
+      "orientation" : "portrait,landscape",
+      "root" : {
+        "id" : "ir_table_view_whole_ui",
+        "type" : "view",
+        "backgroundColor" : "#00ff00",
+        "subviews" : [
+          {
+            "id" : "internal_table_view",
+            "type" : "tableView",
+            "rowHeight" : 50,
+            "backgroundColor" : "#ffffff",
+            "accessoryButtonAction" : "this.updateSectionOne();",
+            "selectRowAction" : "",
+            "sectionItemName" : "section",
+            "cellItemName" : "cell",
+            "dataBinding" : [
+              {
+                "property" : "tableData",
+                "data" : "this.tableData"
+              }
+            ],
+            "tableHeaderView" : {
+              "id" : "tableHeaderView1",
+              "type" : "view",
+              "backgroundColor" : "#f1f1f1",
+              "frame" : {
+                "x" : 0,
+                "y" : 0,
+                "width" : 0,
+                "height" : 100
+              },
+              "subviews" : [
+                {
+                  "id" : "tableHeaderViewImage1",
+                  "type" : "imageView",
+                  "backgroundColor" : "#82A2C4",
+                  "cornerRadius" : 5,
+                  "borderColor" : "#000000",
+                  "borderWidth" : 2,
+                  "dataBinding_" : [
+                    {
+                      "property" : "image",
+                      "data" : "this.tableHeader.imagePath"
+                    }
+                  ]
+                },
+                {
+                  "id" : "tableHeaderViewLabel1",
+                  "type" : "label",
+                  "textAlignment" : "NSTextAlignmentLeft",
+                  "textColor" : "#000000aa",
+                  "backgroundColor" : "#ffffff30",
+                  "font" : "SystemBold, 16",
+                  "numberOfLines" : 0,
+                  "dataBinding" : [
+                    {
+                      "property" : "text",
+                      "data" : "this.tableHeader.text1",
+                      "data_" : "this.tableHeaderText1"
+                    }
+                  ]
+                },
+                {
+                  "id" : "tableHeaderViewLabel2",
+                  "type" : "label",
+                  "textAlignment" : "NSTextAlignmentLeft",
+                  "textColor" : "#000000aa",
+                  "backgroundColor" : "#ffffff30",
+                  "font" : "SystemBold, 12",
+                  "numberOfLines" : 0,
+                  "dataBinding" : [
+                    {
+                      "property" : "text",
+                      "data" : "this.tableHeader.text2"
+                    }
+                  ]
+                }
+              ],
+              "constraints" : [
+                {
+                  "visualFormat" : "H:|-[tableHeaderViewImage1(==84)]-[tableHeaderViewLabel1]-|",
+                  "views" : [
+                    "tableHeaderViewImage1", "tableHeaderViewLabel1"
+                  ]
+                },
+                {
+                  "visualFormat" : "H:[tableHeaderViewImage1]-[tableHeaderViewLabel2]-|",
+                  "views" : [
+                    "tableHeaderViewImage1", "tableHeaderViewLabel2"
+                  ]
+                },
+                {
+                  "visualFormat" : "V:|-[tableHeaderViewImage1]-|",
+                  "views" : [
+                    "tableHeaderViewImage1"
+                  ]
+                },
+                {
+                  "visualFormat" : "V:|-[tableHeaderViewLabel1]-[tableHeaderViewLabel2]-|",
+                  "views" : [
+                    "tableHeaderViewLabel1", "tableHeaderViewLabel2"
+                  ]
+                }
+              ]
+            },
+            "tableFooterView" : {
+              "id" : "tableFooterView1",
+              "type" : "view",
+              "backgroundColor" : "#f1f1f1",
+              "frame" : {
+                "x" : 0,
+                "y" : 0,
+                "width" : 0,
+                "height" : 100
+              },
+              "subviews" : [
+                {
+                  "id" : "tableFooterViewLabel1",
+                  "type" : "label",
+                  "textAlignment" : "NSTextAlignmentCenter",
+                  "textColor" : "#000000aa",
+                  "backgroundColor" : "#82A2C4",
+                  "font" : "SystemBold, 16",
+                  "numberOfLines" : 0,
+                  "dataBinding" : [
+                    {
+                      "property" : "text",
+                      "data" : "this.tableFooter.text1"
+                    }
+                  ]
+                }
+              ],
+              "constraints" : [
+                {
+                  "visualFormat" : "H:|-[tableFooterViewLabel1]-|",
+                  "views" : [
+                    "tableFooterViewLabel1"
+                  ]
+                },
+                {
+                  "visualFormat" : "V:|-[tableFooterViewLabel1]-|",
+                  "views" : [
+                    "tableFooterViewLabel1"
+                  ]
+                }
+              ]
+            },
+            "cells" : [
+              {
+                "id" : "cell1",
+                "type" : "tableViewCell",
+                "accessoryType" : "UITableViewCellAccessoryDetailDisclosureButton",
+                "subviews" : [
+                  {
+                    "id" : "image1",
+                    "type" : "imageView",
+                    "backgroundColor" : "#F3BD56",
+                    "dataBinding_" : [
+                      {
+                        "property" : "image",
+                        "data" : "cell.imagePath"
+                      }
+                    ]
+                  },
+                  {
+                    "id" : "label1",
+                    "type" : "label",
+                    "textAlignment" : "NSTextAlignmentLeft",
+                    "textColor" : "#000000cc",
+                    "backgroundColor" : "#ff000000",
+                    "font" : "SystemBold, 16",
+                    "numberOfLines" : 1,
+                    "dataBinding" : [
+                      {
+                        "property" : "text",
+                        "data" : "cell.name"
+                      }
+                    ]
+                  },
+                  {
+                    "id" : "label2",
+                    "type" : "label",
+                    "textAlignment" : "NSTextAlignmentLeft",
+                    "textColor" : "#000000aa",
+                    "backgroundColor" : "#0000ff00",
+                    "font" : "SystemBold, 12",
+                    "numberOfLines" : 0,
+                    "dataBinding" : [
+                      {
+                        "property" : "text",
+                        "data" : "cell.description"
+                      }
+                    ]
+                  },
+                  {
+                    "id" : "button1",
+                    "type" : "button",
+                    "backgroundColor" : "#BAC385",
+                    "normalTitle" : "IR btn",
+                    "normalTitleColor" : "#ffffffaa",
+                    "highlightedTitleColor" : "#00000080",
+                    "font" : "SystemBold, 16",
+                    "touchUpInsideActions_" : "this.actionTableViewIndexPathControlEvent(tableView, indexPath, control, event);",
+                    "touchUpInsideActions_" : "this.buttonActionInTV(tableView, indexPath, control, event);",
+                    "touchUpInsideActions" : "this.action(control, event, extra);"
+                  }
+                ],
+                "constraints" : [
+                  {
+                    "visualFormat" : "H:|-4-[image1(==42)]-4-[label1]-4-[button1(==50)]-4-|",
+                    "views" : [
+                      "image1", "label1", "button1"
+                    ]
+                  },
+                  {
+                    "visualFormat" : "H:|-4-[image1]-4-[label2]-4-[button1(==50)]-4-|",
+                    "views" : [
+                      "image1", "label2", "button1"
+                    ]
+                  },
+                  {
+                    "visualFormat" : "V:|-4-[image1(==42)]",
+                    "views" : [
+                      "image1"
+                    ]
+                  },
+                  {
+                    "visualFormat" : "V:|-4-[label1]-4-[label2]",
+                    "views" : [
+                      "label1", "label2"
+                    ]
+                  },
+                  {
+                    "visualFormat" : "V:|-4-[button1]-4-|",
+                    "options_" : "NSLayoutFormatAlignAllCenterX",
+                    "views" : [
+                      "button1"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "sectionHeaders" : [
+              {
+                "id" : "tableSectionHeaderView1",
+                "type" : "view",
+                "backgroundColor" : "#A67375",
+                "subviews" : [
+                  {
+                    "id" : "tableSectionHeaderLabel1",
+                    "type" : "label",
+                    "textAlignment" : "NSTextAlignmentCenter",
+                    "textColor" : "#ffffffaa",
+                    "backgroundColor" : "#ff000000",
+                    "font" : "SystemBold, 16",
+                    "numberOfLines" : 1,
+                    "dataBinding" : [
+                      {
+                        "property" : "text",
+                        "data" : "section.title"
+                      }
+                    ]
+                  }
+                ],
+                "constraints" : [
+                  {
+                    "visualFormat" : "H:|-[tableSectionHeaderLabel1]-|",
+                    "views" : [
+                      "tableSectionHeaderLabel1"
+                    ]
+                  },
+                  {
+                    "visualFormat" : "V:|-0-[tableSectionHeaderLabel1]-0-|",
+                    "views" : [
+                      "tableSectionHeaderLabel1"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "sectionFooters" : [
+              {
+                "id" : "tableSectionFooterView1",
+                "type" : "view",
+                "backgroundColor" : "#EC786D",
+                "subviews" : [
+                  {
+                    "id" : "tableSectionFooterLabel1",
+                    "type" : "label",
+                    "textAlignment" : "NSTextAlignmentRight",
+                    "textColor" : "#ffffffaa",
+                    "backgroundColor" : "#ff000000",
+                    "font" : "SystemBold, 16",
+                    "numberOfLines" : 1,
+                    "dataBinding" : [
+                      {
+                        "property" : "text",
+                        "data" : "section.title"
+                      }
+                    ]
+                  }
+                ],
+                "constraints" : [
+                  {
+                    "visualFormat" : "H:|-[tableSectionFooterLabel1]-|",
+                    "views" : [
+                      "tableSectionFooterLabel1"
+                    ]
+                  },
+                  {
+                    "visualFormat" : "V:|-0-[tableSectionFooterLabel1]-0-|",
+                    "views" : [
+                      "tableSectionFooterLabel1"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "toolbar_object",
+            "type": "toolbar",
+            "barStyle_": "UIBarStyleBlack",
+            "restrictToOrientations": "UIInterfaceOrientationPortraitUpsideDown",
+            "backgroundColor" : "#ff000080",
+            "items": [
+              {
+                "id": "bar_button_1",
+                "type": "barButtonItem",
+                "style": "UIBarButtonItemStylePlain",
+                "title": "BBI-1",
+                "backgroundColor" : "#ff000080",
+                "action" : "this.barButtonItemAction(control);"
+              },
+              {
+                "id": "bar_button_2",
+                "type": "barButtonItem",
+                "identifier": "UIBarButtonSystemItemFlexibleSpace"
+              },
+              {
+                "id": "bar_button_3",
+                "type": "barButtonItem",
+                "style": "UIBarButtonItemStylePlain",
+                "title": "BBI-2",
+                "action" : "this.barButtonItemAction(control);"
+              }
+            ]
+          }
+        ],
+        "constraints" : [
+          {
+            "visualFormat" : "H:|-0-[internal_table_view]-0-|",
+            "views" : [
+              "internal_table_view"
+            ]
+          },
+          {
+            "visualFormat" : "H:|-0-[toolbar_object]-0-|",
+            "views" : [
+              "toolbar_object"
+            ]
+          },
+          {
+            "visualFormat" : "V:|-0-[internal_table_view]-0-[toolbar_object(==44)]-0-|",
+            "views" : [
+              "internal_table_view", "toolbar_object"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
