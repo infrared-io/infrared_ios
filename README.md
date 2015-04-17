@@ -39,7 +39,7 @@ infrared.plugin("main", {
         "text_2" : 'value 2',
         "color"  : '#ffffff'
     },
-    "actionMethods" : function () {
+    "actionMethod" : function () {
         // do some UI/Interaction/Data manipulation
     }
 });
