@@ -1,0 +1,40 @@
+{
+  "id" : "ir_picker_view",
+  "controller" : {
+    "id" : "ir_picker_view_vc",
+    "controllerType" : "viewController",
+    "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
+    "title" : "Picker view",
+    "jsPluginPath" : "ir_picker_view_plugin.js",
+    "navigationController" : {
+      "autoAddIfNeeded" : true,
+      "hideNavigationBar" : false
+    }
+  },
+  "view" : {
+    "id" : "root_view",
+    "backgroundColor" : "#00ff00",
+    "subviews" : [
+      {
+        "id" : "picker_view",
+        "type" : "pickerView",
+        "backgroundColor" : "#ffffff",
+        "selectRowAction" : "this.pickerRowSelected(pickerView, row, component, data);",
+        "dataBinding" : [
+          {
+            "property" : "pickerData",
+            "data" : "this.pickerData"
+          }
+        ]
+      }
+    ],
+    "constraints" : [
+      {
+        "visualFormat" : "H:|-0-[picker_view]-0-|"
+      },
+      {
+        "visualFormat" : "V:|-0-[picker_view]-0-|"
+      }
+    ]
+  }
+}

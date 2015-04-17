@@ -20,8 +20,6 @@
 
 @implementation IRTableViewObserver
 
-@synthesize tableDataArray;
-
 - (instancetype)init
 {
     self = [super init];
@@ -40,8 +38,8 @@
 {
     NSDictionary *cellDictionary;
     NSArray *sectionCellsArray = nil;
-    if ([tableDataArray count] > section) {
-        cellDictionary = tableDataArray[section];
+    if ([self.tableDataArray count] > section) {
+        cellDictionary = self.tableDataArray[section];
         sectionCellsArray = cellDictionary[cellsKEY];
     }
     return [sectionCellsArray count];
@@ -78,7 +76,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;              // Default is 1 if not implemented
 {
-    return [tableDataArray count];
+    return [self.tableDataArray count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;    // fixed font style. use custom view (UILabel) if you want something different
@@ -432,8 +430,8 @@
 - (NSDictionary *) sectionDataForSection:(NSInteger)section
 {
     NSDictionary *sectionDictionary = nil;
-    if ([tableDataArray count] > section) {
-        sectionDictionary = tableDataArray[section];
+    if ([self.tableDataArray count] > section) {
+        sectionDictionary = self.tableDataArray[section];
     }
     return sectionDictionary;
 }

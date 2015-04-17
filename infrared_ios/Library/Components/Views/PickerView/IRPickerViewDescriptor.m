@@ -30,6 +30,7 @@
     if (self) {
         NSNumber *number;
         NSString *string;
+        NSArray *array;
 
         // showsSelectionIndicator
         number = aDictionary[NSStringFromSelector(@selector(showsSelectionIndicator))];
@@ -38,6 +39,14 @@
         } else {
             self.showsSelectionIndicator = NO;
         }
+
+        // selectRowAction
+        string = aDictionary[NSStringFromSelector(@selector(selectRowAction))];
+        self.selectRowAction = string;
+
+        // pickerData
+        array = aDictionary[NSStringFromSelector(@selector(pickerData))];
+        self.pickerData = array;
     }
     return self;
 }

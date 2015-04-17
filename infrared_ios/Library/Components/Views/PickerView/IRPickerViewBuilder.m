@@ -37,5 +37,6 @@
     [IRViewBuilder setUpComponent:irPickerView componentDescriptor:descriptor viewController:viewController extra:extra];
 
     irPickerView.showsSelectionIndicator = descriptor.showsSelectionIndicator;
+    [irPickerView setPickerData:descriptor.pickerData];
 }
 @end

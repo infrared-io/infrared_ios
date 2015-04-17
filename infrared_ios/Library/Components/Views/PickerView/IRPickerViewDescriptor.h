@@ -13,6 +13,10 @@
 
 // --------------------------------------------------------------------------------------------------------------------
 
+@property (nonatomic, strong) NSString *selectRowAction;
+
+@property (nonatomic, strong) NSArray *pickerData;
+
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths;

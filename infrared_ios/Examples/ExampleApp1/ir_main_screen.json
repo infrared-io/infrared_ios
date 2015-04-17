@@ -113,7 +113,7 @@
                     "normalTitleColor" : "#ffffffaa",
                     "highlightedTitleColor" : "#ffffff80",
                     "font" : "SystemBold, 16",
-                    "touchUpInsideActions" : "this.pushViewControllerWithScreenIdAnimated('ir_table_view', true);"
+                    "touchUpInsideActions" : "this.button1Action();"
                   },
                   {
                     "id" : "bottom_button2",
@@ -138,68 +138,30 @@
                 ],
                 "constraints" : [
                   {
-                    "visualFormat" : "H:|-[title_label(>=100)]-|",
-                    "views" : [
-                      "title_label"
-                    ]
+                    "visualFormat" : "H:|-[title_label(>=100)]-|"
                   },
                   {
-                    "visualFormat" : "H:|-[text_field(>=100)]-|",
-                    "views" : [
-                      "text_field"
-                    ]
+                    "visualFormat" : "H:|-[text_field(>=100)]-|"
                   },
                   {
-                    "visualFormat" : "H:|-[text_field2(>=100)]-|",
-                    "views" : [
-                      "text_field2"
-                    ]
+                    "visualFormat" : "H:|-[text_field2(>=100)]-|"
                   },
                   {
-                    "visualFormat" : "V:|-[title_label(==40)]-[text_field(==40)]-[text_field2(==40)]-50-[bottom_button1(==30)]-[bottom_button2(==30)]-[bottom_button3(==30)]-|",
-                    "views" : [
-                      "title_label",
-                      "text_field",
-                      "text_field2",
-                      "bottom_button1",
-                      "bottom_button2",
-                      "bottom_button3"
-                    ]
+                    "visualFormat" : "V:|-[title_label(==40)]-[text_field(==40)]-[text_field2(==40)]-50-[bottom_button1(==30)]-[bottom_button2(==30)]-[bottom_button3(==30)]-|"
                   },
                   {
-                    "visualFormat" : "H:|-105-[bottom_button1(>=100)]-105-|",
-                    "views" : [
-                      "bottom_button1"
-                    ]
+                    "visualFormat" : "H:|-105-[bottom_button1(>=100)]-105-|"
                   },
                   {
-                    "visualFormat" : "H:|-105-[bottom_button2(>=100)]-105-|",
-                    "views" : [
-                      "bottom_button2"
-                    ]
+                    "visualFormat" : "H:|-105-[bottom_button2(>=100)]-105-|"
                   },
                   {
-                    "visualFormat" : "H:|-105-[bottom_button3(>=100)]-105-|",
-                    "views" : [
-                      "bottom_button3"
-                    ]
+                    "visualFormat" : "H:|-105-[bottom_button3(>=100)]-105-|"
                   }
                 ]
               }
             ],
             "constraints" : [
-              {
-                "visualFormat_" : "H:|[internal_view]|",
-                "views" : [
-                  "internal_view"
-                ]
-              },
-              {
-                "visualFormat_" : "V:|[internal_view]|",
-                "views" : [
-                  "internal_view"
-                ]
-              }
             ]
           },
           {
@@ -245,22 +207,13 @@
         ],
         "constraints" : [
           {
-            "visualFormat" : "H:|-5-[internal_scroll_view]-5-|",
-            "views" : [
-              "internal_scroll_view"
-            ]
+            "visualFormat" : "H:|-5-[internal_scroll_view]-5-|"
           },
           {
-            "visualFormat" : "H:|-0-[toolbar_object]-0-|",
-            "views" : [
-              "toolbar_object"
-            ]
+            "visualFormat" : "H:|-0-[toolbar_object]-0-|"
           },
           {
-            "visualFormat" : "V:|[internal_view]|",
-            "views" : [
-              "internal_view"
-            ]
+            "visualFormat" : "V:|[internal_view]|"
           },
           {
             "withItem": "internal_view",
@@ -281,26 +234,17 @@
             "constant": "-5"
           },
           {
-            "visualFormat" : "V:|-5-[internal_scroll_view]-5-[toolbar_object]-0-|",
-            "views" : [
-              "internal_scroll_view", "toolbar_object"
-            ]
+            "visualFormat" : "V:|-5-[internal_scroll_view]-5-[toolbar_object]-0-|"
           }
         ]
       }
     ],
     "constraints": [
       {
-        "visualFormat": "H:|-0-[whole_ui]-0-|",
-        "views": [
-          "whole_ui"
-        ]
+        "visualFormat": "H:|-0-[whole_ui]-0-|"
       },
       {
-        "visualFormat": "V:|-0-[whole_ui]-0-|",
-        "views": [
-          "whole_ui"
-        ]
+        "visualFormat": "V:|-0-[whole_ui]-0-|"
       }
     ]
   }

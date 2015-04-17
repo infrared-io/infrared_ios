@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "IRView.h"
 
+@class IRPickerViewObserver;
 
 @protocol IRPickerViewExport <JSExport>
 
@@ -32,6 +33,10 @@
 
 - (NSInteger)selectedRowInComponent:(NSInteger)component;                                   // returns selected row. -1 if nothing selected
 
+// -----------------------------------------------------------------------------------
+
+- (void) setPickerData:(NSArray *)pickerData;
+
 @end
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -39,5 +44,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 @interface IRPickerView : UIPickerView <IRComponentInfoProtocol, IRPickerViewExport, IRViewExport>
+
+@property (nonatomic, strong) IRPickerViewObserver *observer;
 
 @end

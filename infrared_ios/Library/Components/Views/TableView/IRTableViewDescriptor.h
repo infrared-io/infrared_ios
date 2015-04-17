@@ -40,6 +40,8 @@
 @property (nonatomic, retain) IRViewDescriptor *tableHeaderView;                           // accessory view for above row content. default is nil. not to be confused with section header
 @property (nonatomic, retain) IRViewDescriptor *tableFooterView;                           // accessory view below content. default is nil. not to be confused with section footer
 
+// --------------------------------------------------------------------------------------------------------------------
+
 @property(nonatomic,retain) NSMutableArray *sectionHeadersArray;
 @property(nonatomic,retain) NSMutableArray *sectionFootersArray;
 @property(nonatomic,retain) NSMutableArray *cellsArray;

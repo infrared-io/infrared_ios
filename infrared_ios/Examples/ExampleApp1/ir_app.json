@@ -8,6 +8,10 @@
     {
       "deviceType": "phone",
       "path": "ir_table_view.json"
+    },
+    {
+      "deviceType": "phone",
+      "path": "ir_picker_view.json"
     }
   ],
   "jsLibraries": [],
