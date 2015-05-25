@@ -144,6 +144,9 @@ withDataBindingItemName:(NSString *)name
             // -- set temp data
             jsContext[[IRUtil createKeyFromObjectAddress:name]] = dictionary;
             for (IRDataBindingDescriptor *anDescriptor in dataBindingsArray) {
+                if (anDescriptor.property == nil || [anDescriptor.property length] == 0) {
+                    break;
+                }
                 // -- correcting dataPath
                 NSRange itemNameRange = [anDescriptor.data rangeOfString:name];
                 if (itemNameRange.location != NSNotFound) {
@@ -154,28 +157,37 @@ withDataBindingItemName:(NSString *)name
                 }
                 // -- getting data
                 jsValue = [jsContext evaluateScript:correctedDataPath];
-                if ([IRBaseBuilder isPropertyWithName:anDescriptor.property inObject:irView ofClass:[UIImage class]]) {
+                if ([IRBaseBuilder isPropertyWithName:anDescriptor.property inObject:irView
+                                              ofClass:[UIImage class]])
+                {
                     UIImage *image;
                     NSString *imagePath = [jsValue toString];
                     imagePath = [IRUtil prefixFilePathWithBaseUrlIfNeeded:imagePath];
                     if ([[IRSimpleCache sharedInstance] hasDataForURI:imagePath]) {
                         image = [[IRSimpleCache sharedInstance] imageForURI:imagePath];
-                        [irView setValue:image forKey:anDescriptor.property];
+                        [irView setValue:image forKeyPath:anDescriptor.property];
                     } else {
                         // -- download and set image
                         [IRBaseBuilder downloadAndSetImageWithPathInBackground:imagePath view:irView
                                                                   propertyName:anDescriptor.property];
                     }
                 } else if ([IRBaseBuilder isPropertyWithName:anDescriptor.property inObject:irView
-                                                     ofClass:[UIColor class]]) {
+                                                     ofClass:[UIColor class]])
+                {
                     NSString *colorString = [jsValue toString];
                     UIColor *color = [IRUtil transformHexColorToUIColor:colorString];
-                    [irView setValue:color forKey:anDescriptor.property];
+                    [irView setValue:color forKeyPath:anDescriptor.property];
+                } else if ([IRBaseBuilder isPropertyWithName:anDescriptor.property inObject:irView
+                                                     ofClass:[UIFont class]])
+                {
+                    NSString *fontString = [jsValue toString];
+                    UIFont *font = [IRBaseDescriptor fontFromString:fontString];
+                    [irView setValue:font forKeyPath:anDescriptor.property];
                 } else {
                     if ([jsValue isString] || [jsValue isNumber]) {
-                        [irView setValue:[jsValue toString] forKey:anDescriptor.property];
+                        [irView setValue:[jsValue toString] forKeyPath:anDescriptor.property];
                     } else if ([jsValue isUndefined] == NO) {
-                        [irView setValue:[jsValue toObject] forKey:anDescriptor.property];
+                        [irView setValue:[jsValue toObject] forKeyPath:anDescriptor.property];
                     }
                 }
             }
@@ -195,7 +207,15 @@ withDataBindingItemName:(NSString *)name
                     ofClass:(Class)propertyClass
 {
     BOOL propertyHasRightClass = NO;
-    const char *type = property_getAttributes(class_getProperty([irView class], [propertyName UTF8String]));
+    NSArray *propertyPathComponentsArray = [propertyName componentsSeparatedByString:@"."];
+    NSObject *parentObject = irView;
+    NSString *lastProperty = [propertyPathComponentsArray lastObject];
+    NSString *anProperty;
+    for (uint i = 0; i < [propertyPathComponentsArray count]-1; ++i) {
+        anProperty = propertyPathComponentsArray[i];
+        parentObject = [parentObject performSelector:NSSelectorFromString(anProperty)];
+    }
+    const char *type = property_getAttributes(class_getProperty([/*irView*/parentObject class], [/*propertyName*/lastProperty UTF8String]));
     NSString *typeString = [NSString stringWithUTF8String:type];
     NSArray *attributes = [typeString componentsSeparatedByString:@","];
     NSString *typeAttribute = [attributes objectAtIndex:0];

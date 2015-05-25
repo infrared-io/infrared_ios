@@ -42,6 +42,30 @@ infrared.plugin("table_view", {
             ]
         },
         {
+            "cells" : [
+                {
+                    "cellId" : "cell_plain_1",
+                    "text" : "style: UITableViewCellStyleDefault"
+                },
+                {
+                    "cellId" : "cell_plain_2",
+                    "text" : "style",
+                    "details" : "UITableViewCellStyleValue1",
+                    "detailsFont" : "SystemItalic, 13"
+                },
+                {
+                    "cellId" : "cell_plain_3",
+                    "text" : "style",
+                    "details" : "UITableViewCellStyleValue2"
+                },
+                {
+                    "cellId" : "cell_plain_4",
+                    "text" : "style",
+                    "details" : "UITableViewCellStyleSubtitle"
+                }
+            ]
+        },
+        {
             "sectionHeader" : {
                 "sectionId" : "tableSectionHeaderView1",
                 "sectionHeaderHeight" : 70,
@@ -54,47 +78,56 @@ infrared.plugin("table_view", {
             },
             "cells" : [
                 {
+                    "cellId" : "cell1",
                     "rowHeight" : 75,
                     "imagePath" : "",
                     "name" : "Name 3",
                     "description" : "Description 3"
                 },
                 {
+                    "cellId" : "cell1",
                     "imagePath" : "",
                     "name" : "Name 4",
                     "description" : "Description 4"
                 },
                 {
+                    "cellId" : "cell1",
                     "imagePath" : "",
                     "name" : "Name 4-1",
                     "description" : "Description 4"
                 },
                 {
+                    "cellId" : "cell1",
                     "imagePath" : "",
                     "name" : "Name 4-2",
                     "description" : "Description 4"
                 },
                 {
+                    "cellId" : "cell1",
                     "imagePath" : "",
                     "name" : "Name 4-3",
                     "description" : "Description 4"
                 },
                 {
+                    "cellId" : "cell1",
                     "imagePath" : "",
                     "name" : "Name 4-4",
                     "description" : "Description 4"
                 },
                 {
+                    "cellId" : "cell1",
                     "imagePath" : "",
                     "name" : "Name 4-5",
                     "description" : "Description 4"
                 },
                 {
+                    "cellId" : "cell1",
                     "imagePath" : "",
                     "name" : "Name 4-6",
                     "description" : "Description 4"
                 },
                 {
+                    "cellId" : "cell1",
                     "imagePath" : "",
                     "name" : "Name 4-7",
                     "description" : "Description 4"

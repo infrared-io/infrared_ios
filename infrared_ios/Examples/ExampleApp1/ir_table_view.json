@@ -215,6 +215,66 @@
                 "visualFormat" : "V:|-4-[button1]-4-|"
               }
             ]
+          },
+          {
+            "id" : "cell_plain_1",
+            "type" : "tableViewCell",
+            "style" : "UITableViewCellStyleDefault",
+            "dataBinding" : [
+              {
+                "property" : "textLabel.text",
+                "data" : "cell.text"
+              }
+            ]
+          },
+          {
+            "id" : "cell_plain_2",
+            "type" : "tableViewCell",
+            "style" : "UITableViewCellStyleValue1",
+            "dataBinding" : [
+              {
+                "property" : "textLabel.text",
+                "data" : "cell.text"
+              },
+              {
+                "property": "detailTextLabel.text",
+                "data": "cell.details"
+              },
+              {
+                "property": "detailTextLabel.font",
+                "data": "cell.detailsFont"
+              }
+            ]
+          },
+          {
+            "id" : "cell_plain_3",
+            "type" : "tableViewCell",
+            "style" : "UITableViewCellStyleValue2",
+            "dataBinding" : [
+              {
+                "property" : "textLabel.text",
+                "data" : "cell.text"
+              },
+              {
+                "property": "detailTextLabel.text",
+                "data": "cell.details"
+              }
+            ]
+          },
+          {
+            "id" : "cell_plain_4",
+            "type" : "tableViewCell",
+            "style" : "UITableViewCellStyleSubtitle",
+            "dataBinding" : [
+              {
+                "property" : "textLabel.text",
+                "data" : "cell.text"
+              },
+              {
+                "property": "detailTextLabel.text",
+                "data": "cell.details"
+              }
+            ]
           }
         ],
         "sectionHeaders" : [

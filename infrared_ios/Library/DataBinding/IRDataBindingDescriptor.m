@@ -24,15 +24,15 @@
         NSString *string;
 
         // property
-        string = aDictionary[NSStringFromSelector(@selector(property))];;
+        string = aDictionary[NSStringFromSelector(@selector(property))];
         self.property = string;
 
         // mode
-        string = aDictionary[NSStringFromSelector(@selector(mode))];;
+        string = aDictionary[NSStringFromSelector(@selector(mode))];
         self.mode = [IRBaseDescriptor dataBindingModeForString:string];
 
         // data
-        string = aDictionary[NSStringFromSelector(@selector(data))];;
+        string = aDictionary[NSStringFromSelector(@selector(data))];
         self.data = string;
     }
     return self;
