@@ -146,4 +146,4 @@ var infraredClass = function () {
 
 };
 
-var infrared = new infraredClass();
+var IR = new infraredClass();

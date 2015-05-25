@@ -12,6 +12,9 @@
 + (void)registerLibrary:(JSContext *)context;
 + (void)unregisterLibrary:(JSContext *)context;
 
++ (NSString *) parent;
 + (NSString *) name;
+
++ (void) setValue:(id)value parent:(NSString *)parent name:(NSString *)name context:(JSContext *)context;
 
 @end

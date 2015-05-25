@@ -35,19 +35,45 @@ static IRInternalLibrary *sharedIRLibrary = nil;
 {
     [super registerLibrary:context];
 
-    context[[IRInternalLibrary name]] = [IRInternalLibrary sharedInstance];
+//    JSValue *parent = context;
+//    NSString *libraryParent = [IRInternalLibrary parent];
+//    NSArray *libraryParentComponentsArray;
+//    NSArray *anParentComponent;
+//    NSString *libraryName = [IRInternalLibrary name];
+//    if ([libraryParent length] > 0) {
+//        libraryParentComponentsArray = [libraryParent componentsSeparatedByString:@"."];
+//        for (uint i = 0; i < [libraryParentComponentsArray count]; ++i) {
+//            anParentComponent = libraryParentComponentsArray[i];
+//            parent = parent[anParentComponent];
+//        }
+//    }
+//    parent[libraryName] = [IRInternalLibrary sharedInstance];
+
+    [IRBaseLibrary setValue:[IRInternalLibrary sharedInstance]
+                     parent:[IRInternalLibrary parent]
+                       name:[IRInternalLibrary name]
+                    context:context];
 }
 
 + (void) unregisterLibrary:(JSContext *)context
 {
     [super unregisterLibrary:context];
 
-    context[[IRInternalLibrary name]] = nil;
+    [IRBaseLibrary setValue:nil
+                     parent:[IRInternalLibrary parent]
+                       name:[IRInternalLibrary name]
+                    context:context];
+//    context[[IRInternalLibrary name]] = nil;
+}
+
++ (NSString *) parent
+{
+    return @"IR";
 }
 
 + (NSString *) name
 {
-    return @"IR";
+    return @"Util";
 }
 
 // --------------------------------------------------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 
-infrared.plugin("main", {
+IR.plugin("main", {
     "firstLabelData" : {
         "text" : 'IRLabel',
         "color" : '#ffffff'

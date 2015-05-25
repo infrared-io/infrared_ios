@@ -92,7 +92,7 @@ static IRDataController *sharedDataController = nil;
                                     [[componentName substringToIndex:1] capitalizedString],
                                     [componentName substringFromIndex:1]];
         descriptorClass = self.componentsDictionary[componentName];
-        context[[IRInternalLibrary name]][capitalizedName] = [descriptorClass componentClass];
+        context[[IRInternalLibrary parent]][capitalizedName] = [descriptorClass componentClass];
     }
 }
 
