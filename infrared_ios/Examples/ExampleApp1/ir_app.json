@@ -14,7 +14,7 @@
       "path": "ir_picker_view.json"
     }
   ],
-  "jsLibraries": [],
+  "jsLibraries": [ "globalData.js" ],
   "mainScreenId": "ir_main_screen",
   "i18n": {
     "default": "en",

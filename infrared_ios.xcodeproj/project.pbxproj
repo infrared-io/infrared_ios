@@ -219,6 +219,7 @@
 		5898BCB4DDC8E23F97DC8411 /* libPods-infrared_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-infrared_ios.a"; path = "/Users/urosmil/Library/Caches/appCode31/DerivedData/infrared_ios-18e2e1bf/Build/Products/Debug-iphoneos/libPods-infrared_ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5D0EC2167330FD8BF4AB93 /* Pods-infrared_ios_lib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-infrared_ios_lib.release.xcconfig"; path = "Pods/Target Support Files/Pods-infrared_ios_lib/Pods-infrared_ios_lib.release.xcconfig"; sourceTree = "<group>"; };
 		7DD12080D11ABF3D0C822393 /* libPods-infrared_ios_lib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-infrared_ios_lib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F613A00E161E352FE980853E /* globalData.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = globalData.js; sourceTree = "<group>"; };
 		F613A00F70E93E88F2036F39 /* IRTextFieldDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTextFieldDescriptor.m; sourceTree = "<group>"; };
 		F613A013B0EBAC049D1719B9 /* IRToolbarDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRToolbarDescriptor.m; sourceTree = "<group>"; };
 		F613A037F9AA01066A5F0CDF /* IRTextViewDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTextViewDescriptor.m; sourceTree = "<group>"; };
@@ -1321,6 +1322,7 @@
 				F613A957AA5B65F974EE5AEF /* ir_table_view_plugin.js */,
 				F613AFDF3A812565B8500BF0 /* ir_picker_view.json */,
 				F613AC97026339A6418DC1C1 /* ir_picker_view_plugin.js */,
+				F613AFCBB13AB0238B41D4EA /* JSLibrary */,
 			);
 			path = ExampleApp1;
 			sourceTree = "<group>";
@@ -1464,6 +1466,14 @@
 				F613AF3F6F4BF4F759240F0D /* IRTextViewBuilder.h */,
 			);
 			path = TextView;
+			sourceTree = "<group>";
+		};
+		F613AFCBB13AB0238B41D4EA /* JSLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				F613A00E161E352FE980853E /* globalData.js */,
+			);
+			path = JSLibrary;
 			sourceTree = "<group>";
 		};
 		F613AFD22D3F7944460CD162 /* Slider */ = {

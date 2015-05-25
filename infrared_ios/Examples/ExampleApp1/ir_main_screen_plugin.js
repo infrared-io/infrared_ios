@@ -1,7 +1,19 @@
 
 IR.plugin("main", {
     "firstLabelData" : {
-        "text" : 'IRLabel',
+        //"text" : 'IRLabel',
+        get text() {
+            return labelValue;
+        },
+        set text(value) {
+            labelValue = value;
+        },
+        get data() {
+            return labelData;
+        },
+        set data(data) {
+            labelData = data;
+        },
         "color" : '#ffffff'
     },
     "gestureRecognizer1" : function () {
