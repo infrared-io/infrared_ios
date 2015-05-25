@@ -103,12 +103,12 @@ static Infrared *sharedInfraRed = nil;
 
 - (void) buildInfraredAppFromPath:(NSString *)path
 {
-#ifdef DEBUG
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-    [NSClassFromString(@"WebView") performSelector:@selector(_enableRemoteInspector)];
-#pragma clang diagnostic pop
-#endif
+//#if ENABLE_SAFARI_DEBUGGING == 1
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wundeclared-selector"
+//    [NSClassFromString(@"WebView") performSelector:@selector(_enableRemoteInspector)];
+//#pragma clang diagnostic pop
+//#endif
 
     NSDictionary *dictionary;
     IRAppDescriptor *appDescriptor;

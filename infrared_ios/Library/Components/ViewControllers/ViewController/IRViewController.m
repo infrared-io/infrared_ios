@@ -648,12 +648,14 @@
 #if ENABLE_SAFARI_DEBUGGING == 1
                                                             "setZeroTimeout( function() { "
 #endif
-                                                                "unwatch(%@, '%@'); "
-                                                                "delete %@ ; "
+                                                                "if (typeof %@ !== 'undefined') { "
+                                                                    "unwatch(%@, '%@'); "
+                                                                    "delete %@ ; "
+                                                                "}"
 #if ENABLE_SAFARI_DEBUGGING == 1
                                                             " } );"
 #endif
-                                                           , self.key, propertyName, self.key];
+                                                           , self.key, self.key, propertyName, self.key];
             [jsContext evaluateScript:method];
         }
         @catch (NSException *exception) {
