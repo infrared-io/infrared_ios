@@ -13,6 +13,8 @@
 
 + (NSDictionary *) appDictionaryFromPath:(NSString *)path;
 
++ (void) cleanAppLabelVersionInUserDefaults;
+
 + (NSDictionary *) screenDictionaryFromPath:(NSString *)path
                                         app:(NSString *)app
                                       label:(NSString *)label
@@ -31,9 +33,11 @@
                                           label:(NSString *)label
                                         version:(NSInteger)version;
 
+
 + (NSString *) basePathAppDescriptorApp:(NSString *)app
                                   label:(NSString *)label
                                  varion:(NSInteger)version;
++ (NSString *) basePathAppDescriptorApp:(NSString *)app;
 + (NSString *) documentsBasePathForInfrared;
 
 + (NSString *) fileNameFromPath:(NSString *)path;

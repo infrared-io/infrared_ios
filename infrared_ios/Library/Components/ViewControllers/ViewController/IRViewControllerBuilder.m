@@ -169,7 +169,7 @@
     JSValue *tempPluginsMapValue;
     NSDictionary *tempPluginsMap;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = [paths firstObject];
     NSString *jsonImagesPathComponent = [IRUtil jsonAndjsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
     NSData *fileData = [IRFileLoadingUtil dataForFileWithPath:descriptor.jsPluginPath
                                               destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonImagesPathComponent]

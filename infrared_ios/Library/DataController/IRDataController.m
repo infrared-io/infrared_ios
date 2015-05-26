@@ -197,7 +197,7 @@ static IRDataController *sharedDataController = nil;
     }
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = [paths firstObject];
     NSString *jsonImagesPathComponent = [IRUtil jsonAndjsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
     NSString *fullBaseUrlPath = [documentsDirectory stringByAppendingPathComponent:jsonImagesPathComponent];
 

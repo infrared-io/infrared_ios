@@ -114,12 +114,13 @@ static Infrared *sharedInfraRed = nil;
     IRAppDescriptor *appDescriptor;
     NSMutableArray *failedPathsArray;
     NSArray *pathsArray;
+    NSString *resourcesPathComponent;
     NSString *jsonPathComponent;
 
     self.appJsonPath = path;
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = [paths firstObject];
 
 #if PREVENT_JSON_CACHE == 1
     dictionary = [IRUtil dictionaryFromPath:path];
@@ -130,17 +131,18 @@ static Infrared *sharedInfraRed = nil;
     // 1) clean and build
     dictionary = [IRUtil appDictionaryFromPath:path];
     // -- clean not used data
+    [self cleanOtherAppsCacheFolderForApp:dictionary];
     [self cleanOtherLabelsCacheFolderForApp:dictionary];
     [self cleanOlderVersionsCacheFolderForApp:dictionary];
     // -- cache and load Fonts
     // ---- copy Fonts
     appDescriptor = [[IRAppDescriptor alloc] initDescriptorForFontsWithDictionary:dictionary];
-    jsonPathComponent = [IRUtil resourcesPathForAppDescriptor:appDescriptor];
+    resourcesPathComponent = [IRUtil resourcesPathForAppDescriptor:appDescriptor];
     pathsArray = appDescriptor.fontsArray;
     pathsArray = [self processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
+                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
                                             preserveName:YES
                                       failedLoadingPaths:failedPathsArray];
     // ---- load Fonts
@@ -150,7 +152,7 @@ static Infrared *sharedInfraRed = nil;
     [IRDataController sharedInstance].appDescriptor = appDescriptor;
 
     // 2) download and cache all images
-    NSString *resourcesPathComponent = [IRUtil resourcesPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
+    resourcesPathComponent = [IRUtil resourcesPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
     NSArray *imagePathsArray = [IRBaseDescriptor allImagePaths];
     imagePathsArray = [self processFilePathsArray:imagePathsArray];
     NSMutableArray *failedImagePathsArray = [NSMutableArray array];
@@ -206,7 +208,8 @@ static Infrared *sharedInfraRed = nil;
             NSDictionary *dictionary = [IRUtil dictionaryFromPath:path];
             IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForLabelAndVariantWithDictionary:dictionary];
             BOOL offerAppUpdate = NO;
-            if ([[IRDataController sharedInstance].appDescriptor.label isEqualToString:appDescriptor.label] == NO
+            if ([[IRDataController sharedInstance].appDescriptor.app isEqualToString:appDescriptor.app] == NO
+                || [[IRDataController sharedInstance].appDescriptor.label isEqualToString:appDescriptor.label] == NO
                 || [IRDataController sharedInstance].appDescriptor.version < appDescriptor.version)
             {
                 offerAppUpdate = YES;
@@ -249,7 +252,7 @@ static Infrared *sharedInfraRed = nil;
 - (void) initI18NData
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = [paths firstObject];
     NSString *jsonImagesPathComponent;
     NSData *fileData;
     NSDictionary *dictionary = nil;
@@ -281,7 +284,7 @@ static Infrared *sharedInfraRed = nil;
 {
     NSString *currentLanguageFileName = nil;
     NSArray *preferredLocalizations = [[NSBundle mainBundle] preferredLocalizations];
-    NSString *language = [preferredLocalizations objectAtIndex:0];
+    NSString *language = [preferredLocalizations firstObject];
     IRI18NDescriptor *descriptor = [IRDataController sharedInstance].appDescriptor.i18n;
     currentLanguageFileName = descriptor.languagesArray[language];
     if (currentLanguageFileName == nil) {
@@ -292,8 +295,8 @@ static Infrared *sharedInfraRed = nil;
 - (void) loadFonts:(IRAppDescriptor *)appDescriptor
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *jsonImagesPathComponent = [IRUtil resourcesPathForAppDescriptor:appDescriptor];
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *resourcesPathComponent = [IRUtil resourcesPathForAppDescriptor:appDescriptor];
     NSData *fontData;
     CFErrorRef error;
     CGDataProviderRef provider;
@@ -301,7 +304,7 @@ static Infrared *sharedInfraRed = nil;
     CFStringRef errorDescription;
     for (NSString *anFontPath in appDescriptor.fontsArray) {
         fontData = [IRFileLoadingUtil dataForFileWithPath:anFontPath
-                                          destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonImagesPathComponent]
+                                          destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
                                              preserveName:YES];
         if (fontData) {
             provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)fontData);
@@ -319,13 +322,40 @@ static Infrared *sharedInfraRed = nil;
         }
     }
 }
+- (void) cleanOtherAppsCacheFolderForApp:(NSDictionary *)dictionary
+{
+    IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForLabelAndVariantWithDictionary:dictionary];
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *irBaseDocPathComponent = [IRUtil documentsBasePathForInfrared];
+    NSString *destinationPath = [documentsDirectory stringByAppendingPathComponent:irBaseDocPathComponent];
+
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    NSArray *filesArray = [fileManager contentsOfDirectoryAtPath:destinationPath error:&error];
+    if (error) {
+        NSLog(@"Infrared-cleanOtherAppsCacheFolderForApp --1--: %@", [error localizedDescription]);
+        return;
+    }
+    NSString *finalPath;
+    for (NSString *lastPathComponent in filesArray) {
+        if ([lastPathComponent isEqualToString:appDescriptor.app] == NO) {
+            finalPath = [/*irBaseDocPathComponent*/destinationPath stringByAppendingPathComponent:lastPathComponent];
+            [[NSFileManager defaultManager] removeItemAtPath:finalPath error:&error];
+            if (error) {
+                NSLog(@"Infrared-cleanOtherAppsCacheFolderForApp --2--: %@", [error localizedDescription]);
+            }
+        }
+    }
+}
 - (void) cleanOtherLabelsCacheFolderForApp:(NSDictionary *)dictionary
 {
     IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForLabelAndVariantWithDictionary:dictionary];
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *irBaseDocPathComponent = [IRUtil documentsBasePathForInfrared];
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *irBaseDocPathComponent = [IRUtil basePathAppDescriptorApp:appDescriptor.app];
     NSString *destinationPath = [documentsDirectory stringByAppendingPathComponent:irBaseDocPathComponent];
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -369,7 +399,15 @@ static Infrared *sharedInfraRed = nil;
 }
 - (void) updateCurrentInfraredApp
 {
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    // -- clear user-defaults
+//    [defaults removeObjectForKey:appKEY];
+//    [defaults removeObjectForKey:appLabelKEY];
+//    [defaults removeObjectForKey:appVersionKEY];
+//    [defaults synchronize];
+
     [self cleanAndBuildInfraredAppFromPath:self.appJsonPath];
+//    self.updatedAppJsonPath = nil;
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) cleanAndBuildInfraredAppFromPath:(NSString *)path withUpdateJSONPath:(NSString *)updateUIPath
@@ -384,20 +422,19 @@ static Infrared *sharedInfraRed = nil;
 
         [self performSelector:@selector(cleanCacheAndRebuildAppWithPath:)
                    withObject:path
-                   afterDelay:0.02*1000];
+                   afterDelay:0.02];
     }
     @catch (NSException *exception) {
         NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
     }
 }
-
 // --------------------------------------------------------------------------------------------------------------------
 - (void) deleteCacheFolderForAppWithApp:(NSString *)app
                                   label:(NSString *)label
                                 version:(NSInteger)version
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = [paths firstObject];
     NSString *basePathComponent = [IRUtil basePathAppDescriptorApp:app label:label varion:version];
     NSString *finalPath = [documentsDirectory stringByAppendingPathComponent:basePathComponent];
     NSError *error;
@@ -482,6 +519,16 @@ static Infrared *sharedInfraRed = nil;
 - (void) showAppUpdateUI
 {
 //    [self buildInfraredAppFromPath:[IRDataController sharedInstance].updateJSONPath];
+
+//    // -- clear cached data
+//    [[IRDataController sharedInstance] cleanData];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    // -- clear user-defaults
+//    [defaults removeObjectForKey:appKEY];
+//    [defaults removeObjectForKey:appLabelKEY];
+//    [defaults removeObjectForKey:appVersionKEY];
+//    [defaults synchronize];
+
     [self cleanCacheAndRebuildAppWithPath:[IRDataController sharedInstance].updateJSONPath];
 
 //    id<UIApplicationDelegate> appDelegate = [UIApplication sharedApplication].delegate;
@@ -539,6 +586,10 @@ static Infrared *sharedInfraRed = nil;
 - (void) cleanCacheAndRebuildAppWithPath:(NSString *)path
                            appDescriptor:(IRAppDescriptor *)appDescriptor
 {
+    // -- clear cached data
+    [[IRDataController sharedInstance] cleanData];
+    // -- clear user-defaults
+    [IRUtil cleanAppLabelVersionInUserDefaults];
     // -- clean cacheFolder
     [self deleteCacheFolderForAppWithApp:appDescriptor.app label:appDescriptor.label version:appDescriptor.version];
     // -- start app building process

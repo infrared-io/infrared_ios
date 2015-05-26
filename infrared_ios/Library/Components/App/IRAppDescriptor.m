@@ -81,12 +81,16 @@
         self.app = string;
 
         // label
-        string = aDictionary[NSStringFromSelector(@selector(label))];
+        string = aDictionary[appLabelKEY];
         self.label = string;
 
         // version
-        number = aDictionary[NSStringFromSelector(@selector(version))];
-        self.version = [number integerValue];
+        number = aDictionary[appVersionKEY];
+        if ([number integerValue] >= 0) {
+            self.version = [number integerValue];
+        } else {
+            self.version = 0;
+        }
     }
     return self;
 }
@@ -104,12 +108,16 @@
         self.app = string;
 
         // label
-        string = aDictionary[NSStringFromSelector(@selector(label))];
+        string = aDictionary[appLabelKEY];
         self.label = string;
 
         // version
-        number = aDictionary[NSStringFromSelector(@selector(version))];
-        self.version = [number integerValue];
+        number = aDictionary[appVersionKEY];
+        if ([number integerValue] >= 0) {
+            self.version = [number integerValue];
+        } else {
+            self.version = 0;
+        }
 
         // baseUrl
         string = aDictionary[NSStringFromSelector(@selector(baseUrl))];

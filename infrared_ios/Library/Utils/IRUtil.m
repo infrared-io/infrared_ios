@@ -34,17 +34,14 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 #if PREVENT_JSON_CACHE == 1
     // -- clear user-defaults
-    [defaults removeObjectForKey:appKEY];
-    [defaults removeObjectForKey:appLabelKEY];
-    [defaults removeObjectForKey:appVersionKEY];
-    [defaults synchronize];
+    [IRUtil cleanAppLabelVersionInUserDefaults];
 #endif
     app = [defaults stringForKey:appKEY];
     label = [defaults stringForKey:appLabelKEY];
     version = [defaults integerForKey:appVersionKEY];
 
     paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    documentsDirectory = [paths objectAtIndex:0];
+    documentsDirectory = [paths firstObject];
 
     if ([app length] > 0 && [label length] > 0) {
         // -- create path
@@ -104,6 +101,15 @@
     return dictionary;
 }
 
++ (void) cleanAppLabelVersionInUserDefaults
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:appKEY];
+    [defaults removeObjectForKey:appLabelKEY];
+    [defaults removeObjectForKey:appVersionKEY];
+    [defaults synchronize];
+}
+
 + (NSDictionary *) screenDictionaryFromPath:(NSString *)path
                                         app:(NSString *)app
                                       label:(NSString *)label
@@ -111,7 +117,7 @@
 {
     NSDictionary *dictionary = nil;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = [paths firstObject];
     NSString *jsonAndjsPathComponent = [IRUtil jsonAndjsPathForAppDescriptorApp:app label:label version:version];
 
     // -- download or copy JSON files ot cache folder (if needed)
@@ -162,7 +168,6 @@
 {
     return [IRUtil jsonAndjsPathForAppDescriptorApp:appDescriptor.app label:appDescriptor.label version:appDescriptor.version];
 }
-
 + (NSString *) jsonAndjsPathForAppDescriptorApp:(NSString *)app
                                           label:(NSString *)label
                                         version:(NSInteger)version
@@ -171,7 +176,6 @@
                                             [IRUtil basePathAppDescriptorApp:app label:label varion:version]];
     return jsonPathComponent;
 }
-
 // --------------------------------------------------------------------------------------------------------------------
 + (NSString *) basePathAppDescriptorApp:(NSString *)app
                                   label:(NSString *)label
@@ -182,6 +186,13 @@
                                                              app,
                                                              label,
                                                              version];
+    return basePathComponent;
+}
++ (NSString *) basePathAppDescriptorApp:(NSString *)app
+{
+    NSString *basePathComponent = [NSString stringWithFormat:@"%@/%@",
+                                                             [IRUtil documentsBasePathForInfrared],
+                                                             app];
     return basePathComponent;
 }
 // --------------------------------------------------------------------------------------------------------------------

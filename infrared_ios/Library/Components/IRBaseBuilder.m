@@ -218,7 +218,7 @@ withDataBindingItemName:(NSString *)name
     const char *type = property_getAttributes(class_getProperty([/*irView*/parentObject class], [/*propertyName*/lastProperty UTF8String]));
     NSString *typeString = [NSString stringWithUTF8String:type];
     NSArray *attributes = [typeString componentsSeparatedByString:@","];
-    NSString *typeAttribute = [attributes objectAtIndex:0];
+    NSString *typeAttribute = [attributes firstObject];
     if ([typeAttribute hasPrefix:@"T@"] && [typeAttribute length] > 1) {
         NSString *typeClassName = [typeAttribute substringWithRange:NSMakeRange(3, [typeAttribute length] - 4)];  //turns @"NSDate" into NSDate
         Class typeClass = NSClassFromString(typeClassName);
