@@ -11,6 +11,7 @@
 #define UIBarButtonSystemItemNone -1
 
 
+#define appKEY                          @"app"
 #define appLabelKEY                     @"label"
 #define appVersionKEY                   @"version"
 #define appLanguagesKEY                 @"languages"

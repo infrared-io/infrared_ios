@@ -1,0 +1,11 @@
+{
+  "ir_main_vc_title" : "Infrared VC",
+  "ir_table_view_vc_title" : "Infrared TableView VC",
+  "ir_text_field_placeholder" : "IR TextField",
+  "ir_button_1" : "IR Button 1",
+  "ir_button_2" : "IR Button 2",
+  "ir_button_3" : "IR Button 3",
+  "ir_bar_button_1" : "BBI-1",
+  "ir_bar_button_2" : "BBI-2",
+  "ir_bar_button_3" : "BBI-3"
+}

@@ -1,0 +1,82 @@
+{
+  "id": "update_screen",
+  "controller": {
+    "id": "update_screen_vc",
+    "controllerType": "viewController",
+    "supportedInterfaceOrientations": "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
+    "preferredStatusBarStyle": "UIStatusBarStyleLightContent",
+    "navigationController": {
+      "autoAddIfNeeded": false
+    }
+  },
+  "view": {
+    "id": "whole_ui",
+    "type": "view",
+    "backgroundColor": "#000000",
+    "subviews": [
+      {
+        "id": "content_wrapper",
+        "type": "view",
+        "backgroundColor": "#000000",
+        "subviews": [
+          {
+            "id": "activity_indicator",
+            "type": "activityIndicatorView",
+            "backgroundColor": "#000000",
+            "activityIndicatorViewStyle": "UIActivityIndicatorViewStyleWhiteLarge",
+            "animating": true
+          },
+          {
+            "id": "update_label",
+            "type": "label",
+            "backgroundColor": "#000000",
+            "text": "i18n.update",
+            "textAlignment": "NSTextAlignmentCenter",
+            "textColor": "#ffffff",
+            "font": "HelveticaNeue, 24"
+          }
+        ],
+        "constraints": [
+          {
+            "withItem": "activity_indicator",
+            "withItemAttribute": "NSLayoutAttributeCenterX",
+            "relatedBy": "NSLayoutRelationEqual",
+            "toItem": "content_wrapper",
+            "toItemAttribute": "NSLayoutAttributeCenterX",
+            "multiplier": "1",
+            "constant": "0"
+          },
+          {
+            "withItem": "update_label",
+            "withItemAttribute": "NSLayoutAttributeCenterX",
+            "relatedBy": "NSLayoutRelationEqual",
+            "toItem": "content_wrapper",
+            "toItemAttribute": "NSLayoutAttributeCenterX",
+            "multiplier": "1",
+            "constant": "0"
+          },
+          {
+            "visualFormat": "V:|-0-[activity_indicator]-(>=1)-[update_label]-0-|"
+          }
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "visualFormat": "H:|-0-[content_wrapper]-0-|"
+      },
+      {
+        "visualFormat": "V:[content_wrapper(==75)]"
+      },
+      {
+        "withItem": "content_wrapper",
+        "withItemAttribute": "NSLayoutAttributeCenterY",
+        "relatedBy": "NSLayoutRelationEqual",
+        "toItem": "whole_ui",
+        "toItemAttribute": "NSLayoutAttributeCenterY",
+        "multiplier": "1",
+        "constant": "0"
+      }
+    ]
+  }
+}

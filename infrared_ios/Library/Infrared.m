@@ -214,11 +214,11 @@ static Infrared *sharedInfraRed = nil;
 
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (offerAppUpdate) {
-                    UIAlertView * alert = [[UIAlertView alloc ] initWithTitle:@"App update"
-                                                                      message:@"New verison is availalbe. Would you like to update?"
-                                                                     delegate:self
-                                                            cancelButtonTitle:@"Cancel"
-                                                            otherButtonTitles: nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"App update"
+                                                                    message:@"New verison is availalbe. Would you like to update?"
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"Cancel"
+                                                          otherButtonTitles:nil];
                     [alert addButtonWithTitle:@"Update"];
                     [alert show];
                 }
@@ -257,8 +257,9 @@ static Infrared *sharedInfraRed = nil;
     JSContext *globalContext;
     if ([languageFilePath length] > 0) {
         // -- create path
-        jsonImagesPathComponent = [IRUtil jsonAndjsPathForAppDescriptorLabel:[IRDataController sharedInstance].appDescriptor.label
-                                                                     version:[IRDataController sharedInstance].appDescriptor.version];
+        jsonImagesPathComponent = [IRUtil jsonAndjsPathForAppDescriptorApp:[IRDataController sharedInstance].appDescriptor.app
+                                                                     label:[IRDataController sharedInstance].appDescriptor.label
+                                                                   version:[IRDataController sharedInstance].appDescriptor.version];
 
         // -- load json and build dictionary from it
         fileData = [IRFileLoadingUtil dataForFileWithPath:languageFilePath
@@ -352,57 +353,58 @@ static Infrared *sharedInfraRed = nil;
     appDescriptor = [[IRAppDescriptor alloc] initDescriptorForLabelAndVariantWithDictionary:dictionary];
     version = appDescriptor.version-1;
     for (; version >= 0; version--) {
-        [self deleteCacheFolderForAppWithLabel:appDescriptor.label
-                                       version:version];
+        [self deleteCacheFolderForAppWithApp:appDescriptor.app label:appDescriptor.label version:version];
     }
 }
 - (void) cleanCacheFolderForApp:(NSDictionary *)dictionary
 {
     IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForLabelAndVariantWithDictionary:dictionary];
-    [self deleteCacheFolderForAppWithLabel:appDescriptor.label
-                                   version:appDescriptor.version];
+    [self deleteCacheFolderForAppWithApp:appDescriptor.app label:appDescriptor.label version:appDescriptor.version];
 }
 // --------------------------------------------------------------------------------------------------------------------
+- (void) updateCurrentInfraredAppWithUpdateJSONPath:(NSString *)updateUIPath
+{
+    [IRDataController sharedInstance].updateJSONPath = updateUIPath;
+    [self updateCurrentInfraredApp];
+}
 - (void) updateCurrentInfraredApp
+{
+    [self cleanAndBuildInfraredAppFromPath:self.appJsonPath];
+}
+// --------------------------------------------------------------------------------------------------------------------
+- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path withUpdateJSONPath:(NSString *)updateUIPath
+{
+    [IRDataController sharedInstance].updateJSONPath = updateUIPath;
+    [self cleanAndBuildInfraredAppFromPath:path];
+}
+- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path
 {
     @try {
         [self showAppUpdateUI];
 
         [self performSelector:@selector(cleanCacheAndRebuildAppWithPath:)
-                   withObject:self.appJsonPath
-                   afterDelay:0.02];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
-    }
-}
-// --------------------------------------------------------------------------------------------------------------------
-- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path
-{
-    @try {
-        [self showAppLoadingUI];
-
-        [self performSelector:@selector(cleanCacheAndRebuildAppWithPath:)
                    withObject:path
-                   afterDelay:0.02];
+                   afterDelay:0.02*1000];
     }
     @catch (NSException *exception) {
         NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
     }
 }
+
 // --------------------------------------------------------------------------------------------------------------------
-- (void) deleteCacheFolderForAppWithLabel:(NSString *)label
-                                  version:(NSInteger)version
+- (void) deleteCacheFolderForAppWithApp:(NSString *)app
+                                  label:(NSString *)label
+                                version:(NSInteger)version
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *basePathComponent = [IRUtil basePathAppDescriptorLabel:label varion:version];
+    NSString *basePathComponent = [IRUtil basePathAppDescriptorApp:app label:label varion:version];
     NSString *finalPath = [documentsDirectory stringByAppendingPathComponent:basePathComponent];
     NSError *error;
     if ([[NSFileManager defaultManager] fileExistsAtPath:finalPath]) {
         [[NSFileManager defaultManager] removeItemAtPath:finalPath error:&error];
         if (error) {
-            NSLog(@"Infrared-deleteCacheFolderForAppWithLabel: %@", [error localizedDescription]);
+            NSLog(@"Infrared-deleteCacheFolderForAppWithLabel Error: %@", [error localizedDescription]);
         }
     }
 }
@@ -469,61 +471,66 @@ static Infrared *sharedInfraRed = nil;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-//    NSLog(@"alertView: clickedButtonAtIndex:");
     if (buttonIndex == 1) { // "Update" selected
         [self updateCurrentInfraredApp];
     }
 }
 
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
 - (void) showAppUpdateUI
 {
-    id<UIApplicationDelegate> appDelegate = [UIApplication sharedApplication].delegate;
+//    [self buildInfraredAppFromPath:[IRDataController sharedInstance].updateJSONPath];
+    [self cleanCacheAndRebuildAppWithPath:[IRDataController sharedInstance].updateJSONPath];
 
-    appDelegate.window.rootViewController = nil;
-    UILabel *label =[[UILabel alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    label.text = @"Update";
-    label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor whiteColor];
-    label.backgroundColor = [UIColor blackColor];
-    [appDelegate.window addSubview:label];
-    [appDelegate.window bringSubviewToFront:label];
-    [appDelegate.window makeKeyAndVisible];
-
-    // -- clear cached data
-    [[IRDataController sharedInstance] cleanData];
-    // -- clear user-defaults
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults removeObjectForKey:appLabelKEY];
-    [defaults removeObjectForKey:appVersionKEY];
-    [defaults synchronize];
+//    id<UIApplicationDelegate> appDelegate = [UIApplication sharedApplication].delegate;
+//
+//    appDelegate.window.rootViewController = nil;
+//    UILabel *label =[[UILabel alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    label.text = @"Update";
+//    label.textAlignment = NSTextAlignmentCenter;
+//    label.textColor = [UIColor whiteColor];
+//    label.backgroundColor = [UIColor blackColor];
+//    [appDelegate.window addSubview:label];
+//    [appDelegate.window bringSubviewToFront:label];
+//    [appDelegate.window makeKeyAndVisible];
+//
+//    // -- clear cached data
+//    [[IRDataController sharedInstance] cleanData];
+//    // -- clear user-defaults
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults removeObjectForKey:appLabelKEY];
+//    [defaults removeObjectForKey:appVersionKEY];
+//    [defaults synchronize];
 }
 
-- (void) showAppLoadingUI
-{
-    id<UIApplicationDelegate> appDelegate = [UIApplication sharedApplication].delegate;
-    @try {
-        appDelegate.window.rootViewController = nil;
-        UILabel *label =[[UILabel alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        label.text = @"Loading";
-        label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = [UIColor whiteColor];
-        label.backgroundColor = [UIColor blackColor];
-        [appDelegate.window addSubview:label];
-        [appDelegate.window bringSubviewToFront:label];
-        [appDelegate.window makeKeyAndVisible];
-
-        // -- clear cached data
-        [[IRDataController sharedInstance] cleanData];
-        // -- clear user-defaults
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults removeObjectForKey:appLabelKEY];
-        [defaults removeObjectForKey:appVersionKEY];
-        [defaults synchronize];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
-    }
-}
+//- (void) showAppLoadingUI
+//{
+//    id<UIApplicationDelegate> appDelegate = [UIApplication sharedApplication].delegate;
+//    @try {
+//        appDelegate.window.rootViewController = nil;
+//        UILabel *label =[[UILabel alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//        label.text = @"Loading";
+//        label.textAlignment = NSTextAlignmentCenter;
+//        label.textColor = [UIColor whiteColor];
+//        label.backgroundColor = [UIColor blackColor];
+//        [appDelegate.window addSubview:label];
+//        [appDelegate.window bringSubviewToFront:label];
+//        [appDelegate.window makeKeyAndVisible];
+//
+//        // -- clear cached data
+//        [[IRDataController sharedInstance] cleanData];
+//        // -- clear user-defaults
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        [defaults removeObjectForKey:appLabelKEY];
+//        [defaults removeObjectForKey:appVersionKEY];
+//        [defaults synchronize];
+//    }
+//    @catch (NSException *exception) {
+//        NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
+//    }
+//}
 
 - (void) cleanCacheAndRebuildAppWithPath:(NSString *)path
 {
@@ -533,8 +540,7 @@ static Infrared *sharedInfraRed = nil;
                            appDescriptor:(IRAppDescriptor *)appDescriptor
 {
     // -- clean cacheFolder
-    [self deleteCacheFolderForAppWithLabel:appDescriptor.label
-                                   version:appDescriptor.version];
+    [self deleteCacheFolderForAppWithApp:appDescriptor.app label:appDescriptor.label version:appDescriptor.version];
     // -- start app building process
     [self buildInfraredAppFromPath:path];
 }

@@ -12,20 +12,28 @@
 @interface IRUtil : NSObject
 
 + (NSDictionary *) appDictionaryFromPath:(NSString *)path;
+
 + (NSDictionary *) screenDictionaryFromPath:(NSString *)path
+                                        app:(NSString *)app
                                       label:(NSString *)label
                                     version:(NSInteger)version;
 
 + (NSDictionary *) dictionaryFromPath:(NSString *)path;
 
 + (NSString *) resourcesPathForAppDescriptor:(IRAppDescriptor *)appDescriptor;
-+ (NSString *) resourcesPathForAppDescriptorLabel:(NSString *)label
-                                          version:(NSInteger)version;
+
++ (NSString *) resourcesPathForAppDescriptorApp:(NSString *)app
+                                          label:(NSString *)label
+                                        version:(NSInteger)version;
 + (NSString *) jsonAndjsPathForAppDescriptor:(IRAppDescriptor *)appDescriptor;
-+ (NSString *) jsonAndjsPathForAppDescriptorLabel:(NSString *)label
-                                          version:(NSInteger)version;
-+ (NSString *) basePathAppDescriptorLabel:(NSString *)label
-                                   varion:(NSInteger)version;
+
++ (NSString *) jsonAndjsPathForAppDescriptorApp:(NSString *)app
+                                          label:(NSString *)label
+                                        version:(NSInteger)version;
+
++ (NSString *) basePathAppDescriptorApp:(NSString *)app
+                                  label:(NSString *)label
+                                 varion:(NSInteger)version;
 + (NSString *) documentsBasePathForInfrared;
 
 + (NSString *) fileNameFromPath:(NSString *)path;

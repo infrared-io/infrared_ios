@@ -12,6 +12,7 @@
 
 @interface IRAppDescriptor : IRBaseDescriptor
 
+@property (nonatomic, strong) NSString *app;
 @property (nonatomic, strong) NSString *label;
 @property (nonatomic) NSInteger version;
 @property (nonatomic, strong) NSArray *screensArray;

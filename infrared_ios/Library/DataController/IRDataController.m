@@ -43,6 +43,8 @@ static IRDataController *sharedDataController = nil;
         self.componentsDictionary = [NSMutableDictionary dictionary];
         self.librariesArray = [NSMutableArray array];
 
+        self.updateJSONPath = @"update.json";
+
         [self cleanData];
     }
     return self;

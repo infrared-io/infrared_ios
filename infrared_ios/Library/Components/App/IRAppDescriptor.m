@@ -19,6 +19,10 @@
         NSArray *array;
         NSDictionary *dictionary;
 
+        // app
+        string = aDictionary[appKEY];
+        self.app = string;
+
         // label
         string = aDictionary[appLabelKEY];
         self.label = string;
@@ -34,6 +38,7 @@
         // screensArray
         array = aDictionary[screensKEY];
         self.screensArray = [IRBaseDescriptor newScreenDescriptorsArrayFromDictionariesArray:array
+                                                                                         app:self.app
                                                                                        label:self.label
                                                                                      version:self.version];
 
@@ -71,6 +76,10 @@
         NSString *string;
         NSNumber *number;
 
+        // app
+        string = aDictionary[appKEY];
+        self.app = string;
+
         // label
         string = aDictionary[NSStringFromSelector(@selector(label))];
         self.label = string;
@@ -89,6 +98,10 @@
         NSString *string;
         NSNumber *number;
         NSArray *array;
+
+        // app
+        string = aDictionary[appKEY];
+        self.app = string;
 
         // label
         string = aDictionary[NSStringFromSelector(@selector(label))];

@@ -33,6 +33,7 @@
 @property (nonatomic, strong) NSMutableArray *idsAndGestureRecognizersPerScreenArray;
 
 @property (nonatomic) BOOL checkForNewAppDescriptorSource;
+@property (nonatomic, strong) NSString *updateJSONPath;
 
 + (IRDataController *)sharedInstance;
 

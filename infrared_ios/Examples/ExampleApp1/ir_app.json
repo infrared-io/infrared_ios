@@ -19,8 +19,9 @@
   "i18n": {
     "default": "en",
     "languages": {
-      "en": "en.json",
-      "sr": "sr.json"
+      "en": "example1_en.json",
+      "fr": "example1_fr.json",
+      "de": "example1_de.json"
     }
   },
   "label": "dev",

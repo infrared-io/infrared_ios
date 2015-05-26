@@ -1,0 +1,21 @@
+{
+  "id": "update",
+  "screens": [
+    {
+      "deviceType": "phone",
+      "path": "update_screen.json"
+    }
+  ],
+  "mainScreenId": "update_screen",
+  "i18n": {
+    "default": "en",
+    "languages": {
+      "en": "update_en.json",
+      "fr": "update_fr.json",
+      "de": "update_de.json"
+    }
+  },
+  "app": "update",
+  "label": "dev",
+  "version": 1
+}

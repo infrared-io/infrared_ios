@@ -39,6 +39,7 @@ typedef enum {
 + (IRBaseDescriptor *) newAppDescriptorWithDictionary:(NSDictionary *)sourceDictionary;
 
 + (NSArray *) newScreenDescriptorsArrayFromDictionariesArray:(NSArray *)aArray
+                                                         app:(NSString *)app
                                                        label:(NSString *)label
                                                      version:(NSInteger)version;
 
