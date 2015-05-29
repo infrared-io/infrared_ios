@@ -7,11 +7,13 @@
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <RESideMenu/RESideMenu.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 #import "IRComponentInfoProtocol.h"
 
 @class IRView;
 @class IRScrollView;
 @class IRViewController;
+@class MBProgressHUD;
 
 @protocol IRViewControllerExport <JSExport>
 
@@ -319,6 +321,13 @@
                       destructive:(NSString *)destructiveTitle
                      otherButtons:(NSArray *)otherTitlesArray
                             data:(id)data;
+
+// -----------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------
+
+- (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title;
+- (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title mode:(MBProgressHUDMode)mode;
+- (void)dismissGlobalHUD;
 
 // -----------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------

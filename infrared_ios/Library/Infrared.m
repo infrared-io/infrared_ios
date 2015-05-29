@@ -138,6 +138,9 @@ static Infrared *sharedInfraRed = nil;
     // ---- copy Fonts
     appDescriptor = [[IRAppDescriptor alloc] initDescriptorForFontsWithDictionary:dictionary];
     resourcesPathComponent = [IRUtil resourcesPathForAppDescriptor:appDescriptor];
+#if DEBUG == 1
+    NSLog(@"resources-path: %@", [documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]);
+#endif
     pathsArray = appDescriptor.fontsArray;
     pathsArray = [self processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
@@ -166,7 +169,7 @@ static Infrared *sharedInfraRed = nil;
     // 3) download and cache JS files
     jsonPathComponent = [IRUtil jsonAndjsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
     // 3.1)  watch.js and infrared.js
-    pathsArray = @[@"infrared.js", @"zeroTimeout.js", @"watch.js"];
+    pathsArray = @[@"infrared.js", @"zeroTimeout.js", @"zeroTimeoutWorker.js", @"watch.js"];
     failedPathsArray = [NSMutableArray array];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
                                          destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
@@ -243,6 +246,9 @@ static Infrared *sharedInfraRed = nil;
 
     // 8) init I18N
     [self initI18NData];
+
+    // 9) dispatch JS Event that IR app is ready
+    [[[IRDataController sharedInstance] globalJSContext] evaluateScript:@"window.dispatchEvent(new Event('ir_load'));"];
 
     // 9) build main view-controller
     IRScreenDescriptor *mainScreenDescriptor = [[IRDataController sharedInstance].appDescriptor mainScreenDescriptor];
@@ -399,15 +405,7 @@ static Infrared *sharedInfraRed = nil;
 }
 - (void) updateCurrentInfraredApp
 {
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    // -- clear user-defaults
-//    [defaults removeObjectForKey:appKEY];
-//    [defaults removeObjectForKey:appLabelKEY];
-//    [defaults removeObjectForKey:appVersionKEY];
-//    [defaults synchronize];
-
     [self cleanAndBuildInfraredAppFromPath:self.appJsonPath];
-//    self.updatedAppJsonPath = nil;
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) cleanAndBuildInfraredAppFromPath:(NSString *)path withUpdateJSONPath:(NSString *)updateUIPath
@@ -518,67 +516,8 @@ static Infrared *sharedInfraRed = nil;
 
 - (void) showAppUpdateUI
 {
-//    [self buildInfraredAppFromPath:[IRDataController sharedInstance].updateJSONPath];
-
-//    // -- clear cached data
-//    [[IRDataController sharedInstance] cleanData];
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    // -- clear user-defaults
-//    [defaults removeObjectForKey:appKEY];
-//    [defaults removeObjectForKey:appLabelKEY];
-//    [defaults removeObjectForKey:appVersionKEY];
-//    [defaults synchronize];
-
     [self cleanCacheAndRebuildAppWithPath:[IRDataController sharedInstance].updateJSONPath];
-
-//    id<UIApplicationDelegate> appDelegate = [UIApplication sharedApplication].delegate;
-//
-//    appDelegate.window.rootViewController = nil;
-//    UILabel *label =[[UILabel alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    label.text = @"Update";
-//    label.textAlignment = NSTextAlignmentCenter;
-//    label.textColor = [UIColor whiteColor];
-//    label.backgroundColor = [UIColor blackColor];
-//    [appDelegate.window addSubview:label];
-//    [appDelegate.window bringSubviewToFront:label];
-//    [appDelegate.window makeKeyAndVisible];
-//
-//    // -- clear cached data
-//    [[IRDataController sharedInstance] cleanData];
-//    // -- clear user-defaults
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    [defaults removeObjectForKey:appLabelKEY];
-//    [defaults removeObjectForKey:appVersionKEY];
-//    [defaults synchronize];
 }
-
-//- (void) showAppLoadingUI
-//{
-//    id<UIApplicationDelegate> appDelegate = [UIApplication sharedApplication].delegate;
-//    @try {
-//        appDelegate.window.rootViewController = nil;
-//        UILabel *label =[[UILabel alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//        label.text = @"Loading";
-//        label.textAlignment = NSTextAlignmentCenter;
-//        label.textColor = [UIColor whiteColor];
-//        label.backgroundColor = [UIColor blackColor];
-//        [appDelegate.window addSubview:label];
-//        [appDelegate.window bringSubviewToFront:label];
-//        [appDelegate.window makeKeyAndVisible];
-//
-//        // -- clear cached data
-//        [[IRDataController sharedInstance] cleanData];
-//        // -- clear user-defaults
-//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//        [defaults removeObjectForKey:appLabelKEY];
-//        [defaults removeObjectForKey:appVersionKEY];
-//        [defaults synchronize];
-//    }
-//    @catch (NSException *exception) {
-//        NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
-//    }
-//}
-
 - (void) cleanCacheAndRebuildAppWithPath:(NSString *)path
 {
     [self cleanCacheAndRebuildAppWithPath:path appDescriptor:[IRDataController sharedInstance].appDescriptor];

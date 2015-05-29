@@ -27,6 +27,7 @@
 #import "IRNavigationController.h"
 #import "IRAlertView.h"
 #import "IRKeyboardManagerSubDescriptor.h"
+#import "MBProgressHUD.h"
 #import <MapKit/MapKit.h>
 
 @interface UIWindow (AutoLayoutDebug)
@@ -313,7 +314,6 @@
     });
 }
 // --------------------------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------
 - (void) presentViewControllerWithScreenId:(NSString *)screenId animated:(BOOL)animated
 {
     [self presentViewControllerWithScreenId:screenId animated:animated withData:nil];
@@ -413,6 +413,27 @@
         [actionSheet setCancelButtonIndex:[actionSheet numberOfButtons] - 1];
     }
     [actionSheet showInView:self.view];
+}
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+- (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title
+{
+    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+    [MBProgressHUD hideAllHUDsForView:window animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    hud.labelText = title;
+    return hud;
+}
+- (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title mode:(MBProgressHUDMode)mode
+{
+    MBProgressHUD *hud = [self showGlobalProgressHUDWithTitle:title];
+    hud.mode = mode;
+    return hud;
+}
+- (void)dismissGlobalHUD
+{
+    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+    [MBProgressHUD hideHUDForView:window animated:YES];
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
@@ -1007,7 +1028,7 @@
 #if ENABLE_SAFARI_DEBUGGING == 1
                                                         "setZeroTimeout( function() { "
 #endif
-                                                            "watch(%@, '%@', infrared.watchJSCallback, 0); "
+                                                            "watch(%@, '%@', IR.watchJSCallback, 0); "
                                                             "callWatchers(%@, '%@');"
 #if ENABLE_SAFARI_DEBUGGING == 1
                                                         " } );"

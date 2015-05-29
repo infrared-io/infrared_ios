@@ -83,7 +83,8 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  s.resources = "infrared_ios/Library/JSExtensions/**/*.js"
+  #s.resources = "infrared_ios/Library/JSExtensions/**/*.js"
+  s.resources = "infrared_ios/Library/**/*.{js,json}"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -107,6 +108,7 @@ Pod::Spec.new do |s|
   s.dependency "Antenna", "2.0.0"
   s.dependency 'RESideMenu', '~> 4.0.7'
   s.dependency 'IQKeyboardManager'
+  s.dependency 'MBProgressHUD', '~> 0.9.1'
 
 
 end

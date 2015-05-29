@@ -286,6 +286,7 @@
 		F613A34DD99E60ADF2DF74B5 /* IRButtonDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRButtonDescriptor.m; sourceTree = "<group>"; };
 		F613A35C990FCD84B5A61050 /* IRTextFieldObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTextFieldObserver.m; sourceTree = "<group>"; };
 		F613A35DFB8D2FEE9226CC09 /* IRPickerViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPickerViewBuilder.h; sourceTree = "<group>"; };
+		F613A35FA850D772BA39BF9D /* zeroTimeoutWorker.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = zeroTimeoutWorker.js; sourceTree = "<group>"; };
 		F613A37C0C243F1EB256D8AE /* IRMapViewObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRMapViewObserver.h; sourceTree = "<group>"; };
 		F613A383E05B2F6E5CE960C1 /* IRPinAnnotationViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPinAnnotationViewBuilder.m; sourceTree = "<group>"; };
 		F613A38AE848206B42810529 /* IRSegmentedControlDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSegmentedControlDescriptor.m; sourceTree = "<group>"; };
@@ -1114,6 +1115,7 @@
 			children = (
 				F613A894C64399B19D6F651B /* infrared.js */,
 				F613A7916AF500482444ABCA /* zeroTimeout.js */,
+				F613A35FA850D772BA39BF9D /* zeroTimeoutWorker.js */,
 			);
 			path = infrared;
 			sourceTree = "<group>";

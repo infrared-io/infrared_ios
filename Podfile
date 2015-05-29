@@ -8,6 +8,7 @@ target "infrared_ios" do
   pod "Antenna", "2.0.0"
   pod 'RESideMenu', '~> 4.0.7'
   pod 'IQKeyboardManager'
+  pod 'MBProgressHUD', '~> 0.9.1'
 
   inhibit_all_warnings!
 
