@@ -107,6 +107,29 @@ static IRInternalLibrary *sharedIRLibrary = nil;
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
+- (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title
+{
+    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+    [MBProgressHUD hideAllHUDsForView:window animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    hud.labelText = title;
+    return hud;
+}
+- (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title mode:(MBProgressHUDMode)mode
+{
+    MBProgressHUD *hud = [self showGlobalProgressHUDWithTitle:title];
+    hud.mode = mode;
+    return hud;
+}
+- (void)dismissGlobalHUD
+{
+    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+    [MBProgressHUD hideHUDForView:window animated:YES];
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
 #pragma mark - Singleton object methods
 
 + (IRInternalLibrary *) sharedInstance

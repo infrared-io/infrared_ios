@@ -4,6 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 #import "IRBaseLibrary.h"
 
 @class IRView;
@@ -21,6 +22,10 @@
 
 - (void) hideComponentWithId:(NSString *)componentId
               viewController:(IRViewController *)viewController;
+
+- (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title;
+- (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title mode:(MBProgressHUDMode)mode;
+- (void)dismissGlobalHUD;
 
 @end
 

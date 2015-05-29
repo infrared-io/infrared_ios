@@ -418,22 +418,15 @@
 // --------------------------------------------------------------------------------------------------------------------
 - (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title
 {
-    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
-    [MBProgressHUD hideAllHUDsForView:window animated:YES];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
-    hud.labelText = title;
-    return hud;
+    return [[IRInternalLibrary sharedInstance] showGlobalProgressHUDWithTitle:title];
 }
 - (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title mode:(MBProgressHUDMode)mode
 {
-    MBProgressHUD *hud = [self showGlobalProgressHUDWithTitle:title];
-    hud.mode = mode;
-    return hud;
+    return [[IRInternalLibrary sharedInstance] showGlobalProgressHUDWithTitle:title mode:mode];
 }
 - (void)dismissGlobalHUD
 {
-    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
-    [MBProgressHUD hideHUDForView:window animated:YES];
+    [[IRInternalLibrary sharedInstance] dismissGlobalHUD];
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
