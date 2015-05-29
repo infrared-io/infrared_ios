@@ -3,19 +3,19 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
-#import "IRInternalLibrary.h"
+#import "IRUtilLibrary.h"
 #import "IRView.h"
 #import "IRViewController.h"
 #import "IRDataController.h"
 #import "IRScreenDescriptor.h"
 
 
-@implementation IRInternalLibrary
+@implementation IRUtilLibrary
 {
 
 }
 
-static IRInternalLibrary *sharedIRLibrary = nil;
+static IRUtilLibrary *sharedIRLibrary = nil;
 
 - (id) init
 {
@@ -35,9 +35,9 @@ static IRInternalLibrary *sharedIRLibrary = nil;
 {
     [super registerLibrary:context];
 
-    [IRBaseLibrary setValue:[IRInternalLibrary sharedInstance]
-                     parent:[IRInternalLibrary parent]
-                       name:[IRInternalLibrary name]
+    [IRBaseLibrary setValue:[IRUtilLibrary sharedInstance]
+                     parent:[IRUtilLibrary parent]
+                       name:[IRUtilLibrary name]
                     context:context];
 }
 
@@ -46,8 +46,8 @@ static IRInternalLibrary *sharedIRLibrary = nil;
     [super unregisterLibrary:context];
 
     [IRBaseLibrary setValue:nil
-                     parent:[IRInternalLibrary parent]
-                       name:[IRInternalLibrary name]
+                     parent:[IRUtilLibrary parent]
+                       name:[IRUtilLibrary name]
                     context:context];
 }
 
@@ -132,12 +132,12 @@ static IRInternalLibrary *sharedIRLibrary = nil;
 
 #pragma mark - Singleton object methods
 
-+ (IRInternalLibrary *) sharedInstance
++ (IRUtilLibrary *) sharedInstance
 {
     static dispatch_once_t pred;
 
     dispatch_once(&pred, ^{
-        sharedIRLibrary = [[IRInternalLibrary alloc] init];
+        sharedIRLibrary = [[IRUtilLibrary alloc] init];
     });
     return sharedIRLibrary;
 }

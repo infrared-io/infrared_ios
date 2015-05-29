@@ -5,7 +5,7 @@
 
 #import "Infrared.h"
 #import "IRGlobal.h"
-#import "IRInternalLibrary.h"
+#import "IRUtilLibrary.h"
 #import "IRView.h"
 #import "IRBaseDescriptor.h"
 #import "IRUtil.h"
@@ -239,7 +239,7 @@ static Infrared *sharedInfraRed = nil;
 - (void) buildInfraredAppFromPath2ndPhase
 {
     // 6) register all libraries
-    [IRInternalLibrary registerLibrary:[[IRDataController sharedInstance] globalJSContext]];
+    [IRUtilLibrary registerLibrary:[[IRDataController sharedInstance] globalJSContext]];
 
     // 7) add component constructors ("create" method) to globalJSContext
     [[IRDataController sharedInstance] addComponentConstructorsToJSContext:[[IRDataController sharedInstance] globalJSContext]];

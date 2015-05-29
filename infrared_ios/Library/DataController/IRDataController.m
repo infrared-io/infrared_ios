@@ -15,7 +15,7 @@
 #import "IRViewDescriptor.h"
 #import "IRUtil.h"
 #import "Infrared.h"
-#import "IRInternalLibrary.h"
+#import "IRUtilLibrary.h"
 
 @interface IRDataController ()
 
@@ -94,7 +94,7 @@ static IRDataController *sharedDataController = nil;
                                     [[componentName substringToIndex:1] capitalizedString],
                                     [componentName substringFromIndex:1]];
         descriptorClass = self.componentsDictionary[componentName];
-        context[[IRInternalLibrary parent]][capitalizedName] = [descriptorClass componentClass];
+        context[[IRUtilLibrary parent]][capitalizedName] = [descriptorClass componentClass];
     }
 }
 

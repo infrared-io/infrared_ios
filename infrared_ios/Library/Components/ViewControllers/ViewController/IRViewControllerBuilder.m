@@ -20,7 +20,7 @@
 #import "IRSideMenu.h"
 #import "IRFileLoadingUtil.h"
 #import "IRViewDescriptor.h"
-#import "IRInternalLibrary.h"
+#import "IRUtilLibrary.h"
 
 
 @implementation IRViewControllerBuilder
@@ -179,7 +179,7 @@
         tempJSContext = [[IRDataController sharedInstance] vcPluginExtensionJSContext];
         [tempJSContext evaluateScript:jsPluginString];
         tempGlobalObject = tempJSContext.globalObject;
-        tempPluginsMapValue = tempGlobalObject[/*@"infrared"*/[IRInternalLibrary parent]][@"pluginsMap"];
+        tempPluginsMapValue = tempGlobalObject[/*@"infrared"*/[IRUtilLibrary parent]][@"pluginsMap"];
         tempPluginsMap = [tempPluginsMapValue toDictionary];
         for (NSString *pluginName in tempPluginsMap) {
             [jsContext evaluateScript:[NSString stringWithFormat:@
@@ -195,7 +195,7 @@
 //#if ENABLE_SAFARI_DEBUGGING == 1
 //                                                        " } );"
 //#endif
-                                                        , [IRInternalLibrary parent], irViewController.key, pluginName]];
+                                                        , [IRUtilLibrary parent], irViewController.key, pluginName]];
         }
     }
 }

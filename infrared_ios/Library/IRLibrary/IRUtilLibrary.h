@@ -29,8 +29,8 @@
 
 @end
 
-@interface IRInternalLibrary : IRBaseLibrary <IRInternalLibraryExport>
+@interface IRUtilLibrary : IRBaseLibrary <IRInternalLibraryExport>
 
-+ (IRInternalLibrary *)sharedInstance;
++ (IRUtilLibrary *)sharedInstance;
 
 @end

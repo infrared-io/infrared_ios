@@ -17,7 +17,7 @@
 #import "IRNavigationControllerSubDescriptor.h"
 #import "IRSimpleCache.h"
 #import "IRKeyboardAutoResizeData.h"
-#import "IRInternalLibrary.h"
+#import "IRUtilLibrary.h"
 #import "IRScreenDescriptor.h"
 #import "IQKeyboardManager.h"
 #import "IRViewBuilder.h"
@@ -418,29 +418,29 @@
 // --------------------------------------------------------------------------------------------------------------------
 - (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title
 {
-    return [[IRInternalLibrary sharedInstance] showGlobalProgressHUDWithTitle:title];
+    return [[IRUtilLibrary sharedInstance] showGlobalProgressHUDWithTitle:title];
 }
 - (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title mode:(MBProgressHUDMode)mode
 {
-    return [[IRInternalLibrary sharedInstance] showGlobalProgressHUDWithTitle:title mode:mode];
+    return [[IRUtilLibrary sharedInstance] showGlobalProgressHUDWithTitle:title mode:mode];
 }
 - (void)dismissGlobalHUD
 {
-    [[IRInternalLibrary sharedInstance] dismissGlobalHUD];
+    [[IRUtilLibrary sharedInstance] dismissGlobalHUD];
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 - (IRView *) viewWithId:(NSString *)viewId
 {
-    return [[IRInternalLibrary sharedInstance] viewWithId:viewId viewController:self];
+    return [[IRUtilLibrary sharedInstance] viewWithId:viewId viewController:self];
 }
 - (void) showComponentWithId:(NSString *)componentId
 {
-    [[IRInternalLibrary sharedInstance] showComponentWithId:componentId viewController:self];
+    [[IRUtilLibrary sharedInstance] showComponentWithId:componentId viewController:self];
 }
 - (void) hideComponentWithId:(NSString *)componentId
 {
-    [[IRInternalLibrary sharedInstance] hideComponentWithId:componentId viewController:self];
+    [[IRUtilLibrary sharedInstance] hideComponentWithId:componentId viewController:self];
 }
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -448,11 +448,11 @@
 
 - (NSArray *) controllersWithId:(NSString *)controllerId
 {
-    return [[IRInternalLibrary sharedInstance] controllersWithId:controllerId];
+    return [[IRUtilLibrary sharedInstance] controllersWithId:controllerId];
 }
 - (NSArray *) controllersWithScreenId:(NSString *)screenId
 {
-    return [[IRInternalLibrary sharedInstance] controllersWithScreenId:screenId];
+    return [[IRUtilLibrary sharedInstance] controllersWithScreenId:screenId];
 }
 
 // --------------------------------------------------------------------------------------------------------------------
