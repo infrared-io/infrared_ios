@@ -45,5 +45,6 @@
 @property (nonatomic) BOOL                            disableSelectRowAction;
 
 @property (nonatomic) CGFloat rowHeight;
+@property (nonatomic) BOOL dynamicAutolayoutRowHeight;
 
 @end

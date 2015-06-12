@@ -193,6 +193,7 @@ withDataBindingItemName:(NSString *)name
             }
             // - clean temp data
             jsContext[[IRUtil createKeyFromObjectAddress:name]] = nil;
+            [jsContext evaluateScript:[NSString stringWithFormat:@"delete %@", [IRUtil createKeyFromObjectAddress:name]]];
         }
     }
 

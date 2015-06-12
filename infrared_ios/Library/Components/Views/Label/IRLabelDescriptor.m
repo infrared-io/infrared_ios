@@ -143,6 +143,14 @@
         // shadowOffset
         dictionary = aDictionary[NSStringFromSelector(@selector(shadowOffset))];
         self.shadowOffset = [IRBaseDescriptor sizeFromDictionary:dictionary];
+
+        // preferredMaxLayoutWidth
+        number = aDictionary[NSStringFromSelector(@selector(preferredMaxLayoutWidth))];
+        if (number) {
+            self.preferredMaxLayoutWidth = [number floatValue];
+        } else {
+            self.preferredMaxLayoutWidth = CGFLOAT_UNDEFINED;
+        }
     }
     return self;
 }

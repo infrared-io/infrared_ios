@@ -16,6 +16,8 @@
 
 + (Infrared *)sharedInstance;
 
+- (void) buildInfraredAppFromPath:(NSString *)path
+    withExtraComponentDescriptors:(NSArray *)descriptorClassedArray;
 - (void) buildInfraredAppFromPath:(NSString *)path;
 
 - (void) buildInfraredAppFromPath2ndPhase;
@@ -33,7 +35,8 @@
 - (void) buildViewControllerAndSetRootViewControllerScreenDescriptor:(IRScreenDescriptor *)screenDescriptor
                                                                 data:(id)data;
 
-- (void) registerComponent:(Class)baseDescriptorClass;
+- (void) registerComponentDescriptor:(Class)descriptorClass;
+- (void) registerExtraComponentDescriptors:(NSArray *)descriptorClassedArray;
 
 - (IRViewController *) mainScreenViewController;
 

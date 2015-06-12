@@ -161,6 +161,14 @@
         } else {
             self.rowHeight = CGFLOAT_UNDEFINED;
         }
+
+        // dynamicAutolayoutRowHeight
+        number = aDictionary[NSStringFromSelector(@selector(dynamicAutolayoutRowHeight))];
+        if (number) {
+            self.dynamicAutolayoutRowHeight = [number boolValue];
+        } else {
+            self.dynamicAutolayoutRowHeight = NO;
+        }
     }
     return self;
 }

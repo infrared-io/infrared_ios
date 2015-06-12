@@ -17,6 +17,11 @@
 #import "IRSimpleCache.h"
 #import "IRUtil.h"
 
+@interface IRTableViewObserver ()
+
+@property (nonatomic, strong) NSMutableDictionary *dynamicAutolayoutRowHeightDictionary;
+
+@end
 
 @implementation IRTableViewObserver
 
@@ -24,7 +29,7 @@
 {
     self = [super init];
     if (self) {
-
+        self.dynamicAutolayoutRowHeightDictionary = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -65,6 +70,12 @@
         }
         IRTableViewDescriptor *tableDescriptor = (IRTableViewDescriptor *) ((IRTableView *)tableView).descriptor;
         [self bindData:cellData toCell:cell withCellItemName:tableDescriptor.cellItemName];
+
+        if (cellDescriptor.dynamicAutolayoutRowHeight) {
+            // Make sure the constraints have been added to this cell, since it may have just been created from scratch
+            [cell setNeedsUpdateConstraints];
+            [cell updateConstraintsIfNeeded];
+        }
     } else {
         NSLog(@"Incomplete data for cell at indexPath={%d, %d}", indexPath.section, indexPath.row);
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"incomplete-data"];
@@ -185,7 +196,40 @@
         height = [number floatValue];
     } else {
         cellDescriptor = [self cellDescriptorForCellData:cellData inTableView:(IRTableView *)tableView];
-        height = cellDescriptor.rowHeight;
+
+        if (cellDescriptor.dynamicAutolayoutRowHeight) {
+            IRTableViewCell *cell/* = [self tableView:tableView cellForRowAtIndexPath:indexPath]*/;
+            if (cellDescriptor) {
+                cell = self.dynamicAutolayoutRowHeightDictionary[cellDescriptor.componentId];
+                if (cell == nil) {
+                    cell = (id) [IRBaseBuilder buildComponentFromDescriptor:cellDescriptor viewController:nil extra:@{
+                      @"data" : cellData != nil ? cellData : @{},
+                      typeTableViewKEY : tableView,
+                      indexPathKEY : indexPath
+                    }];
+                    self.dynamicAutolayoutRowHeightDictionary[cellDescriptor.componentId] = cell;
+                }
+
+                IRTableViewDescriptor *tableDescriptor = (IRTableViewDescriptor *) ((IRTableView *)tableView).descriptor;
+                [self bindData:cellData toCell:cell withCellItemName:tableDescriptor.cellItemName];
+
+                [cell setNeedsUpdateConstraints];
+                [cell updateConstraintsIfNeeded];
+
+                cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
+                [cell setNeedsLayout];
+                [cell layoutIfNeeded];
+                CGSize aRect = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+                height = aRect.height;
+                height += 1;
+
+//                height = 200;
+            } else {
+                height = CGFLOAT_UNDEFINED;
+            }
+        } else {
+            height = cellDescriptor.rowHeight;
+        }
         if (height == CGFLOAT_UNDEFINED) {
             irTableView = (IRTableView *) tableView;
             height = ((IRTableViewDescriptor *) irTableView.descriptor).rowHeight;

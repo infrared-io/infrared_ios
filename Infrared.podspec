@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "Infrared"
   s.version      = "0.9.0.1"
-  s.summary      = "Library for declarative (out of code) UI development on iOS."
+  s.summary      = "Building native iOS apps which can be update without App Store."
 
   s.homepage     = "http://infrared.io"
 
@@ -83,7 +83,6 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  #s.resources = "infrared_ios/Library/JSExtensions/**/*.js"
   s.resources = "infrared_ios/Library/**/*.{js,json}"
 
 
@@ -93,7 +92,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-    s.frameworks = "SystemConfiguration", "MapKit", "CoreGraphics"
+    s.frameworks = "SystemConfiguration", "MapKit", "CoreGraphics", "UIKit"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

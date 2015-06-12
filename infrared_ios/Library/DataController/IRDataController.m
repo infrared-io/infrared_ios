@@ -69,12 +69,12 @@ static IRDataController *sharedDataController = nil;
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
-- (void) registerComponent:(Class)baseDescriptorClass
+- (void) registerComponentDescriptor:(Class)baseDescriptorClass
 {
     NSString *componentName;
     if ([baseDescriptorClass respondsToSelector:@selector(componentName)]) {
         componentName = [baseDescriptorClass componentName];
-//        NSLog(@"registerComponent: componentName=%@", componentName);
+//        NSLog(@"registerComponentDescriptor: componentName=%@", componentName);
         self.componentsDictionary[componentName] = baseDescriptorClass;
     }
 }

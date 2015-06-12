@@ -54,6 +54,8 @@ Examples:
 @property(nonatomic, retain) UIColor *shadowColor;
 @property(nonatomic) CGSize shadowOffset;
 
+@property(nonatomic) CGFloat preferredMaxLayoutWidth;
+
 // --------------------------------------------------------------------------------------------------------------------
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;

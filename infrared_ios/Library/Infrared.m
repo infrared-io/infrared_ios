@@ -64,33 +64,33 @@ static Infrared *sharedInfraRed = nil;
 - (id) init {
     self = [super init];
     if (self) {
-        [[IRDataController sharedInstance] registerComponent:[IRActivityIndicatorViewDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRButtonDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRDatePickerDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRImageViewDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRLabelDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRMapViewDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRAnnotationViewDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRPinAnnotationViewDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRCalloutAnnotationViewDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRNavigationBarDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRNavigationItemDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRPageControlDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRPickerViewDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRProgressViewDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRScrollViewDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRSearchBarDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRSegmentedControlDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRSliderDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRStepperDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRSwitchDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRTableViewDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRTableViewCellDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRTextFieldDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRTextViewDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRToolbarDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRBarButtonItemDescriptor class]];
-        [[IRDataController sharedInstance] registerComponent:[IRViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRActivityIndicatorViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRButtonDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRDatePickerDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRImageViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRLabelDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRMapViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRAnnotationViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRPinAnnotationViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRCalloutAnnotationViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRNavigationBarDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRNavigationItemDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRPageControlDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRPickerViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRProgressViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRScrollViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRSearchBarDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRSegmentedControlDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRSliderDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRStepperDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRSwitchDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRTableViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRTableViewCellDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRTextFieldDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRTextViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRToolbarDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRBarButtonItemDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRViewDescriptor class]];
     }
 
     return self;
@@ -101,6 +101,12 @@ static Infrared *sharedInfraRed = nil;
 
 #pragma mark - Public methods
 
+- (void) buildInfraredAppFromPath:(NSString *)path
+    withExtraComponentDescriptors:(NSArray *)descriptorClassedArray
+{
+    [self registerExtraComponentDescriptors:descriptorClassedArray];
+    [self buildInfraredAppFromPath:path];
+}
 - (void) buildInfraredAppFromPath:(NSString *)path
 {
 //#if ENABLE_SAFARI_DEBUGGING == 1
@@ -484,9 +490,15 @@ static Infrared *sharedInfraRed = nil;
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
-- (void) registerComponent:(Class)baseDescriptorClass
+- (void) registerComponentDescriptor:(Class)descriptorClass
 {
-    [[IRDataController sharedInstance] registerComponent:baseDescriptorClass];
+    [[IRDataController sharedInstance] registerComponentDescriptor:descriptorClass];
+}
+- (void) registerExtraComponentDescriptors:(NSArray *)descriptorClassedArray
+{
+    for (Class anDescriptorClass in descriptorClassedArray) {
+        [[IRDataController sharedInstance] registerComponentDescriptor:anDescriptorClass];
+    }
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (IRViewController *) mainScreenViewController

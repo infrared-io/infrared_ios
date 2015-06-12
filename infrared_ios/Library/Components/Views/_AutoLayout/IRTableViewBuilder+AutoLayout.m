@@ -25,11 +25,16 @@
     [IRTableViewBuilder setLayoutConstraintsForView:irTableViewCell.contentView
                                fromDescriptorsArray:((IRViewDescriptor *) irTableViewCell.descriptor).intrinsicContentSizePriorityArray
                                         inRootViews:irTableViewCell.contentView.subviews];
-    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.backgroundView inRootViews:@[irTableViewCell]];
-    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.selectedBackgroundView inRootViews:@[irTableViewCell]];
-    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.multipleSelectionBackgroundView inRootViews:@[irTableViewCell]];
-    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.accessoryView inRootViews:@[irTableViewCell]];
-    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.editingAccessoryView inRootViews:@[irTableViewCell]];
+    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.backgroundView
+                                            inRootViews:@[irTableViewCell]];
+    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.selectedBackgroundView
+                                            inRootViews:@[irTableViewCell]];
+    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.multipleSelectionBackgroundView
+                                            inRootViews:@[irTableViewCell]];
+    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.accessoryView
+                                            inRootViews:@[irTableViewCell]];
+    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.editingAccessoryView
+                                            inRootViews:@[irTableViewCell]];
 }
 
 + (void) addAutoLayoutConstraintsForViewsArray:(NSArray *)viewsArray
@@ -104,17 +109,17 @@
     NSArray *constraintsArray = nil;
     NSMutableArray *parsedViewIdsArray;
     NSMutableDictionary *viewDictionary;
-    IRView *thView;
+    IRView *irView;
 
     if ([descriptor.visualFormat length] > 0) {
         viewDictionary = [NSMutableDictionary dictionary];
         parsedViewIdsArray = [IRBaseBuilder parseViewIdsFromVisualFormat:descriptor.visualFormat];
 //        for (NSString *anViewId in descriptor.views) {
         for (NSString *anViewId in parsedViewIdsArray) {
-            thView = [IRTableViewBuilder cellSubviewWithId:anViewId inRootViews:rootViewsArray];
-            if (thView) {
-                viewDictionary[anViewId] = thView;
-                thView.translatesAutoresizingMaskIntoConstraints = NO;
+            irView = [IRTableViewBuilder cellSubviewWithId:anViewId inRootViews:rootViewsArray];
+            if (irView) {
+                viewDictionary[anViewId] = irView;
+                irView.translatesAutoresizingMaskIntoConstraints = NO;
             }
         }
         constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:descriptor.visualFormat

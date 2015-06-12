@@ -168,6 +168,7 @@
     JSValue *tempGlobalObject;
     JSValue *tempPluginsMapValue;
     NSDictionary *tempPluginsMap;
+    NSString *stringToEvaluate;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
     NSString *jsonImagesPathComponent = [IRUtil jsonAndjsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
@@ -182,12 +183,12 @@
         tempPluginsMapValue = tempGlobalObject[/*@"infrared"*/[IRUtilLibrary parent]][@"pluginsMap"];
         tempPluginsMap = [tempPluginsMapValue toDictionary];
         for (NSString *pluginName in tempPluginsMap) {
-            [jsContext evaluateScript:[NSString stringWithFormat:@
-              // IMPORTANT: 'setZeroTimeout' can not be added here this way. Operation is done on separate thread
-              //            and successive ObjC methods, which expect extended methods te be available,
-              //            don't have guarantee for availability
-              //            If 'setZeroTimeout' becomes necessary (for debugging) JS call-back methods has to be
-              //            introduced so successive ObjC code can rely on extended methods availability
+            stringToEvaluate = [NSString stringWithFormat:@
+                                                            // IMPORTANT: 'setZeroTimeout' can not be added here this way. Operation is done on separate thread
+                                                            //            and successive ObjC methods, which expect extended methods te be available,
+                                                            //            don't have guarantee for availability
+                                                            //            If 'setZeroTimeout' becomes necessary (for debugging) JS call-back methods has to be
+                                                            //            introduced so successive ObjC code can rely on extended methods availability
 //#if ENABLE_SAFARI_DEBUGGING == 1
 //                                                        "setZeroTimeout( function() { "
 //#endif
@@ -195,7 +196,8 @@
 //#if ENABLE_SAFARI_DEBUGGING == 1
 //                                                        " } );"
 //#endif
-                                                        , [IRUtilLibrary parent], irViewController.key, pluginName]];
+              , [IRUtilLibrary parent], irViewController.key, pluginName];
+            [jsContext evaluateScript:stringToEvaluate];
         }
     }
 }

@@ -7,6 +7,7 @@
 #import "IRBaseBuilder.h"
 #import "IRBaseDescriptor.h"
 #import "IRTableViewCellDescriptor.h"
+#import "IRLabel.h"
 
 
 @implementation IRTableViewCell
@@ -14,13 +15,46 @@
 @synthesize componentInfo;
 @synthesize descriptor;
 
-- (id)init
+- (instancetype) initWithStyle:(UITableViewCellStyle)style
+               reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super init];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
     }
     return self;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+
+    if (((IRTableViewCellDescriptor *)self.descriptor).dynamicAutolayoutRowHeight) {
+        // Make sure the contentView does a layout pass here so that its subviews have their frames set, which we
+        // need to use to set the preferredMaxLayoutWidth below.
+        [self.contentView setNeedsLayout];
+        [self.contentView layoutIfNeeded];
+
+        // Set the preferredMaxLayoutWidth of the mutli-line bodyLabel based on the evaluated width of the label's frame,
+        // as this will allow the text to wrap correctly, and as a result allow the label to take on the correct height.
+        [self setPreferredMaxLayoutWidth:self.contentView];
+    }
+}
+
+- (void) setPreferredMaxLayoutWidth:(IRView *)irView
+{
+    IRLabel *irLabel;
+    for (IRView *anSubview in irView.subviews) {
+        if ([anSubview isKindOfClass:[IRLabel class]]) {
+            irLabel = (IRLabel *)anSubview;
+            if (irLabel.numberOfLines > 1 || irLabel.numberOfLines == 0) {
+                irLabel.preferredMaxLayoutWidth = CGRectGetWidth(irLabel.frame);
+            }
+        } else if ([anSubview conformsToProtocol:@protocol(IRComponentInfoProtocol)]) {
+            [self setPreferredMaxLayoutWidth:anSubview];
+        }
+    }
+
 }
 
 // --------------------------------------------------------------------------------------------------------------------

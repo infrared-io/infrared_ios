@@ -39,7 +39,7 @@
 
 - (void) cleanData;
 
-- (void) registerComponent:(Class)baseDescriptorClass;
+- (void) registerComponentDescriptor:(Class)baseDescriptorClass;
 - (Class)componentDescriptorClassByName:(NSString *)componentName;
 - (void) addComponentConstructorsToJSContext:(JSContext *)context;
 

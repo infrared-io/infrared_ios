@@ -48,6 +48,9 @@
     irLabel.highlightedTextColor = descriptor.highlightedTextColor;
     irLabel.shadowColor = descriptor.shadowColor;
     irLabel.shadowOffset = descriptor.shadowOffset;
+    if (descriptor.preferredMaxLayoutWidth != CGFLOAT_UNDEFINED) {
+        irLabel.preferredMaxLayoutWidth = descriptor.preferredMaxLayoutWidth;
+    }
 }
 
 @end

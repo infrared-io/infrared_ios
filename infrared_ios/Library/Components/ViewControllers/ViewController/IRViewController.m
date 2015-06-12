@@ -314,6 +314,13 @@
     });
 }
 // --------------------------------------------------------------------------------------------------------------------
+- (void) popViewControllerAnimated:(BOOL)animated
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController popViewControllerAnimated:animated];
+    });
+}
+// --------------------------------------------------------------------------------------------------------------------
 - (void) presentViewControllerWithScreenId:(NSString *)screenId animated:(BOOL)animated
 {
     [self presentViewControllerWithScreenId:screenId animated:animated withData:nil];
@@ -490,7 +497,7 @@
     NSString *currentVCId;
     NSString *currentScreenId;
     IRScreenDescriptor *screenDescriptor;
-    IRViewController *contentViewController;
+//    IRViewController *contentViewController;
 
     IRViewController *currentContentViewController = (IRViewController *) self.sideMenuViewController.contentViewController;
     if ([currentContentViewController isKindOfClass:[IRNavigationController class]]) {
@@ -502,15 +509,17 @@
         // -- prepare and set new VC
         screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:screenId];
         if (screenDescriptor) {
-            contentViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor
-                                                                                                data:nil];
-            contentViewController = [IRViewControllerBuilder wrapInNavigationControllerIfNeeded:contentViewController
-                                                                                     descriptor:contentViewController.descriptor];
-            self.sideMenuViewController.delegate = contentViewController;
-            [self.sideMenuViewController setContentViewController:contentViewController
-                                                         animated:animated];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                IRViewController *contentViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor
+                                                                                                    data:nil];
+                contentViewController = [IRViewControllerBuilder wrapInNavigationControllerIfNeeded:contentViewController
+                                                                                         descriptor:contentViewController.descriptor];
+                self.sideMenuViewController.delegate = contentViewController;
+                [self.sideMenuViewController setContentViewController:contentViewController
+                                                             animated:animated];
 
-            currentContentViewController.shouldUnregisterVCStack = YES;
+                currentContentViewController.shouldUnregisterVCStack = YES;
+            });
         }
     }
 
@@ -935,7 +944,7 @@
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
-//    NSLog(@"* - setValue:%@, forUndefinedKey:%@", value, key);
+    NSLog(@"*** %@ - setValue:%@, forUndefinedKey:%@", self.key, value, key);
     JSContext *jsContext = [IRDataController sharedInstance].globalJSContext;
     jsContext[self.key][key] = value;
 }
