@@ -1,0 +1,96 @@
+{
+  "id" : "ir_gesture_recognizers",
+  "controller" : {
+    "id" : "ir_gesture_recognizers_vc",
+    "useExistingClass" : "",
+    "controllerType" : "viewController",
+    "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown",
+    "title" : "i18n.ir_gesture_recognizers_title",
+    "jsPluginPath" : "ir_gesture_recognizers_plugin.js",
+    "navigationController" : {
+      "autoAddIfNeeded" : true,
+      "hideNavigationBar" : false
+    }
+  },
+  "view" : {
+    "id": "root_view",
+    "type": "view",
+    "subviews": [
+      {
+        "id" : "whole_ui",
+        "type" : "view",
+        "backgroundColor" : "#f3f3f3",
+        "subviews" : [
+          {
+            "id": "tapGestureArea",
+            "type": "label",
+            "backgroundColor" : "#e10707",
+            "text": "Tap Gesture Recognizer Area\n(try single and double tap)",
+            "textColor": "#ffffff",
+            "textAlignment": "NSTextAlignmentCenter",
+            "numberOfLines": 2,
+            "gestureRecognizers" : [
+              {
+                "id" : "tapGR",
+                "gestureType" : "tap",
+                "numberOfTapsRequired" : 1,
+                "numberOfTouchesRequired" : 1,
+                "requireGestureRecognizerToFail" : "doubleTapGR",
+                "gestureActions" : "this.tapGestureRecognizer();"
+              },
+              {
+                "id" : "doubleTapGR",
+                "gestureType" : "tap",
+                "numberOfTapsRequired" : 2,
+                "numberOfTouchesRequired" : 1,
+                "gestureActions" : "this.doubleTapGestureRecognizer();"
+              }
+            ]
+          },
+          {
+            "id": "swipeGestureArea",
+            "type": "label",
+            "backgroundColor" : "#e10707",
+            "text": "Swipe Gesture Recognizer Area\n(try left and right swipe)",
+            "textColor": "#ffffff",
+            "textAlignment": "NSTextAlignmentCenter",
+            "numberOfLines": 2,
+            "gestureRecognizers" : [
+              {
+                "id" : "leftSwipeGR",
+                "gestureType" : "swipe",
+                "direction": "UISwipeGestureRecognizerDirectionLeft",
+                "gestureActions" : "this.leftSwipeGestureRecognizer();"
+              },
+              {
+                "id" : "rightSwipeGR",
+                "gestureType" : "swipe",
+                "direction": "UISwipeGestureRecognizerDirectionRight",
+                "gestureActions" : "this.rightSwipeGestureRecognizer();"
+              }
+            ]
+          }
+        ],
+        "constraints" : [
+          {
+            "visualFormat" : "H:|-8-[tapGestureArea]-8-|"
+          },
+          {
+            "visualFormat" : "H:|-8-[swipeGestureArea]-8-|"
+          },
+          {
+            "visualFormat" : "V:|-8-[tapGestureArea(==50)]-8-[swipeGestureArea(==50)]"
+          }
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "visualFormat": "H:|-0-[whole_ui]-0-|"
+      },
+      {
+        "visualFormat": "V:|-0-[whole_ui]-0-|"
+      }
+    ]
+  }
+}

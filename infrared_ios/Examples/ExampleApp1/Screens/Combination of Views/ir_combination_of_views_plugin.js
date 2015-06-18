@@ -1,5 +1,5 @@
 
-IR.plugin("main", {
+IR.plugin("combination_of_views", {
     "firstLabelData" : {
         //"text" : 'IRLabel',
         get text() {

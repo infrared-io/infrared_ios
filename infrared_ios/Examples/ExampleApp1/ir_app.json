@@ -3,7 +3,11 @@
   "screens": [
     {
       "deviceType": "phone",
-      "path": "ir_main_screen.json"
+      "path": "ir_starting_screen.json"
+    },
+    {
+      "deviceType": "phone",
+      "path": "ir_combination_of_views.json"
     },
     {
       "deviceType": "phone",
@@ -12,10 +16,14 @@
     {
       "deviceType": "phone",
       "path": "ir_picker_view.json"
+    },
+    {
+      "deviceType": "phone",
+      "path": "ir_gesture_recognizers.json"
     }
   ],
   "jsLibraries": [ "globalData.js" ],
-  "mainScreenId": "ir_main_screen",
+  "mainScreenId": "ir_starting_screen",
   "i18n": {
     "default": "en",
     "languages": {

@@ -1,0 +1,58 @@
+{
+  "id" : "ir_starting_screen",
+  "controller" : {
+    "id" : "ir_starting_screen_vc",
+    "controllerType" : "viewController",
+    "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
+    "title" : "i18n.ir_starting_screen_vc_title",
+    "jsPluginPath" : "ir_starting_screen_plugin.js",
+    "navigationController" : {
+      "autoAddIfNeeded" : true,
+      "hideNavigationBar" : false
+    }
+  },
+  "view" : {
+    "id" : "root_view",
+    "backgroundColor" : "#00ff00",
+    "subviews" : [
+      {
+        "id" : "internal_table_view",
+        "type" : "tableView",
+        "rowHeight" : 44,
+        "backgroundColor" : "#ffffff",
+        "accessoryButtonAction" : "",
+        "selectRowAction" : "this.tableViewRowSelected(tableView, indexPath, data);",
+        "sectionItemName" : "section",
+        "cellItemName" : "cell",
+        "dataBinding" : [
+          {
+            "property" : "tableData",
+            "data" : "this.tableData"
+          }
+        ],
+        "cells" : [
+          {
+            "id" : "cell_plain",
+            "type" : "tableViewCell",
+            "style" : "UITableViewCellStyleDefault",
+            "accessoryType": "UITableViewCellAccessoryDisclosureIndicator",
+            "dataBinding" : [
+              {
+                "property" : "textLabel.text",
+                "data" : "cell.text"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "constraints" : [
+      {
+        "visualFormat" : "H:|-0-[internal_table_view]-0-|"
+      },
+      {
+        "visualFormat" : "V:|-0-[internal_table_view]-0-|"
+      }
+    ]
+  }
+}

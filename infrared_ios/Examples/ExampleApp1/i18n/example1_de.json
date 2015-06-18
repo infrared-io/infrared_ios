@@ -1,4 +1,6 @@
 {
+  "ir_starting_screen_vc_title" : "Infrared.io",
+  "ir_gesture_recognizers_title" : "Gesture Recognizers",
   "ir_main_vc_title" : "Infrared VC",
   "ir_table_view_vc_title" : "Infrared TableView VC",
   "ir_text_field_placeholder" : "IR TextField",
