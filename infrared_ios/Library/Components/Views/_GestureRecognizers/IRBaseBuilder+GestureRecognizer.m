@@ -16,6 +16,14 @@
 #import "IRViewController.h"
 #import "IRSwipeGestureRecognizer.h"
 #import "IRPinchGestureRecognizer.h"
+#import "IRRotationGestureRecognizerDescriptor.h"
+#import "IRRotationGestureRecognizer.h"
+#import "IRPanGestureRecognizerDescriptor.h"
+#import "IRPanGestureRecognizer.h"
+#import "IRLongPressGestureRecognizer.h"
+#import "IRLongPressGestureRecognizerDescriptor.h"
+#import "IRScreenEdgePanGestureRecognizerDescriptor.h"
+#import "IRScreenEdgePanGestureRecognizer.h"
 
 
 @implementation IRBaseBuilder (GestureRecognizer)
@@ -47,13 +55,21 @@
 
 + (UIGestureRecognizer *) createGestureRecognizerForDescriptor:(IRGestureRecognizerDescriptor *)descriptor
 {
-    UIGestureRecognizer *gestureRecognizer;
+    UIGestureRecognizer *gestureRecognizer = nil;
     if ([descriptor isKindOfClass:[IRTapGestureRecognizerDescriptor class]]) {
         gestureRecognizer = [IRBaseBuilder createTapGestureRecognizerForDescriptor:(IRTapGestureRecognizerDescriptor *) descriptor];
     } else if ([descriptor isKindOfClass:[IRSwipeGestureRecognizerDescriptor class]]) {
         gestureRecognizer = [IRBaseBuilder createSwipeGestureRecognizerForDescriptor:(IRSwipeGestureRecognizerDescriptor *) descriptor];
     } else if ([descriptor isKindOfClass:[IRPinchGestureRecognizerDescriptor class]]) {
         gestureRecognizer = [IRBaseBuilder createPinchGestureRecognizerForDescriptor:(IRPinchGestureRecognizerDescriptor *) descriptor];
+    } else if ([descriptor isKindOfClass:[IRRotationGestureRecognizerDescriptor class]]) {
+        gestureRecognizer = [IRBaseBuilder createRotationGestureRecognizerForDescriptor:(IRRotationGestureRecognizerDescriptor *) descriptor];
+    } else if ([descriptor isKindOfClass:[IRPanGestureRecognizerDescriptor class]]) {
+        gestureRecognizer = [IRBaseBuilder createPanGestureRecognizerForDescriptor:(IRPanGestureRecognizerDescriptor *) descriptor];
+    } else if ([descriptor isKindOfClass:[IRLongPressGestureRecognizerDescriptor class]]) {
+        gestureRecognizer = [IRBaseBuilder createLongPressGestureRecognizerForDescriptor:(IRLongPressGestureRecognizerDescriptor *) descriptor];
+    } else if ([descriptor isKindOfClass:[IRScreenEdgePanGestureRecognizerDescriptor class]]) {
+        gestureRecognizer = [IRBaseBuilder createScreenEdgePanGestureRecognizerForDescriptor:(IRScreenEdgePanGestureRecognizerDescriptor *) descriptor];
     }
     return gestureRecognizer;
 }
@@ -81,6 +97,42 @@
     IRPinchGestureRecognizer *gestureRecognizer = [[IRPinchGestureRecognizer alloc] init];
     gestureRecognizer.descriptor = descriptor;
     gestureRecognizer.scale = descriptor.scale;
+    return gestureRecognizer;
+}
+
++ (IRRotationGestureRecognizer *) createRotationGestureRecognizerForDescriptor:(IRRotationGestureRecognizerDescriptor *)descriptor
+{
+    IRRotationGestureRecognizer *gestureRecognizer = [[IRRotationGestureRecognizer alloc] init];
+    gestureRecognizer.descriptor = descriptor;
+    if (descriptor.rotation != CGFLOAT_UNDEFINED) {
+        gestureRecognizer.rotation = descriptor.rotation;
+    }
+    return gestureRecognizer;
+}
+
++ (IRPanGestureRecognizer *) createPanGestureRecognizerForDescriptor:(IRPanGestureRecognizerDescriptor *)descriptor
+{
+    IRPanGestureRecognizer *gestureRecognizer = [[IRPanGestureRecognizer alloc] init];
+    gestureRecognizer.descriptor = descriptor;
+    gestureRecognizer.minimumNumberOfTouches = descriptor.minimumNumberOfTouches;
+    gestureRecognizer.maximumNumberOfTouches = descriptor.maximumNumberOfTouches;
+    return gestureRecognizer;
+}
+
++ (IRLongPressGestureRecognizer *) createLongPressGestureRecognizerForDescriptor:(IRLongPressGestureRecognizerDescriptor *)descriptor
+{
+    IRLongPressGestureRecognizer *gestureRecognizer = [[IRLongPressGestureRecognizer alloc] init];
+    gestureRecognizer.descriptor = descriptor;
+    gestureRecognizer.minimumPressDuration = descriptor.minimumPressDuration;
+    gestureRecognizer.allowableMovement = descriptor.allowableMovement;
+    return gestureRecognizer;
+}
+
++ (IRScreenEdgePanGestureRecognizer *) createScreenEdgePanGestureRecognizerForDescriptor:(IRScreenEdgePanGestureRecognizerDescriptor *)descriptor
+{
+    IRScreenEdgePanGestureRecognizer *gestureRecognizer = [[IRScreenEdgePanGestureRecognizer alloc] init];
+    gestureRecognizer.descriptor = descriptor;
+    gestureRecognizer.edges = descriptor.edges;
     return gestureRecognizer;
 }
 

@@ -137,6 +137,8 @@ typedef enum {
 
 + (DataBindingMode) dataBindingModeForString:(NSString *)string;
 
++ (UIRectEdge) rectEdgeForString:(NSString *)rectEdgeString;
+
 + (NSArray *) allImagePaths;
 
 + (NSArray *) allJSFilesPaths;

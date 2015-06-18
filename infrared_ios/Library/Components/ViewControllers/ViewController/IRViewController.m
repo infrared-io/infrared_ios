@@ -944,7 +944,7 @@
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
-    NSLog(@"*** %@ - setValue:%@, forUndefinedKey:%@", self.key, value, key);
+//    NSLog(@"*** %@ - setValue:%@, forUndefinedKey:%@", self.key, value, key);
     JSContext *jsContext = [IRDataController sharedInstance].globalJSContext;
     jsContext[self.key][key] = value;
 }
