@@ -13,7 +13,11 @@ typedef enum {
     GestureRecognizerDescriptorTypeNone,
     GestureRecognizerDescriptorTypeTap,
     GestureRecognizerDescriptorTypeSwipe,
-    GestureRecognizerDescriptorTypePinch
+    GestureRecognizerDescriptorTypePinch,
+    GestureRecognizerDescriptorTypePan,
+    GestureRecognizerDescriptorTypeRotation,
+    GestureRecognizerDescriptorTypeLongPress,
+    GestureRecognizerDescriptorTypeScreenEdgePan
 } GestureRecognizerDescriptorType;
 
 @interface IRGestureRecognizerDescriptor : IRBaseDescriptor

@@ -10,6 +10,10 @@
 #import "IRTapGestureRecognizerDescriptor.h"
 #import "IRSwipeGestureRecognizerDescriptor.h"
 #import "IRPinchGestureRecognizerDescriptor.h"
+#import "IRPanGestureRecognizerDescriptor.h"
+#import "IRRotationGestureRecognizerDescriptor.h"
+#import "IRLongPressGestureRecognizerDescriptor.h"
+#import "IRScreenEdgePanGestureRecognizerDescriptor.h"
 
 @implementation IRGestureRecognizerDescriptor
 
@@ -28,6 +32,18 @@
         case GestureRecognizerDescriptorTypePinch:
             descriptor = [[IRPinchGestureRecognizerDescriptor alloc] initDescriptorWithDictionary:sourceDictionary];
             break;
+        case GestureRecognizerDescriptorTypePan:
+            descriptor = [[IRPanGestureRecognizerDescriptor alloc] initDescriptorWithDictionary:sourceDictionary];
+            break;
+        case GestureRecognizerDescriptorTypeRotation:
+            descriptor = [[IRRotationGestureRecognizerDescriptor alloc] initDescriptorWithDictionary:sourceDictionary];
+            break;
+        case GestureRecognizerDescriptorTypeLongPress:
+            descriptor = [[IRLongPressGestureRecognizerDescriptor alloc] initDescriptorWithDictionary:sourceDictionary];
+            break;
+        case GestureRecognizerDescriptorTypeScreenEdgePan:
+            descriptor = [[IRScreenEdgePanGestureRecognizerDescriptor alloc] initDescriptorWithDictionary:sourceDictionary];
+            break;
         case GestureRecognizerDescriptorTypeNone:break;
     }
     return descriptor;
@@ -42,6 +58,14 @@
         descriptorType = GestureRecognizerDescriptorTypeSwipe;
     } else if ([descriptorTypeString isEqualToString:gestureRecognizerTypePinchKEY]) {
         descriptorType = GestureRecognizerDescriptorTypePinch;
+    } else if ([descriptorTypeString isEqualToString:gestureRecognizerTypePanKEY]) {
+        descriptorType = GestureRecognizerDescriptorTypePan;
+    } else if ([descriptorTypeString isEqualToString:gestureRecognizerTypeRotationKEY]) {
+        descriptorType = GestureRecognizerDescriptorTypeRotation;
+    } else if ([descriptorTypeString isEqualToString:gestureRecognizerTypeLongPressKEY]) {
+        descriptorType = GestureRecognizerDescriptorTypeLongPress;
+    } else if ([descriptorTypeString isEqualToString:gestureRecognizerTypeScreenEdgePanKEY]) {
+        descriptorType = GestureRecognizerDescriptorTypeScreenEdgePan;
     } else {
         descriptorType = GestureRecognizerDescriptorTypeNone;
     }

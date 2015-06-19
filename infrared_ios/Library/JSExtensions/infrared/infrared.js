@@ -19,6 +19,17 @@ var UITableViewStyleGrouped = 1;
 // --------------------------------------------------------------------------------------------------------------------
 
 // --------------------------------------------------------------------------------------------------------------------
+// UIGestureRecognizerState
+var UIGestureRecognizerStatePossible = 0;
+var UIGestureRecognizerStateBegan = 1;
+var UIGestureRecognizerStateChanged = 2;
+var UIGestureRecognizerStateEnded = 3;
+var UIGestureRecognizerStateCancelled = 4;
+var UIGestureRecognizerStateFailed = 5;
+var UIGestureRecognizerStateRecognized = UIGestureRecognizerStateEnded;
+// --------------------------------------------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------------------------------------------
 var CGRectZero = {
     "x": 0,
     "y": 0,

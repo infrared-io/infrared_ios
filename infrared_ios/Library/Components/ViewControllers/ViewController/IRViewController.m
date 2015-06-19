@@ -591,7 +591,7 @@
     NSString *stringToEvaluate;
     JSValue *jsValue;
     NSArray *firstParentPathComponents;
-    NSString *VCpropertyName;
+    NSString *vcPropertyName;
 
     range = [keyPath rangeOfString:@"." options:NSBackwardsSearch];
 
@@ -601,14 +601,14 @@
         jsContext = [IRDataController sharedInstance].globalJSContext;
         stringToEvaluate = [NSString stringWithFormat:@"typeof %@.%@ === 'undefined'", self.key, firstParentPath];
         jsValue = [jsContext evaluateScript:stringToEvaluate];
-        if ([jsValue toBool]) {
+        if ([jsValue toBool] == YES) {
 //            NSLog(@"do NOT do anything");
         } else {
             jsValue = jsContext[self.key];
 
             firstParentPathComponents = [firstParentPath componentsSeparatedByString:@"."];
             if ([firstParentPathComponents count] > 0) {
-                VCpropertyName = firstParentPathComponents[0];
+                vcPropertyName = firstParentPathComponents[0];
             }
             for (NSString *pathComponent in firstParentPathComponents) {
                 jsValue = jsValue[pathComponent];
@@ -621,7 +621,7 @@
                 // -- notify ReactiveCocoa that value is changed
                 // (not necessary if VC's property is changed, BUT is mandatory if sub-property is changed)
                 if ([[keyPath componentsSeparatedByString:@"."] count] > 1) {
-                    [self updateComponentsWithDataBindingKey:VCpropertyName];
+                    [self updateComponentsWithDataBindingKey:vcPropertyName];
                 }
             }
         }

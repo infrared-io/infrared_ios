@@ -1,13 +1,13 @@
 
 
 IR.plugin("gesture_recognizers", {
-    "tapGestureRecognizer": function () {
+    "tapGestureRecognizer": function (gestureRecognizer) {
         this.showAlertViewWithTitleMessageActionCancelOtherButtonsData(
             'Tap Gesture Recognizer', "Single Tap",
             null,
             'OK', [], null);
     },
-    "doubleTapGestureRecognizer": function () {
+    "doubleTapGestureRecognizer": function (gestureRecognizer) {
         this.showAlertViewWithTitleMessageActionCancelOtherButtonsData(
             'Tap Gesture Recognizer', "Double Tap",
             null,
@@ -25,8 +25,15 @@ IR.plugin("gesture_recognizers", {
             null,
             'OK', [], null);
     },
-
-    "pinchGestureRecognizer": function () {
-
-    }
+    "pinchGestureRecognizer": function (gestureRecognizer) {
+        //console.log('state='+gestureRecognizer.state);
+        if (UIGestureRecognizerStateBegan == gestureRecognizer.state ||
+            UIGestureRecognizerStateChanged == gestureRecognizer.state)
+        {
+            console.log('scale='+gestureRecognizer.scale);
+            this.pinchGestureScale = ''+gestureRecognizer.scale;
+            this.updateComponentsWithDataBindingKey('pinchGestureScale');
+        }
+    },
+    "pinchGestureScale": "1"
 });

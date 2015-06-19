@@ -15,6 +15,10 @@
 #import "UITextField+RACSignalSupport.h"
 #import "UITextView+RACSignalSupport.h"
 #import "IRViewController.h"
+#import "IRSimpleCache.h"
+#import "IRUtil.h"
+#import "RACScheduler.h"
+#import "RACSignal+Operations.h"
 
 
 @implementation IRBaseBuilder (DataBinding)
@@ -72,7 +76,48 @@
         keyPath = [IRBaseBuilder propertyPartOfDataPath:dataBinding.data];
         modelChannel = [[RACKVOChannel alloc] initWithTarget:target keyPath:keyPath nilValue:nil];
         subscriptingAssignmentTrampoline = [[RACSubscriptingAssignmentTrampoline alloc] initWithTarget:view nilValue:nil];
-        subscriptingAssignmentTrampoline[dataBinding.property] = modelChannel.followingTerminal;
+//        subscriptingAssignmentTrampoline[dataBinding.property] = modelChannel.followingTerminal;
+        subscriptingAssignmentTrampoline[dataBinding.property] = [[modelChannel.followingTerminal
+          map: ^id(id value)
+          {
+              id finalValue = value;
+              if ([IRBaseBuilder isPropertyWithName:dataBinding.property inObject:view
+                                            ofClass:[UIImage class]])
+              {
+                  UIImage *image;
+                  NSString *imagePath = value;
+                  imagePath = [IRUtil prefixFilePathWithBaseUrlIfNeeded:imagePath];
+                  if ([[IRSimpleCache sharedInstance] hasDataForURI:imagePath]) {
+                      image = [[IRSimpleCache sharedInstance] imageForURI:imagePath];
+                      finalValue = image;
+                  } else {
+                      finalValue = nil;
+                      // -- download and set image
+                      [IRBaseBuilder downloadAndSetImageWithPathInBackground:imagePath view:view
+                                                                propertyName:dataBinding.property];
+                  }
+              } else if ([IRBaseBuilder isPropertyWithName:dataBinding.property inObject:view
+                                                   ofClass:[UIColor class]])
+              {
+                  NSString *colorString = value;
+                  UIColor *color = [IRUtil transformHexColorToUIColor:colorString];
+                  finalValue = color;
+              } else if ([IRBaseBuilder isPropertyWithName:dataBinding.property inObject:view
+                                                   ofClass:[UIFont class]])
+              {
+                  NSString *fontString = value;
+                  UIFont *font = [IRBaseDescriptor fontFromString:fontString];
+                  finalValue = font;
+              } else if ([IRBaseBuilder isPropertyWithName:dataBinding.property inObject:view
+                                                   ofClass:[NSString class]])
+              {
+                  if ([value isKindOfClass:[NSNumber class]]) {
+                      finalValue = [value stringValue];
+                  }
+              }
+              return finalValue;
+          }]
+          deliverOn:[RACScheduler mainThreadScheduler]];
     }
 }
 

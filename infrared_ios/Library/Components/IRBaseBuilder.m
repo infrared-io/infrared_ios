@@ -216,15 +216,19 @@ withDataBindingItemName:(NSString *)name
         anProperty = propertyPathComponentsArray[i];
         parentObject = [parentObject performSelector:NSSelectorFromString(anProperty)];
     }
-    const char *type = property_getAttributes(class_getProperty([/*irView*/parentObject class], [/*propertyName*/lastProperty UTF8String]));
-    NSString *typeString = [NSString stringWithUTF8String:type];
-    NSArray *attributes = [typeString componentsSeparatedByString:@","];
-    NSString *typeAttribute = [attributes firstObject];
-    if ([typeAttribute hasPrefix:@"T@"] && [typeAttribute length] > 1) {
-        NSString *typeClassName = [typeAttribute substringWithRange:NSMakeRange(3, [typeAttribute length] - 4)];  //turns @"NSDate" into NSDate
-        Class typeClass = NSClassFromString(typeClassName);
-        if (typeClass != nil && typeClass == propertyClass) {
-            propertyHasRightClass = YES;
+    objc_property_t objc_property = class_getProperty([parentObject class], [lastProperty UTF8String]);
+    const char *type;
+    if (objc_property) {
+        type = property_getAttributes(objc_property);
+        NSString *typeString = [NSString stringWithUTF8String:type];
+        NSArray *attributes = [typeString componentsSeparatedByString:@","];
+        NSString *typeAttribute = [attributes firstObject];
+        if ([typeAttribute hasPrefix:@"T@"] && [typeAttribute length] > 1) {
+            NSString *typeClassName = [typeAttribute substringWithRange:NSMakeRange(3, [typeAttribute length] - 4)];  //turns @"NSDate" into NSDate
+            Class typeClass = NSClassFromString(typeClassName);
+            if (typeClass != nil && typeClass == propertyClass) {
+                propertyHasRightClass = YES;
+            }
         }
     }
     return propertyHasRightClass;

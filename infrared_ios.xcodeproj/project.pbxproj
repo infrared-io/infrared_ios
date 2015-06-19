@@ -245,6 +245,7 @@
 		F613A037F9AA01066A5F0CDF /* IRTextViewDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTextViewDescriptor.m; sourceTree = "<group>"; };
 		F613A050D3D6692A6FFABCB4 /* IRSwitchDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSwitchDescriptor.m; sourceTree = "<group>"; };
 		F613A0548D9AEA58673CDB8E /* IRTextFieldDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTextFieldDescriptor.h; sourceTree = "<group>"; };
+		F613A05B1174F4F36E0F2EF0 /* IRGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRGestureRecognizerExport.h; sourceTree = "<group>"; };
 		F613A05D856C9BE2508FD46F /* MKUserLocationExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKUserLocationExport.h; sourceTree = "<group>"; };
 		F613A0624206E8B5B67545E3 /* IRTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTextView.h; sourceTree = "<group>"; };
 		F613A067340E98BBF7740101 /* IRButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRButton.m; sourceTree = "<group>"; };
@@ -962,6 +963,7 @@
 				F613AD9DFC18FE9C50E5AB79 /* PanGestureRecognizer */,
 				F613A6E661AA158375755C36 /* LongPressGestureRecognizer */,
 				F613A76BC6002D3C0924A496 /* ScreenEdgePanGestureRecognizer */,
+				F613A05B1174F4F36E0F2EF0 /* IRGestureRecognizerExport.h */,
 			);
 			path = _GestureRecognizers;
 			sourceTree = "<group>";

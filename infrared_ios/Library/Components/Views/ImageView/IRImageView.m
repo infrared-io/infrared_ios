@@ -30,40 +30,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
-#pragma mark -
-
-- (void) setImage:(UIImage *)image
-{
-    if ([image isKindOfClass:[NSString class]]) {
-        UIImage *aImage;
-        aImage = [[IRSimpleCache sharedInstance] imageForURI:image];
-        if (UIEdgeInsetsEqualToEdgeInsets(((IRImageViewDescriptor *)self.descriptor).imageCapInsets, UIEdgeInsetsNull) == NO) {
-            aImage = [aImage resizableImageWithCapInsets:((IRImageViewDescriptor *)self.descriptor).imageCapInsets];
-        }
-        [super setImage:aImage];
-    } else {
-        [super setImage:image];
-    }
-}
-
-- (void) setHighlightedImage:(UIImage *)highlightedImage
-{
-    if ([highlightedImage isKindOfClass:[NSString class]]) {
-        UIImage *aImage;
-        aImage = [[IRSimpleCache sharedInstance] imageForURI:highlightedImage];
-        if (UIEdgeInsetsEqualToEdgeInsets(((IRImageViewDescriptor *)self.descriptor).highlightedImageCapInsets, UIEdgeInsetsNull) == NO) {
-            aImage = [aImage resizableImageWithCapInsets:((IRImageViewDescriptor *)self.descriptor).highlightedImageCapInsets];
-        }
-        [super setHighlightedImage:aImage];
-    } else {
-        [super setHighlightedImage:highlightedImage];
-    }
-}
-
-
-// --------------------------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------
-
 #pragma mark - Subview methods
 
 - (void)removeFromSuperview

@@ -122,6 +122,10 @@
 #define gestureRecognizerTypeTapKEY                    @"tap"
 #define gestureRecognizerTypeSwipeKEY                  @"swipe"
 #define gestureRecognizerTypePinchKEY                  @"pinch"
+#define gestureRecognizerTypePanKEY                    @"pan"
+#define gestureRecognizerTypeRotationKEY               @"rotation"
+#define gestureRecognizerTypeLongPressKEY              @"longPress"
+#define gestureRecognizerTypeScreenEdgePanKEY          @"screenEdgePan"
 
 
 typedef enum {

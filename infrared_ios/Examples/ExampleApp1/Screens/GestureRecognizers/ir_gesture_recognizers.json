@@ -36,14 +36,14 @@
                 "numberOfTapsRequired" : 1,
                 "numberOfTouchesRequired" : 1,
                 "requireGestureRecognizerToFail" : "doubleTapGR",
-                "gestureActions" : "this.tapGestureRecognizer();"
+                "gestureActions" : "this.tapGestureRecognizer(gestureRecognizer);"
               },
               {
                 "id" : "doubleTapGR",
                 "gestureType" : "tap",
                 "numberOfTapsRequired" : 2,
                 "numberOfTouchesRequired" : 1,
-                "gestureActions" : "this.doubleTapGestureRecognizer();"
+                "gestureActions" : "this.doubleTapGestureRecognizer(gestureRecognizer);"
               }
             ]
           },
@@ -60,13 +60,61 @@
                 "id" : "leftSwipeGR",
                 "gestureType" : "swipe",
                 "direction": "UISwipeGestureRecognizerDirectionLeft",
-                "gestureActions" : "this.leftSwipeGestureRecognizer();"
+                "gestureActions" : "this.leftSwipeGestureRecognizer(gestureRecognizer);"
               },
               {
                 "id" : "rightSwipeGR",
                 "gestureType" : "swipe",
                 "direction": "UISwipeGestureRecognizerDirectionRight",
-                "gestureActions" : "this.rightSwipeGestureRecognizer();"
+                "gestureActions" : "this.rightSwipeGestureRecognizer(gestureRecognizer);"
+              }
+            ]
+          },
+          {
+            "id": "pinchGestureArea",
+            "type": "view",
+            "backgroundColor" : "#e10707",
+            "gestureRecognizers" : [
+              {
+                "id" : "pinchGR",
+                "gestureType" : "pinch",
+                "gestureActions" : "this.pinchGestureRecognizer(gestureRecognizer);"
+              }
+            ],
+            "subviews": [
+              {
+                "id": "pinchGestureLabel",
+                "type": "label",
+                "text": "Pinch Gesture Recognizer Area\n(try pinch to zoom in/out)",
+                "textColor": "#ffffff",
+                "textAlignment": "NSTextAlignmentCenter",
+                "numberOfLines": 2
+              },
+              {
+                "id": "pinchGestureScaleLabel",
+                "type": "label",
+                "text": "1",
+                "font": "SystemBold, 15",
+                "textAlignment": "NSTextAlignmentCenter",
+                "textColor": "#ffffff",
+                "backgroundColor" : "#808080",
+                "dataBinding": [
+                  {
+                    "property": "text",
+                    "data": "this.pinchGestureScale"
+                  }
+                ]
+              }
+            ],
+            "constraints": [
+              {
+                "visualFormat": "H:|-8-[pinchGestureLabel]-8-|"
+              },
+              {
+                "visualFormat": "H:|-8-[pinchGestureScaleLabel]-8-|"
+              },
+              {
+                "visualFormat": "V:|-0-[pinchGestureLabel(==45)]-0-[pinchGestureScaleLabel]-0-|"
               }
             ]
           }
@@ -79,7 +127,10 @@
             "visualFormat" : "H:|-8-[swipeGestureArea]-8-|"
           },
           {
-            "visualFormat" : "V:|-8-[tapGestureArea(==50)]-8-[swipeGestureArea(==50)]"
+            "visualFormat" : "H:|-8-[pinchGestureArea]-8-|"
+          },
+          {
+            "visualFormat" : "V:|-8-[tapGestureArea(==50)]-8-[swipeGestureArea(==50)]-8-[pinchGestureArea(==200)]"
           }
         ]
       }
