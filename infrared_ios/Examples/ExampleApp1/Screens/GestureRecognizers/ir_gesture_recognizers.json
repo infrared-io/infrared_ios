@@ -71,6 +71,22 @@
             ]
           },
           {
+            "id": "longPressGestureArea",
+            "type": "label",
+            "backgroundColor" : "#e10707",
+            "text": "Long Press Gesture Recognizer Area\n(hold finger for 1/2 of a second)",
+            "textColor": "#ffffff",
+            "textAlignment": "NSTextAlignmentCenter",
+            "numberOfLines": 2,
+            "gestureRecognizers" : [
+              {
+                "id" : "leftSwipeGR",
+                "gestureType" : "longPress",
+                "gestureActions" : "this.longPressGestureRecognizer(gestureRecognizer);"
+              }
+            ]
+          },
+          {
             "id": "pinchGestureArea",
             "type": "view",
             "backgroundColor" : "#e10707",
@@ -117,6 +133,89 @@
                 "visualFormat": "V:|-0-[pinchGestureLabel(==45)]-0-[pinchGestureScaleLabel]-0-|"
               }
             ]
+          },
+          {
+            "id": "rotationGestureArea",
+            "type": "view",
+            "backgroundColor" : "#e10707",
+            "gestureRecognizers" : [
+              {
+                "id" : "rotationGR",
+                "gestureType" : "rotation",
+                "gestureActions" : "this.rotationGestureRecognizer(gestureRecognizer);"
+              }
+            ],
+            "subviews": [
+              {
+                "id": "rotationGestureLabel",
+                "type": "label",
+                "text": "Rotation Gesture Recognizer Area\n(try rotation with 2 fingers)",
+                "textColor": "#ffffff",
+                "textAlignment": "NSTextAlignmentCenter",
+                "numberOfLines": 2
+              },
+              {
+                "id": "rotationGestureScaleLabel",
+                "type": "label",
+                "text": "1",
+                "font": "SystemBold, 15",
+                "textAlignment": "NSTextAlignmentCenter",
+                "textColor": "#ffffff",
+                "backgroundColor" : "#808080",
+                "dataBinding": [
+                  {
+                    "property": "text",
+                    "data": "this.rotationGestureRotationAndVelocity"
+                  }
+                ]
+              }
+            ],
+            "constraints": [
+              {
+                "visualFormat": "H:|-8-[rotationGestureLabel]-8-|"
+              },
+              {
+                "visualFormat": "H:|-8-[rotationGestureScaleLabel]-8-|"
+              },
+              {
+                "visualFormat": "V:|-0-[rotationGestureLabel(==45)]-0-[rotationGestureScaleLabel]-0-|"
+              }
+            ]
+          },
+          {
+            "id": "panGestureArea",
+            "type": "label",
+            "backgroundColor" : "#e10707",
+            "text": "Pan Gesture Recognizer Area\n(try to move the panel)",
+            "textColor": "#ffffff",
+            "textAlignment": "NSTextAlignmentCenter",
+            "numberOfLines": 2,
+            "gestureRecognizers" : [
+              {
+                "id" : "panGR",
+                "gestureType" : "pan",
+                "gestureActions" : "this.panGestureRecognizer(gestureRecognizer);"
+              }
+            ]
+          },
+          {
+            "id": "screenEdgePanGestureLabel",
+            "type": "label",
+            "text": "Screen Edge Pan Gesture Recognizer\n(try sliding from Right edge of screen)\n-->>",
+            "font": "SystemBold, 18",
+            "adjustsFontSizeToFitWidth": true,
+            "lineBreakMode": "NSLineBreakByTruncatingTail",
+            "minimumScaleFactor": 0.5,
+            "textColor": "#e10707",
+            "textAlignment": "NSTextAlignmentCenter",
+            "numberOfLines": 0,
+            "gestureRecognizers" : [
+              {
+                "id" : "panGR",
+                "gestureType" : "pan",
+                "gestureActions" : "this.panGestureRecognizer(gestureRecognizer);"
+              }
+            ]
           }
         ],
         "constraints" : [
@@ -127,10 +226,22 @@
             "visualFormat" : "H:|-8-[swipeGestureArea]-8-|"
           },
           {
+            "visualFormat" : "H:|-8-[longPressGestureArea]-8-|"
+          },
+          {
             "visualFormat" : "H:|-8-[pinchGestureArea]-8-|"
           },
           {
-            "visualFormat" : "V:|-8-[tapGestureArea(==50)]-8-[swipeGestureArea(==50)]-8-[pinchGestureArea(==200)]"
+            "visualFormat" : "H:|-8-[rotationGestureArea]-8-|"
+          },
+          {
+            "visualFormat" : "H:|-8-[panGestureArea]-8-|"
+          },
+          {
+            "visualFormat" : "H:|-8-[screenEdgePanGestureLabel]-8-|"
+          },
+          {
+            "visualFormat" : "V:|-8-[tapGestureArea(==50)]-8-[swipeGestureArea(==50)]-8-[longPressGestureArea(==50)]-8-[rotationGestureArea(==60)]-8-[pinchGestureArea(==60)]-8-[panGestureArea(==50)]-8-[screenEdgePanGestureLabel]-8-|"
           }
         ]
       }
@@ -141,6 +252,14 @@
       },
       {
         "visualFormat": "V:|-0-[whole_ui]-0-|"
+      }
+    ],
+    "gestureRecognizers" : [
+      {
+        "id" : "screenEdgePanGR",
+        "gestureType" : "screenEdgePan",
+        "edges" : "UIRectEdgeRight",
+        "gestureActions" : "this.screenEdgePanGestureRecognizer(gestureRecognizer);"
       }
     ]
   }

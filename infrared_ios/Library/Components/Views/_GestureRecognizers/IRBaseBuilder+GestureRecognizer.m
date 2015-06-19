@@ -56,7 +56,9 @@
 + (UIGestureRecognizer *) createGestureRecognizerForDescriptor:(IRGestureRecognizerDescriptor *)descriptor
 {
     UIGestureRecognizer *gestureRecognizer = nil;
-    if ([descriptor isKindOfClass:[IRTapGestureRecognizerDescriptor class]]) {
+    if ([descriptor isKindOfClass:[IRTapGestureRecognizerDescriptor class]]
+        && [descriptor isKindOfClass:[IRLongPressGestureRecognizerDescriptor class]] == NO)
+    {
         gestureRecognizer = [IRBaseBuilder createTapGestureRecognizerForDescriptor:(IRTapGestureRecognizerDescriptor *) descriptor];
     } else if ([descriptor isKindOfClass:[IRSwipeGestureRecognizerDescriptor class]]) {
         gestureRecognizer = [IRBaseBuilder createSwipeGestureRecognizerForDescriptor:(IRSwipeGestureRecognizerDescriptor *) descriptor];

@@ -1075,28 +1075,41 @@
     return dataBindingMode;
 }
 // --------------------------------------------------------------------------------------------------------------------
-+ (UIRectEdge) rectEdgeForString:(NSString *)rectEdgeString
++ (UIRectEdge) rectEdgeForString:(NSString *)string
 {
-    UIRectEdge rectEdge = UIRectEdgeNone;
-    NSArray *rectEdgeArray;
-    NSString *anRectEdge;
-    if ([rectEdgeString length] > 0) {
-        rectEdgeArray = [IRBaseDescriptor componentsArrayFromString:rectEdgeString];
-        for (NSString *anTrait in rectEdgeArray) {
-            anRectEdge = [anTrait stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            if ([@"UIRectEdgeTop" isEqualToString:anRectEdge]) {
-                rectEdge = rectEdge | UIRectEdgeTop;
-            } else if ([@"UIRectEdgeLeft" isEqualToString:anRectEdge]) {
-                rectEdge = rectEdge | UIRectEdgeLeft;
-            } else if ([@"UIRectEdgeBottom" isEqualToString:anRectEdge]) {
-                rectEdge = rectEdge | UIRectEdgeBottom;
-            } else if ([@"UIRectEdgeRight" isEqualToString:anRectEdge]) {
-                rectEdge = rectEdge | UIRectEdgeRight;
-            } else if ([@"UIRectEdgeAll" isEqualToString:anRectEdge]) {
-                rectEdge = rectEdge | UIRectEdgeAll;
-            }
-        }
+    UIRectEdge rectEdge;
+    if ([@"UIRectEdgeTop" isEqualToString:string]) {
+        rectEdge = UIRectEdgeTop;
+    } else if ([@"UIRectEdgeLeft" isEqualToString:string]) {
+        rectEdge = UIRectEdgeLeft;
+    } else if ([@"UIRectEdgeBottom" isEqualToString:string]) {
+        rectEdge = UIRectEdgeBottom;
+    } else if ([@"UIRectEdgeRight" isEqualToString:string]) {
+        rectEdge = UIRectEdgeRight;
+    } else if ([@"UIRectEdgeAll" isEqualToString:string]) {
+        rectEdge = UIRectEdgeAll;
+    } else {
+        rectEdge = UIRectEdgeNone;
     }
+//    NSArray *rectEdgeArray;
+//    NSString *anRectEdge;
+//    if ([string length] > 0) {
+//        rectEdgeArray = [IRBaseDescriptor componentsArrayFromString:string];
+//        for (NSString *anTrait in rectEdgeArray) {
+//            anRectEdge = [anTrait stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+//            if ([@"UIRectEdgeTop" isEqualToString:anRectEdge]) {
+//                rectEdge = rectEdge | UIRectEdgeTop;
+//            } else if ([@"UIRectEdgeLeft" isEqualToString:anRectEdge]) {
+//                rectEdge = rectEdge | UIRectEdgeLeft;
+//            } else if ([@"UIRectEdgeBottom" isEqualToString:anRectEdge]) {
+//                rectEdge = rectEdge | UIRectEdgeBottom;
+//            } else if ([@"UIRectEdgeRight" isEqualToString:anRectEdge]) {
+//                rectEdge = rectEdge | UIRectEdgeRight;
+//            } else if ([@"UIRectEdgeAll" isEqualToString:anRectEdge]) {
+//                rectEdge = rectEdge | UIRectEdgeAll;
+//            }
+//        }
+//    }
     return rectEdge;
 }
 // --------------------------------------------------------------------------------------------------------------------
