@@ -41,6 +41,7 @@
     self = [super initDescriptorWithDictionary:aDictionary];
     if (self) {
         NSNumber *number;
+        NSString *string;
         NSDictionary *dictionary;
         NSArray *array;
 
@@ -65,6 +66,38 @@
         } else {
             self.allowsMultipleSelection = NO;
         }
+
+        // selectItemAction
+        string = aDictionary[NSStringFromSelector(@selector(selectItemAction))];
+        self.selectItemAction = string;
+
+        // cellsArray
+        array = aDictionary[cellsKEY];
+        self.cellsArray = [IRBaseDescriptor viewDescriptorsHierarchyFromArray:array];
+
+        // sectionItemName
+        string = aDictionary[NSStringFromSelector(@selector(sectionItemName))];
+        if (string) {
+            self.sectionItemName = string;
+        } else {
+            self.sectionItemName = sectionKEY;
+        }
+
+        // cellItemName
+        string = aDictionary[NSStringFromSelector(@selector(cellItemName))];
+        if (string) {
+            self.cellItemName = string;
+        } else {
+            self.cellItemName = cellKEY;
+        }
+
+        // cellSize
+        dictionary = aDictionary[NSStringFromSelector(@selector(cellSize))];
+        self.cellSize = [IRBaseDescriptor sizeFromDictionary:dictionary];
+
+        // sectionEdgeInsets
+        dictionary = aDictionary[NSStringFromSelector(@selector(sectionEdgeInsets))];
+        self.sectionEdgeInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
 
         // collectionData
         array = aDictionary[NSStringFromSelector(@selector(collectionData))];

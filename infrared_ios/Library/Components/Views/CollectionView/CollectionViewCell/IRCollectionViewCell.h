@@ -4,10 +4,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IRViewDescriptor.h"
+#import "IRView.h"
 
 
-@interface IRCollectionViewCellDescriptor : IRViewDescriptor
+@protocol IRCollectionViewCellExport <JSExport>
+
+@property (nonatomic, readonly) UIView *contentView; // add custom subviews to the cell's contentView
 
 // Cells become highlighted when the user touches them.
 // The selected state is toggled when the user lifts up from a highlighted cell.
@@ -18,14 +20,17 @@
 
 // The background view is a subview behind all other views.
 // If selectedBackgroundView is different than backgroundView, it will be placed above the background view and animated in on selection.
-@property (nonatomic, retain) IRViewDescriptor *backgroundView;
-@property (nonatomic, retain) IRViewDescriptor *selectedBackgroundView;
+@property (nonatomic, retain) UIView *backgroundView;
+@property (nonatomic, retain) UIView *selectedBackgroundView;
+
+@end
 
 // --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 
-@property (nonatomic, strong) NSString *selectItemAction;
+@interface IRCollectionViewCell : UICollectionViewCell <IRComponentInfoProtocol, IRCollectionViewCellExport, IRViewExport>
 
-@property (nonatomic) CGSize cellSize;
-@property (nonatomic) UIEdgeInsets insets;
+@property (nonatomic) BOOL setUpDone;
 
 @end

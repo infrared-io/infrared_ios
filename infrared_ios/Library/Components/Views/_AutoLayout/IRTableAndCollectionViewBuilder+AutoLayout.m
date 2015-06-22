@@ -3,38 +3,60 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
-#import "IRTableViewBuilder+AutoLayout.h"
+#import "IRTableAndCollectionViewBuilder+AutoLayout.h"
+#import "IRComponentInfoProtocol.h"
+#import "IRView.h"
 #import "IRTableViewCell.h"
+#import "IRViewDescriptor.h"
 #import "IRTableViewCellDescriptor.h"
 #import "IRLayoutConstraintICSPriorityDescriptor.h"
 #import "IRLayoutConstraintWithVFDescriptor.h"
 #import "IRLayoutConstraintWithItemDescriptor.h"
+#import "IRCollectionViewCell.h"
 #import "IRLayoutConstraintMetricsDescriptor.h"
 #import "IRBaseBuilder+AutoLayout.h"
+#import "IRCollectionViewCell.h"
+#import "IRTableAndCollectionViewBuilder.h"
 
 
-@implementation IRTableViewBuilder (AutoLayout)
+@implementation IRTableAndCollectionViewBuilder (AutoLayout)
 
-+ (void) addAutoLayoutConstraintsForCell:(IRTableViewCell *)irTableViewCell
++ (void) addAutoLayoutConstraintsForTableViewCell:(IRTableViewCell *)irTableViewCell
 {
     // -- layoutConstraintsArray
-    [IRTableViewBuilder setLayoutConstraintsForView:irTableViewCell.contentView
-                               fromDescriptorsArray:((IRViewDescriptor *) irTableViewCell.descriptor).layoutConstraintsArray
-                                        inRootViews:irTableViewCell.contentView.subviews];
+    [IRTableAndCollectionViewBuilder setLayoutConstraintsForView:irTableViewCell.contentView
+                                            fromDescriptorsArray:((IRViewDescriptor *) irTableViewCell.descriptor).layoutConstraintsArray
+                                                     inRootViews:irTableViewCell.contentView.subviews];
     // -- intrinsicContentSizePriorityArray
-    [IRTableViewBuilder setLayoutConstraintsForView:irTableViewCell.contentView
-                               fromDescriptorsArray:((IRViewDescriptor *) irTableViewCell.descriptor).intrinsicContentSizePriorityArray
-                                        inRootViews:irTableViewCell.contentView.subviews];
-    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.backgroundView
-                                            inRootViews:@[irTableViewCell]];
-    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.selectedBackgroundView
-                                            inRootViews:@[irTableViewCell]];
-    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.multipleSelectionBackgroundView
-                                            inRootViews:@[irTableViewCell]];
-    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.accessoryView
-                                            inRootViews:@[irTableViewCell]];
-    [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.editingAccessoryView
-                                            inRootViews:@[irTableViewCell]];
+    [IRTableAndCollectionViewBuilder setLayoutConstraintsForView:irTableViewCell.contentView
+                                            fromDescriptorsArray:((IRViewDescriptor *) irTableViewCell.descriptor).intrinsicContentSizePriorityArray
+                                                     inRootViews:irTableViewCell.contentView.subviews];
+    [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.backgroundView
+                                                         inRootViews:@[irTableViewCell]];
+    [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.selectedBackgroundView
+                                                         inRootViews:@[irTableViewCell]];
+    [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.multipleSelectionBackgroundView
+                                                         inRootViews:@[irTableViewCell]];
+    [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.accessoryView
+                                                         inRootViews:@[irTableViewCell]];
+    [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.editingAccessoryView
+                                                         inRootViews:@[irTableViewCell]];
+}
+
++ (void) addAutoLayoutConstraintsForCollectionViewCell:(IRCollectionViewCell *)irCollectionViewCell
+{
+    // -- layoutConstraintsArray
+    [IRTableAndCollectionViewBuilder setLayoutConstraintsForView:irCollectionViewCell.contentView
+                                            fromDescriptorsArray:((IRViewDescriptor *) irCollectionViewCell.descriptor).layoutConstraintsArray
+                                                     inRootViews:irCollectionViewCell.contentView.subviews];
+    // -- intrinsicContentSizePriorityArray
+    [IRTableAndCollectionViewBuilder setLayoutConstraintsForView:irCollectionViewCell.contentView
+                                            fromDescriptorsArray:((IRViewDescriptor *) irCollectionViewCell.descriptor).intrinsicContentSizePriorityArray
+                                                     inRootViews:irCollectionViewCell.contentView.subviews];
+    [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForView:(IRView *) irCollectionViewCell.backgroundView
+                                                         inRootViews:@[irCollectionViewCell]];
+    [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForView:(IRView *) irCollectionViewCell.selectedBackgroundView
+                                                         inRootViews:@[irCollectionViewCell]];
 }
 
 + (void) addAutoLayoutConstraintsForViewsArray:(NSArray *)viewsArray
@@ -42,7 +64,7 @@
 {
     for (IRView *anIRView in viewsArray) {
         if ([anIRView conformsToProtocol:@protocol(IRComponentInfoProtocol)]) {
-            [IRTableViewBuilder addAutoLayoutConstraintsForView:anIRView inRootViews:rootViewsArray];
+            [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForView:anIRView inRootViews:rootViewsArray];
         }
     }
 }
@@ -51,12 +73,12 @@
                              inRootViews:(NSArray *)rootViewsArray
 {
     if ([irView conformsToProtocol:@protocol(IRComponentInfoProtocol)]) {
-        [IRTableViewBuilder setLayoutConstraintsForView:irView
-                                   fromDescriptorsArray:((IRViewDescriptor *) irView.descriptor).layoutConstraintsArray
-                                            inRootViews:rootViewsArray];
-        [IRTableViewBuilder setLayoutConstraintsForView:irView
-                                   fromDescriptorsArray:((IRViewDescriptor *) irView.descriptor).intrinsicContentSizePriorityArray
-                                            inRootViews:rootViewsArray];
+        [IRTableAndCollectionViewBuilder setLayoutConstraintsForView:irView
+                                                fromDescriptorsArray:((IRViewDescriptor *) irView.descriptor).layoutConstraintsArray
+                                                         inRootViews:rootViewsArray];
+        [IRTableAndCollectionViewBuilder setLayoutConstraintsForView:irView
+                                                fromDescriptorsArray:((IRViewDescriptor *) irView.descriptor).intrinsicContentSizePriorityArray
+                                                         inRootViews:rootViewsArray];
     }
 }
 
@@ -80,11 +102,11 @@
                 uiView.translatesAutoresizingMaskIntoConstraints = NO;
             }
         } else if ([descriptor isKindOfClass:[IRLayoutConstraintWithVFDescriptor class]]) {
-            constraintsArray = [IRTableViewBuilder buildLayoutConstraintsWithVisualFormat:(IRLayoutConstraintWithVFDescriptor *) descriptor
-                                                                              inRootViews:rootViewsArray];
+            constraintsArray = [IRTableAndCollectionViewBuilder buildLayoutConstraintsWithVisualFormat:(IRLayoutConstraintWithVFDescriptor *) descriptor
+                                                                                           inRootViews:rootViewsArray];
         } else if ([descriptor isKindOfClass:[IRLayoutConstraintWithItemDescriptor class]]) {
-            constraint = [IRTableViewBuilder buildLayoutConstraintsWithItem:(IRLayoutConstraintWithItemDescriptor *) descriptor
-                                                                inRootViews:rootViewsArray];
+            constraint = [IRTableAndCollectionViewBuilder buildLayoutConstraintsWithItem:(IRLayoutConstraintWithItemDescriptor *) descriptor
+                                                                             inRootViews:rootViewsArray];
             if (constraint) {
                 constraintsArray = @[constraint];
             }
@@ -99,7 +121,7 @@
     }
 
     if ([uiView.subviews count] > 0) {
-        [IRTableViewBuilder addAutoLayoutConstraintsForViewsArray:uiView.subviews inRootViews:nil];
+        [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForViewsArray:uiView.subviews inRootViews:nil];
     }
 }
 
@@ -116,7 +138,7 @@
         parsedViewIdsArray = [IRBaseBuilder parseViewIdsFromVisualFormat:descriptor.visualFormat];
 //        for (NSString *anViewId in descriptor.views) {
         for (NSString *anViewId in parsedViewIdsArray) {
-            irView = [IRTableViewBuilder cellSubviewWithId:anViewId inRootViews:rootViewsArray];
+            irView = [IRTableAndCollectionViewBuilder cellSubviewWithId:anViewId inRootViews:rootViewsArray];
             if (irView) {
                 viewDictionary[anViewId] = irView;
                 irView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -139,8 +161,8 @@
                                             inRootViews:(NSArray *)rootViewsArray
 {
     NSLayoutConstraint *constraint = nil;
-    IRView *withItem = [IRTableViewBuilder cellSubviewWithId:descriptor.withItem inRootViews:rootViewsArray];
-    IRView *toItem = [IRTableViewBuilder cellSubviewWithId:descriptor.toItem inRootViews:rootViewsArray];
+    IRView *withItem = [IRTableAndCollectionViewBuilder cellSubviewWithId:descriptor.withItem inRootViews:rootViewsArray];
+    IRView *toItem = [IRTableAndCollectionViewBuilder cellSubviewWithId:descriptor.toItem inRootViews:rootViewsArray];
     if (withItem /*&& toItem*/) {
         withItem.translatesAutoresizingMaskIntoConstraints = NO;
         toItem.translatesAutoresizingMaskIntoConstraints = NO;
@@ -169,7 +191,7 @@
                 irView = anIRView;
                 break;
             } else {
-                returnedView = [IRTableViewBuilder cellSubviewWithId:viewId inRootViews:anIRView.subviews];
+                returnedView = [IRTableAndCollectionViewBuilder cellSubviewWithId:viewId inRootViews:anIRView.subviews];
                 if (returnedView) {
                     irView = returnedView;
                     break;

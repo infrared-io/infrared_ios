@@ -13,6 +13,7 @@
 #import "IRTableViewCell.h"
 #import "IRScreenDescriptor.h"
 #import "IRViewController.h"
+#import "IRCollectionViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -38,7 +39,7 @@
     IRView *irParentView;
     IRView *irSubview;
 
-    if (viewController/*screenDescriptor*/) {
+    if (viewController) {
         [IRBaseBuilder setUpComponent:irView componentDescriptor:descriptor viewController:viewController extra:extra];
     } else {
         [IRBaseBuilder setUpComponentWithoutRegistration:irView fromDescriptor:descriptor];
@@ -85,6 +86,8 @@
     if (descriptor.subviewsArray) {
         if ([irView isKindOfClass:[IRTableViewCell class]]) {
             irParentView = ((IRTableViewCell *) irView).contentView;
+        } else if ([irView isKindOfClass:[IRCollectionViewCell class]]) {
+            irParentView = ((IRCollectionViewCell *) irView).contentView;
         } else {
             irParentView = irView;
         }

@@ -9,6 +9,8 @@
 #import "IRViewDescriptor.h"
 #import "IRCollectionViewDescriptor.h"
 #import "IRScrollViewBuilder.h"
+#import "IRCollectionViewCellDescriptor.h"
+#import "IRCollectionViewCell.h"
 
 
 @implementation IRCollectionViewBuilder
@@ -18,10 +20,14 @@
                                     extra:(id)extra
 {
     IRCollectionView *irCollectionView;
+    NSArray *cellsArray;
 
     irCollectionView = [[IRCollectionView alloc] initWithFrame:CGRectZero
                                           collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
-    [irCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+    cellsArray = ((IRCollectionViewDescriptor *)descriptor).cellsArray;
+    for (IRCollectionViewCellDescriptor *cellDescriptor in cellsArray) {
+        [irCollectionView registerClass:[IRCollectionViewCell class] forCellWithReuseIdentifier:cellDescriptor.componentId];
+    }
     [IRCollectionViewBuilder setUpComponent:irCollectionView componentDescriptor:descriptor
                              viewController:viewController
                                       extra:extra];

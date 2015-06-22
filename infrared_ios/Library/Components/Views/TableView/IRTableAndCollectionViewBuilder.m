@@ -3,7 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
-#import "IRTableViewBuilder.h"
+#import "IRTableAndCollectionViewBuilder.h"
 #import "IRTableViewDescriptor.h"
 #import "IRTableView.h"
 #import "IRViewBuilder.h"
@@ -15,7 +15,7 @@
 #import "IRViewDescriptor.h"
 
 
-@implementation IRTableViewBuilder
+@implementation IRTableAndCollectionViewBuilder
 
 + (IRView *) buildComponentFromDescriptor:(IRBaseDescriptor *)descriptor
                            viewController:(IRViewController *)viewController
@@ -24,8 +24,9 @@
     IRTableView *irTableView;
 
     irTableView = [[IRTableView alloc] initWithFrame:CGRectZero style:((IRTableViewDescriptor *)descriptor).style];
-    [IRTableViewBuilder setUpComponent:irTableView componentDescriptor:descriptor viewController:viewController
-                                 extra:extra];
+    [IRTableAndCollectionViewBuilder setUpComponent:irTableView componentDescriptor:descriptor
+                                     viewController:viewController
+                                              extra:extra];
 
     return irTableView;
 }

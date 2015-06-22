@@ -98,6 +98,8 @@
 #define sectionHeaderHeightKEY          @"sectionHeaderHeight"
 #define sectionFooterKEY                @"sectionFooter"
 #define sectionFooterHeightKEY          @"sectionFooterHeight"
+#define cellSizeKEY                     @"cellSize"
+#define sectionEdgeInsetsKEY            @"sectionEdgeInsets"
 #define indexPathKEY                    @"indexPath"
 #define titleKEY                        @"title"
 #define subtitleKEY                     @"subtitle"

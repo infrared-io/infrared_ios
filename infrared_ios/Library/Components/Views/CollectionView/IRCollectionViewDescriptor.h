@@ -20,6 +20,16 @@
 
 // --------------------------------------------------------------------------------------------------------------------
 
+@property (nonatomic, strong) NSString *selectItemAction;
+
+@property(nonatomic,retain) NSMutableArray *cellsArray;
+
+@property (nonatomic, strong) NSString *sectionItemName;
+@property (nonatomic, strong) NSString *cellItemName;
+
+@property (nonatomic) CGSize cellSize;
+@property (nonatomic) UIEdgeInsets sectionEdgeInsets;
+
 @property (nonatomic, strong) NSArray *collectionData;
 
 // --------------------------------------------------------------------------------------------------------------------

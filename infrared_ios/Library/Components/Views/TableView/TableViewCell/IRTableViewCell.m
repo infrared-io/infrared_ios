@@ -3,9 +3,12 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import "IRComponentInfoProtocol.h"
+#import "IRView.h"
 #import "IRTableViewCell.h"
 #import "IRBaseBuilder.h"
 #import "IRBaseDescriptor.h"
+#import "IRViewDescriptor.h"
 #import "IRTableViewCellDescriptor.h"
 #import "IRLabel.h"
 

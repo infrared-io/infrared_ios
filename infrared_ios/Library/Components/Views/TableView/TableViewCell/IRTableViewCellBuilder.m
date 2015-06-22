@@ -4,13 +4,15 @@
 //
 
 #import "IRTableViewCellBuilder.h"
-#import "IRTableViewCellDescriptor.h"
+#import "IRComponentInfoProtocol.h"
+#import "IRView.h"
 #import "IRTableViewCell.h"
 #import "IRViewBuilder.h"
-#import "IRTableViewBuilder+AutoLayout.h"
+#import "IRTableAndCollectionViewBuilder+AutoLayout.h"
 #import "IRScreenDescriptor.h"
 #import "IRViewDescriptor.h"
 #import "IRViewController.h"
+#import "IRTableViewCellDescriptor.h"
 
 
 @implementation IRTableViewCellBuilder
@@ -27,7 +29,7 @@
     [IRTableViewCellBuilder setUpComponent:irTableViewCell componentDescriptor:descriptor viewController:viewController
                                      extra:extra];
     // -- add AutoLayout constraints
-    [IRTableViewBuilder addAutoLayoutConstraintsForCell:irTableViewCell];
+    [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForTableViewCell:irTableViewCell];
 
     return irTableViewCell;
 }
@@ -65,4 +67,5 @@
     }
     irTableViewCell.editing = descriptor.editing;
 }
+
 @end

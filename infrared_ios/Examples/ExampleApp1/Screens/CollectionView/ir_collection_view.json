@@ -19,7 +19,13 @@
         "id" : "collection_view",
         "type" : "collectionView",
         "backgroundColor" : "#ffffff",
-        "selectItemAction": "___",
+        "selectItemAction": "this.selectItem1();",
+        "sectionEdgeInsets": {
+          "top": 50,
+          "left": 20,
+          "bottom": 50,
+          "right": 20
+        },
         "dataBinding" : [
           {
             "property" : "collectionData",
@@ -30,22 +36,29 @@
           {
             "id": "default_cell",
             "type": "collectionViewCell",
-            "selectItemAction": "___",
-            "size": {
+            "backgroundColor": "#00ff0080",
+            "selectItemAction_": "this.selectItem2();",
+            "cellSize": {
               "width": 100,
               "height": 100
             },
-            "inset": {
-              "top": 50,
-              "left": 20,
-              "bottom": 50,
-              "right": 20
-            },
             "subviews": [
-
+              {
+                "id": "title_label",
+                "type": "label",
+                "text": "Title",
+                "backgroundColor": "#ff000080",
+                "textColor": "#ffffff",
+                "font": "SystemBold, 18"
+              }
             ],
             "constraints": [
-
+              {
+                "visualFormat": "H:|-[title_label]-|"
+              },
+              {
+                "visualFormat": "V:|-[title_label]"
+              }
             ]
           }
         ]

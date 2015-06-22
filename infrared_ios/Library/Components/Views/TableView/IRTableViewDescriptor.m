@@ -5,7 +5,7 @@
 
 #import "IRViewDescriptor.h"
 #import "IRTableViewDescriptor.h"
-#import "IRTableViewBuilder.h"
+#import "IRTableAndCollectionViewBuilder.h"
 #import "IRUtil.h"
 #import "IRView.h"
 #import "IRTableView.h"
@@ -24,7 +24,7 @@
 
 + (Class) builderClass
 {
-    return [IRTableViewBuilder class];
+    return [IRTableAndCollectionViewBuilder class];
 }
 
 - (NSDictionary *) viewDefaults

@@ -12,8 +12,8 @@
 #import "IRTableViewCell.h"
 #import "IRDataController.h"
 #import "IRDataBindingDescriptor.h"
-#import "IRTableViewBuilder.h"
-#import "IRTableViewBuilder+AutoLayout.h"
+#import "IRTableAndCollectionViewBuilder.h"
+#import "IRTableAndCollectionViewBuilder+AutoLayout.h"
 #import "IRSimpleCache.h"
 #import "IRUtil.h"
 
@@ -244,12 +244,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
 {
     CGFloat height;
-    IRTableView *irTableView = (IRTableView *) tableView;
+    IRTableView *irTableView;
     NSDictionary *sectionDictionary = [self sectionDataForSection:section][sectionHeaderKEY];
     NSNumber *number = sectionDictionary[sectionHeaderHeightKEY];
     if (number) {
         height = [number floatValue];
     } else {
+        irTableView = (IRTableView *) tableView;
         height = ((IRTableViewDescriptor *) irTableView.descriptor).sectionHeaderHeight;
         if (height == CGFLOAT_UNDEFINED) {
             height = UITableViewAutomaticDimension;
@@ -299,7 +300,7 @@
                                                                          inTableView:(IRTableView *) tableView];
     if (sectionHeaderDescriptor) {
         headerView = [IRBaseBuilder buildComponentFromDescriptor:sectionHeaderDescriptor viewController:nil extra:nil];
-        [IRTableViewBuilder addAutoLayoutConstraintsForView:headerView inRootViews:@[headerView]];
+        [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForView:headerView inRootViews:@[headerView]];
         headerView.translatesAutoresizingMaskIntoConstraints = YES;
         IRTableViewDescriptor *tableDescriptor = (IRTableViewDescriptor *) ((IRTableView *)tableView).descriptor;
         [self bindData:sectionData toView:headerView withSectionItemName:tableDescriptor.sectionItemName];
@@ -314,7 +315,7 @@
                                                                          inTableView:(IRTableView *) tableView];
     if (sectionFooterDescriptor) {
         footerView = [IRBaseBuilder buildComponentFromDescriptor:sectionFooterDescriptor viewController:nil extra:nil];
-        [IRTableViewBuilder addAutoLayoutConstraintsForView:footerView inRootViews:@[footerView]];
+        [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForView:footerView inRootViews:@[footerView]];
         footerView.translatesAutoresizingMaskIntoConstraints = YES;
         IRTableViewDescriptor *tableDescriptor = (IRTableViewDescriptor *) ((IRTableView *)tableView).descriptor;
         [self bindData:sectionData toView:footerView withSectionItemName:tableDescriptor.sectionItemName];
@@ -526,7 +527,7 @@
 }
 
 - (void) bindData:(NSDictionary *)dictionary
-           toView:(IRView *)view
+             toView:(IRView *)view
 withSectionItemName:(NSString *)name
 {
     [IRBaseBuilder bindData:dictionary toView:view withDataBindingItemName:name];

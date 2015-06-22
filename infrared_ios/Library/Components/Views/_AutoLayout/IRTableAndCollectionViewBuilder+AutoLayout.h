@@ -4,14 +4,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IRTableViewBuilder.h"
+#import "IRTableAndCollectionViewBuilder.h"
 
 @class IRView;
 @class IRTableViewCell;
+@class IRCollectionViewCell;
 
-@interface IRTableViewBuilder (AutoLayout)
+@interface IRTableAndCollectionViewBuilder (AutoLayout)
 
-+ (void) addAutoLayoutConstraintsForCell:(IRTableViewCell *)irTableViewCell;
++ (void) addAutoLayoutConstraintsForTableViewCell:(IRTableViewCell *)irTableViewCell;
+
++ (void) addAutoLayoutConstraintsForCollectionViewCell:(IRCollectionViewCell *)irCollectionViewCell;
 
 + (void) addAutoLayoutConstraintsForViewsArray:(NSArray *)viewsArray inRootViews:(NSArray *)rootViewsArray;
 

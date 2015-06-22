@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface IRCollectionViewObserver : NSObject <UICollectionViewDataSource, /*UICollectionViewDelegate,*/ UICollectionViewDelegateFlowLayout>
+@interface IRCollectionViewObserver : NSObject <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSArray *collectionDataArray;
 
