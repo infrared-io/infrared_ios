@@ -1,6 +1,7 @@
-/**
- * Created by urosmil on 2/10/15.
- */
+//
+// Created by Uros Milivojevic on 2/10/15.
+// Copyright (c) 2015 infrared.io. All rights reserved.
+//
 
 // --------------------------------------------------------------------------------------------------------------------
 // UIButtonType

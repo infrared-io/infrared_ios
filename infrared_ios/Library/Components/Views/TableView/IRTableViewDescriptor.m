@@ -7,6 +7,7 @@
 #import "IRTableViewDescriptor.h"
 #import "IRTableViewBuilder.h"
 #import "IRUtil.h"
+#import "IRView.h"
 #import "IRTableView.h"
 
 
@@ -101,7 +102,7 @@
         dictionary = aDictionary[NSStringFromSelector(@selector(separatorInset))];
         self.separatorInset = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
 
-        // leftView
+        // backgroundView
         dictionary = aDictionary[NSStringFromSelector(@selector(backgroundView))];
         self.backgroundView = (IRViewDescriptor *) [IRBaseDescriptor newViewDescriptorWithDictionary:dictionary];
 
@@ -234,6 +235,7 @@
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
+    // TODO: check should 'backgroundView' be added
     [self.tableHeaderView extendImagePathsArray:imagePaths];
     [self.tableFooterView extendImagePathsArray:imagePaths];
     for (IRBaseDescriptor *anDescriptor in self.sectionHeadersArray) {

@@ -45,6 +45,8 @@
 #import "IRAnnotationViewDescriptor.h"
 #import "IRI18NDescriptor.h"
 #import "IRSimpleCache.h"
+#import "IRCollectionViewDescriptor.h"
+#import "IRCollectionViewCellDescriptor.h"
 #import <CoreText/CoreText.h>
 
 @interface Infrared ()
@@ -66,6 +68,8 @@ static Infrared *sharedInfraRed = nil;
     if (self) {
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRActivityIndicatorViewDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRButtonDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRCollectionViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRCollectionViewCellDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRDatePickerDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRImageViewDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRLabelDescriptor class]];

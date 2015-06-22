@@ -18,6 +18,10 @@ IR.plugin("starting_screen", {
                     "screenId" : "ir_table_view"
                 },
                 {
+                    "text" : "Collection View",
+                    "screenId" : "ir_collection_view"
+                },
+                {
                     "text" : "Picker View",
                     "screenId" : "ir_picker_view"
                 },

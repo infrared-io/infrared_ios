@@ -1,33 +1,34 @@
 //
-// Created by Uros Milivojevic on 12/8/14.
-// Copyright (c) 2014 infrared.io. All rights reserved.
+// Created by Uros Milivojevic on 6/19/15.
+// Copyright (c) 2015 infrared.io. All rights reserved.
 //
 
-#import <CoreGraphics/CoreGraphics.h>
-#import "IRTableView.h"
-#import "IRTableViewObserver.h"
-#import "IRBaseBuilder.h"
-#import "IRBaseDescriptor.h"
+#import "IRCollectionView.h"
+#import "IRCollectionViewObserver.h"
 #import "IRDataController.h"
-#import "IRTableViewDescriptor.h"
+#import "IRBaseDescriptor.h"
+#import "IRCollectionViewDescriptor.h"
+#import "IRBaseBuilder.h"
 
 
-@implementation IRTableView
+@implementation IRCollectionView
 
 @synthesize componentInfo;
 @synthesize descriptor;
-@synthesize translatesAutoresizingMaskIntoConstraintsValue;
+//@synthesize translatesAutoresizingMaskIntoConstraintsValue;
 
-- (instancetype) initWithFrame:(CGRect)frame style:(UITableViewStyle)style
+- (instancetype) initWithFrame:(CGRect)frame
+          collectionViewLayout:(UICollectionViewLayout *)layout
 {
-    self = [super initWithFrame:frame style:style];
+    self = [super initWithFrame:frame collectionViewLayout:layout];
     if (self) {
-        self.observer = [[IRTableViewObserver alloc] init];
+        self.observer = [[IRCollectionViewObserver alloc] init];
         self.delegate = self.observer;
         self.dataSource = self.observer;
     }
     return self;
 }
+
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
@@ -78,28 +79,12 @@
 
 #pragma mark - Create
 
-+ (id) createWithFrame:(CGRect)frame
-                 style:(UITableViewStyle)style
-           componentId:(NSString *)componentId
-{
-    IRTableView *irTableView = [[IRTableView alloc] initWithFrame:(CGRect)frame style:(UITableViewStyle)style];
-    irTableView.descriptor = [[IRTableViewDescriptor alloc] init];
-    [IRBaseBuilder setComponentId:componentId toJSInitComponent:irTableView];
-    return irTableView;
-}
-
-+ (id) createWithStyle:(UITableViewStyle)style componentId:(NSString *)componentId
-{
-    IRTableView *irTableView = [[IRTableView alloc] initWithFrame:CGRectZero style:(UITableViewStyle)style];
-    irTableView.descriptor = [[IRTableViewDescriptor alloc] init];
-    [IRBaseBuilder setComponentId:componentId toJSInitComponent:irTableView];
-    return irTableView;
-}
-
 + (id) createWithComponentId:(NSString *)componentId
 {
-    NSLog(@"For creating TableView use 'createWithFrameStyleComponentId' or 'createWithStyleComponentId' instead of 'createWithComponentId:'");
-    return nil;
+    IRCollectionView *irImageView = [[IRCollectionView alloc] init];
+    irImageView.descriptor = [[IRCollectionViewDescriptor alloc] init];
+    [IRBaseBuilder setComponentId:componentId toJSInitComponent:irImageView];
+    return irImageView;
 }
 
 - (NSString *) componentId
@@ -110,27 +95,16 @@
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
-- (void) setTableData:(NSArray *)tableData
+- (void) setCollectionData:(NSArray *)collectionData
 {
-    self.observer.tableDataArray = tableData;
+    self.observer.collectionDataArray = collectionData;
     [self reloadData];
 }
 
 - (NSArray *) subComponentsArray
 {
     NSMutableArray *array = [NSMutableArray array];
-    if (self.tableHeaderView) {
-        [array addObject:self.tableHeaderView];
-        if ([self.tableHeaderView isKindOfClass:[IRView class]]) {
-            ((IRView *)self.tableHeaderView).translatesAutoresizingMaskIntoConstraintsValue = @(YES);
-        }
-    }
-    if (self.tableFooterView) {
-        [array addObject:self.tableFooterView];
-        if ([self.tableFooterView isKindOfClass:[IRView class]]) {
-            ((IRView *)self.tableFooterView).translatesAutoresizingMaskIntoConstraintsValue = @(YES);
-        }
-    }
+    // TODO: add other potential subViews (look into IRTableView)
     // TODO: check should 'backgroundView' be added
 //    if (self.backgroundView) {
 //        [array addObject:self.backgroundView];

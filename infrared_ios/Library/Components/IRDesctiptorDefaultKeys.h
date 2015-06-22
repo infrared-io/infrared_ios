@@ -50,6 +50,8 @@
 #define typeActivityIndicatorViewKEY    @"activityIndicatorView"
 #define typeTableViewKEY                @"tableView"
 #define typeTableViewCellKEY            @"tableViewCell"
+#define typeCollectionViewKEY           @"collectionView"
+#define typeCollectionViewCellKEY       @"collectionViewCell"
 #define typePageControlKEY              @"pageControl"
 #define typeDatePickerKEY               @"datePicker"
 #define typePickerViewKEY               @"pickerView"

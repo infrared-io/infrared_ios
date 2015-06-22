@@ -15,6 +15,10 @@
     },
     {
       "deviceType": "phone",
+      "path": "ir_collection_view.json"
+    },
+    {
+      "deviceType": "phone",
       "path": "ir_picker_view.json"
     },
     {
