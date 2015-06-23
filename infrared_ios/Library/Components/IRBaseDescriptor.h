@@ -129,6 +129,8 @@ typedef enum {
 
 + (UIStatusBarStyle) statusBarStyleFromString:(NSString *)string;
 
++ (UICollectionViewScrollDirection) scrollDirectionFromString:(NSString *)string;
+
 + (NSDate *)dateWithISO8601String:(NSString *)dateString;
 + (NSDate *)dateFromString:(NSString *)dateString
                 withFormat:(NSString *)dateFormat;

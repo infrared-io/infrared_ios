@@ -54,12 +54,21 @@
                                                             typeCollectionViewKEY : collectionView,
                                                             indexPathKEY : indexPath
                                                           }];
+        } else {
+            cell.componentInfo = @{
+              @"data" : cellData != nil ? cellData : @{},
+              typeCollectionViewKEY : collectionView,
+              indexPathKEY : indexPath
+            };
         }
         tableDescriptor = (IRCollectionViewDescriptor *) ((IRCollectionView *)collectionView).descriptor;
         [self bindData:cellData toCell:cell withCellItemName:tableDescriptor.cellItemName];
     } else {
-
+        NSLog(@"No Cell Descriptor");
     }
+    collectionView.userInteractionEnabled = YES;
+    cell.userInteractionEnabled = YES;
+    cell.contentView.userInteractionEnabled = YES;
     return cell;
 }
 
@@ -92,30 +101,30 @@
 // 3. -collectionView:shouldSelectItemAtIndexPath: or -collectionView:shouldDeselectItemAtIndexPath:
 // 4. -collectionView:didSelectItemAtIndexPath: or -collectionView:didDeselectItemAtIndexPath:
 // 5. -collectionView:didUnhighlightItemAtIndexPath:
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"collectionView:didHighlightItemAtIndexPath:");
-}
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"collectionView:didUnhighlightItemAtIndexPath:");
-}
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-//// called when the user taps on an already-selected item in multi-select mode
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
+//- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return YES;
+//}
+//- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSLog(@"collectionView:didHighlightItemAtIndexPath:");
+//}
+//- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSLog(@"collectionView:didUnhighlightItemAtIndexPath:");
+//}
+//- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return YES;
+//}
+////// called when the user taps on an already-selected item in multi-select mode
+//- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return YES;
+//}
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+//    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 
     // evaluate Action
     NSString *action;
@@ -131,10 +140,10 @@
     }
     [IRCollectionViewObserver executeAction:action withData:cellData collectionView:collectionView indexPath:indexPath];
 }
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"collectionView:didDeselectItemAtIndexPath:");
-}
+//- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSLog(@"collectionView:didDeselectItemAtIndexPath:");
+//}
 
 //- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0)
 //{

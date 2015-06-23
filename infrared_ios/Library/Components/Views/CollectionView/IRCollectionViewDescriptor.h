@@ -18,6 +18,8 @@
 @property (nonatomic) BOOL allowsSelection; // default is YES
 @property (nonatomic) BOOL allowsMultipleSelection; // default is NO
 
+@property (nonatomic) UICollectionViewScrollDirection scrollDirection;
+
 // --------------------------------------------------------------------------------------------------------------------
 
 @property (nonatomic, strong) NSString *selectItemAction;

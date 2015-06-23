@@ -67,6 +67,10 @@
             self.allowsMultipleSelection = NO;
         }
 
+        // scrollDirection
+        string = aDictionary[NSStringFromSelector(@selector(scrollDirection))];
+        self.scrollDirection = [IRBaseDescriptor scrollDirectionFromString:string];
+
         // selectItemAction
         string = aDictionary[NSStringFromSelector(@selector(selectItemAction))];
         self.selectItemAction = string;

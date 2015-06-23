@@ -46,6 +46,40 @@ IR.plugin("collection_view", {
                     "a": "b"
                 }
             ]
+        },
+        {
+            "cells": [
+                {
+                    "a": "b",
+                    "cellSize": {
+                        "width": 200,
+                        "height": 200
+                    }
+                },
+                {
+                    "a": "b"
+                },
+                {
+                    "a": "b"
+                }
+            ]
+        },
+        {
+            "cells": [
+                {
+                    "a": "b",
+                    "cellSize": {
+                        "width": 200,
+                        "height": 200
+                    }
+                },
+                {
+                    "a": "b"
+                },
+                {
+                    "a": "b"
+                }
+            ]
         }
     ]
 });

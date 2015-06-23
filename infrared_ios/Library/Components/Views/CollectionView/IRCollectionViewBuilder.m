@@ -47,6 +47,7 @@
                                                               viewController:viewController extra:extra];
     irCollectionView.allowsSelection = descriptor.allowsSelection;
     irCollectionView.allowsSelection = descriptor.allowsMultipleSelection;
+    ((UICollectionViewFlowLayout *)irCollectionView.collectionViewLayout).scrollDirection = descriptor.scrollDirection;
     [irCollectionView setCollectionData:descriptor.collectionData];
 }
 

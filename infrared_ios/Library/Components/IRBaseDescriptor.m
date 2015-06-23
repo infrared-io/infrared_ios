@@ -1024,6 +1024,20 @@
     return statusBarStyle;
 }
 // --------------------------------------------------------------------------------------------------------------------
++ (UICollectionViewScrollDirection) scrollDirectionFromString:(NSString *)string
+{
+    UICollectionViewScrollDirection scrollDirection;
+    if ([@"UICollectionViewScrollDirectionVertical" isEqualToString:string]) {
+        scrollDirection = UICollectionViewScrollDirectionVertical;
+    } else if ([@"UICollectionViewScrollDirectionHorizontal" isEqualToString:string]) {
+        scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    } else {
+        scrollDirection = UICollectionViewScrollDirectionVertical;
+    }
+
+    return scrollDirection;
+}
+// --------------------------------------------------------------------------------------------------------------------
 + (NSDate *)dateWithISO8601String:(NSString *)dateString
 {
     if (!dateString) return nil;

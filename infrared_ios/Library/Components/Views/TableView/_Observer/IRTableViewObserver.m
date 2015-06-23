@@ -66,11 +66,19 @@
     if (cellDescriptor) {
         cell = [tableView dequeueReusableCellWithIdentifier:cellDescriptor.componentId];
         if (cell == nil) {
-            cell = (id) [IRBaseBuilder buildComponentFromDescriptor:cellDescriptor viewController:nil extra:@{
+            cell = (id) [IRBaseBuilder buildComponentFromDescriptor:cellDescriptor
+                                                     viewController:nil
+                                                              extra:@{
+                                                                @"data" : cellData != nil ? cellData : @{},
+                                                                typeTableViewKEY : tableView,
+                                                                indexPathKEY : indexPath
+                                                              }];
+        } else {
+            cell.componentInfo = @{
               @"data" : cellData != nil ? cellData : @{},
               typeTableViewKEY : tableView,
               indexPathKEY : indexPath
-            }];
+            };
         }
         IRTableViewDescriptor *tableDescriptor = (IRTableViewDescriptor *) ((IRTableView *)tableView).descriptor;
         [self bindData:cellData toCell:cell withCellItemName:tableDescriptor.cellItemName];

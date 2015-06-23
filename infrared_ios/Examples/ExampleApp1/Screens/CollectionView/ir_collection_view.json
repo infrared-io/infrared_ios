@@ -20,6 +20,8 @@
         "type" : "collectionView",
         "backgroundColor" : "#ffffff",
         "selectItemAction": "this.selectItem1();",
+        "scrollDirection": "UICollectionViewScrollDirectionHorizontal",
+        "userInteractionEnabled": true,
         "sectionEdgeInsets": {
           "top": 50,
           "left": 20,
@@ -36,6 +38,7 @@
           {
             "id": "default_cell",
             "type": "collectionViewCell",
+            "userInteractionEnabled": true,
             "backgroundColor": "#00ff0080",
             "selectItemAction_": "this.selectItem2();",
             "cellSize": {
@@ -49,7 +52,8 @@
                 "text": "Title",
                 "backgroundColor": "#ff000080",
                 "textColor": "#ffffff",
-                "font": "SystemBold, 18"
+                "font": "SystemBold, 18",
+                "userInteractionEnabled": false
               }
             ],
             "constraints": [
