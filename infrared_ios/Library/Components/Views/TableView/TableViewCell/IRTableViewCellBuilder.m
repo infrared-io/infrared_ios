@@ -8,7 +8,7 @@
 #import "IRView.h"
 #import "IRTableViewCell.h"
 #import "IRViewBuilder.h"
-#import "IRTableAndCollectionViewBuilder+AutoLayout.h"
+#import "IRTableViewBuilder+AutoLayout.h"
 #import "IRScreenDescriptor.h"
 #import "IRViewDescriptor.h"
 #import "IRViewController.h"
@@ -29,7 +29,7 @@
     [IRTableViewCellBuilder setUpComponent:irTableViewCell componentDescriptor:descriptor viewController:viewController
                                      extra:extra];
     // -- add AutoLayout constraints
-    [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForTableViewCell:irTableViewCell];
+    [IRTableViewBuilder addAutoLayoutConstraintsForTableViewCell:irTableViewCell];
 
     return irTableViewCell;
 }

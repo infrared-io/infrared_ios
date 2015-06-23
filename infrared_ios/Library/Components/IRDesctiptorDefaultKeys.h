@@ -52,6 +52,7 @@
 #define typeTableViewCellKEY            @"tableViewCell"
 #define typeCollectionViewKEY           @"collectionView"
 #define typeCollectionViewCellKEY       @"collectionViewCell"
+#define typeCollectionReusableViewKEY   @"collectionReusableView"
 #define typePageControlKEY              @"pageControl"
 #define typeDatePickerKEY               @"datePicker"
 #define typePickerViewKEY               @"pickerView"

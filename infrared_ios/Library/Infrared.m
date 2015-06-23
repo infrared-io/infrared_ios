@@ -47,6 +47,7 @@
 #import "IRSimpleCache.h"
 #import "IRCollectionViewDescriptor.h"
 #import "IRCollectionViewCellDescriptor.h"
+#import "IRCollectionReusableViewDescriptor.h"
 #import <CoreText/CoreText.h>
 
 @interface Infrared ()
@@ -70,6 +71,7 @@ static Infrared *sharedInfraRed = nil;
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRButtonDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRCollectionViewDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRCollectionViewCellDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRCollectionReusableViewDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRDatePickerDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRImageViewDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRLabelDescriptor class]];

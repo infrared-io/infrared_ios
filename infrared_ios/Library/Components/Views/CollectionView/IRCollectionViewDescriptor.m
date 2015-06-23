@@ -71,9 +71,13 @@
         string = aDictionary[NSStringFromSelector(@selector(scrollDirection))];
         self.scrollDirection = [IRBaseDescriptor scrollDirectionFromString:string];
 
-        // selectItemAction
-        string = aDictionary[NSStringFromSelector(@selector(selectItemAction))];
-        self.selectItemAction = string;
+        // sectionHeadersArray
+        array = aDictionary[sectionHeadersKEY];
+        self.sectionHeadersArray = [IRBaseDescriptor viewDescriptorsHierarchyFromArray:array];
+
+        // sectionFootersArray
+        array = aDictionary[sectionFootersKEY];
+        self.sectionFootersArray = [IRBaseDescriptor viewDescriptorsHierarchyFromArray:array];
 
         // cellsArray
         array = aDictionary[cellsKEY];
@@ -95,6 +99,26 @@
             self.cellItemName = cellKEY;
         }
 
+        // selectItemAction
+        string = aDictionary[NSStringFromSelector(@selector(selectItemAction))];
+        self.selectItemAction = string;
+
+        // sectionHeaderHeight
+        number = aDictionary[NSStringFromSelector(@selector(sectionHeaderHeight))];
+        if (number) {
+            self.sectionHeaderHeight = [number floatValue];
+        } else {
+            self.sectionHeaderHeight = CGFLOAT_UNDEFINED;
+        }
+
+        // sectionFooterHeight
+        number = aDictionary[NSStringFromSelector(@selector(sectionFooterHeight))];
+        if (number) {
+            self.sectionFooterHeight = [number floatValue];
+        } else {
+            self.sectionFooterHeight = CGFLOAT_UNDEFINED;
+        }
+
         // cellSize
         dictionary = aDictionary[NSStringFromSelector(@selector(cellSize))];
         self.cellSize = [IRBaseDescriptor sizeFromDictionary:dictionary];
@@ -113,6 +137,15 @@
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
     // TODO: check should 'backgroundView' be added
+    for (IRBaseDescriptor *anDescriptor in self.sectionHeadersArray) {
+        [anDescriptor extendImagePathsArray:imagePaths];
+    }
+    for (IRBaseDescriptor *anDescriptor in self.sectionFootersArray) {
+        [anDescriptor extendImagePathsArray:imagePaths];
+    }
+    for (IRBaseDescriptor *anDescriptor in self.cellsArray) {
+        [anDescriptor extendImagePathsArray:imagePaths];
+    }
 }
 
 @end

@@ -12,6 +12,10 @@
 #import "IRBaseBuilder.h"
 #import "IRCollectionViewCellBuilder.h"
 #import "IRViewController.h"
+#import "IRCollectionReusableView.h"
+#import "IRCollectionReusableViewBuilder.h"
+#import "IRTableViewBuilder.h"
+#import "IRTableViewBuilder+AutoLayout.h"
 
 
 @implementation IRCollectionViewObserver
@@ -35,7 +39,6 @@
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     IRCollectionViewCell *cell = nil;
-    IRViewController *viewController;
     IRCollectionViewDescriptor *tableDescriptor;
     NSDictionary *cellData = [self cellDataForIndexPath:indexPath];
     IRCollectionViewCellDescriptor *cellDescriptor = [self cellDescriptorForCellData:cellData
@@ -45,10 +48,9 @@
                                                          forIndexPath:indexPath];
         if (cell.setUpDone == NO) {
             cell.setUpDone = YES;
-            viewController = [IRBaseBuilder parentViewController:collectionView];
             [IRCollectionViewCellBuilder extendedSetUpComponent:cell
                                             componentDescriptor:cellDescriptor
-                                                 viewController:viewController
+                                                 viewController:nil
                                                           extra:@{
                                                             @"data" : cellData != nil ? cellData : @{},
                                                             typeCollectionViewKEY : collectionView,
@@ -66,9 +68,9 @@
     } else {
         NSLog(@"No Cell Descriptor");
     }
-    collectionView.userInteractionEnabled = YES;
-    cell.userInteractionEnabled = YES;
-    cell.contentView.userInteractionEnabled = YES;
+//    collectionView.userInteractionEnabled = YES;
+//    cell.userInteractionEnabled = YES;
+//    cell.contentView.userInteractionEnabled = YES;
     return cell;
 }
 
@@ -78,12 +80,67 @@
 }
 
 //// The view that is returned must be retrieved from a call to -dequeueReusableSupplementaryViewOfKind:withReuseIdentifier:forIndexPath:
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
-//           viewForSupplementaryElementOfKind:(NSString *)kind
-//                                 atIndexPath:(NSIndexPath *)indexPath
-//{
-//
-//}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath
+{
+    IRCollectionReusableView *reusableView = nil;
+    BOOL setUpReusableView = NO;
+    NSDictionary *sectionData;
+    IRViewDescriptor *descriptor;
+    if ([UICollectionElementKindSectionHeader isEqualToString:kind]) {
+        sectionData = [self sectionDataForSection:indexPath.section][sectionHeaderKEY];
+        descriptor = [self sectionHeaderDescriptorForData:sectionData
+                                         inCollectionView:(IRCollectionView *)collectionView];
+        if (sectionData && descriptor) {
+            reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                              withReuseIdentifier:descriptor.componentId
+                                                                     forIndexPath:indexPath];
+            setUpReusableView = YES;
+        } else {
+            reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                              withReuseIdentifier:@"UICollectionElementKindSectionHeader"
+                                                                     forIndexPath:indexPath];
+        }
+    } else if ([UICollectionElementKindSectionFooter isEqualToString:kind]) {
+        sectionData = [self sectionDataForSection:indexPath.section][sectionFooterKEY];
+        descriptor = [self sectionFooterDescriptorForData:sectionData
+                                         inCollectionView:(IRCollectionView *)collectionView];
+        if (sectionData && descriptor) {
+            reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                              withReuseIdentifier:descriptor.componentId
+                                                                     forIndexPath:indexPath];
+            setUpReusableView = YES;
+        } else {
+            reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                              withReuseIdentifier:@"UICollectionElementKindSectionFooter"
+                                                                     forIndexPath:indexPath];
+        }
+    }
+    if (setUpReusableView) {
+        if (reusableView.setUpDone == NO) {
+            reusableView.setUpDone = YES;
+            [IRCollectionReusableViewBuilder setUpComponent:reusableView
+                                        componentDescriptor:descriptor
+                                             viewController:nil
+                                                      extra:@{
+                                                        @"data" : sectionData != nil ? sectionData : @{},
+                                                        typeCollectionViewKEY : collectionView,
+                                                        indexPathKEY : indexPath
+                                                      }];
+            [IRTableViewBuilder addAutoLayoutConstraintsForView:reusableView inRootViews:@[reusableView]];
+            IRCollectionViewDescriptor *tableDescriptor = (IRCollectionViewDescriptor *) ((IRCollectionView *)collectionView).descriptor;
+            [self bindData:sectionData toView:reusableView withSectionItemName:tableDescriptor.sectionItemName];
+        } else {
+            reusableView.componentInfo = @{
+              @"data" : sectionData != nil ? sectionData : @{},
+              typeCollectionViewKEY : collectionView,
+              indexPathKEY : indexPath
+            };
+        }
+    }
+    return reusableView;
+}
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
@@ -240,14 +297,46 @@
 //{
 //
 //}
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-//{
-//
-//}
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
-//{
-//
-//}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    CGSize headerSize;
+    CGFloat height;
+    IRCollectionView *irCollectionView;
+    NSDictionary *sectionDictionary = [self sectionDataForSection:section][sectionHeaderKEY];
+    NSNumber *number = sectionDictionary[sectionHeaderHeightKEY];
+    if (number) {
+        height = [number floatValue];
+        headerSize = CGSizeMake(100, height);
+    } else {
+        irCollectionView = (IRCollectionView *) collectionView;
+        height = ((IRCollectionViewDescriptor *) irCollectionView.descriptor).sectionHeaderHeight;
+        if (height == CGFLOAT_UNDEFINED) {
+            height = 0;
+        }
+        headerSize = CGSizeMake(100, height);
+    }
+    return headerSize;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+    CGSize footerSize;
+    CGFloat height;
+    IRCollectionView *irCollectionView;
+    NSDictionary *sectionDictionary = [self sectionDataForSection:section][sectionFooterKEY];
+    NSNumber *number = sectionDictionary[sectionFooterHeightKEY];
+    if (number) {
+        height = [number floatValue];
+        footerSize = CGSizeMake(100, height);
+    } else {
+        irCollectionView = (IRCollectionView *) collectionView;
+        height = ((IRCollectionViewDescriptor *) irCollectionView.descriptor).sectionFooterHeight;
+        if (height == CGFLOAT_UNDEFINED) {
+            height = 0;
+        }
+        footerSize = CGSizeMake(100, height);
+    }
+    return footerSize;
+}
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
@@ -261,6 +350,47 @@
         sectionDictionary = self.collectionDataArray[section];
     }
     return sectionDictionary;
+}
+
+- (IRViewDescriptor *) sectionHeaderDescriptorForData:(NSDictionary *)sectionData
+                                     inCollectionView:(IRCollectionView *)collectionView
+{
+    IRViewDescriptor *viewDescriptor = nil;
+    IRCollectionViewDescriptor *collectionViewDescriptor = (IRCollectionViewDescriptor *) collectionView.descriptor;
+    NSArray *viewDescriptorsArray = collectionViewDescriptor.sectionHeadersArray;
+    NSString *sectionId = sectionData[sectionIdKEY];
+    viewDescriptor = [self viewDescriptorWithId:sectionId fromDescriptors:viewDescriptorsArray];
+    return viewDescriptor;
+}
+
+- (IRViewDescriptor *) sectionFooterDescriptorForData:(NSDictionary *)sectionData
+                                     inCollectionView:(IRCollectionView *)collectionView
+{
+    IRViewDescriptor *viewDescriptor = nil;
+    IRCollectionViewDescriptor *collectionViewDescriptor = (IRCollectionViewDescriptor *) collectionView.descriptor;
+    NSArray *viewDescriptorsArray = collectionViewDescriptor.sectionFootersArray;
+    NSString *sectionId = sectionData[sectionIdKEY];
+    viewDescriptor = [self viewDescriptorWithId:sectionId fromDescriptors:viewDescriptorsArray];
+    return viewDescriptor;
+}
+
+- (IRViewDescriptor *) viewDescriptorWithId:(NSString *)sectionId
+                            fromDescriptors:(NSArray *)descriptors
+{
+    IRViewDescriptor *viewDescriptor = nil;
+    if (sectionId) {
+        for (IRViewDescriptor *anViewDescriptor in descriptors) {
+            if ([anViewDescriptor.componentId isEqualToString:sectionId]) {
+                viewDescriptor = anViewDescriptor;
+                break;
+            }
+        }
+    } else {
+        if ([descriptors count] > 0) {
+            viewDescriptor = descriptors[0];
+        }
+    }
+    return viewDescriptor;
 }
 
 - (void) bindData:(NSDictionary *)dictionary

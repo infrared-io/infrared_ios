@@ -8,8 +8,9 @@
 #import "IRCollectionViewCellDescriptor.h"
 #import "IRCollectionViewBuilder.h"
 #import "IRViewBuilder.h"
-#import "IRTableAndCollectionViewBuilder.h"
-#import "IRTableAndCollectionViewBuilder+AutoLayout.h"
+#import "IRTableViewBuilder.h"
+#import "IRTableViewBuilder+AutoLayout.h"
+#import "IRCollectionViewBuilder+AutoLayout.h"
 
 
 @implementation IRCollectionViewCellBuilder
@@ -22,7 +23,7 @@
 
     // -- build cell
     irCollectionViewCell = [[IRCollectionViewCell alloc] init];
-    // -- set up cell
+    // -- extended set up cell
     [IRCollectionViewCellBuilder extendedSetUpComponent:irCollectionViewCell
                                     componentDescriptor:descriptor
                                          viewController:viewController
@@ -41,7 +42,7 @@
                                  viewController:viewController
                                           extra:extra];
     // -- add AutoLayout constraints
-    [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForCollectionViewCell:irCollectionViewCell];
+    [IRCollectionViewBuilder addAutoLayoutConstraintsForCollectionViewCell:irCollectionViewCell];
 }
 
 + (void) setUpComponent:(IRCollectionViewCell *)irCollectionViewCell

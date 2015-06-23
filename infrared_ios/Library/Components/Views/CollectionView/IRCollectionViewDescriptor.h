@@ -22,12 +22,17 @@
 
 // --------------------------------------------------------------------------------------------------------------------
 
-@property (nonatomic, strong) NSString *selectItemAction;
-
+@property(nonatomic,retain) NSMutableArray *sectionHeadersArray;
+@property(nonatomic,retain) NSMutableArray *sectionFootersArray;
 @property(nonatomic,retain) NSMutableArray *cellsArray;
 
 @property (nonatomic, strong) NSString *sectionItemName;
 @property (nonatomic, strong) NSString *cellItemName;
+
+@property (nonatomic, strong) NSString *selectItemAction;
+
+@property (nonatomic) CGFloat sectionHeaderHeight;
+@property (nonatomic) CGFloat sectionFooterHeight;
 
 @property (nonatomic) CGSize cellSize;
 @property (nonatomic) UIEdgeInsets sectionEdgeInsets;

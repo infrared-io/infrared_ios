@@ -12,10 +12,11 @@
 #import "IRTableViewCell.h"
 #import "IRDataController.h"
 #import "IRDataBindingDescriptor.h"
-#import "IRTableAndCollectionViewBuilder.h"
-#import "IRTableAndCollectionViewBuilder+AutoLayout.h"
+#import "IRTableViewBuilder.h"
+#import "IRTableViewBuilder+AutoLayout.h"
 #import "IRSimpleCache.h"
 #import "IRUtil.h"
+#import "IRView.h"
 
 @interface IRTableViewObserver ()
 
@@ -199,7 +200,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    CGFloat height;
+    CGFloat height = CGFLOAT_UNDEFINED;
     IRTableView *irTableView;
     IRTableViewCellDescriptor *cellDescriptor;
     NSDictionary *cellData = [self cellDataForIndexPath:indexPath];
@@ -210,35 +211,30 @@
         cellDescriptor = [self cellDescriptorForCellData:cellData inTableView:(IRTableView *)tableView];
 
         if (cellDescriptor.dynamicAutolayoutRowHeight) {
-            IRTableViewCell *cell/* = [self tableView:tableView cellForRowAtIndexPath:indexPath]*/;
-            if (cellDescriptor) {
-                cell = self.dynamicAutolayoutRowHeightDictionary[cellDescriptor.componentId];
-                if (cell == nil) {
-                    cell = (id) [IRBaseBuilder buildComponentFromDescriptor:cellDescriptor viewController:nil extra:@{
-                      @"data" : cellData != nil ? cellData : @{},
-                      typeTableViewKEY : tableView,
-                      indexPathKEY : indexPath
-                    }];
-                    self.dynamicAutolayoutRowHeightDictionary[cellDescriptor.componentId] = cell;
-                }
-
-                IRTableViewDescriptor *tableDescriptor = (IRTableViewDescriptor *) ((IRTableView *)tableView).descriptor;
-                [self bindData:cellData toCell:cell withCellItemName:tableDescriptor.cellItemName];
-
-                [cell setNeedsUpdateConstraints];
-                [cell updateConstraintsIfNeeded];
-
-                cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
-                [cell setNeedsLayout];
-                [cell layoutIfNeeded];
-                CGSize aRect = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-                height = aRect.height;
-                height += 1;
-
-//                height = 200;
-            } else {
-                height = CGFLOAT_UNDEFINED;
+            IRTableViewCell *cell = self.dynamicAutolayoutRowHeightDictionary[cellDescriptor.componentId];
+            if (cell == nil) {
+                cell = (id) [IRBaseBuilder buildComponentFromDescriptor:cellDescriptor
+                                                         viewController:nil
+                                                                  extra:@{
+                                                                    @"data" : cellData != nil ? cellData : @{},
+                                                                    typeTableViewKEY : tableView,
+                                                                    indexPathKEY : indexPath
+                                                                  }];
+                self.dynamicAutolayoutRowHeightDictionary[cellDescriptor.componentId] = cell;
             }
+
+            IRTableViewDescriptor *tableDescriptor = (IRTableViewDescriptor *) ((IRTableView *) tableView).descriptor;
+            [self bindData:cellData toCell:cell withCellItemName:tableDescriptor.cellItemName];
+
+            [cell setNeedsUpdateConstraints];
+            [cell updateConstraintsIfNeeded];
+
+            cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
+            [cell setNeedsLayout];
+            [cell layoutIfNeeded];
+            CGSize aRect = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+            height = aRect.height;
+            height += 1;
         } else {
             height = cellDescriptor.rowHeight;
         }
@@ -307,8 +303,14 @@
     IRViewDescriptor *sectionHeaderDescriptor = [self sectionHeaderDescriptorForData:sectionData
                                                                          inTableView:(IRTableView *) tableView];
     if (sectionHeaderDescriptor) {
-        headerView = [IRBaseBuilder buildComponentFromDescriptor:sectionHeaderDescriptor viewController:nil extra:nil];
-        [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForView:headerView inRootViews:@[headerView]];
+        headerView = [IRBaseBuilder buildComponentFromDescriptor:sectionHeaderDescriptor
+                                                  viewController:nil
+                                                           extra:@{
+                                                             @"data" : sectionData != nil ? sectionData : @{},
+                                                             typeTableViewKEY : tableView,
+                                                             sectionKEY : @(section)
+                                                           }];
+        [IRTableViewBuilder addAutoLayoutConstraintsForView:headerView inRootViews:@[headerView]];
         headerView.translatesAutoresizingMaskIntoConstraints = YES;
         IRTableViewDescriptor *tableDescriptor = (IRTableViewDescriptor *) ((IRTableView *)tableView).descriptor;
         [self bindData:sectionData toView:headerView withSectionItemName:tableDescriptor.sectionItemName];
@@ -322,8 +324,14 @@
     IRViewDescriptor *sectionFooterDescriptor = [self sectionFooterDescriptorForData:sectionData
                                                                          inTableView:(IRTableView *) tableView];
     if (sectionFooterDescriptor) {
-        footerView = [IRBaseBuilder buildComponentFromDescriptor:sectionFooterDescriptor viewController:nil extra:nil];
-        [IRTableAndCollectionViewBuilder addAutoLayoutConstraintsForView:footerView inRootViews:@[footerView]];
+        footerView = [IRBaseBuilder buildComponentFromDescriptor:sectionFooterDescriptor
+                                                  viewController:nil
+                                                           extra:@{
+                                                             @"data" : sectionData != nil ? sectionData : @{},
+                                                             typeTableViewKEY : tableView,
+                                                             sectionKEY : @(section)
+                                                           }];
+        [IRTableViewBuilder addAutoLayoutConstraintsForView:footerView inRootViews:@[footerView]];
         footerView.translatesAutoresizingMaskIntoConstraints = YES;
         IRTableViewDescriptor *tableDescriptor = (IRTableViewDescriptor *) ((IRTableView *)tableView).descriptor;
         [self bindData:sectionData toView:footerView withSectionItemName:tableDescriptor.sectionItemName];

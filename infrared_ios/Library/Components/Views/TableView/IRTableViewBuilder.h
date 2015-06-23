@@ -15,7 +15,7 @@
 @class IRViewController;
 
 
-@interface IRTableAndCollectionViewBuilder : IRBaseBuilder
+@interface IRTableViewBuilder : IRBaseBuilder
 
 + (IRView *) buildComponentFromDescriptor:(IRBaseDescriptor *)descriptor
                            viewController:(IRViewController *)viewController

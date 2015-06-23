@@ -5,6 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import "IRView.h"
+#import "IRCollectionReusableView.h"
 
 
 @protocol IRCollectionViewCellExport <JSExport>
@@ -29,7 +30,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
-@interface IRCollectionViewCell : UICollectionViewCell <IRComponentInfoProtocol, IRCollectionViewCellExport, IRViewExport>
+@interface IRCollectionViewCell : UICollectionViewCell <IRComponentInfoProtocol, IRCollectionViewCellExport, IRCollectionReusableViewExport, IRViewExport>
 
 @property (nonatomic) BOOL setUpDone;
 

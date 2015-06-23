@@ -14,6 +14,16 @@ IR.plugin("collection_view", {
                 "bottom": 8,
                 "right": 16
             },
+            "sectionHeader" : {
+                "sectionId" : "section_header_1",
+                "sectionHeaderHeight" : 50,
+                "title" : "Section header 2"
+            },
+            "sectionFooter" : {
+                "sectionId" : "section_footer_1",
+                "sectionFooterHeight" : 50,
+                "title" : "Section footer 2"
+            },
             "cells": [
                 {
                     "a": "b",
