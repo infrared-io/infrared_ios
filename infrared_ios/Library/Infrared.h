@@ -22,14 +22,13 @@
 
 - (void) buildInfraredAppFromPath2ndPhase;
 
-- (void) updateCurrentInfraredAppWithUpdateJSONPath:(NSString *)updateUIPath;
 - (void) updateCurrentInfraredApp;
+- (void) updateCurrentInfraredAppWithUpdateJSONPath:(NSString *)updateUIPath;
 
-- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path withUpdateJSONPath:(NSString *)updateUIPath;
 - (void) cleanAndBuildInfraredAppFromPath:(NSString *)path;
+- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path withUpdateJSONPath:(NSString *)updateUIPath;
 
 - (void) deleteCacheFolderForAppWithApp:(NSString *)app
-                                  label:(NSString *)label
                                 version:(NSInteger)version;
 
 - (void) buildViewControllerAndSetRootViewControllerScreenDescriptor:(IRScreenDescriptor *)screenDescriptor

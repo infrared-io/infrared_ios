@@ -43,7 +43,8 @@ static IRDataController *sharedDataController = nil;
         self.componentsDictionary = [NSMutableDictionary dictionary];
         self.librariesArray = [NSMutableArray array];
 
-        self.updateJSONPath = @"update.json";
+        self.defaultUpdateJSONPath = UPDATE_JSON_PATH;
+        self.updateJSONPath = [self defaultUpdateJSONPath];
 
         [self cleanData];
     }
@@ -198,7 +199,7 @@ static IRDataController *sharedDataController = nil;
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
-    NSString *jsonImagesPathComponent = [IRUtil jsonAndjsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
+    NSString *jsonImagesPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
     NSString *fullBaseUrlPath = [documentsDirectory stringByAppendingPathComponent:jsonImagesPathComponent];
 
     NSMutableArray *jsPluginPathsArray = [NSMutableArray array];

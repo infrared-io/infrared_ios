@@ -115,13 +115,6 @@ static Infrared *sharedInfraRed = nil;
 }
 - (void) buildInfraredAppFromPath:(NSString *)path
 {
-//#if ENABLE_SAFARI_DEBUGGING == 1
-//#pragma clang diagnostic push
-//#pragma clang diagnostic ignored "-Wundeclared-selector"
-//    [NSClassFromString(@"WebView") performSelector:@selector(_enableRemoteInspector)];
-//#pragma clang diagnostic pop
-//#endif
-
     NSDictionary *dictionary;
     IRAppDescriptor *appDescriptor;
     NSMutableArray *failedPathsArray;
@@ -144,8 +137,20 @@ static Infrared *sharedInfraRed = nil;
     dictionary = [IRUtil appDictionaryFromPath:path];
     // -- clean not used data
     [self cleanOtherAppsCacheFolderForApp:dictionary];
-    [self cleanOtherLabelsCacheFolderForApp:dictionary];
     [self cleanOlderVersionsCacheFolderForApp:dictionary];
+    // -- check should app be silently updated
+    appDescriptor = [[IRAppDescriptor alloc] initDescriptorForVersionWithDictionary:dictionary];
+    if (appDescriptor.silentUpdate && [IRDataController sharedInstance].checkForNewAppDescriptorSource) {
+        // -- reset check flag
+        [IRDataController sharedInstance].checkForNewAppDescriptorSource = NO;
+        // -- do update if needed
+        BOOL offerAppUpdate = [self shouldOfferAppUpdate:path baseAppDescriptor:appDescriptor];
+        if (offerAppUpdate) {
+            NSLog(@"#@#@#@#@#@ Silent Updata #@#@#@#@#@");
+            [self cleanCacheAndRebuildAppWithPath:path];
+            return;
+        }
+    }
     // -- cache and load Fonts
     // ---- copy Fonts
     appDescriptor = [[IRAppDescriptor alloc] initDescriptorForFontsWithDictionary:dictionary];
@@ -179,7 +184,7 @@ static Infrared *sharedInfraRed = nil;
     [[IRSimpleCache sharedInstance] setAdditionalCacheFolderPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]];
 
     // 3) download and cache JS files
-    jsonPathComponent = [IRUtil jsonAndjsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
+    jsonPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
     // 3.1)  watch.js and infrared.js
     pathsArray = @[@"infrared.js", @"zeroTimeout.js", @"zeroTimeoutWorker.js", @"watch.js"];
     failedPathsArray = [NSMutableArray array];
@@ -218,20 +223,12 @@ static Infrared *sharedInfraRed = nil;
     // 5) check for updated app json
     if ([IRDataController sharedInstance].checkForNewAppDescriptorSource) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            // -- reset check flag
             [IRDataController sharedInstance].checkForNewAppDescriptorSource = NO;
-
-            NSDictionary *dictionary = [IRUtil dictionaryFromPath:path];
-            IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForLabelAndVariantWithDictionary:dictionary];
-            BOOL offerAppUpdate = NO;
-            if ([[IRDataController sharedInstance].appDescriptor.app isEqualToString:appDescriptor.app] == NO
-                || [[IRDataController sharedInstance].appDescriptor.label isEqualToString:appDescriptor.label] == NO
-                || [IRDataController sharedInstance].appDescriptor.version < appDescriptor.version)
-            {
-                offerAppUpdate = YES;
-            }
-
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (offerAppUpdate) {
+            // -- offer update if needed
+            BOOL offerAppUpdate = [self shouldOfferAppUpdate:path baseAppDescriptor:[IRDataController sharedInstance].appDescriptor];
+            if (offerAppUpdate) {
+                dispatch_async(dispatch_get_main_queue(), ^{
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"App update"
                                                                     message:@"New verison is availalbe. Would you like to update?"
                                                                    delegate:self
@@ -239,13 +236,27 @@ static Infrared *sharedInfraRed = nil;
                                                           otherButtonTitles:nil];
                     [alert addButtonWithTitle:@"Update"];
                     [alert show];
-                }
-            });
+                });
+            }
         });
     }
 
     // NEXT STEP
     // - method "buildInfraredAppFromPath2ndPhase" will be called after UIWebView in IRDataController is loaded
+}
+
+- (BOOL) shouldOfferAppUpdate:(NSString *)appJsonPath
+            baseAppDescriptor:(IRAppDescriptor *)baseAppDescriptor
+{
+    NSDictionary *dictionary = [IRUtil dictionaryFromPath:appJsonPath];
+    IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForVersionWithDictionary:dictionary];
+    BOOL shouldOfferAppUpdate = NO;
+    if ([baseAppDescriptor.app isEqualToString:appDescriptor.app] == NO
+        || baseAppDescriptor.version < appDescriptor.version)
+    {
+        shouldOfferAppUpdate = YES;
+    }
+    return shouldOfferAppUpdate;
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) buildInfraredAppFromPath2ndPhase
@@ -278,8 +289,7 @@ static Infrared *sharedInfraRed = nil;
     JSContext *globalContext;
     if ([languageFilePath length] > 0) {
         // -- create path
-        jsonImagesPathComponent = [IRUtil jsonAndjsPathForAppDescriptorApp:[IRDataController sharedInstance].appDescriptor.app
-                                                                     label:[IRDataController sharedInstance].appDescriptor.label
+        jsonImagesPathComponent = [IRUtil jsonAndJsPathForAppDescriptorApp:[IRDataController sharedInstance].appDescriptor.app
                                                                    version:[IRDataController sharedInstance].appDescriptor.version];
 
         // -- load json and build dictionary from it
@@ -342,7 +352,7 @@ static Infrared *sharedInfraRed = nil;
 }
 - (void) cleanOtherAppsCacheFolderForApp:(NSDictionary *)dictionary
 {
-    IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForLabelAndVariantWithDictionary:dictionary];
+    IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForVersionWithDictionary:dictionary];
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
@@ -367,85 +377,60 @@ static Infrared *sharedInfraRed = nil;
         }
     }
 }
-- (void) cleanOtherLabelsCacheFolderForApp:(NSDictionary *)dictionary
-{
-    IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForLabelAndVariantWithDictionary:dictionary];
-
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths firstObject];
-    NSString *irBaseDocPathComponent = [IRUtil basePathAppDescriptorApp:appDescriptor.app];
-    NSString *destinationPath = [documentsDirectory stringByAppendingPathComponent:irBaseDocPathComponent];
-
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error;
-    NSArray *filesArray = [fileManager contentsOfDirectoryAtPath:destinationPath error:&error];
-    if (error) {
-        NSLog(@"Infrared-cleanOtherLabelsCacheFolderForApp --1--: %@", [error localizedDescription]);
-        return;
-    }
-    NSString *finalPath;
-    for (NSString *lastPathComponent in filesArray) {
-        if ([lastPathComponent isEqualToString:appDescriptor.label] == NO) {
-            finalPath = [/*irBaseDocPathComponent*/destinationPath stringByAppendingPathComponent:lastPathComponent];
-            [[NSFileManager defaultManager] removeItemAtPath:finalPath error:&error];
-            if (error) {
-                NSLog(@"Infrared-cleanOtherLabelsCacheFolderForApp --2--: %@", [error localizedDescription]);
-            }
-        }
-    }
-}
 - (void) cleanOlderVersionsCacheFolderForApp:(NSDictionary *)dictionary
 {
     IRAppDescriptor *appDescriptor;
     NSInteger version;
-    appDescriptor = [[IRAppDescriptor alloc] initDescriptorForLabelAndVariantWithDictionary:dictionary];
+    appDescriptor = [[IRAppDescriptor alloc] initDescriptorForVersionWithDictionary:dictionary];
     version = appDescriptor.version-1;
     for (; version >= 0; version--) {
-        [self deleteCacheFolderForAppWithApp:appDescriptor.app label:appDescriptor.label version:version];
+        [self deleteCacheFolderForAppWithApp:appDescriptor.app version:version];
     }
 }
 - (void) cleanCacheFolderForApp:(NSDictionary *)dictionary
 {
-    IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForLabelAndVariantWithDictionary:dictionary];
-    [self deleteCacheFolderForAppWithApp:appDescriptor.app label:appDescriptor.label version:appDescriptor.version];
+    IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForVersionWithDictionary:dictionary];
+    [self deleteCacheFolderForAppWithApp:appDescriptor.app version:appDescriptor.version];
 }
 // --------------------------------------------------------------------------------------------------------------------
-- (void) updateCurrentInfraredAppWithUpdateJSONPath:(NSString *)updateUIPath
-{
-    [IRDataController sharedInstance].updateJSONPath = updateUIPath;
-    [self updateCurrentInfraredApp];
-}
 - (void) updateCurrentInfraredApp
 {
-    [self cleanAndBuildInfraredAppFromPath:self.appJsonPath];
+    [self updateCurrentInfraredAppWithUpdateJSONPath:[[IRDataController sharedInstance] defaultUpdateJSONPath]];
+}
+- (void) updateCurrentInfraredAppWithUpdateJSONPath:(NSString *)updateUIPath
+{
+    [self cleanAndBuildInfraredAppFromPath:self.appJsonPath
+                        withUpdateJSONPath:updateUIPath];
 }
 // --------------------------------------------------------------------------------------------------------------------
-- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path withUpdateJSONPath:(NSString *)updateUIPath
-{
-    [IRDataController sharedInstance].updateJSONPath = updateUIPath;
-    [self cleanAndBuildInfraredAppFromPath:path];
-}
 - (void) cleanAndBuildInfraredAppFromPath:(NSString *)path
 {
+    [self cleanAndBuildInfraredAppFromPath:path
+                        withUpdateJSONPath:[[IRDataController sharedInstance] defaultUpdateJSONPath]];
+}
+- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path withUpdateJSONPath:(NSString *)updateUIPath
+{
     @try {
+        [IRDataController sharedInstance].updateJSONPath = updateUIPath;
+
         [self showAppUpdateUI];
 
         [self performSelector:@selector(cleanCacheAndRebuildAppWithPath:)
                    withObject:path
-                   afterDelay:0.02];
+                   afterDelay:0.5/*0.02*/];
     }
     @catch (NSException *exception) {
         NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
     }
 }
+
 // --------------------------------------------------------------------------------------------------------------------
 - (void) deleteCacheFolderForAppWithApp:(NSString *)app
-                                  label:(NSString *)label
                                 version:(NSInteger)version
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
-    NSString *basePathComponent = [IRUtil basePathAppDescriptorApp:app label:label varion:version];
+    NSString *basePathComponent = [IRUtil basePathAppDescriptorApp:app varion:version];
     NSString *finalPath = [documentsDirectory stringByAppendingPathComponent:basePathComponent];
     NSError *error;
     if ([[NSFileManager defaultManager] fileExistsAtPath:finalPath]) {
@@ -546,9 +531,9 @@ static Infrared *sharedInfraRed = nil;
     // -- clear cached data
     [[IRDataController sharedInstance] cleanData];
     // -- clear user-defaults
-    [IRUtil cleanAppLabelVersionInUserDefaults];
+    [IRUtil cleanAppAndVersionInUserDefaults];
     // -- clean cacheFolder
-    [self deleteCacheFolderForAppWithApp:appDescriptor.app label:appDescriptor.label version:appDescriptor.version];
+    [self deleteCacheFolderForAppWithApp:appDescriptor.app version:appDescriptor.version];
     // -- start app building process
     [self buildInfraredAppFromPath:path];
 }

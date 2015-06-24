@@ -19,14 +19,6 @@
         NSArray *array;
         NSDictionary *dictionary;
 
-        // app
-        string = aDictionary[appKEY];
-        self.app = string;
-
-        // label
-        string = aDictionary[appLabelKEY];
-        self.label = string;
-
         // version
         number = aDictionary[appVersionKEY];
         if ([number integerValue] >= 0) {
@@ -35,11 +27,18 @@
             self.version = 0;
         }
 
+        // silentUpdate
+        number = aDictionary[silentUpdateKEY];
+        if (number) {
+            self.silentUpdate = [number boolValue];
+        } else {
+            self.silentUpdate = NO;
+        }
+
         // screensArray
         array = aDictionary[screensKEY];
         self.screensArray = [IRBaseDescriptor newScreenDescriptorsArrayFromDictionariesArray:array
                                                                                          app:self.app
-                                                                                       label:self.label
                                                                                      version:self.version];
 
         // fontsArray
@@ -69,20 +68,11 @@
     return self;
 }
 
-- (id) initDescriptorForLabelAndVariantWithDictionary:(NSDictionary *)aDictionary
+- (id) initDescriptorForVersionWithDictionary:(NSDictionary *)aDictionary
 {
     self = [super initDescriptorWithDictionary:aDictionary];
     if (self) {
-        NSString *string;
         NSNumber *number;
-
-        // app
-        string = aDictionary[appKEY];
-        self.app = string;
-
-        // label
-        string = aDictionary[appLabelKEY];
-        self.label = string;
 
         // version
         number = aDictionary[appVersionKEY];
@@ -90,6 +80,14 @@
             self.version = [number integerValue];
         } else {
             self.version = 0;
+        }
+
+        // silentUpdate
+        number = aDictionary[silentUpdateKEY];
+        if (number) {
+            self.silentUpdate = [number boolValue];
+        } else {
+            self.silentUpdate = NO;
         }
     }
     return self;
@@ -103,20 +101,20 @@
         NSNumber *number;
         NSArray *array;
 
-        // app
-        string = aDictionary[appKEY];
-        self.app = string;
-
-        // label
-        string = aDictionary[appLabelKEY];
-        self.label = string;
-
         // version
         number = aDictionary[appVersionKEY];
         if ([number integerValue] >= 0) {
             self.version = [number integerValue];
         } else {
             self.version = 0;
+        }
+
+        // silentUpdate
+        number = aDictionary[silentUpdateKEY];
+        if (number) {
+            self.silentUpdate = [number boolValue];
+        } else {
+            self.silentUpdate = NO;
         }
 
         // baseUrl
@@ -144,5 +142,8 @@
     return mainScreenDescriptor;
 }
 
+- (NSString *) app {
+    return self.componentId;
+}
 
 @end

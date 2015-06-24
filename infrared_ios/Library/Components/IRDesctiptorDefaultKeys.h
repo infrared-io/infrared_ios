@@ -12,8 +12,8 @@
 
 
 #define appKEY                          @"app"
-#define appLabelKEY                     @"label"
 #define appVersionKEY                   @"version"
+#define silentUpdateKEY                 @"silentUpdate"
 #define appLanguagesKEY                 @"languages"
 #define jsLibrariesKEY                  @"jsLibraries"
 

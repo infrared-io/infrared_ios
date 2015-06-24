@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-//#define JS_DEBUG 1
+#define UPDATE_JSON_PATH            @"update.json"
 
 @class IRAppDescriptor;
 @class IRViewController;
@@ -34,6 +34,7 @@
 
 @property (nonatomic) BOOL checkForNewAppDescriptorSource;
 @property (nonatomic, strong) NSString *updateJSONPath;
+@property (nonatomic, strong) NSString *defaultUpdateJSONPath;
 
 + (IRDataController *)sharedInstance;
 

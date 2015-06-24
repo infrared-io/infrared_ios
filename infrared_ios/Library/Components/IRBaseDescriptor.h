@@ -40,7 +40,6 @@ typedef enum {
 
 + (NSArray *) newScreenDescriptorsArrayFromDictionariesArray:(NSArray *)aArray
                                                          app:(NSString *)app
-                                                       label:(NSString *)label
                                                      version:(NSInteger)version;
 
 + (NSMutableArray *) viewDescriptorsHierarchyFromArray:(NSArray *)aArray;

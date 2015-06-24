@@ -171,7 +171,7 @@
     NSString *stringToEvaluate;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
-    NSString *jsonImagesPathComponent = [IRUtil jsonAndjsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
+    NSString *jsonImagesPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
     NSData *fileData = [IRFileLoadingUtil dataForFileWithPath:descriptor.jsPluginPath
                                               destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonImagesPathComponent]
                                                  preserveName:YES];

@@ -39,7 +39,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 + (NSArray *) newScreenDescriptorsArrayFromDictionariesArray:(NSArray *)aArray
                                                          app:(NSString *)app
-                                                       label:(NSString *)label
                                                      version:(NSInteger)version
 {
     NSMutableArray *screenDescriptorsArray = [[NSMutableArray alloc] init];
@@ -50,11 +49,11 @@
         anDeviceType = anScreenDictionary[deviceTypeKEY];
         if ([IRBaseDescriptor isDeviceTypeMatchingDevice:anDeviceType]) {
             anScreenPath = anScreenDictionary[pathKEY];
-            dictionary = [IRUtil screenDictionaryFromPath:anScreenPath app:app label:label version:version];
+            dictionary = [IRUtil screenDictionaryFromPath:anScreenPath app:app version:version];
             if (dictionary) {
                 [screenDescriptorsArray addObject:[[IRScreenDescriptor alloc] initDescriptorWithDictionary:dictionary]];
             } else {
-                NSLog(@" ########## newScreenDescriptorsArrayFromDictionariesArray:app:label:version: - MISSING or INVALID json with path '%@'", anScreenPath);
+                NSLog(@" ########## newScreenDescriptorsArrayFromDictionariesArray:app:version: - MISSING or INVALID json with path '%@'", anScreenPath);
             }
         }
     }

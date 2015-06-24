@@ -13,11 +13,10 @@
 
 + (NSDictionary *) appDictionaryFromPath:(NSString *)path;
 
-+ (void) cleanAppLabelVersionInUserDefaults;
++ (void) cleanAppAndVersionInUserDefaults;
 
 + (NSDictionary *) screenDictionaryFromPath:(NSString *)path
                                         app:(NSString *)app
-                                      label:(NSString *)label
                                     version:(NSInteger)version;
 
 + (NSDictionary *) dictionaryFromPath:(NSString *)path;
@@ -25,17 +24,14 @@
 + (NSString *) resourcesPathForAppDescriptor:(IRAppDescriptor *)appDescriptor;
 
 + (NSString *) resourcesPathForAppDescriptorApp:(NSString *)app
-                                          label:(NSString *)label
                                         version:(NSInteger)version;
-+ (NSString *) jsonAndjsPathForAppDescriptor:(IRAppDescriptor *)appDescriptor;
++ (NSString *) jsonAndJsPathForAppDescriptor:(IRAppDescriptor *)appDescriptor;
 
-+ (NSString *) jsonAndjsPathForAppDescriptorApp:(NSString *)app
-                                          label:(NSString *)label
++ (NSString *) jsonAndJsPathForAppDescriptorApp:(NSString *)app
                                         version:(NSInteger)version;
 
 
 + (NSString *) basePathAppDescriptorApp:(NSString *)app
-                                  label:(NSString *)label
                                  varion:(NSInteger)version;
 + (NSString *) basePathAppDescriptorApp:(NSString *)app;
 + (NSString *) documentsBasePathForInfrared;

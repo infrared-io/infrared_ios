@@ -44,6 +44,7 @@
 		F613A136F980548B4BAB40A6 /* IRSearchBarBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AB474E6172F1636E56A1 /* IRSearchBarBuilder.m */; };
 		F613A14A8FA9B48123F8CF9E /* IRActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A07B7C86E9FC11C81BEB /* IRActivityIndicatorView.m */; };
 		F613A16348163258F8AFA606 /* IRSideMenuDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ADBA7D34C1DB792A6EB8 /* IRSideMenuDescriptor.m */; };
+		F613A17701D2300D9C4D48B4 /* ir_alert_view_and_action_sheet.json in Resources */ = {isa = PBXBuildFile; fileRef = F613A6FCE50D014C541ED0FC /* ir_alert_view_and_action_sheet.json */; };
 		F613A17854BFFAC9EBB0C572 /* IRBaseBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A100F342D960802C1B4D /* IRBaseBuilder.m */; };
 		F613A1829C239BCC11360EDF /* IRLayoutConstraintWithVFDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AC11B4A0229B33AAE072 /* IRLayoutConstraintWithVFDescriptor.m */; };
 		F613A1A1E3BDE183D30E7EE5 /* IRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AB353F5F7CA04717C2F1 /* IRTextField.m */; };
@@ -65,6 +66,7 @@
 		F613A322D0B102555CDDAD6C /* IRActivityIndicatorViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A97B23FDB4FF2F84DE24 /* IRActivityIndicatorViewDescriptor.m */; };
 		F613A32C1505215861A88DF6 /* IRSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A3D0B71DD7567DF2B610 /* IRSwitch.m */; };
 		F613A350F125A67840FEC6FF /* IRSegmentedControlDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A38AE848206B42810529 /* IRSegmentedControlDescriptor.m */; };
+		F613A36702C672C2A74595C9 /* ir_alert_view_and_action_sheet_plugin.js in Sources */ = {isa = PBXBuildFile; fileRef = F613A3CFF710B5EA52E086D8 /* ir_alert_view_and_action_sheet_plugin.js */; };
 		F613A384E82671EA649BE01A /* IRTextViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A037F9AA01066A5F0CDF /* IRTextViewDescriptor.m */; };
 		F613A39FE8E3D9CDCF674F70 /* IRLabelBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A5675EEC6FBB5C369D56 /* IRLabelBuilder.m */; };
 		F613A3D87D9378434A7C4205 /* IRStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ACBAA3A23FDD8484527A /* IRStepper.m */; };
@@ -334,6 +336,7 @@
 		F613A3B86EBFD67DAC08B301 /* IRLabelDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRLabelDescriptor.h; sourceTree = "<group>"; };
 		F613A3BA0A36752862340D2A /* IRBarItemDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBarItemDescriptor.h; sourceTree = "<group>"; };
 		F613A3CE42788832E3CD595B /* ir_collection_view.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = ir_collection_view.json; sourceTree = "<group>"; };
+		F613A3CFF710B5EA52E086D8 /* ir_alert_view_and_action_sheet_plugin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ir_alert_view_and_action_sheet_plugin.js; sourceTree = "<group>"; };
 		F613A3D0B71DD7567DF2B610 /* IRSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSwitch.m; sourceTree = "<group>"; };
 		F613A3F5B8D0EEDBA572BC34 /* IRPinAnnotationViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPinAnnotationViewBuilder.h; sourceTree = "<group>"; };
 		F613A3FDC67316D43B95B867 /* IRTableViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTableViewBuilder.h; sourceTree = "<group>"; };
@@ -403,6 +406,7 @@
 		F613A6E735ABDCF4CEA7FE89 /* IRTableViewDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTableViewDescriptor.m; sourceTree = "<group>"; };
 		F613A6ED85C9F039744D3B6C /* IRSwipeGestureRecognizerDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSwipeGestureRecognizerDescriptor.m; sourceTree = "<group>"; };
 		F613A6F8F5A610DEF7F71A23 /* IRNavigationControllerSubDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRNavigationControllerSubDescriptor.m; sourceTree = "<group>"; };
+		F613A6FCE50D014C541ED0FC /* ir_alert_view_and_action_sheet.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = ir_alert_view_and_action_sheet.json; sourceTree = "<group>"; };
 		F613A70EDF348D13884DE749 /* IRBarButtonItemDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBarButtonItemDescriptor.h; sourceTree = "<group>"; };
 		F613A711A3AF0D0DF85F982B /* IRSegmentedControlBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSegmentedControlBuilder.h; sourceTree = "<group>"; };
 		F613A71E1BDF602971AA1C47 /* IRSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSideMenu.m; sourceTree = "<group>"; };
@@ -878,6 +882,15 @@
 				F613A88292D98E97CB0C942B /* NSDataExport.h */,
 			);
 			path = JSExports;
+			sourceTree = "<group>";
+		};
+		F613A32F386533C8A9CFD44E /* AlertViewAndActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				F613A6FCE50D014C541ED0FC /* ir_alert_view_and_action_sheet.json */,
+				F613A3CFF710B5EA52E086D8 /* ir_alert_view_and_action_sheet_plugin.js */,
+			);
+			path = AlertViewAndActionSheet;
 			sourceTree = "<group>";
 		};
 		F613A39BD2CEDA8512B28CF2 /* GestureRecognizers */ = {
@@ -1687,6 +1700,7 @@
 				F613A39BD2CEDA8512B28CF2 /* GestureRecognizers */,
 				F613A6F71FBF30E10F7D8EF8 /* Combination of Views */,
 				F613A72ABAFE927DDF426665 /* CollectionView */,
+				F613A32F386533C8A9CFD44E /* AlertViewAndActionSheet */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1893,6 +1907,7 @@
 				F613AAA8BF618F5EBCA180B9 /* ir_combination_of_views.json in Resources */,
 				F613AB37AA20628A662E1EF2 /* ir_gesture_recognizers.json in Resources */,
 				F613A07EA8595650F59510F4 /* ir_collection_view.json in Resources */,
+				F613A17701D2300D9C4D48B4 /* ir_alert_view_and_action_sheet.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2152,6 +2167,7 @@
 				F613A5AE15533211812952C0 /* IRCollectionReusableViewBuilder.m in Sources */,
 				F613A634F353A447ED219AD4 /* IRCollectionReusableViewDescriptor.m in Sources */,
 				F613A5A87EE678FDC2166FD8 /* IRCollectionViewBuilder+AutoLayout.m in Sources */,
+				F613A36702C672C2A74595C9 /* ir_alert_view_and_action_sheet_plugin.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,6 @@
       "de": "update_de.json"
     }
   },
-  "app": "update",
-  "label": "dev",
+  "silentUpdate": true,
   "version": 1
 }

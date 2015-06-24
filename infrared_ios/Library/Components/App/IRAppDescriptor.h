@@ -12,9 +12,9 @@
 
 @interface IRAppDescriptor : IRBaseDescriptor
 
-@property (nonatomic, strong) NSString *app;
-@property (nonatomic, strong) NSString *label;
+@property (nonatomic, readonly) NSString *app;
 @property (nonatomic) NSInteger version;
+@property (nonatomic) BOOL silentUpdate;
 @property (nonatomic, strong) NSArray *screensArray;
 @property (nonatomic, strong) NSArray *fontsArray;
 @property (nonatomic, strong) NSString *mainScreenId;
@@ -26,7 +26,7 @@
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 
-- (id) initDescriptorForLabelAndVariantWithDictionary:(NSDictionary *)aDictionary;
+- (id) initDescriptorForVersionWithDictionary:(NSDictionary *)aDictionary;
 - (id) initDescriptorForFontsWithDictionary:(NSDictionary *)aDictionary;
 
 - (IRScreenDescriptor *) mainScreenDescriptor;

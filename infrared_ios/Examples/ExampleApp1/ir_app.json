@@ -36,6 +36,6 @@
       "de": "example1_de.json"
     }
   },
-  "label": "dev",
-  "version": 1
+  "silentUpdate": false,
+  "version": 4
 }
