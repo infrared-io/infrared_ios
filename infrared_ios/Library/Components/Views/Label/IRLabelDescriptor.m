@@ -32,7 +32,6 @@
     NSDictionary *dictionary = [super viewDefaults];
     NSMutableDictionary *defaults = [NSMutableDictionary dictionaryWithDictionary:dictionary];
     [defaults setValuesForKeysWithDictionary:@{
-      @"textColor" : [UIColor clearColor],
       @"numberOfLines" : @(1),
       @"enabled" : @(YES),
       @"highlighted" : @(NO),
@@ -64,7 +63,7 @@
         if (color) {
             self.textColor = color;
         } else {
-            self.textColor = [self viewDefaults][NSStringFromSelector(@selector(textColor))];
+            self.textColor = nil;
         }
 
         // font

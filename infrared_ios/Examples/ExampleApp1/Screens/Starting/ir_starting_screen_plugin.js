@@ -14,6 +14,26 @@ IR.plugin("starting_screen", {
                     "screenId" : "ir_gesture_recognizers"
                 },
                 {
+                    "text" : "Alert View and Action Sheet",
+                    "screenId" : "ir_alert_view_and_action_sheet"
+                },
+                //{
+                //    "text" : "Label, Button, Image",
+                //    "screenId" : ""
+                //},
+                //{
+                //    "text" : "TextField, TextView",
+                //    "screenId" : ""
+                //},
+                //{
+                //    "text" : "SegmentedControl, Slider, Stepper, Switch",
+                //    "screenId" : ""
+                //},
+                //{
+                //    "text" : "PageControl",
+                //    "screenId" : ""
+                //},
+                {
                     "text" : "Table View",
                     "screenId" : "ir_table_view"
                 },

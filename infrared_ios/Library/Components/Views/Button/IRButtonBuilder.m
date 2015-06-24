@@ -4,7 +4,9 @@
 //
 
 #import "IRButtonBuilder.h"
+#import "IRViewDescriptor.h"
 #import "IRButtonDescriptor.h"
+#import "IRView.h"
 #import "IRButton.h"
 #import "IRViewBuilder.h"
 #import "IRSimpleCache.h"
@@ -38,32 +40,48 @@
     [IRBaseBuilder setUpUIControlInterfaceForComponent:irButton fromDescriptor:descriptor];
 
     [irButton setTitle:[IRBaseBuilder textWithI18NCheck:descriptor.normalTitle] forState:UIControlStateNormal];
-    [irButton setTitleColor:descriptor.normalTitleColor forState:UIControlStateNormal];
-    [irButton setTitleShadowColor:descriptor.normalTitleShadowColor forState:UIControlStateNormal];
+    if (descriptor.normalTitleColor) {
+        [irButton setTitleColor:descriptor.normalTitleColor forState:UIControlStateNormal];
+    }
+    if (descriptor.normalTitleShadowColor) {
+        [irButton setTitleShadowColor:descriptor.normalTitleShadowColor forState:UIControlStateNormal];
+    }
     [irButton setImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.normalImage]
               forState:UIControlStateNormal];
     [irButton setBackgroundImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.normalBackgroundImage]
                         forState:UIControlStateNormal];
 
     [irButton setTitle:[IRBaseBuilder textWithI18NCheck:descriptor.highlightedTitle] forState:UIControlStateHighlighted];
-    [irButton setTitleColor:descriptor.highlightedTitleColor forState:UIControlStateHighlighted];
-    [irButton setTitleShadowColor:descriptor.highlightedTitleShadowColor forState:UIControlStateHighlighted];
+    if (descriptor.highlightedTitleColor) {
+        [irButton setTitleColor:descriptor.highlightedTitleColor forState:UIControlStateHighlighted];
+    }
+    if (descriptor.highlightedTitleShadowColor) {
+        [irButton setTitleShadowColor:descriptor.highlightedTitleShadowColor forState:UIControlStateHighlighted];
+    }
     [irButton setImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.highlightedImage]
               forState:UIControlStateHighlighted];
     [irButton setBackgroundImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.highlightedBackgroundImage]
                         forState:UIControlStateHighlighted];
 
     [irButton setTitle:[IRBaseBuilder textWithI18NCheck:descriptor.selectedTitle] forState:UIControlStateSelected];
-    [irButton setTitleColor:descriptor.selectedTitleColor forState:UIControlStateSelected];
-    [irButton setTitleShadowColor:descriptor.selectedTitleShadowColor forState:UIControlStateSelected];
+    if (descriptor.selectedTitleColor) {
+        [irButton setTitleColor:descriptor.selectedTitleColor forState:UIControlStateSelected];
+    }
+    if (descriptor.selectedTitleShadowColor) {
+        [irButton setTitleShadowColor:descriptor.selectedTitleShadowColor forState:UIControlStateSelected];
+    }
     [irButton setImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.selectedImage]
               forState:UIControlStateSelected];
     [irButton setBackgroundImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.selectedBackgroundImage]
                         forState:UIControlStateSelected];
 
     [irButton setTitle:[IRBaseBuilder textWithI18NCheck:descriptor.disabledTitle] forState:UIControlStateDisabled];
-    [irButton setTitleColor:descriptor.disabledTitleColor forState:UIControlStateDisabled];
-    [irButton setTitleShadowColor:descriptor.disabledTitleShadowColor forState:UIControlStateDisabled];
+    if (descriptor.disabledTitleColor) {
+        [irButton setTitleColor:descriptor.disabledTitleColor forState:UIControlStateDisabled];
+    }
+    if (descriptor.disabledTitleShadowColor) {
+        [irButton setTitleShadowColor:descriptor.disabledTitleShadowColor forState:UIControlStateDisabled];
+    }
     [irButton setImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.disabledImage]
               forState:UIControlStateDisabled];
     [irButton setBackgroundImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.disabledBackgroundImage]

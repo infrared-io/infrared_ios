@@ -37,7 +37,6 @@
       @"multipleTouchEnabled" : @(NO),
       @"alpha" : @(1.0),
       @"backgroundColor" : [UIColor clearColor],
-//      @"tintColor" : [NSNull null],
       @"opaque" : @(YES),
       @"hidden" : @(NO),
       @"clearsContextBeforeDrawing" : @(YES),

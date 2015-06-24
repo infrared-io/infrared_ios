@@ -1,0 +1,73 @@
+{
+  "id" : "ir_alert_view_and_action_sheet",
+  "controller" : {
+    "id" : "ir_alert_view_and_action_sheet_vc",
+    "controllerType" : "viewController",
+    "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
+    "title" : "Picker view",
+    "jsPluginPath" : "ir_alert_view_and_action_sheet_plugin.js",
+    "navigationController" : {
+      "autoAddIfNeeded" : true,
+      "hideNavigationBar" : false
+    }
+  },
+  "view" : {
+    "id" : "root_view",
+    "backgroundColor" : "#f3f3f3",
+    "subviews" : [
+      {
+        "id" : "alert_view_label",
+        "type" : "label",
+        "text": "Alert View:"
+      },
+      {
+        "id" : "alert_view_button",
+        "type" : "button",
+        "normalTitle": "Open",
+        "normalTitleColor": "#404040",
+        "touchUpInsideActions": "this.showAlertView();"
+      },
+      {
+        "id" : "action_sheet_label",
+        "type" : "label",
+        "text": "Action Sheet:"
+      },
+      {
+        "id" : "action_sheet_button",
+        "type" : "button",
+        "normalTitle": "Open",
+        "normalTitleColor": "#404040",
+        "touchUpInsideActions": "this.showActionSheet();"
+      }
+    ],
+    "constraints" : [
+      {
+        "visualFormat" : "H:|-32-[alert_view_label(==120)]-32-[alert_view_button]"
+      },
+      {
+        "withItem": "alert_view_button",
+        "withItemAttribute": "NSLayoutAttributeCenterY",
+        "relatedBy": "NSLayoutRelationEqual",
+        "toItem": "alert_view_label",
+        "toItemAttribute": "NSLayoutAttributeCenterY",
+        "multiplier": "1",
+        "constant": ""
+      },
+      {
+        "visualFormat" : "H:|-32-[action_sheet_label(==120)]-32-[action_sheet_button]"
+      },
+      {
+        "withItem": "action_sheet_button",
+        "withItemAttribute": "NSLayoutAttributeCenterY",
+        "relatedBy": "NSLayoutRelationEqual",
+        "toItem": "action_sheet_label",
+        "toItemAttribute": "NSLayoutAttributeCenterY",
+        "multiplier": "1",
+        "constant": ""
+      },
+      {
+        "visualFormat" : "V:|-40-[alert_view_label(==40)]-16-[action_sheet_label(==40)]"
+      }
+    ]
+  }
+}

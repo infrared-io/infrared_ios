@@ -36,7 +36,9 @@
     [IRViewBuilder setUpComponent:irLabel componentDescriptor:descriptor viewController:viewController extra:extra];
 
     irLabel.text = [IRBaseBuilder textWithI18NCheck:descriptor.text];
-    irLabel.textColor = descriptor.textColor;
+    if (descriptor.textColor) {
+        irLabel.textColor = descriptor.textColor;
+    }
     irLabel.font = descriptor.font;
     irLabel.textAlignment = descriptor.textAlignment;
     irLabel.numberOfLines = descriptor.numberOfLines;
