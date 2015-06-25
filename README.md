@@ -33,7 +33,7 @@ all resources used by app can be updated at any time. This includes localization
 ### JavaScript example
 
 ```javascript
-infrared.plugin("main", {
+IR.plugin("main", {
     "data" : {
         "text_1" : 'value 1',
         "text_2" : 'value 2',
