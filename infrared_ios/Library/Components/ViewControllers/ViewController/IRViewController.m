@@ -511,9 +511,9 @@
         if (screenDescriptor) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 IRViewController *contentViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor
-                                                                                                    data:nil];
-                contentViewController = [IRViewControllerBuilder wrapInNavigationControllerIfNeeded:contentViewController
-                                                                                         descriptor:contentViewController.descriptor];
+                                                                                                                      data:nil];
+                // -- navigation controller and tabBar controller
+                contentViewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerIfNeeded:contentViewController];
                 self.sideMenuViewController.delegate = contentViewController;
                 [self.sideMenuViewController setContentViewController:contentViewController
                                                              animated:animated];
@@ -1068,7 +1068,7 @@
         viewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor
                                                                                      data:data];
         // -- wrap if needed
-        viewController = [IRViewControllerBuilder wrapInNavigationControllerAndSideMenuIfNeeded:viewController];
+        viewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerAndSideMenuIfNeeded:viewController];
         [self presentViewController:viewController animated:animated completion:nil];
     }
 

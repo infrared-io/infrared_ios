@@ -126,43 +126,45 @@
 {
     IRBaseDescriptor *descriptor = nil;
     IRBaseDescriptor *screenDescriptor;
-    ControllerDescriptorType type = [IRBaseDescriptor controllerDescriptorTypeForString:[controllerDictionary valueForKey:controllerTypeKEY]];
-    switch (type) {
-        case ControllerDescriptorTypeViewController: {
+//    ControllerDescriptorType type = [IRBaseDescriptor controllerDescriptorTypeForString:[controllerDictionary valueForKey:controllerTypeKEY]];
+//    switch (type) {
+//        case ControllerDescriptorTypeViewController: {
+
             descriptor = [[IRViewControllerDescriptor alloc] initDescriptorWithDictionary:controllerDictionary];
             if (descriptor.componentId == nil || descriptor.componentId.length == 0) {
                 screenDescriptor = [[IRBaseDescriptor alloc] initDescriptorWithDictionary:screenDictionary];
                 descriptor.componentId = [screenDescriptor.componentId stringByAppendingString:@"_vc"];
             }
-        }
-            break;
-//        case ControllerDescriptorTypeNavigationController: {
-//            descriptor = [[IRNavigationControllerDescriptor alloc] initDescriptorWithDictionary:sourceDictionary];
+
 //        }
-            break;
-        case ControllerDescriptorTypeTabBarController: {
-            // TODO: to be implemented
-        }
-            break;
-        default:
-            break;
-    }
+//            break;
+////        case ControllerDescriptorTypeNavigationController: {
+////            descriptor = [[IRNavigationControllerDescriptor alloc] initDescriptorWithDictionary:sourceDictionary];
+////        }
+//            break;
+//        case ControllerDescriptorTypeTabBarController: {
+//            // TODO: to be implemented
+//        }
+//            break;
+//        default:
+//            break;
+//    }
     return descriptor;
 }
-+ (ControllerDescriptorType) controllerDescriptorTypeForString:(NSString *)descriptorTypeString
-{
-    ControllerDescriptorType descriptorType;
-    if ([descriptorTypeString isEqualToString:controllerTypeViewControllerKEY]) {
-        descriptorType = ControllerDescriptorTypeViewController;
-    } else if ([descriptorTypeString isEqualToString:controllerTypeNavigationControllerKEY]) {
-        descriptorType = ControllerDescriptorTypeNavigationController;
-    } else if ([descriptorTypeString isEqualToString:controllerTypeTabBarControllerKEY]) {
-        descriptorType = ControllerDescriptorTypeTabBarController;
-    } else {
-        descriptorType = ControllerDescriptorTypeViewController;
-    }
-    return descriptorType;
-}
+//+ (ControllerDescriptorType) controllerDescriptorTypeForString:(NSString *)descriptorTypeString
+//{
+//    ControllerDescriptorType descriptorType;
+//    if ([descriptorTypeString isEqualToString:controllerTypeViewControllerKEY]) {
+//        descriptorType = ControllerDescriptorTypeViewController;
+//    } else if ([descriptorTypeString isEqualToString:controllerTypeNavigationControllerKEY]) {
+//        descriptorType = ControllerDescriptorTypeNavigationController;
+//    } else if ([descriptorTypeString isEqualToString:controllerTypeTabBarControllerKEY]) {
+//        descriptorType = ControllerDescriptorTypeTabBarController;
+//    } else {
+//        descriptorType = ControllerDescriptorTypeViewController;
+//    }
+//    return descriptorType;
+//}
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 + (UIViewContentMode) contentModeFromString:(NSString *)string

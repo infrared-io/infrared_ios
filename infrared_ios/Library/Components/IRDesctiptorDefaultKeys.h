@@ -118,10 +118,10 @@
 #define calloutKEY                      @"callout"
 
 #define controllerKEY                                  @"controller"
-#define controllerTypeKEY                              @"controllerType"
-#define controllerTypeViewControllerKEY                @"viewController"
-#define controllerTypeNavigationControllerKEY          @"navigationController"
-#define controllerTypeTabBarControllerKEY              @"tabBarController"
+//#define controllerTypeKEY                              @"controllerType"
+//#define controllerTypeViewControllerKEY                @"viewController"
+//#define controllerTypeNavigationControllerKEY          @"navigationController"
+//#define controllerTypeTabBarControllerKEY              @"tabBarController"
 
 #define gestureRecognizerTypeKEY                       @"gestureType"
 #define gestureRecognizerTypeTapKEY                    @"tap"

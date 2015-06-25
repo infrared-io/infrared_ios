@@ -22,14 +22,17 @@
 + (void) setUpComponent:(IRViewController *)irViewController
          fromDescriptor:(IRViewControllerDescriptor *)descriptor;
 
++ (IRViewController *) wrapInTabBarControllerAndNavigationControllerAndSideMenuIfNeeded:(IRViewController *)irViewController;
++ (IRViewController *) wrapInTabBarControllerAndNavigationControllerIfNeeded:(IRViewController *)irViewController;
++ (IRViewController *) wrapInNavigationControllerIfNeeded:(IRViewController *)irViewController
+                                               descriptor:(IRViewControllerDescriptor *)viewControllerDescriptor;
++ (IRViewController *) wrapInTabBarControllerIfNeeded:(IRViewController *)irViewController
+                                           descriptor:(IRViewControllerDescriptor *)viewControllerDescriptor;
++ (IRViewController *) wrapInSideMenuIfNeeded:(IRViewController *)irViewController
+                                   descriptor:(IRViewControllerDescriptor *)viewControllerDescriptor;
+
 + (void) addAutoLayoutConstraintsForRootView:(IRViewController *)irViewController;
 + (void) addDataBindingsForRootView:(IRViewController *)irViewController;
 + (void) addRequireGestureRecognizerToFailForRootView:(IRViewController *)irViewController;
-
-+ (IRViewController *) wrapInNavigationControllerAndSideMenuIfNeeded:(IRViewController *)irViewController;
-+ (IRViewController *) wrapInNavigationControllerIfNeeded:(IRViewController *)irViewController
-                                               descriptor:(IRViewControllerDescriptor *)viewControllerDescriptor;
-+ (IRViewController *) wrapInSideMenuIfNeeded:(IRViewController *)irViewController
-                                   descriptor:(IRViewControllerDescriptor *)viewControllerDescriptor;
 
 @end

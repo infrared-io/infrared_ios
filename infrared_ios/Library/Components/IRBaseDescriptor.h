@@ -18,12 +18,12 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
-typedef enum {
-    ControllerDescriptorTypeUndefined,
-    ControllerDescriptorTypeViewController,
-    ControllerDescriptorTypeNavigationController,
-    ControllerDescriptorTypeTabBarController
-} ControllerDescriptorType;
+//typedef enum {
+//    ControllerDescriptorTypeUndefined,
+//    ControllerDescriptorTypeViewController,
+//    ControllerDescriptorTypeNavigationController,
+//    ControllerDescriptorTypeTabBarController
+//} ControllerDescriptorType;
 
 typedef enum {
     DataBindingModeOneWayFromData = 0,
@@ -48,7 +48,7 @@ typedef enum {
 
 + (IRBaseDescriptor *) newControllerDescriptorWithDictionary:(NSDictionary *)controllerDictionary
                                             screenDictionary:(NSDictionary *)screenDictionary;
-+ (ControllerDescriptorType) controllerDescriptorTypeForString:(NSString *)descriptorTypeString;
+//+ (ControllerDescriptorType) controllerDescriptorTypeForString:(NSString *)descriptorTypeString;
 
 + (UIViewContentMode) contentModeFromString:(NSString *)string;
 + (UIAccessibilityTraits) accessibilityTraitsFromString:(NSString *)string

@@ -8,6 +8,26 @@
     "navigationController" : {
       "autoAddIfNeeded" : true,
       "hideNavigationBar" : false
+    },
+    "tabBarController": {
+      "selectedIndex": 1,
+      "viewControllers": [
+        {
+          "screenId": "ir_starting_screen",
+          "title": "First",
+          "image": ""
+        },
+        {
+          "screenId": "ir_starting_screen",
+          "title": "Second",
+          "image": ""
+        },
+        {
+          "screenId": "ir_starting_screen",
+          "title": "Third",
+          "image": ""
+        }
+      ]
     }
   },
   "view" : {

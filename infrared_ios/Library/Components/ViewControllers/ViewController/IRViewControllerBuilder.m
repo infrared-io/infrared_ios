@@ -21,6 +21,9 @@
 #import "IRFileLoadingUtil.h"
 #import "IRViewDescriptor.h"
 #import "IRUtilLibrary.h"
+#import "IRTabBarController.h"
+#import "IRTabBarControllerSubDescriptor.h"
+#import "IRTabBarItemDescriptor.h"
 
 
 @implementation IRViewControllerBuilder
@@ -32,9 +35,12 @@
     IRViewController *irViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:descriptor
                                                                                                      data:data];
     // -- wrap if needed
-    irViewController = [IRViewControllerBuilder wrapInNavigationControllerAndSideMenuIfNeeded:irViewController];
+    irViewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerAndSideMenuIfNeeded:irViewController];
     return irViewController;
 }
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 
 + (IRViewController *) buildViewControllerFromScreenDescriptor:(IRScreenDescriptor *)descriptor
                                                           data:(id)data
@@ -87,16 +93,34 @@
                                                              viewController:irViewController extra:nil];
 }
 
-+ (IRViewController *) wrapInNavigationControllerAndSideMenuIfNeeded:(IRViewController *)irViewController
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
++ (IRViewController *) wrapInTabBarControllerAndNavigationControllerAndSideMenuIfNeeded:(IRViewController *)irViewController
 {
     IRViewController *resultingViewController = irViewController;
     IRViewControllerDescriptor *viewControllerDescriptor = (IRViewControllerDescriptor *) resultingViewController.descriptor;
 
-    resultingViewController = [IRViewControllerBuilder wrapInNavigationControllerIfNeeded:resultingViewController
-                                                                               descriptor:viewControllerDescriptor];
-
+    // -- navigation controller and tabBar controller
+    resultingViewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerIfNeeded:resultingViewController];
+    // -- sideMenu controller
     resultingViewController = [IRViewControllerBuilder wrapInSideMenuIfNeeded:resultingViewController
                                                                    descriptor:viewControllerDescriptor];
+
+    return resultingViewController;
+}
+
++ (IRViewController *) wrapInTabBarControllerAndNavigationControllerIfNeeded:(IRViewController *)irViewController
+{
+    IRViewController *resultingViewController = irViewController;
+    IRViewControllerDescriptor *viewControllerDescriptor = (IRViewControllerDescriptor *) resultingViewController.descriptor;
+
+    // -- navigation controller
+    resultingViewController = [IRViewControllerBuilder wrapInNavigationControllerIfNeeded:resultingViewController
+                                                                               descriptor:viewControllerDescriptor];
+    // -- tabBar controller
+    resultingViewController = [IRViewControllerBuilder wrapInTabBarControllerIfNeeded:resultingViewController
+                                                                           descriptor:viewControllerDescriptor];
 
     return resultingViewController;
 }
@@ -110,6 +134,59 @@
     if (viewControllerDescriptor.navigationController.autoAddIfNeeded) {
         navigationController = [[IRNavigationController alloc] initWithRootViewController:resultingViewController];
         resultingViewController = navigationController;
+    }
+
+    return resultingViewController;
+}
+
++ (IRViewController *) wrapInTabBarControllerIfNeeded:(IRViewController *)irViewController
+                                           descriptor:(IRViewControllerDescriptor *)viewControllerDescriptor
+{
+    IRViewController *resultingViewController = irViewController;
+    IRTabBarController *tabBarController;
+    IRTabBarControllerSubDescriptor *descriptor;
+    IRScreenDescriptor *anTabBarScreenDescriptor;
+    NSMutableArray *viewControllersArray;
+    IRViewController *anTabBarViewController;
+    NSString *screenId;
+    BOOL irViewControllerAlreadyUsed = NO;
+
+    if (viewControllerDescriptor.tabBarController) {
+        descriptor = viewControllerDescriptor.tabBarController;
+        tabBarController = [[IRTabBarController alloc] init];
+
+        // -- viewControllers
+        viewControllersArray = [NSMutableArray array];
+        screenId = [[IRDataController sharedInstance] screenIdForControllerId:viewControllerDescriptor.componentId];
+        for (IRTabBarItemDescriptor *irTabBarItemDescriptor in descriptor.viewControllers) {
+            if ([irTabBarItemDescriptor.screenId isEqualToString:screenId]
+                && irViewControllerAlreadyUsed == NO)
+            {
+                anTabBarViewController = irViewController;
+                irViewControllerAlreadyUsed = YES;
+            } else {
+                anTabBarScreenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:irTabBarItemDescriptor.screenId];
+                // -- set data and ui
+                anTabBarViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:anTabBarScreenDescriptor
+                                                                                                     data:nil];
+                // -- wrap if needed
+                anTabBarViewController = [IRViewControllerBuilder wrapInNavigationControllerIfNeeded:anTabBarViewController
+                                                                                          descriptor:anTabBarScreenDescriptor.viewControllerDescriptor];
+            }
+            anTabBarViewController.tabBarItem.title = irTabBarItemDescriptor.title;
+            anTabBarViewController.tabBarItem.image = [[IRSimpleCache sharedInstance] imageForURI:irTabBarItemDescriptor.image];
+
+            [viewControllersArray addObject:anTabBarViewController];
+        }
+        tabBarController.viewControllers = viewControllersArray;
+
+        // -- selectedIndex
+        tabBarController.selectedIndex = descriptor.selectedIndex;
+
+        // -- autoresizingMask
+//        tabBarController.view.autoresizingMask=(UIViewAutoresizingFlexibleHeight);
+
+        resultingViewController = tabBarController;
     }
 
     return resultingViewController;

@@ -54,7 +54,7 @@ IR.plugin("starting_screen", {
                     "screenId" : "ir_collection_view"
                 },
                 {
-                    "text" : "PickerView, DataPicker",
+                    "text" : "PickerView, /*DataPicker*/",
                     "screenId" : "ir_picker_view"
                 },
                 {

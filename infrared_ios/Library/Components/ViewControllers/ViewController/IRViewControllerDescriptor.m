@@ -9,6 +9,7 @@
 #import "IRSideMenuDescriptor.h"
 #import "IRNavigationControllerSubDescriptor.h"
 #import "IRKeyboardManagerSubDescriptor.h"
+#import "IRTabBarControllerSubDescriptor.h"
 
 
 @implementation IRViewControllerDescriptor
@@ -62,6 +63,10 @@
         // sideMenu
         dictionary = aDictionary[NSStringFromSelector(@selector(sideMenu))];
         self.sideMenu = [[IRSideMenuDescriptor alloc] initDescriptorWithDictionary:dictionary];
+
+        // tabBarController
+        dictionary = aDictionary[NSStringFromSelector(@selector(tabBarController))];
+        self.tabBarController = [[IRTabBarControllerSubDescriptor alloc] initDescriptorWithDictionary:dictionary];
 
         // navigationController
         dictionary = aDictionary[NSStringFromSelector(@selector(navigationController))];

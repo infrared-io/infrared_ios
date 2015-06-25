@@ -9,6 +9,7 @@
 @class IRSideMenuDescriptor;
 @class IRNavigationControllerSubDescriptor;
 @class IRKeyboardManagerSubDescriptor;
+@class IRTabBarControllerSubDescriptor;
 
 
 @interface IRViewControllerDescriptor : IRBaseDescriptor
@@ -20,6 +21,7 @@
 @property (nonatomic) BOOL prefersStatusBarHidden;
 @property (nonatomic, strong) NSArray *supportedInterfaceOrientationsArray;
 @property (nonatomic, strong) IRSideMenuDescriptor * sideMenu;
+@property (nonatomic, strong) IRTabBarControllerSubDescriptor * tabBarController;
 @property (nonatomic, strong) IRNavigationControllerSubDescriptor * navigationController;
 @property (nonatomic, strong) IRKeyboardManagerSubDescriptor *keyboardManager;
 @property (nonatomic) BOOL requestWhenInUseAuthorization;
