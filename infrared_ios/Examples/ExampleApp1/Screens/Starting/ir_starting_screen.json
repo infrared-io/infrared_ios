@@ -1,7 +1,6 @@
 {
   "id" : "ir_starting_screen",
   "controller" : {
-    "id" : "ir_starting_screen_vc",
     "controllerType" : "viewController",
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
     "title" : "i18n.ir_starting_screen_vc_title",
@@ -13,17 +12,12 @@
   },
   "view" : {
     "id" : "root_view",
-    "backgroundColor" : "#00ff00",
     "subviews" : [
       {
         "id" : "internal_table_view",
         "type" : "tableView",
-        "rowHeight" : 44,
         "backgroundColor" : "#ffffff",
-        "accessoryButtonAction" : "",
         "selectRowAction" : "this.tableViewRowSelected(tableView, indexPath, data);",
-        "sectionItemName" : "section",
-        "cellItemName" : "cell",
         "dataBinding" : [
           {
             "property" : "tableData",

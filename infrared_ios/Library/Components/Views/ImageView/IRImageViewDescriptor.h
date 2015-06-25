@@ -19,7 +19,8 @@
 @property(nonatomic) UIEdgeInsets imageCapInsets;
 @property(nonatomic) UIEdgeInsets highlightedImageCapInsets;
 
-@property(nonatomic) BOOL preserveAspectRatio;
+// TODO: implement this
+//@property(nonatomic) BOOL preserveAspectRatio;
 
 // --------------------------------------------------------------------------------------------------------------------
 

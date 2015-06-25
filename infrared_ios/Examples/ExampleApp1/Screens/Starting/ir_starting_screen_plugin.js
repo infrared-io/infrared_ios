@@ -14,11 +14,19 @@ IR.plugin("starting_screen", {
                     "screenId" : "ir_gesture_recognizers"
                 },
                 {
-                    "text" : "Alert View and Action Sheet",
+                    "text" : "AlertView and ActionSheet",
                     "screenId" : "ir_alert_view_and_action_sheet"
                 },
+                {
+                    "text" : "Label, Button, Image",
+                    "screenId" : "ir_label_button_image"
+                },
                 //{
-                //    "text" : "Label, Button, Image",
+                //    "text" : "View, ScrollView, PageControl",
+                //    "screenId" : ""
+                //},
+                //{
+                //    "text" : "MapView, WebView",
                 //    "screenId" : ""
                 //},
                 //{
@@ -30,19 +38,23 @@ IR.plugin("starting_screen", {
                 //    "screenId" : ""
                 //},
                 //{
-                //    "text" : "PageControl",
+                //    "text" : "ProgressView, Toolbar, SearchBar",
                 //    "screenId" : ""
                 //},
+                //{
+                //    "text" : "DataPicker",
+                //    "screenId" : "ir_data_picker"
+                //},
                 {
-                    "text" : "Table View",
+                    "text" : "TableView",
                     "screenId" : "ir_table_view"
                 },
                 {
-                    "text" : "Collection View",
+                    "text" : "CollectionView",
                     "screenId" : "ir_collection_view"
                 },
                 {
-                    "text" : "Picker View",
+                    "text" : "PickerView, DataPicker",
                     "screenId" : "ir_picker_view"
                 },
                 {

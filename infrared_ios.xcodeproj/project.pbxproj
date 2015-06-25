@@ -141,6 +141,7 @@
 		F613A9C2745312B6CC8D2C54 /* IRNavigationItemDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6CDC85EDB46B156FB98 /* IRNavigationItemDescriptor.m */; };
 		F613A9C9938A03228A3CC83B /* IRScreenDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AABCF51293A2EBCD6D3A /* IRScreenDescriptor.m */; };
 		F613A9D3EE5EC62C9DE51B72 /* IRPickerViewObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ACE06B66592E30B2918C /* IRPickerViewObserver.m */; };
+		F613A9FDCF36F65FAA43A654 /* ir_label_button_image.json in Resources */ = {isa = PBXBuildFile; fileRef = F613AF853918C0F5EA73ADC4 /* ir_label_button_image.json */; };
 		F613AA03E7BA36F23019B045 /* IRNavigationItemBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A1644AEFDEA00F2C8F6B /* IRNavigationItemBuilder.m */; };
 		F613AA0C4C5F64023975FF08 /* IRAppDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AC0B84C9046839E647E1 /* IRAppDescriptor.m */; };
 		F613AA1233EECEDD16274D5C /* UITextView+Infrared.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A48CD0AE2D8A8CCB1302 /* UITextView+Infrared.m */; };
@@ -149,7 +150,9 @@
 		F613AA349A416A8294A00E4D /* IRJSContextUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AA3B2A936FD1F8DF5F9D /* IRJSContextUtil.m */; };
 		F613AA5EDBACD8D92B441A00 /* IRSwipeGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7AA0809221D81025BE5 /* IRSwipeGestureRecognizer.m */; };
 		F613AA75F11AE3CCBB450E34 /* IRTextViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AC11460046313BF0B1A7 /* IRTextViewBuilder.m */; };
+		F613AA89CD4DFB35E002FA51 /* DSCF4010.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F613A9D052A472718B415BD6 /* DSCF4010.JPG */; };
 		F613AA8B316CD9240EFCBFCB /* IRCollectionViewCellBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A292E02E72E93EE6988D /* IRCollectionViewCellBuilder.m */; };
+		F613AA974C99700CF920B543 /* ir_label_button_image_plugin.js in Sources */ = {isa = PBXBuildFile; fileRef = F613AEBD10CA56BDB771FF3B /* ir_label_button_image_plugin.js */; };
 		F613AAA8BF618F5EBCA180B9 /* ir_combination_of_views.json in Resources */ = {isa = PBXBuildFile; fileRef = F613A9FEED8317449A083AE9 /* ir_combination_of_views.json */; };
 		F613AAC6C33A4B6A07994B5B /* IRViewControllerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7875B4756EA039F0DF6 /* IRViewControllerDescriptor.m */; };
 		F613AACF3E75A7B3B685E6E8 /* update_en.json in Resources */ = {isa = PBXBuildFile; fileRef = F613A5200ED043F02A983386 /* update_en.json */; };
@@ -473,6 +476,7 @@
 		F613A9B5338A75BABD46214E /* IRPageControlDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPageControlDescriptor.m; sourceTree = "<group>"; };
 		F613A9C46328DE96BB9C7A91 /* IRSimpleCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSimpleCache.h; sourceTree = "<group>"; };
 		F613A9C78F4B50EB762261B3 /* IRTableViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTableViewBuilder.m; sourceTree = "<group>"; };
+		F613A9D052A472718B415BD6 /* DSCF4010.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DSCF4010.JPG; sourceTree = "<group>"; };
 		F613A9D2A8A4E80C53B03039 /* IRSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSlider.m; sourceTree = "<group>"; };
 		F613A9D7E4708452BBDCD88E /* IRView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRView.h; sourceTree = "<group>"; };
 		F613A9D9371996CAF1F2951E /* IRView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRView.m; sourceTree = "<group>"; };
@@ -590,6 +594,7 @@
 		F613AE7FEAEB3D5685F67137 /* IRCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCollectionReusableView.m; sourceTree = "<group>"; };
 		F613AEAE71F37B55BD7B734A /* IRLayoutConstraintWithVFDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRLayoutConstraintWithVFDescriptor.h; sourceTree = "<group>"; };
 		F613AEB6EBDD4DF5DABDE6E4 /* IRStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRStepper.h; sourceTree = "<group>"; };
+		F613AEBD10CA56BDB771FF3B /* ir_label_button_image_plugin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ir_label_button_image_plugin.js; sourceTree = "<group>"; };
 		F613AEC5CC6027421DA305C5 /* IRDatePickerDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRDatePickerDescriptor.m; sourceTree = "<group>"; };
 		F613AEE2F30A4365AB768CFB /* IRActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRActionSheet.h; sourceTree = "<group>"; };
 		F613AEEA05105B6767943665 /* IRActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRActivityIndicatorView.h; sourceTree = "<group>"; };
@@ -608,6 +613,7 @@
 		F613AF517EE08D5F26342973 /* IRDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRDatePicker.m; sourceTree = "<group>"; };
 		F613AF53FF2C5176659ED258 /* IRSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSegment.h; sourceTree = "<group>"; };
 		F613AF70F930EAE18ECF4E15 /* IRJSContextUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRJSContextUtil.h; sourceTree = "<group>"; };
+		F613AF853918C0F5EA73ADC4 /* ir_label_button_image.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = ir_label_button_image.json; sourceTree = "<group>"; };
 		F613AF864A2ACB51F3387365 /* IRBarItemBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBarItemBuilder.h; sourceTree = "<group>"; };
 		F613AF8A457144CF2D237209 /* IRGestureRecognizerDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRGestureRecognizerDescriptor.h; sourceTree = "<group>"; };
 		F613AF91D4B9C9D078654A4B /* IRViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRViewBuilder.h; sourceTree = "<group>"; };
@@ -1220,6 +1226,15 @@
 			path = _SideMenu;
 			sourceTree = "<group>";
 		};
+		F613A86BFF6F886DA952117D /* LabelButtonImage */ = {
+			isa = PBXGroup;
+			children = (
+				F613AF853918C0F5EA73ADC4 /* ir_label_button_image.json */,
+				F613AEBD10CA56BDB771FF3B /* ir_label_button_image_plugin.js */,
+			);
+			path = LabelButtonImage;
+			sourceTree = "<group>";
+		};
 		F613A8B0A70BC3E39A9D7250 /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1530,6 +1545,7 @@
 				F613AAA243EB1C852277363E /* i18n */,
 				F613AFCBB13AB0238B41D4EA /* JSLibrary */,
 				F613AE37EEAFC1F6CBE8E120 /* Screens */,
+				F613AFE1F9A5CF8251977EF7 /* Images */,
 			);
 			path = ExampleApp1;
 			sourceTree = "<group>";
@@ -1701,6 +1717,7 @@
 				F613A6F71FBF30E10F7D8EF8 /* Combination of Views */,
 				F613A72ABAFE927DDF426665 /* CollectionView */,
 				F613A32F386533C8A9CFD44E /* AlertViewAndActionSheet */,
+				F613A86BFF6F886DA952117D /* LabelButtonImage */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1790,6 +1807,14 @@
 				F613A8004B3216714585D6CE /* IRSliderDescriptor.h */,
 			);
 			path = Slider;
+			sourceTree = "<group>";
+		};
+		F613AFE1F9A5CF8251977EF7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F613A9D052A472718B415BD6 /* DSCF4010.JPG */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		F613AFF1A1D341D19DB9CC4D /* Switch */ = {
@@ -1908,6 +1933,8 @@
 				F613AB37AA20628A662E1EF2 /* ir_gesture_recognizers.json in Resources */,
 				F613A07EA8595650F59510F4 /* ir_collection_view.json in Resources */,
 				F613A17701D2300D9C4D48B4 /* ir_alert_view_and_action_sheet.json in Resources */,
+				F613A9FDCF36F65FAA43A654 /* ir_label_button_image.json in Resources */,
+				F613AA89CD4DFB35E002FA51 /* DSCF4010.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2168,6 +2195,7 @@
 				F613A634F353A447ED219AD4 /* IRCollectionReusableViewDescriptor.m in Sources */,
 				F613A5A87EE678FDC2166FD8 /* IRCollectionViewBuilder+AutoLayout.m in Sources */,
 				F613A36702C672C2A74595C9 /* ir_alert_view_and_action_sheet_plugin.js in Sources */,
+				F613AA974C99700CF920B543 /* ir_label_button_image_plugin.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

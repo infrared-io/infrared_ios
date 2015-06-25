@@ -17,7 +17,8 @@
 
         // viewControllerDescriptor
         dictionary = aDictionary[controllerKEY];
-        self.viewControllerDescriptor = (IRViewControllerDescriptor *) [IRBaseDescriptor newControllerDescriptorWithDictionary:dictionary];
+        self.viewControllerDescriptor = (IRViewControllerDescriptor *) [IRBaseDescriptor newControllerDescriptorWithDictionary:dictionary
+                                                                                                              screenDictionary:aDictionary];
 
         // view
         dictionary = aDictionary[viewKEY];

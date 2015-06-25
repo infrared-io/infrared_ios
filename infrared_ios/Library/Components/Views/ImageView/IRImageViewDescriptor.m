@@ -60,12 +60,12 @@
         self.highlightedImageCapInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
 
         // preserveAspectRatio
-        number = aDictionary[NSStringFromSelector(@selector(preserveAspectRatio))];
-        if (number) {
-            self.preserveAspectRatio = [number boolValue];
-        } else {
-            self.preserveAspectRatio = NO;
-        }
+//        number = aDictionary[NSStringFromSelector(@selector(preserveAspectRatio))];
+//        if (number) {
+//            self.preserveAspectRatio = [number boolValue];
+//        } else {
+//            self.preserveAspectRatio = NO;
+//        }
     }
     return self;
 }

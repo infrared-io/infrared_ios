@@ -242,6 +242,9 @@
             irTableView = (IRTableView *) tableView;
             height = ((IRTableViewDescriptor *) irTableView.descriptor).rowHeight;
         }
+        if (height == CGFLOAT_UNDEFINED) {
+            height = UITableViewAutomaticDimension;
+        }
     }
     return height;
 }

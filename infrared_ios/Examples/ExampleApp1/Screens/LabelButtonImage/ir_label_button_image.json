@@ -1,0 +1,160 @@
+{
+  "id" : "ir_label_button_image",
+  "controller" : {
+    "id" : "ir_label_button_image_vc",
+    "controllerType" : "viewController",
+    "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
+    "title" : "Picker view",
+    "jsPluginPath" : "ir_label_button_image_plugin.js",
+    "navigationController" : {
+      "autoAddIfNeeded" : true,
+      "hideNavigationBar" : false
+    }
+  },
+  "view" : {
+    "id" : "root_view",
+    "backgroundColor" : "#f3f3f3",
+    "subviews" : [
+      {
+        "id" : "default_label",
+        "type" : "label",
+        "text": "Default label"
+      },
+      {
+        "id" : "custom_label",
+        "type" : "label",
+        "text": "Custom label",
+        "textAlignment": "NSTextAlignmentCenter",
+        "backgroundColor" : "#ff000080",
+        "textColor": "#ffffff",
+        "highlightedTextColor": "#ffffff",
+        "shadowColor": "#404040",
+        "shadowOffset": {
+          "x": 5,
+          "y": 2
+        },
+        "font": "HelveticaNeue-Light, 22",
+        "preferredMaxLayoutWidth": 280,
+        "numberOfLines": 0,
+        "enabled": true,
+        "highlighted": true,
+        "adjustsFontSizeToFitWidth": true,
+        "baselineAdjustment": "UIBaselineAdjustmentAlignCenters",
+        "lineBreakMode": "NSLineBreakByTruncatingTail",
+        "minimumScaleFactor": 0.75
+      },
+      {
+        "id" : "default_button",
+        "type" : "button",
+        "buttonType" : "UIButtonTypeSystem",
+        "normalTitle": "Default button",
+        "normalTitleColor_": "#0D7AFF",
+        "touchUpInsideActions": "this.defaultButtonTapped();"
+      },
+      {
+        "id" : "custom_button",
+        "type" : "button",
+
+        "normalTitle": "Custom button",
+        "normalTitleColor": "#404040",
+        "normalTitleShadowColor": "#ff000040",
+        "normalImage": "",
+        "normalBackgroundImage": "",
+
+        "highlightedTitle": "Custom button H",
+        "highlightedTitleColor": "#404040",
+        "highlightedTitleShadowColor": "#ff000040",
+        "highlightedImage": "",
+        "highlightedBackgroundImage": "",
+
+        "selectedTitle": "Custom button S",
+        "selectedTitleColor": "#808080",
+        "selectedTitleShadowColor": "#ff000080",
+        "selectedImage": "",
+        "selectedBackgroundImage": "",
+
+        "disabledTitle": "Custom button D",
+        "disabledTitleColor": "#606060",
+        "disabledTitleShadowColor": "#ff000060",
+        "disabledImage": "",
+        "disabledBackgroundImage": "",
+
+        "contentHorizontalAlignment": "UIControlContentHorizontalAlignmentCenter",
+        "contentVerticalAlignment": "UIControlContentVerticalAlignmentCenter",
+
+        "selected": false,
+        "enabled": true,
+        "highlighted": false,
+
+        "touchDownActions": "",
+        "touchDownRepeatActions": "",
+        "touchDragInsideActions": "",
+        "touchDragOutsideActions": "",
+        "touchDragEnterActions": "",
+        "touchDragExitActions": "",
+        "touchUpInsideActions": "this.customButtonTapped(control, event);",
+        "touchUpOutsideActions": "",
+        "touchCancelActions": "",
+
+        "font": "HelveticaNeue-Light, 18",
+        "titleShadowOffset": {
+          "x": 5,
+          "y": 2
+        },
+        "reversesTitleShadowWhenHighlighted": false,
+        "showsTouchWhenHighlighted": false,
+        "adjustsImageWhenHighlighted": true,
+        "adjustsImageWhenDisabled": true,
+        "lineBreakMode": "NSLineBreakByTruncatingTail",
+        "contentEdgeInsets": {
+          "top": 3,
+          "left": 3,
+          "bottom": 3,
+          "right": 3
+        },
+        "titleEdgeInsets": {
+          "top": 3,
+          "left": 3,
+          "bottom": 3,
+          "right": 3
+        },
+        "imageEdgeInsets": {
+          "top": 3,
+          "left": 3,
+          "bottom": 3,
+          "right": 3
+        }
+      },
+      {
+        "id": "the_image",
+        "type": "imageView",
+        "image": "DSCF4010.JPG",
+        "backgroundColor": "#00ff0060",
+        "highlightedImage": "",
+        "highlighted": false,
+        "contentMode": "UIViewContentModeScaleAspectFit",
+        "clipsToBounds": true
+      }
+    ],
+    "constraints" : [
+      {
+        "visualFormat" : "H:|-16-[default_label]"
+      },
+      {
+        "visualFormat" : "H:|-16-[custom_label]"
+      },
+      {
+        "visualFormat" : "H:|-16-[default_button]-16-|"
+      },
+      {
+        "visualFormat" : "H:|-16-[custom_button]-16-|"
+      },
+      {
+        "visualFormat" : "H:|-16-[the_image]-16-|"
+      },
+      {
+        "visualFormat" : "V:|-8-[default_label(==30)]-8-[custom_label(==30)]-8-[default_button(==35)]-8-[custom_button(==35)]-8-[the_image]"
+      }
+    ]
+  }
+}

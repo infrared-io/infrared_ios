@@ -46,7 +46,8 @@ typedef enum {
 
 + (IRBaseDescriptor *) newViewDescriptorWithDictionary:(NSDictionary *)sourceDictionary;
 
-+ (IRBaseDescriptor *) newControllerDescriptorWithDictionary:(NSDictionary *)sourceDictionary;
++ (IRBaseDescriptor *) newControllerDescriptorWithDictionary:(NSDictionary *)controllerDictionary
+                                            screenDictionary:(NSDictionary *)screenDictionary;
 + (ControllerDescriptorType) controllerDescriptorTypeForString:(NSString *)descriptorTypeString;
 
 + (UIViewContentMode) contentModeFromString:(NSString *)string;

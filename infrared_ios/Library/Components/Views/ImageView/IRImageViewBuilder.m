@@ -58,10 +58,10 @@
     irImageView.highlighted = descriptor.highlighted;
 
     // -- preserveAspectRatio
-    if (descriptor.preserveAspectRatio) {
-        // TODO: set width and height based on image size
-        //  - implement as static method so other parts of project could use it (best in IRBaseBuilder or *Util)
-    }
+//    if (descriptor.preserveAspectRatio) {
+//        // TODO: set width and height based on image size
+//        //  - implement as static method so other parts of project could use it (best in IRBaseBuilder or *Util)
+//    }
 }
 
 @end

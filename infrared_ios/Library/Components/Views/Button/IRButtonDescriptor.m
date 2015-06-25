@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import "IRViewDescriptor.h"
 #import "IRButtonDescriptor.h"
 #import "IRUtil.h"
 #import "IRButtonBuilder.h"

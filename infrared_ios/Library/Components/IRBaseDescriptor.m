@@ -118,15 +118,22 @@
     }
     return descriptor;
 }
+
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
-+ (IRBaseDescriptor *) newControllerDescriptorWithDictionary:(NSDictionary *)sourceDictionary
++ (IRBaseDescriptor *) newControllerDescriptorWithDictionary:(NSDictionary *)controllerDictionary
+                                            screenDictionary:(NSDictionary *)screenDictionary
 {
     IRBaseDescriptor *descriptor = nil;
-    ControllerDescriptorType type = [IRBaseDescriptor controllerDescriptorTypeForString:[sourceDictionary valueForKey:controllerTypeKEY]];
+    IRBaseDescriptor *screenDescriptor;
+    ControllerDescriptorType type = [IRBaseDescriptor controllerDescriptorTypeForString:[controllerDictionary valueForKey:controllerTypeKEY]];
     switch (type) {
         case ControllerDescriptorTypeViewController: {
-            descriptor = [[IRViewControllerDescriptor alloc] initDescriptorWithDictionary:sourceDictionary];
+            descriptor = [[IRViewControllerDescriptor alloc] initDescriptorWithDictionary:controllerDictionary];
+            if (descriptor.componentId == nil || descriptor.componentId.length == 0) {
+                screenDescriptor = [[IRBaseDescriptor alloc] initDescriptorWithDictionary:screenDictionary];
+                descriptor.componentId = [screenDescriptor.componentId stringByAppendingString:@"_vc"];
+            }
         }
             break;
 //        case ControllerDescriptorTypeNavigationController: {

@@ -31,7 +31,7 @@ Examples:
 @property(nonatomic, retain) UIFont *font;
 @property(nonatomic) NSTextAlignment textAlignment;
 
-@property(nonatomic, strong) NSAttributedString *attributedText;
+//@property(nonatomic, strong) NSAttributedString *attributedText;
 // TODO: Add remaining attributed text fields later
 
 @property(nonatomic) NSInteger numberOfLines;
