@@ -166,17 +166,23 @@
                 irViewControllerAlreadyUsed = YES;
             } else {
                 anTabBarScreenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:irTabBarItemDescriptor.screenId];
-                // -- set data and ui
-                anTabBarViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:anTabBarScreenDescriptor
-                                                                                                     data:nil];
-                // -- wrap if needed
-                anTabBarViewController = [IRViewControllerBuilder wrapInNavigationControllerIfNeeded:anTabBarViewController
-                                                                                          descriptor:anTabBarScreenDescriptor.viewControllerDescriptor];
+                if (anTabBarScreenDescriptor) {
+                    // -- set data and ui
+                    anTabBarViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:anTabBarScreenDescriptor
+                                                                                                         data:nil];
+                    // -- wrap if needed
+                    anTabBarViewController = [IRViewControllerBuilder wrapInNavigationControllerIfNeeded:anTabBarViewController
+                                                                                              descriptor:anTabBarScreenDescriptor.viewControllerDescriptor];
+                } else {
+                    anTabBarViewController = nil;
+                }
             }
             anTabBarViewController.tabBarItem.title = irTabBarItemDescriptor.title;
             anTabBarViewController.tabBarItem.image = [[IRSimpleCache sharedInstance] imageForURI:irTabBarItemDescriptor.image];
 
-            [viewControllersArray addObject:anTabBarViewController];
+            if (anTabBarViewController) {
+                [viewControllersArray addObject:anTabBarViewController];
+            }
         }
         tabBarController.viewControllers = viewControllersArray;
 

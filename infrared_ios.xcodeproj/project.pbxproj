@@ -53,6 +53,7 @@
 		F613A1D1FF29136463306F79 /* IRNavigationControllerSubDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6F8F5A610DEF7F71A23 /* IRNavigationControllerSubDescriptor.m */; };
 		F613A1D584C26F6D9444B2DD /* IRTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A51DABB4179AEEF4EE79 /* IRTableViewCell.m */; };
 		F613A20948956A61B3C16B84 /* IRSearchBarDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AD390D073D1B85FA0641 /* IRSearchBarDescriptor.m */; };
+		F613A2175A06BD55188EABE8 /* 245-paperairplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F613A3A902C609254756C325 /* 245-paperairplane@2x.png */; };
 		F613A22CA079F2BB19824C2F /* IRScreenEdgePanGestureRecognizerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7D04E3F9F4CB5A9F714 /* IRScreenEdgePanGestureRecognizerDescriptor.m */; };
 		F613A2518B42A820097ED6E5 /* IRCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A542DBFDE9EA1504D6A1 /* IRCollectionViewCell.m */; };
 		F613A26B1284D173592AFF89 /* IRBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AB7418D0C4471759879D /* IRBarItem.m */; };
@@ -130,6 +131,7 @@
 		F613A8169EFF615EDAACEA69 /* IRLayoutConstraintDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A38FB80229C683E49475 /* IRLayoutConstraintDescriptor.m */; };
 		F613A870083A312498CAB910 /* IRImageViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7D27E745F350A9CEC3B /* IRImageViewDescriptor.m */; };
 		F613A870C4DF42AE43777144 /* IRBaseBuilder+DataBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AF3FED74DAB2C0F94598 /* IRBaseBuilder+DataBinding.m */; };
+		F613A87AF5A04EB2DA0879E5 /* 295-shield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F613A5A5C6E26B74930661E4 /* 295-shield@2x.png */; };
 		F613A89BBEBA5C5B18ADBCAA /* example1_de.json in Resources */ = {isa = PBXBuildFile; fileRef = F613AC323C3909EA93703A63 /* example1_de.json */; };
 		F613A8B8F5BB795178240212 /* IRSwipeGestureRecognizerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6ED85C9F039744D3B6C /* IRSwipeGestureRecognizerDescriptor.m */; };
 		F613A8BD02852AFBD8C9D5F1 /* IRMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AA862E4B1C0F26F591E0 /* IRMapView.m */; };
@@ -194,6 +196,7 @@
 		F613AD4F712B9D1D05B12D65 /* IRCalloutAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A82144F74EA208A5FB12 /* IRCalloutAnnotation.m */; };
 		F613AD5FE12A919E1F02BA78 /* IRButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A067340E98BBF7740101 /* IRButton.m */; };
 		F613AD903E0ED90353213879 /* IRMapViewObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A400EE6542DF207548E4 /* IRMapViewObserver.m */; };
+		F613AD9BED5E972BCB46B63E /* 249-piechart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F613A9BB2F3340D3BDD8253B /* 249-piechart@2x.png */; };
 		F613ADA3A79C5641D9D08D1D /* IRSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A71E1BDF602971AA1C47 /* IRSideMenu.m */; };
 		F613ADC364C89E064B21BDE3 /* IRSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A0842AFCA79150295CDC /* IRSegmentedControl.m */; };
 		F613ADFC6AC9F298B2845E41 /* IRBaseBuilder+UIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AF164FF55B50AE414AFC /* IRBaseBuilder+UIControl.m */; };
@@ -340,6 +343,7 @@
 		F613A38AE848206B42810529 /* IRSegmentedControlDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSegmentedControlDescriptor.m; sourceTree = "<group>"; };
 		F613A38FB80229C683E49475 /* IRLayoutConstraintDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLayoutConstraintDescriptor.m; sourceTree = "<group>"; };
 		F613A39615050D7CC3C41AD1 /* IRTabBarControllerSubDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTabBarControllerSubDescriptor.h; sourceTree = "<group>"; };
+		F613A3A902C609254756C325 /* 245-paperairplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "245-paperairplane@2x.png"; sourceTree = "<group>"; };
 		F613A3AD28AEF308FAAD0EA0 /* IRLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLayoutConstraint.m; sourceTree = "<group>"; };
 		F613A3B86EBFD67DAC08B301 /* IRLabelDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRLabelDescriptor.h; sourceTree = "<group>"; };
 		F613A3BA0A36752862340D2A /* IRBarItemDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBarItemDescriptor.h; sourceTree = "<group>"; };
@@ -384,6 +388,7 @@
 		F613A5944F79F76CCA98D6E1 /* IRLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLabel.m; sourceTree = "<group>"; };
 		F613A59E978A9089D168233F /* IRActivityIndicatorViewDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRActivityIndicatorViewDescriptor.h; sourceTree = "<group>"; };
 		F613A59F2358CB2E559BD4E9 /* IRBarButtonItemBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBarButtonItemBuilder.h; sourceTree = "<group>"; };
+		F613A5A5C6E26B74930661E4 /* 295-shield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "295-shield@2x.png"; sourceTree = "<group>"; };
 		F613A5AACB08DA598C9456FB /* IRCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCollectionView.m; sourceTree = "<group>"; };
 		F613A5AADBA6DF0127FDD9DF /* NSURLExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLExport.h; sourceTree = "<group>"; };
 		F613A5B65C0C17C4348D0B87 /* IRBaseAnnotationViewDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBaseAnnotationViewDescriptor.h; sourceTree = "<group>"; };
@@ -481,6 +486,7 @@
 		F613A9ACF6434EB4807DFD48 /* IRSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSegmentedControl.h; sourceTree = "<group>"; };
 		F613A9B0E9BCA1AD7587107B /* UITextField+Infrared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Infrared.m"; sourceTree = "<group>"; };
 		F613A9B5338A75BABD46214E /* IRPageControlDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPageControlDescriptor.m; sourceTree = "<group>"; };
+		F613A9BB2F3340D3BDD8253B /* 249-piechart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "249-piechart@2x.png"; sourceTree = "<group>"; };
 		F613A9C46328DE96BB9C7A91 /* IRSimpleCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSimpleCache.h; sourceTree = "<group>"; };
 		F613A9C78F4B50EB762261B3 /* IRTableViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTableViewBuilder.m; sourceTree = "<group>"; };
 		F613A9D052A472718B415BD6 /* DSCF4010.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DSCF4010.JPG; sourceTree = "<group>"; };
@@ -1844,6 +1850,9 @@
 			isa = PBXGroup;
 			children = (
 				F613A9D052A472718B415BD6 /* DSCF4010.JPG */,
+				F613A5A5C6E26B74930661E4 /* 295-shield@2x.png */,
+				F613A9BB2F3340D3BDD8253B /* 249-piechart@2x.png */,
+				F613A3A902C609254756C325 /* 245-paperairplane@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1966,6 +1975,9 @@
 				F613A17701D2300D9C4D48B4 /* ir_alert_view_and_action_sheet.json in Resources */,
 				F613A9FDCF36F65FAA43A654 /* ir_label_button_image.json in Resources */,
 				F613AA89CD4DFB35E002FA51 /* DSCF4010.JPG in Resources */,
+				F613A87AF5A04EB2DA0879E5 /* 295-shield@2x.png in Resources */,
+				F613AD9BED5E972BCB46B63E /* 249-piechart@2x.png in Resources */,
+				F613A2175A06BD55188EABE8 /* 245-paperairplane@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

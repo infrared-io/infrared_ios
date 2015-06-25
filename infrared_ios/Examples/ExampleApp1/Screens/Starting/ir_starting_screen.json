@@ -15,17 +15,37 @@
         {
           "screenId": "ir_starting_screen",
           "title": "First",
-          "image": ""
+          "image": "245-paperairplane@2x.png"
         },
         {
           "screenId": "ir_starting_screen",
           "title": "Second",
-          "image": ""
+          "image": "249-piechart@2x.png"
         },
         {
           "screenId": "ir_starting_screen",
           "title": "Third",
-          "image": ""
+          "image": "295-shield@2x.png"
+        },
+        {
+          "screenId_": "ir_starting_screen",
+          "title": "Forth",
+          "image": "295-shield@2x.png"
+        },
+        {
+          "screenId_": "ir_starting_screen",
+          "title": "5th",
+          "image": "295-shield@2x.png"
+        },
+        {
+          "screenId_": "ir_starting_screen",
+          "title": "6th",
+          "image": "295-shield@2x.png"
+        },
+        {
+          "screenId_": "ir_starting_screen",
+          "title": "7th",
+          "image": "295-shield@2x.png"
         }
       ]
     }
