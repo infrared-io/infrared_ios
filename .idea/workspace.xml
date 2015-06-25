@@ -3,23 +3,8 @@
   <component name="ChangeListManager">
     <list id="32bc60ea-428b-4574-bd73-560444221e61" name="Default" comment="" />
     <list id="8aa917bd-2999-41a9-b487-38fcdc2f0c67" name="THIOS-7 Implement UITapGestureRecognizer" comment="THIOS-3 UIViewController" />
-    <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="Added example for AlertView and ActionSheet">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/LabelButtonImage/ir_label_button_image.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/LabelButtonImage/ir_label_button_image_plugin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewBuilder.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewBuilder.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/IRLabelDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/IRLabelDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Screen/IRScreenDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Screen/IRScreenDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/_Observer/IRTableViewObserver.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/_Observer/IRTableViewObserver.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" afterPath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/ir_app.json" afterPath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/ir_app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen.json" afterPath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen_plugin.js" afterPath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen_plugin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/infrared_ios.xcodeproj/project.pbxproj" />
+    <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="1) Added automatic componentId set for Controller (if not set explicitly)&#10;2) Added default height for Table Cell&#10;3) Added example for Label, Button and Image">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Images/DSCF4010.JPG" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="therma_ios.iws" />
@@ -47,180 +32,38 @@
     <favorites_list name="therma_ios" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.52234995">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="ir_starting_screen_plugin.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen_plugin.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1080">
-                  <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ir_picker_view_plugin.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/PickerView/ir_picker_view_plugin.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
-                  <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ir_label_button_image_plugin.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/LabelButtonImage/ir_label_button_image_plugin.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-                  <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ir_label_button_image.json" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/LabelButtonImage/ir_label_button_image.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.31441718" vertical-offset="1760" max-vertical-offset="2520">
-                  <caret line="129" column="28" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IRImageViewBuilder.m" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewBuilder.m">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="246" max-vertical-offset="1020">
-                  <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ir_gesture_recognizers_plugin.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/GestureRecognizers/ir_gesture_recognizers_plugin.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ir_combination_of_views_plugin.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ir_app.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/ir_app.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-12.791667" vertical-offset="173" max-vertical-offset="825">
-                  <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ir_starting_screen.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-8.75" vertical-offset="60" max-vertical-offset="885">
-                  <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="IRTableView.m" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableView.m">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2115">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IRViewDescriptor.m" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/View/IRViewDescriptor.m">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-10.555555" vertical-offset="195" max-vertical-offset="4335">
-                  <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#151#179#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IRImageViewDescriptor.m" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.m">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305">
-                  <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IRImageViewDescriptor.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-                  <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IRButtonDescriptor.m" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.m">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3495">
-                  <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-                  <folding>
-                    <element signature="e#153#181#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IRButtonDescriptor.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1170">
-                  <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IRViewDescriptor.h" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/View/IRViewDescriptor.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.35650888" vertical-offset="284" max-vertical-offset="1260">
-                  <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="ir_starting_screen_plugin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen_plugin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1080">
+              <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ir_app.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/ir_app.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4708589" vertical-offset="173" max-vertical-offset="825">
+              <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ir_starting_screen.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.75" vertical-offset="60" max-vertical-offset="885">
+              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -1459,12 +1302,6 @@
       <option name="number" value="Default" />
       <updated>1409401002811</updated>
     </task>
-    <task id="LOCAL-00114" summary="Implemented &quot;borderColor&quot; and &quot;borderWidth&quot;">
-      <created>1425594177057</created>
-      <option name="number" value="00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1425594177057</updated>
-    </task>
     <task id="LOCAL-00115" summary="1) improved system for adding UI component from JSPlugin&#10;2) improved system for removing UI component from JSPlugin">
       <created>1425599149845</created>
       <option name="number" value="00115" />
@@ -1761,7 +1598,13 @@
       <option name="project" value="LOCAL" />
       <updated>1435154514019</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="1) Added automatic componentId set for Controller (if not set explicitly)&#10;2) Added default height for Table Cell&#10;3) Added example for Label, Button and Image">
+      <created>1435239763274</created>
+      <option name="number" value="00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1435239763274</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <option name="createBranch" value="false" />
     <option name="markAsInProgress" value="true" />
     <servers>
@@ -1801,7 +1644,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="46" y="23" width="1871" height="1056" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1815,7 +1658,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18743667" sideWeight="0.4996321" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3384224" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924925" sideWeight="0.49807692" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16301443" sideWeight="0.6368159" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16301443" sideWeight="0.6368159" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371286" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="149" y="122" width="1191" height="678" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1844,7 +1687,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHORT_DIFF_EXTRA_LINES" value="8" />
-    <MESSAGE value="1) IRI-162: JSContext: add way to set &quot;actions&quot; (e.g. Button, BarButtonItem, ...)&#10;2) pods update" />
     <MESSAGE value="1) IRI-165: AutoLayout - improve &quot;VisualFormat&quot; constraints to auto-detect view keys" />
     <MESSAGE value="1) project clean-up&#10;2) some files added/removed" />
     <MESSAGE value="Code clean-up" />
@@ -1869,7 +1711,8 @@
     <MESSAGE value="UICollectionView - work in progress - 4 (section header and footer)" />
     <MESSAGE value="1) added &quot;silentUpdate&quot; option for app update &#10;2) extended update screen system to accept custom update screen and default update screen" />
     <MESSAGE value="Added example for AlertView and ActionSheet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added example for AlertView and ActionSheet" />
+    <MESSAGE value="1) Added automatic componentId set for Controller (if not set explicitly)&#10;2) Added default height for Table Cell&#10;3) Added example for Label, Button and Image" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) Added automatic componentId set for Controller (if not set explicitly)&#10;2) Added default height for Table Cell&#10;3) Added example for Label, Button and Image" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1970,14 +1813,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/UpdateScreen/update.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="375">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="17" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/App/IRAppDescriptor.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
@@ -2201,26 +2036,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/PickerView/ir_picker_view_plugin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
           <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/GestureRecognizers/ir_gesture_recognizers_plugin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2253,14 +2072,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="6825">
           <caret line="43" column="27" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/ir_app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.791667" vertical-offset="173" max-vertical-offset="825">
-          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -2310,14 +2121,6 @@
     <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Images/DSCF4010.JPG">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewBuilder.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="246" max-vertical-offset="1020">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.m">
@@ -2392,6 +2195,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.31441718" vertical-offset="1760" max-vertical-offset="2520">
           <caret line="129" column="28" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableView.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2115">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewBuilder.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50147927" vertical-offset="246" max-vertical-offset="960">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/GestureRecognizers/ir_gesture_recognizers_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/ir_app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4708589" vertical-offset="173" max-vertical-offset="825">
+          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
           <folding />
         </state>
       </provider>
