@@ -62,19 +62,27 @@
 
         // sideMenu
         dictionary = aDictionary[NSStringFromSelector(@selector(sideMenu))];
-        self.sideMenu = [[IRSideMenuDescriptor alloc] initDescriptorWithDictionary:dictionary];
+        if (dictionary) {
+            self.sideMenu = [[IRSideMenuDescriptor alloc] initDescriptorWithDictionary:dictionary];
+        }
 
         // tabBarController
         dictionary = aDictionary[NSStringFromSelector(@selector(tabBarController))];
-        self.tabBarController = [[IRTabBarControllerSubDescriptor alloc] initDescriptorWithDictionary:dictionary];
+        if (dictionary) {
+            self.tabBarController = [[IRTabBarControllerSubDescriptor alloc] initDescriptorWithDictionary:dictionary];
+        }
 
         // navigationController
         dictionary = aDictionary[NSStringFromSelector(@selector(navigationController))];
-        self.navigationController = [[IRNavigationControllerSubDescriptor alloc] initDescriptorWithDictionary:dictionary];
+        if (dictionary) {
+            self.navigationController = [[IRNavigationControllerSubDescriptor alloc] initDescriptorWithDictionary:dictionary];
+        }
 
         // keyboardManager
         dictionary = aDictionary[NSStringFromSelector(@selector(keyboardManager))];
-        self.keyboardManager = [[IRKeyboardManagerSubDescriptor alloc] initDescriptorWithDictionary:dictionary];
+        if (dictionary) {
+            self.keyboardManager = [[IRKeyboardManagerSubDescriptor alloc] initDescriptorWithDictionary:dictionary];
+        }
     }
     return self;
 }

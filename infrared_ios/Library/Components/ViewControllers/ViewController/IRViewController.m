@@ -488,16 +488,31 @@
 
 #pragma mark - RESideMenu
 
+- (void)presentLeftMenuViewController:(id)sender
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.sideMenuViewController presentLeftMenuViewController];
+    });
+}
+
+- (void)presentRightMenuViewController:(id)sender
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.sideMenuViewController presentLeftMenuViewController];
+    });
+}
+
 - (void)hideMenuViewController
 {
-    [self.sideMenuViewController hideMenuViewController];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.sideMenuViewController hideMenuViewController];
+    });
 }
 - (void)setContentViewControllerWithScreenId:(NSString *)screenId animated:(BOOL)animated
 {
     NSString *currentVCId;
     NSString *currentScreenId;
     IRScreenDescriptor *screenDescriptor;
-//    IRViewController *contentViewController;
 
     IRViewController *currentContentViewController = (IRViewController *) self.sideMenuViewController.contentViewController;
     if ([currentContentViewController isKindOfClass:[IRNavigationController class]]) {

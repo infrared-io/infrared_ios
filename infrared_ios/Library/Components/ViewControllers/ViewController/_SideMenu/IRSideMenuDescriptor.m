@@ -43,7 +43,7 @@
         if (number) {
             self.enable = [number boolValue];
         } else {
-            self.enable = NO;
+            self.enable = YES;
         }
 
         // animationDuration
