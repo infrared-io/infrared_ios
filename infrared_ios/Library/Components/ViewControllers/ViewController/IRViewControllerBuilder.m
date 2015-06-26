@@ -161,15 +161,20 @@
         for (IRTabBarItemDescriptor *irTabBarItemDescriptor in descriptor.viewControllers) {
             if ([irTabBarItemDescriptor.screenId isEqualToString:screenId]
                 && irViewControllerAlreadyUsed == NO)
-            {
+            { // reusing already build viewController (if there is screenId match)
                 anTabBarViewController = irViewController;
+                if ([anTabBarViewController isKindOfClass:[IRNavigationController class]]) {
+                    ((IRViewController *)[((IRNavigationController *) anTabBarViewController).viewControllers lastObject]).data = irTabBarItemDescriptor.data;
+                } else {
+                    anTabBarViewController.data = irTabBarItemDescriptor.data;
+                }
                 irViewControllerAlreadyUsed = YES;
             } else {
                 anTabBarScreenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:irTabBarItemDescriptor.screenId];
                 if (anTabBarScreenDescriptor) {
                     // -- set data and ui
                     anTabBarViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:anTabBarScreenDescriptor
-                                                                                                         data:nil];
+                                                                                                         data:irTabBarItemDescriptor.data];
                     // -- wrap if needed
                     anTabBarViewController = [IRViewControllerBuilder wrapInNavigationControllerIfNeeded:anTabBarViewController
                                                                                               descriptor:anTabBarScreenDescriptor.viewControllerDescriptor];

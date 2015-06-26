@@ -1,0 +1,31 @@
+{
+  "id" : "ir_web_view",
+  "controller" : {
+    "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
+    "title" : "WebView",
+    "jsPluginPath" : "ir_web_view_plugin.js",
+    "navigationController" : {
+      "autoAddIfNeeded" : true,
+      "hideNavigationBar" : false
+    }
+  },
+  "view" : {
+    "id" : "root_view",
+    "backgroundColor" : "#ffffff",
+    "subviews" : [
+      {
+        "id" : "web_view",
+        "type" : "webView",
+        "path": "http://www.google.com"
+      }
+    ],
+    "constraints" : [
+      {
+        "visualFormat" : "H:|-0-[web_view]-0-|"
+      },
+      {
+        "visualFormat" : "V:|-0-[web_view]-0-|"
+      }
+    ]
+  }
+}

@@ -9,6 +9,7 @@
 #define NSINTEGER_UNDEFINED NSIntegerMax
 #define NSUINTEGER_UNDEFINED NSUIntegerMax
 #define UIBarButtonSystemItemNone -1
+#define UIDataDetectorTypeUnDefined 11
 
 
 #define appKEY                          @"app"
@@ -65,6 +66,7 @@
 #define typeAnnotationViewKEY           @"annotationView"
 #define typePinAnnotationViewKEY        @"pinAnnotationView"
 #define typeCalloutAnnotationViewKEY    @"calloutAnnotationView"
+#define typeWebViewKEY                  @"webView"
 #define typeViewControllerKEY           @"viewController"
 #define xKEY                            @"x"
 #define yKEY                            @"y"
@@ -118,10 +120,6 @@
 #define calloutKEY                      @"callout"
 
 #define controllerKEY                                  @"controller"
-//#define controllerTypeKEY                              @"controllerType"
-//#define controllerTypeViewControllerKEY                @"viewController"
-//#define controllerTypeNavigationControllerKEY          @"navigationController"
-//#define controllerTypeTabBarControllerKEY              @"tabBarController"
 
 #define gestureRecognizerTypeKEY                       @"gestureType"
 #define gestureRecognizerTypeTapKEY                    @"tap"

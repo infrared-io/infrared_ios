@@ -1,10 +1,8 @@
 {
   "id" : "ir_label_button_image",
   "controller" : {
-    "id" : "ir_label_button_image_vc",
-    "controllerType" : "viewController",
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
-    "title" : "Picker view",
+    "title" : "Label, Button, Image",
     "jsPluginPath" : "ir_label_button_image_plugin.js",
     "navigationController" : {
       "autoAddIfNeeded" : true,

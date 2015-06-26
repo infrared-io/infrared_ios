@@ -1,9 +1,6 @@
 {
   "id" : "ir_combination_of_views",
   "controller" : {
-    "id" : "ir_combination_of_views_vc",
-    "useExistingClass" : "",
-    "controllerType" : "viewController",
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
     "title" : "i18n.ir_main_vc_title",
     "jsPluginPath" : "ir_combination_of_views_plugin.js",

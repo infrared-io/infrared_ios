@@ -1,8 +1,6 @@
 {
   "id" : "ir_picker_view",
   "controller" : {
-    "id" : "ir_picker_view_vc",
-    "controllerType" : "viewController",
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
     "title" : "Picker view",
     "jsPluginPath" : "ir_picker_view_plugin.js",

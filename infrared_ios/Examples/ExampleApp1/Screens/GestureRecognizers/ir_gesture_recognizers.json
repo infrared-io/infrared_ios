@@ -1,9 +1,6 @@
 {
   "id" : "ir_gesture_recognizers",
   "controller" : {
-    "id" : "ir_gesture_recognizers_vc",
-    "useExistingClass" : "",
-    "controllerType" : "viewController",
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown",
     "title" : "i18n.ir_gesture_recognizers_title",
     "jsPluginPath" : "ir_gesture_recognizers_plugin.js",

@@ -1,7 +1,6 @@
 {
   "id" : "ir_starting_screen",
   "controller" : {
-    "controllerType" : "viewController",
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
     "title" : "i18n.ir_starting_screen_vc_title",
     "jsPluginPath" : "ir_starting_screen_plugin.js",
@@ -15,7 +14,15 @@
         {
           "screenId": "ir_starting_screen",
           "title": "First",
-          "image": "245-paperairplane@2x.png"
+          "image": "245-paperairplane@2x.png",
+          "data": {
+            "key_1": "value_1",
+            "key_2": 2,
+            "key_3": true,
+            "key_4": {
+              "sub_1": "sub_value_a"
+            }
+          }
         },
         {
           "screenId": "ir_starting_screen",
@@ -27,6 +34,7 @@
           "title": "Third",
           "image": "295-shield@2x.png"
         },
+
         {
           "screenId_": "ir_starting_screen",
           "title": "Forth",

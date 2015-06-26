@@ -1,10 +1,8 @@
 {
   "id" : "ir_alert_view_and_action_sheet",
   "controller" : {
-    "id" : "ir_alert_view_and_action_sheet_vc",
-    "controllerType" : "viewController",
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
-    "title" : "Picker view",
+    "title" : "AlertView and ActionSheet",
     "jsPluginPath" : "ir_alert_view_and_action_sheet_plugin.js",
     "navigationController" : {
       "autoAddIfNeeded" : true,

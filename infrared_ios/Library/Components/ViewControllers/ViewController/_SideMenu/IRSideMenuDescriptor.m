@@ -255,7 +255,7 @@
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if ([self.backgroundImage length] > 0) {
+    if ([self.backgroundImage length] > 0 && [IRUtil isLocalFile:self.backgroundImage] == NO) {
         [imagePaths addObject:self.backgroundImage];
     }
 }

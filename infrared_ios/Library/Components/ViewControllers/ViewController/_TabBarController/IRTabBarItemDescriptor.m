@@ -4,6 +4,7 @@
 //
 
 #import "IRTabBarItemDescriptor.h"
+#import "IRUtil.h"
 
 
 @implementation IRTabBarItemDescriptor
@@ -13,6 +14,7 @@
     self = [super init];
     if (self) {
         NSString *string;
+        NSDictionary *dictionary;
 
         // screenId
         string = aDictionary[NSStringFromSelector(@selector(screenId))];
@@ -25,13 +27,17 @@
         // image
         string = aDictionary[NSStringFromSelector(@selector(image))];
         self.image = string;
+
+        // data
+        dictionary = aDictionary[NSStringFromSelector(@selector(data))];
+        self.data = dictionary;
     }
     return self;
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if (self.image && self.image.length > 0) {
+    if ([self.image length] > 0 && [IRUtil isLocalFile:self.image] == NO) {
         [imagePaths addObject:self.image];
     }
 }

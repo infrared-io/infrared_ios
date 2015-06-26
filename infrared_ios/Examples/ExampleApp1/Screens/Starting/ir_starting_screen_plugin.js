@@ -50,6 +50,10 @@ IR.plugin("starting_screen", {
                     "screenId" : "ir_table_view"
                 },
                 {
+                    "text" : "WebView",
+                    "screenId" : "ir_web_view"
+                },
+                {
                     "text" : "CollectionView",
                     "screenId" : "ir_collection_view"
                 },

@@ -1,10 +1,8 @@
 {
   "id" : "ir_collection_view",
   "controller" : {
-    "id" : "ir_collection_view_vc",
-    "controllerType" : "viewController",
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
-    "title" : "Picker view",
+    "title" : "CollectionView",
     "jsPluginPath" : "ir_collection_view_plugin.js",
     "navigationController" : {
       "autoAddIfNeeded" : true,

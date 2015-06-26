@@ -48,6 +48,7 @@
 #import "IRCollectionViewDescriptor.h"
 #import "IRCollectionViewCellDescriptor.h"
 #import "IRCollectionReusableViewDescriptor.h"
+#import "IRWebViewDescriptor.h"
 #import <CoreText/CoreText.h>
 
 @interface Infrared ()
@@ -97,6 +98,7 @@ static Infrared *sharedInfraRed = nil;
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRToolbarDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRBarButtonItemDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRWebViewDescriptor class]];
     }
 
     return self;

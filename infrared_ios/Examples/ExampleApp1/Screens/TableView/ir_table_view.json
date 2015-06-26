@@ -1,8 +1,6 @@
 {
   "id" : "ir_table_view",
   "controller" : {
-    "id" : "ir_table_view_vc",
-    "controllerType" : "viewController",
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
     "title" : "i18n.ir_table_view_vc_title",
     "jsPluginPath" : "ir_table_view_plugin.js",

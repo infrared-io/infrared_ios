@@ -43,7 +43,9 @@
     irTextView.textAlignment = descriptor.textAlignment;
     irTextView.editable = descriptor.editable;
     irTextView.selectable = descriptor.selectable;
-    irTextView.dataDetectorTypes = descriptor.dataDetectorTypes;
+    if (descriptor.dataDetectorTypes != UIDataDetectorTypeUnDefined) {
+        irTextView.dataDetectorTypes = descriptor.dataDetectorTypes;
+    }
 
     irTextView.clearsOnInsertion = descriptor.clearsOnInsertion;
     irTextView.autocapitalizationType = descriptor.autocapitalizationType;

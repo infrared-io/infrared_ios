@@ -32,6 +32,10 @@
     {
       "deviceType": "phone",
       "path": "ir_label_button_image.json"
+    },
+    {
+      "deviceType": "phone",
+      "path": "ir_web_view.json"
     }
   ],
   "jsLibraries": [ "globalData.js" ],
