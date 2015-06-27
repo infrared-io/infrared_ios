@@ -19,7 +19,6 @@
         "backgroundColor" : "#ffffff",
         "selectItemAction": "this.selectItem1();",
         "scrollDirection": "UICollectionViewScrollDirectionVertical",
-        "userInteractionEnabled": true,
         "sectionEdgeInsets": {
           "top": 6,
           "left": 20,
@@ -94,9 +93,8 @@
           {
             "id": "default_cell",
             "type": "collectionViewCell",
-            "userInteractionEnabled": true,
             "backgroundColor": "#00ff0080",
-            "selectItemAction_": "this.selectItem2();",
+            "selectItemAction": "this.selectItem2();",
             "cellSize": {
               "width": 100,
               "height": 100

@@ -74,7 +74,7 @@
     irCollectionView.backgroundView = [IRBaseBuilder buildComponentFromDescriptor:descriptor.backgroundView
                                                               viewController:viewController extra:extra];
     irCollectionView.allowsSelection = descriptor.allowsSelection;
-    irCollectionView.allowsSelection = descriptor.allowsMultipleSelection;
+    irCollectionView.allowsMultipleSelection = descriptor.allowsMultipleSelection;
     ((UICollectionViewFlowLayout *)irCollectionView.collectionViewLayout).scrollDirection = descriptor.scrollDirection;
     [irCollectionView setCollectionData:descriptor.collectionData];
 }

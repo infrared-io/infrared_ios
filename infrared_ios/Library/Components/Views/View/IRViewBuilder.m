@@ -58,7 +58,7 @@
     irView.tag = descriptor.tag;
     irView.userInteractionEnabled = descriptor.userInteractionEnabled;
     irView.multipleTouchEnabled = descriptor.multipleTouchEnabled;
-    irView.alpha = descriptor.alpha; // irView.alpha = 1;
+    irView.alpha = descriptor.alpha;
     irView.backgroundColor = descriptor.backgroundColor;
     irView.tintColor = descriptor.tintColor;
     irView.opaque = descriptor.opaque;

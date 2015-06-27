@@ -399,7 +399,7 @@
                              data:(id)data
 {
     NSString *destructiveTitleWithCheck = nil;
-    // This is necessary - for some reason JSContext transforms null into "null" instead of nil
+    // This is necessary - for some reason JSContext transforms null into "null" (NSString) instead of nil
     if (destructiveTitle && [destructiveTitle length] > 0 && [destructiveTitle isEqualToString:@"null"] == NO) {
         destructiveTitleWithCheck = destructiveTitle;
     }

@@ -68,9 +68,6 @@
     } else {
         NSLog(@"No Cell Descriptor");
     }
-//    collectionView.userInteractionEnabled = YES;
-//    cell.userInteractionEnabled = YES;
-//    cell.contentView.userInteractionEnabled = YES;
     return cell;
 }
 

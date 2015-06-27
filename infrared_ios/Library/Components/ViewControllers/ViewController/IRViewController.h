@@ -321,7 +321,7 @@
                            cancel:(NSString *)cancelTitle
                       destructive:(NSString *)destructiveTitle
                      otherButtons:(NSArray *)otherTitlesArray
-                            data:(id)data;
+                             data:(id)data;
 
 // -----------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------
