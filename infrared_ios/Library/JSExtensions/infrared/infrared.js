@@ -5,6 +5,14 @@
 
 // --------------------------------------------------------------------------------------------------------------------
 // UIButtonType
+var UIControlStateNormal       = 0;
+var UIControlStateHighlighted  = 1;
+var UIControlStateDisabled     = 2;
+var UIControlStateSelected     = 4;
+// --------------------------------------------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------------------------------------------
+// UIButtonType
 var UIButtonTypeCustom = 0;
 var UIButtonTypeSystem = 1;
 var UIButtonTypeDetailDisclosure = 2;
@@ -116,14 +124,22 @@ var infraredClass = function () {
 
         for(var key in newObj) {
             if(Object.prototype.toString.call(newObj[key]) === '[object Object]') {
+                //console.log('extend - key='+key+', [object Object]');
                 if (oldObj[key] === undefined) {
                     oldObj[key] = {};
+                }
+                extend(oldObj[key], newObj[key]);
+            } else if(Object.prototype.toString.call(newObj[key]) === '[object Array]') {
+                //console.log('extend - key='+key+', [object Array]');
+                if (oldObj[key] === undefined) {
+                    oldObj[key] = [];
                 }
                 extend(oldObj[key], newObj[key]);
             } else {
                 if (Object.prototype.toString.call(newObj[key]) === '[object Function]'
                     && typeof oldObj.key !== "undefined")
                 {
+                    //console.log('extend - key='+key+', [object Function]');
                     //console.log('-- function "' + key + '" wrapped --');
                     oldObj[key] = (preserve && oldObj[key]) ? oldObj[key] : wrap(newObj[key], oldObj);
                 } else {
@@ -132,6 +148,7 @@ var infraredClass = function () {
                     if (preserve && oldObj[key]) {
                         //oldObj[key] = oldObj[key];
                     } else {
+                        //console.log('extend - key='+key+', value-set');
                         oldObj[key] = newObj[key];
                     }
                 }

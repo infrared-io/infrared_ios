@@ -250,13 +250,15 @@ withDataBindingItemName:(NSString *)name
                                                    object:data];
     }
     // -- preparing for image loading
-    data = @{
-      @"imagePath" : imagePath,
-      @"irView" : irView,
-      @"propertyName" : propertyName
-    };
-    [IRBaseBuilder setImageLoadingData:data forView:irView];
-    [[IRBaseBuilder class] performSelector:@selector(downloadAndSetImage:) withObject:data afterDelay:/*0.05*/0.1];
+    if (imagePath.length > 0 && irView && propertyName.length > 0) {
+        data = @{
+          @"imagePath" : imagePath,
+          @"irView" : irView,
+          @"propertyName" : propertyName
+        };
+        [IRBaseBuilder setImageLoadingData:data forView:irView];
+        [[IRBaseBuilder class] performSelector:@selector(downloadAndSetImage:) withObject:data afterDelay:/*0.05*/0.1];
+    }
 }
 
 + (NSDictionary *) imageLoadingDataForView:(IRView *)irView

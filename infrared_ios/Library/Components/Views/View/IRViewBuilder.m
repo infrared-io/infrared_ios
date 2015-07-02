@@ -106,6 +106,33 @@
     }
 }
 
++ (void) updateComponent:(IRView *)irView
+                   extra:(id)extra
+{
+    NSArray *subviewsArray = nil;
+
+    irView.componentInfo = extra;
+
+    if ([irView isKindOfClass:[IRTableViewCell class]]) {
+        subviewsArray = ((IRTableViewCell *) irView).contentView.subviews;
+    } else if ([irView isKindOfClass:[IRCollectionViewCell class]]) {
+        subviewsArray = ((IRCollectionViewCell *) irView).contentView.subviews;
+    } else {
+        subviewsArray = irView.subviews;
+    }
+    for (IRView *subview in subviewsArray) {
+        if ([subview conformsToProtocol:@protocol(IRComponentInfoProtocol)]) {
+            [IRViewBuilder updateComponent:subview extra:extra];
+        }
+    }
+
+    for (UIGestureRecognizer *recognizer in irView.gestureRecognizers) {
+        if ([recognizer conformsToProtocol:@protocol(IRComponentInfoProtocol)]) {
+            [IRViewBuilder updateComponent:(id)recognizer extra:extra];
+        }
+    }
+}
+
 + (void) setUpRootView:(UIView *)uiView
    componentDescriptor:(IRViewDescriptor *)descriptor
         viewController:(IRViewController *)viewController

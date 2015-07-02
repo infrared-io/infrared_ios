@@ -321,6 +321,13 @@
     });
 }
 // --------------------------------------------------------------------------------------------------------------------
+- (void) popToRootViewControllerAnimated:(BOOL)animated
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController popToRootViewControllerAnimated:animated];
+    });
+}
+// --------------------------------------------------------------------------------------------------------------------
 - (void) presentViewControllerWithScreenId:(NSString *)screenId animated:(BOOL)animated
 {
     [self presentViewControllerWithScreenId:screenId animated:animated withData:nil];
@@ -387,7 +394,9 @@
     for (NSString* otherButtonTitle in otherTitlesArray) {
         [alert addButtonWithTitle:otherButtonTitle];
     }
-    [alert show];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [alert show];
+    });
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
@@ -419,7 +428,9 @@
         [actionSheet addButtonWithTitle:cancelTitle];
         [actionSheet setCancelButtonIndex:[actionSheet numberOfButtons] - 1];
     }
-    [actionSheet showInView:self.view];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [actionSheet showInView:self.view];
+    });
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
@@ -516,7 +527,7 @@
 
     IRViewController *currentContentViewController = (IRViewController *) self.sideMenuViewController.contentViewController;
     if ([currentContentViewController isKindOfClass:[IRNavigationController class]]) {
-        currentContentViewController = ((IRNavigationController *)currentContentViewController).viewControllers[0];
+        currentContentViewController = [((IRNavigationController *) currentContentViewController).viewControllers firstObject];
     }
     currentVCId = currentContentViewController.descriptor.componentId;
     currentScreenId = [[IRDataController sharedInstance] screenIdForControllerId:currentVCId];
@@ -525,15 +536,19 @@
         screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:screenId];
         if (screenDescriptor) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                // -- mark old VC for clean-up
+                currentContentViewController.shouldUnregisterVCStack = YES;
+
+                // -- build new VC
                 IRViewController *contentViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor
                                                                                                                       data:nil];
+                // -- set delegate to content view controller (this MUST be done before wrapping VC in Navigation and TabBar)
+                self.sideMenuViewController.delegate = contentViewController;
                 // -- navigation controller and tabBar controller
                 contentViewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerIfNeeded:contentViewController];
-                self.sideMenuViewController.delegate = contentViewController;
+
                 [self.sideMenuViewController setContentViewController:contentViewController
                                                              animated:animated];
-
-                currentContentViewController.shouldUnregisterVCStack = YES;
             });
         }
     }
@@ -824,7 +839,7 @@
 //            NSLog(@"vc-key:%@ ,view:%p", self.key, anView);
             if ([anView isKindOfClass:[UIScrollView class]]) {
                 anScrollView = anView;
-                NSLog(@"   - contentInset:%@", NSStringFromUIEdgeInsets(keyboardAutoResizeData.scrollViewOriginalEdgeInsets));
+//                NSLog(@"   - contentInset:%@", NSStringFromUIEdgeInsets(keyboardAutoResizeData.scrollViewOriginalEdgeInsets));
                 anScrollView.contentInset = keyboardAutoResizeData.scrollViewOriginalEdgeInsets;
                 anScrollView.scrollIndicatorInsets = keyboardAutoResizeData.scrollViewOriginalEdgeInsets;
             } else {
@@ -930,7 +945,7 @@
 
     // Line below commented to allow visibility of changes done in JS - (1)
 //    value = [self jsMapUsedInDataBindingForKey:key];
-    if (value == nil) {
+//    if (value == nil) {
 //        NSLog(@"valueForUndefinedKey - access JSValue '%@'", key);
         jsContext = [IRDataController sharedInstance].globalJSContext;
         jsValue = jsContext[self.key][key]; // jsContext[self.key][@"inviteUserArray"]
@@ -952,7 +967,7 @@
             }
             [self addWatchMethodToJSValueWithName:key numberOfLevels:@(0)];
         }
-    }
+//    }
 //    NSLog(@"valueForUndefinedKey: key=%@, value=%@", key, value);
     return value;
 }

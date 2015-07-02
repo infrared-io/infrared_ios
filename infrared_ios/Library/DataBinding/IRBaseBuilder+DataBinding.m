@@ -166,7 +166,6 @@
         targetString = [dataPath substringToIndex:range.location];
         if ([targetString isEqualToString:@"this"]) {
             target = [IRBaseBuilder parentViewController:sourceView];
-
         } else if ([targetString length] > 0) {
             jsContext = [IRDataController sharedInstance].globalJSContext;
             target = [jsContext[targetString] toObject];

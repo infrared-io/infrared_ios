@@ -23,6 +23,9 @@
          viewController:(IRViewController *)viewController
                   extra:(id)extra;
 
++ (void) updateComponent:(IRView *)irView
+                   extra:(id)extra;
+
 + (void) setUpRootView:(UIView *)uiView
    componentDescriptor:(IRViewDescriptor *)descriptor
         viewController:(IRViewController *)viewController

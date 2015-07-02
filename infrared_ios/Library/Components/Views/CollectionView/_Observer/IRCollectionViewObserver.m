@@ -16,6 +16,7 @@
 #import "IRCollectionReusableViewBuilder.h"
 #import "IRTableViewBuilder.h"
 #import "IRTableViewBuilder+AutoLayout.h"
+#import "IRViewBuilder.h"
 
 
 @implementation IRCollectionViewObserver
@@ -57,11 +58,16 @@
                                                             indexPathKEY : indexPath
                                                           }];
         } else {
-            cell.componentInfo = @{
+            [IRViewBuilder updateComponent:cell extra:@{
               @"data" : cellData != nil ? cellData : @{},
               typeCollectionViewKEY : collectionView,
               indexPathKEY : indexPath
-            };
+            }];
+//            cell.componentInfo = @{
+//              @"data" : cellData != nil ? cellData : @{},
+//              typeCollectionViewKEY : collectionView,
+//              indexPathKEY : indexPath
+//            };
         }
         tableDescriptor = (IRCollectionViewDescriptor *) ((IRCollectionView *)collectionView).descriptor;
         [self bindData:cellData toCell:cell withCellItemName:tableDescriptor.cellItemName];
@@ -129,11 +135,16 @@
             IRCollectionViewDescriptor *tableDescriptor = (IRCollectionViewDescriptor *) ((IRCollectionView *)collectionView).descriptor;
             [self bindData:sectionData toView:reusableView withSectionItemName:tableDescriptor.sectionItemName];
         } else {
-            reusableView.componentInfo = @{
+            [IRViewBuilder updateComponent:reusableView extra:@{
               @"data" : sectionData != nil ? sectionData : @{},
               typeCollectionViewKEY : collectionView,
               indexPathKEY : indexPath
-            };
+            }];
+//            reusableView.componentInfo = @{
+//              @"data" : sectionData != nil ? sectionData : @{},
+//              typeCollectionViewKEY : collectionView,
+//              indexPathKEY : indexPath
+//            };
         }
     }
     return reusableView;

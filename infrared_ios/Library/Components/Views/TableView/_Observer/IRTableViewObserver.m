@@ -17,6 +17,7 @@
 #import "IRSimpleCache.h"
 #import "IRUtil.h"
 #import "IRView.h"
+#import "IRViewBuilder.h"
 
 @interface IRTableViewObserver ()
 
@@ -75,11 +76,16 @@
                                                                 indexPathKEY : indexPath
                                                               }];
         } else {
-            cell.componentInfo = @{
+            [IRViewBuilder updateComponent:cell extra:@{
               @"data" : cellData != nil ? cellData : @{},
               typeTableViewKEY : tableView,
               indexPathKEY : indexPath
-            };
+            }];
+//            cell.componentInfo = @{
+//              @"data" : cellData != nil ? cellData : @{},
+//              typeTableViewKEY : tableView,
+//              indexPathKEY : indexPath
+//            };
         }
         IRTableViewDescriptor *tableDescriptor = (IRTableViewDescriptor *) ((IRTableView *)tableView).descriptor;
         [self bindData:cellData toCell:cell withCellItemName:tableDescriptor.cellItemName];
