@@ -67,10 +67,6 @@ Entry point for Infrared based app is App.json where files for defining UI, Inte
   "globalJSPluginPaths" : [
     "data_storage.js", "data_processing.js", "network_communication.js"
   ],
-  "fonts" : [
-    "Brandon_light.otf",
-    "Brandon_light_it.otf"
-  ],
   "mainScreenId": "lending_screen_id",
   "i18n" : {
     "default" : "en",
@@ -79,7 +75,6 @@ Entry point for Infrared based app is App.json where files for defining UI, Inte
       "fr" : "fr.json"
     }
   },
-  "label": "dev",
   "version": 2
 }
 ```
