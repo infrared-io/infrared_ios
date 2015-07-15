@@ -115,6 +115,9 @@
                       finalValue = [value stringValue];
                   }
               }
+              if ([finalValue isKindOfClass:[NSNull class]]) {
+                  finalValue = nil;
+              }
               return finalValue;
           }]
           deliverOn:[RACScheduler mainThreadScheduler]];
@@ -137,14 +140,20 @@
         if ([dataBinding.property isEqualToString:@"text"]) {
             if ([view isKindOfClass:[UITextField class]]) {
                 racSignal = ((UITextField *)view).rac_textSignal;
-                [racSignal subscribe:modelChannel.followingTerminal];
+                [racSignal subscribe:[modelChannel.followingTerminal
+                  map:^id(id value) {
+                    return value;
+                  }]];
                 [racSignal subscribeNext:^(NSString *newValue) {
 //                    NSLog(@"********** keyPath=%@, newValue=%@", keyPath, newValue);
                     [viewController keyPathUpdatedInReactiveCocoa:keyPath newStringValue:newValue];
                 }];
             } else if ([view isKindOfClass:[UITextView class]]) {
                 racSignal = ((UITextView *)view).rac_textSignal;
-                [racSignal subscribe:modelChannel.followingTerminal];
+                [racSignal subscribe:[modelChannel.followingTerminal
+                  map:^id(id value) {
+                      return value;
+                  }]];
                 [racSignal subscribeNext:^(NSString *newValue) {
 //                    NSLog(@"********** keyPath=%@, newValue=%@", keyPath, newValue);
                     [viewController keyPathUpdatedInReactiveCocoa:keyPath newStringValue:newValue];

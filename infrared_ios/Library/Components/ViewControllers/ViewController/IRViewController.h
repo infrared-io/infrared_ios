@@ -327,6 +327,12 @@
 // -----------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------
 
+- (void) copyToPasteboard:(NSString *)text;
+- (NSString *) pasteFromPasteboard;
+
+// -----------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------
+
 - (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title;
 - (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title mode:(MBProgressHUDMode)mode;
 - (void)dismissGlobalHUD;

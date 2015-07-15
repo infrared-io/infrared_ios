@@ -434,6 +434,18 @@
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
+- (void) copyToPasteboard:(NSString *)text
+{
+    UIPasteboard *pb = [UIPasteboard generalPasteboard];
+    [pb setString:text];
+}
+- (NSString *) pasteFromPasteboard
+{
+    UIPasteboard *pb = [UIPasteboard generalPasteboard];
+    return [pb string];
+}
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 - (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title
 {
     return [[IRUtilLibrary sharedInstance] showGlobalProgressHUDWithTitle:title];
