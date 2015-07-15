@@ -44,14 +44,32 @@
     }
 }
 
+
+- (void)setFrame:(CGRect)frame {
+    CGFloat indentationInset;
+    if (self.indentationLevel > 0) {
+        indentationInset = [self indentationInset];
+        frame.origin.x += indentationInset;
+        frame.size.width -= indentationInset;
+    }
+    [super setFrame:frame];
+}
+
 - (void) setPreferredMaxLayoutWidth:(IRView *)irView
 {
     IRLabel *irLabel;
+    CGFloat preferredMaxLayoutWidth;
+    CGFloat indentationInset;
     for (IRView *anSubview in irView.subviews) {
         if ([anSubview isKindOfClass:[IRLabel class]]) {
             irLabel = (IRLabel *)anSubview;
             if (irLabel.numberOfLines > 1 || irLabel.numberOfLines == 0) {
-                irLabel.preferredMaxLayoutWidth = CGRectGetWidth(irLabel.frame);
+                preferredMaxLayoutWidth = CGRectGetWidth(irLabel.frame);
+                if (self.indentationLevel > 0) {
+                    indentationInset = [self indentationInset];
+                    preferredMaxLayoutWidth -= indentationInset;
+                }
+                irLabel.preferredMaxLayoutWidth = preferredMaxLayoutWidth;
             }
         } else if ([anSubview conformsToProtocol:@protocol(IRComponentInfoProtocol)]) {
             [self setPreferredMaxLayoutWidth:anSubview];
@@ -76,6 +94,20 @@
 - (NSString *) componentId
 {
     return self.descriptor.componentId;
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
+#pragma mark - Private
+
+- (CGFloat) indentationInset
+{
+    CGFloat indentationInset = 0;
+    if (self.indentationLevel > 0) {
+        indentationInset = self.indentationLevel * self.indentationWidth;
+    }
+    return indentationInset;
 }
 
 @end

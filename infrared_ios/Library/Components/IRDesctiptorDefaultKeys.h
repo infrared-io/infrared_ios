@@ -96,6 +96,7 @@
 #define cellKEY                         @"cell"
 #define rowHeightKEY                    @"rowHeight"
 #define cellIdKEY                       @"cellId"
+#define cellIndentationLevelKEY         @"cellIndentationLevel"
 #define sectionIdKEY                    @"sectionId"
 #define sectionHeaderKEY                @"sectionHeader"
 #define sectionHeaderHeightKEY          @"sectionHeaderHeight"

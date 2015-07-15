@@ -3,19 +3,12 @@
   <component name="ChangeListManager">
     <list id="32bc60ea-428b-4574-bd73-560444221e61" name="Default" comment="" />
     <list id="8aa917bd-2999-41a9-b487-38fcdc2f0c67" name="THIOS-7 Implement UITapGestureRecognizer" comment="THIOS-3 UIViewController" />
-    <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="1) update componentInfo data for Cell reuse (TableView, CollectionView)&#10;2)">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios.xcworkspace/xcuserdata/urosmil.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/infrared_ios.xcworkspace/xcuserdata/urosmil.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios.xcworkspace/xcuserdata/urosmil.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterPath="$PROJECT_DIR$/infrared_ios.xcworkspace/xcuserdata/urosmil.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/DataBinding/IRBaseBuilder+DataBinding.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/DataBinding/IRBaseBuilder+DataBinding.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/_Observer/IRCollectionViewObserver.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/_Observer/IRCollectionViewObserver.m" />
+    <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="1) updating componentInfo data for Cell reuse (TableView, CollectionView)&#10;2) improved &quot;extend&quot; methods in Infrared.js&#10;3) added method &quot;popToRootViewControllerAnimated&quot; in IRViewController&#10;4) RESideMenu delegate correction (should always be ViewController instead of NavigationController or TabBarController)">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/IRDesctiptorDefaultKeys.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/IRDesctiptorDefaultKeys.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCell.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCell.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCellDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCellDescriptor.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCellDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCellDescriptor.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/_Observer/IRTableViewObserver.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/_Observer/IRTableViewObserver.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/View/IRViewBuilder.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/View/IRViewBuilder.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/View/IRViewBuilder.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/View/IRViewBuilder.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/JSExtensions/infrared/infrared.js" afterPath="$PROJECT_DIR$/infrared_ios/Library/JSExtensions/infrared/infrared.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="therma_ios.iws" />
@@ -38,7 +31,7 @@
     <option name="hideWarnings" value="true" />
     <option name="HIDE_WARNINGS" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_iPhone_6_8.3_x86_64_1" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos" />
   <component name="FavoritesManager">
     <favorites_list name="therma_ios" />
   </component>
@@ -49,7 +42,7 @@
           <file leaf-file-name="IRTableViewObserver.m" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/_Observer/IRTableViewObserver.m">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1155" max-vertical-offset="9510">
+                <state vertical-scroll-proportion="0.0" vertical-offset="1155" max-vertical-offset="9705">
                   <caret line="77" column="16" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
                   <folding />
                 </state>
@@ -129,7 +122,7 @@
           <file leaf-file-name="IRCollectionViewObserver.m" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/_Observer/IRCollectionViewObserver.m">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1245" max-vertical-offset="7560">
+                <state vertical-scroll-proportion="0.0" vertical-offset="1590" max-vertical-offset="7260">
                   <caret line="106" column="9" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
                   <folding />
                 </state>
@@ -139,7 +132,7 @@
           <file leaf-file-name="infrared.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/infrared_ios/Library/JSExtensions/infrared/infrared.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.8" vertical-offset="1695" max-vertical-offset="2910">
+                <state vertical-scroll-proportion="0.5" vertical-offset="2205" max-vertical-offset="3090">
                   <caret line="151" column="36" selection-start-line="151" selection-start-column="36" selection-end-line="151" selection-end-column="36" />
                   <folding>
                     <element signature="e#0#2#0" expanded="true" />
@@ -162,11 +155,31 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Podfile" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Podfile" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Podfile">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.25" vertical-offset="0" max-vertical-offset="900">
+                <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315">
                   <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ir_starting_screen_plugin.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen_plugin.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1140">
+                  <caret line="16" column="55" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="55" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ir_combination_of_views_plugin.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -249,10 +262,10 @@
   </component>
   <component name="OCFindUsagesOptions" text="false" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="48" />
+    <option name="x" value="40" />
     <option name="y" value="23" />
-    <option name="width" value="1797" />
-    <option name="height" value="997" />
+    <option name="width" value="1393" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1736,12 +1749,6 @@
       <option name="number" value="Default" />
       <updated>1409401002811</updated>
     </task>
-    <task id="LOCAL-00120" summary="Remove separated portrait and landscape root-view (now following SDK way) - 1">
-      <created>1427143580382</created>
-      <option name="number" value="00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1427143580383</updated>
-    </task>
     <task id="LOCAL-00121" summary="TestBench App - 1">
       <created>1427241992181</created>
       <option name="number" value="00121" />
@@ -2038,12 +2045,18 @@
       <option name="project" value="LOCAL" />
       <updated>1435322316561</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="1) updating componentInfo data for Cell reuse (TableView, CollectionView)&#10;2) improved &quot;extend&quot; methods in Infrared.js&#10;3) added method &quot;popToRootViewControllerAnimated&quot; in IRViewController&#10;4) RESideMenu delegate correction (should always be ViewController instead of NavigationController or TabBarController)">
+      <created>1435876522987</created>
+      <option name="number" value="00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1435876522993</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <option name="createBranch" value="false" />
     <option name="markAsInProgress" value="true" />
     <servers>
       <JIRA shared="false" url="https://appconveyor.atlassian.net">
-        <option name="apiType" value="REST_2_0" />
+        <option name="apiType" />
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
         <password>df92df9edfccdff5dfc2dfdddfe5dfc8df99dfc9df93dfd0df9fdf93dfc7dfc2df93dfcfdfd3</password>
         <option name="jiraVersion" value="6.5-OD-07-005" />
@@ -2077,8 +2090,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="48" y="23" width="1797" height="997" extended-state="0" />
-    <editor active="true" />
+    <frame x="40" y="23" width="1393" height="877" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2086,21 +2099,21 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3384224" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924925" sideWeight="0.49807692" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14635503" sideWeight="0.6368159" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18880115" sideWeight="0.6368159" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24120604" sideWeight="0.3631841" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279703" sideWeight="0.50036794" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928064" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="149" y="122" width="1191" height="678" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.2532928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="6" y="1275" width="1434" height="510" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.28672746" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1" y="1347" width="1436" height="621" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18743667" sideWeight="0.4996321" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371286" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2121,7 +2134,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHORT_DIFF_EXTRA_LINES" value="8" />
-    <MESSAGE value="Improved Watch.js cleaning" />
     <MESSAGE value="Issue: Merge &quot;IR&quot; and &quot;infrared&quot; in JSContext" />
     <MESSAGE value="Issue: Find a way to use JS values from global JSLibraries in DataBinding" />
     <MESSAGE value="Issue: App update - improve &quot;Update&quot; screen with progress info - 1" />
@@ -2146,7 +2158,8 @@
     <MESSAGE value="UITabBarController - work in progress - 2" />
     <MESSAGE value="1) Added UIWebView&#10;2) UITabBarController - work in progress - 3 (added init &quot;data&quot;)&#10;3) Various small improvements and clean-ups" />
     <MESSAGE value="UITabBarController - work in progress - 4 (init improvements)" />
-    <option name="LAST_COMMIT_MESSAGE" value="UITabBarController - work in progress - 4 (init improvements)" />
+    <MESSAGE value="1) updating componentInfo data for Cell reuse (TableView, CollectionView)&#10;2) improved &quot;extend&quot; methods in Infrared.js&#10;3) added method &quot;popToRootViewControllerAnimated&quot; in IRViewController&#10;4) RESideMenu delegate correction (should always be ViewController instead of NavigationController or TabBarController)" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) updating componentInfo data for Cell reuse (TableView, CollectionView)&#10;2) improved &quot;extend&quot; methods in Infrared.js&#10;3) added method &quot;popToRootViewControllerAnimated&quot; in IRViewController&#10;4) RESideMenu delegate correction (should always be ViewController instead of NavigationController or TabBarController)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2267,13 +2280,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30135557" vertical-offset="4841" max-vertical-offset="6630">
-          <caret line="352" column="9" selection-start-line="352" selection-start-column="9" selection-end-line="352" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarItemDescriptor.m">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
@@ -2334,13 +2340,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.625" vertical-offset="30" max-vertical-offset="4440">
           <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen_plugin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="1170">
-          <caret line="16" column="55" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -2528,7 +2527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
           <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2550,10 +2548,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1335">
           <caret line="90" column="10" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
-          <folding>
-            <element signature="e#1219#1970#0" expanded="false" />
-            <element signature="e#1998#2749#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2621,14 +2615,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Podfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25" vertical-offset="0" max-vertical-offset="900">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/_Observer/IRCollectionViewObserver.m">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1245" max-vertical-offset="7560">
@@ -2639,11 +2625,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/JSExtensions/infrared/infrared.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8" vertical-offset="1695" max-vertical-offset="2910">
+        <state vertical-scroll-proportion="0.5" vertical-offset="2205" max-vertical-offset="3090">
           <caret line="151" column="36" selection-start-line="151" selection-start-column="36" selection-end-line="151" selection-end-column="36" />
           <folding>
             <element signature="e#0#2#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Podfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
+          <caret line="16" column="55" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

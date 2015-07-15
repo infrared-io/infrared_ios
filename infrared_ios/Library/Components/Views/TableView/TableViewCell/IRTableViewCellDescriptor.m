@@ -169,6 +169,14 @@
         } else {
             self.dynamicAutolayoutRowHeight = NO;
         }
+
+        // dynamicAutolayoutRowHeightMinimum
+        number = aDictionary[NSStringFromSelector(@selector(dynamicAutolayoutRowHeightMinimum))];
+        if (number) {
+            self.dynamicAutolayoutRowHeightMinimum = [number floatValue];
+        } else {
+            self.dynamicAutolayoutRowHeightMinimum = CGFLOAT_UNDEFINED;
+        }
     }
     return self;
 }

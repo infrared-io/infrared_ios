@@ -46,5 +46,6 @@
 
 @property (nonatomic) CGFloat rowHeight;
 @property (nonatomic) BOOL dynamicAutolayoutRowHeight;
+@property (nonatomic) CGFloat dynamicAutolayoutRowHeightMinimum;
 
 @end

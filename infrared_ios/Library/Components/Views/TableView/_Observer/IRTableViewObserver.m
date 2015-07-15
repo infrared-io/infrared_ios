@@ -235,12 +235,18 @@
             [cell setNeedsUpdateConstraints];
             [cell updateConstraintsIfNeeded];
 
-            cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
+            CGFloat width = CGRectGetWidth(tableView.bounds);
+            NSInteger indentationLevel = [self tableView:tableView indentationLevelForRowAtIndexPath:indexPath];
+            width -= indentationLevel * cell.indentationWidth;
+            cell.bounds = CGRectMake(0.0f, 0.0f, width, CGRectGetHeight(cell.bounds));
             [cell setNeedsLayout];
             [cell layoutIfNeeded];
             CGSize aRect = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
             height = aRect.height;
             height += 1;
+            if (height < cellDescriptor.dynamicAutolayoutRowHeightMinimum && cellDescriptor.dynamicAutolayoutRowHeightMinimum != CGFLOAT_UNDEFINED) {
+                height = cellDescriptor.dynamicAutolayoutRowHeightMinimum;
+            }
         } else {
             height = cellDescriptor.rowHeight;
         }
@@ -478,7 +484,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath; // return 'depth' of row for hierarchies
 {
-    return 0;
+    NSInteger indentation;
+    NSDictionary *cellData = [self cellDataForIndexPath:indexPath];
+    if (cellData[cellIndentationLevelKEY]) {
+        indentation = [cellData[cellIndentationLevelKEY] integerValue];
+    } else {
+        indentation = 0;
+    }
+    return indentation;
 }
 
 // Copy/Paste.  All three methods must be implemented by the delegate.
