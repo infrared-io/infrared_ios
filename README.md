@@ -6,13 +6,13 @@
 
 ## Introduction  
 
-Infrared is library for iOS development which allows updating app's UI, Interaction and resource without re-submitting app to App Store.  
+Infrared is library for iOS development which allows control of app's UI, Interaction and resource.  
 How is this achieved:  
 * UI:   
 instead of defining it in ObjC code and Storyboard, Infrared uses JSON description files  
 * Interaction:  
 handling user's interaction is done in JavaScript    
-(Interaction can also be handled in ObjC but distribution of those changes requires submitting new version to App Store.)   
+(Interaction can also be handled in ObjC.)   
 * Resources:   
 all resources used by app can be updated at any time. This includes localization, images, files, fonts, etc.
 
@@ -67,10 +67,6 @@ Entry point for Infrared based app is App.json where files for defining UI, Inte
   "globalJSPluginPaths" : [
     "data_storage.js", "data_processing.js", "network_communication.js"
   ],
-  "fonts" : [
-    "Brandon_light.otf",
-    "Brandon_light_it.otf"
-  ],
   "mainScreenId": "lending_screen_id",
   "i18n" : {
     "default" : "en",
@@ -79,7 +75,6 @@ Entry point for Infrared based app is App.json where files for defining UI, Inte
       "fr" : "fr.json"
     }
   },
-  "label": "dev",
   "version": 2
 }
 ```
