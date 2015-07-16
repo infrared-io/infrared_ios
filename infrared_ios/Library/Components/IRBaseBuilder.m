@@ -253,7 +253,7 @@ withDataBindingItemName:(NSString *)name
         NSString *typeString = [NSString stringWithUTF8String:type];
         NSArray *attributes = [typeString componentsSeparatedByString:@","];
         NSString *typeAttribute = [attributes firstObject];
-        if ([typeAttribute isEqualToString:@"TB"]) {
+        if ([typeAttribute isEqualToString:@"TB"] || [typeAttribute isEqualToString:@"Tc"]) {
             isBoolProperty = YES;
         }
     }
