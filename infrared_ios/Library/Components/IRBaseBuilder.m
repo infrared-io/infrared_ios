@@ -234,6 +234,32 @@ withDataBindingItemName:(NSString *)name
     return propertyHasRightClass;
 }
 
++ (BOOL) isBoolPropertyWithName:(NSString *)propertyName
+                       inObject:(IRView *)irView
+{
+    BOOL isBoolProperty = NO;
+    NSArray *propertyPathComponentsArray = [propertyName componentsSeparatedByString:@"."];
+    NSObject *parentObject = irView;
+    NSString *lastProperty = [propertyPathComponentsArray lastObject];
+    NSString *anProperty;
+    for (uint i = 0; i < [propertyPathComponentsArray count]-1; ++i) {
+        anProperty = propertyPathComponentsArray[i];
+        parentObject = [parentObject performSelector:NSSelectorFromString(anProperty)];
+    }
+    objc_property_t objc_property = class_getProperty([parentObject class], [lastProperty UTF8String]);
+    const char *type;
+    if (objc_property) {
+        type = property_getAttributes(objc_property);
+        NSString *typeString = [NSString stringWithUTF8String:type];
+        NSArray *attributes = [typeString componentsSeparatedByString:@","];
+        NSString *typeAttribute = [attributes firstObject];
+        if ([typeAttribute isEqualToString:@"TB"]) {
+            isBoolProperty = YES;
+        }
+    }
+    return isBoolProperty;
+}
+
 + (void) downloadAndSetImageWithPathInBackground:(NSString *)imagePath
                                             view:(IRView *)irView
                                     propertyName:(NSString *)propertyName

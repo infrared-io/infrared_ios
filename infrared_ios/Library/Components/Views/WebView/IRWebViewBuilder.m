@@ -58,6 +58,9 @@
         request = [NSURLRequest requestWithURL:pathURL];
         [irWebView loadRequest:request];
     }
+    if ([descriptor.htmlString length] > 0) {
+        [irWebView setHtmlString:descriptor.htmlString];
+    }
 }
 
 @end

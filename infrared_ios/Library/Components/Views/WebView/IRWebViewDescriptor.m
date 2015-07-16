@@ -114,6 +114,10 @@
         // path
         string = aDictionary[NSStringFromSelector(@selector(path))];
         self.path = string;
+
+        // htmlString
+        string = aDictionary[NSStringFromSelector(@selector(htmlString))];
+        self.htmlString = string;
     }
     return self;
 }

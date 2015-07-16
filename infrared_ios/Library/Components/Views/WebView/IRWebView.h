@@ -50,6 +50,10 @@
 @property (nonatomic) CGFloat gapBetweenPages NS_AVAILABLE_IOS(7_0);
 @property (nonatomic, readonly) NSUInteger pageCount NS_AVAILABLE_IOS(7_0);
 
+// -----------------------------------------------------------------------------------
+
+- (void) setHtmlString:(NSString *)htmlString;
+
 @end
 
 // --------------------------------------------------------------------------------------------------------------------

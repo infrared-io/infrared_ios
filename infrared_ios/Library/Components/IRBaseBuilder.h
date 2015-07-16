@@ -49,6 +49,8 @@ withDataBindingItemName:(NSString *)name;
 + (BOOL) isPropertyWithName:(NSString *)propertyName
                    inObject:(IRView *)irView
                     ofClass:(Class)propertyClass;
++ (BOOL) isBoolPropertyWithName:(NSString *)propertyName
+                       inObject:(IRView *)irView;
 + (void) downloadAndSetImageWithPathInBackground:(NSString *)imagePath
                                             view:(IRView *)irView
                                     propertyName:(NSString *)propertyName;

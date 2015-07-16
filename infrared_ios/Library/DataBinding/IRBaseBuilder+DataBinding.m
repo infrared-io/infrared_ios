@@ -114,6 +114,12 @@
                   if ([value isKindOfClass:[NSNumber class]]) {
                       finalValue = [value stringValue];
                   }
+              } else if ([IRBaseBuilder isBoolPropertyWithName:dataBinding.property
+                                                      inObject:view])
+              {
+                  if (value == nil) {
+                      finalValue = @(NO);
+                  }
               }
               if ([finalValue isKindOfClass:[NSNull class]]) {
                   finalValue = nil;

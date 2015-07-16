@@ -10,6 +10,12 @@
 #import "IRDataController.h"
 
 
+@interface IRWebView ()
+
+@property (nonatomic, strong) NSString *internalHtmlString;
+
+@end
+
 @implementation IRWebView
 
 @synthesize componentInfo;
@@ -22,6 +28,19 @@
         // Initialization code
     }
     return self;
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
+- (void) setHtmlString:(NSString *)htmlString
+{
+    if (/*[htmlString length] > 0
+        &&*/ [self.internalHtmlString isEqualToString:htmlString] == NO)
+    {
+        self.internalHtmlString = htmlString;
+        [self loadHTMLString:htmlString baseURL:nil];
+    }
 }
 
 // --------------------------------------------------------------------------------------------------------------------
