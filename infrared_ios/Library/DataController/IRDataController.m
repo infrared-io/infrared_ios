@@ -217,9 +217,12 @@ static IRDataController *sharedDataController = nil;
     }
     [self.webView loadHTMLString:[NSString stringWithFormat:@""
                                                            "<html><head>"
+//                                                           "<script src='http://jsconsole.com/remote.js?'></script>"
                                                            "<script src='infrared.js'></script>"
+#if DEBUG == 1
                                                            "<script src='zeroTimeout.js'></script>"
                                                            "<script src='zeroTimeoutWorker.js'></script>"
+#endif
                                                            "<script src='watch.js'></script>"
                                                            "%@"
                                                            "</head><body>"

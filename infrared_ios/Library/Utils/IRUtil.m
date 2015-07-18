@@ -205,9 +205,11 @@
     }
     if ([candidateURL.query length] > 0) {
         name = [name stringByAppendingFormat:@"_%@", candidateURL.query];
+//        name = [name stringByAppendingFormat:@"?%@", candidateURL.query];
     }
     if ([candidateURL.fragment length] > 0) {
         name = [name stringByAppendingFormat:@"_%@", candidateURL.fragment];
+//        name = [name stringByAppendingFormat:@"#%@", candidateURL.fragment];
     }
     // -- remove illegal characters
     name = [name stringByReplacingOccurrencesOfString:@":" withString:@""];

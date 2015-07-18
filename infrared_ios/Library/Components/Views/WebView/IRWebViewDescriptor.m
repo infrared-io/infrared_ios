@@ -118,6 +118,14 @@
         // htmlString
         string = aDictionary[NSStringFromSelector(@selector(htmlString))];
         self.htmlString = string;
+
+        // openAllLinksInSafari
+        number = aDictionary[NSStringFromSelector(@selector(openAllLinksInSafari))];
+        if (number) {
+            self.openAllLinksInSafari = [number boolValue];
+        } else {
+            self.openAllLinksInSafari = NO;
+        }
     }
     return self;
 }

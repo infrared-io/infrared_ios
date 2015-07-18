@@ -123,8 +123,10 @@ static IRUtilLibrary *sharedIRLibrary = nil;
 }
 - (void)dismissGlobalHUD
 {
-    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
-    [MBProgressHUD hideHUDForView:window animated:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+        [MBProgressHUD hideAllHUDsForView:window animated:YES];
+    });
 }
 
 // --------------------------------------------------------------------------------------------------------------------

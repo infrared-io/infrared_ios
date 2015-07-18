@@ -296,8 +296,16 @@
 {
     IRScreenDescriptor *screenDescriptor;
     screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:screenId];
+//    if ([NSThread isMainThread]) { // [[NSThread currentThread] isMainThread]
+//        NSLog(@"main 1");
+//    }
+//    if ([[NSThread currentThread] isMainThread]) {
+//        NSLog(@"main 2");
+//    }
     dispatch_async(dispatch_get_main_queue(), ^{
+//        NSLog(@"pushViewControllerWithScreenId=%@ [pre]---->", screenId);
         [self pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+//        NSLog(@"pushViewControllerWithScreenId=%@ [post]---->", screenId);
     });
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -548,19 +556,21 @@
         screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:screenId];
         if (screenDescriptor) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                IRViewController *contentViewController;
+                IRViewController *wrappedContentViewController;
+
                 // -- mark old VC for clean-up
                 currentContentViewController.shouldUnregisterVCStack = YES;
 
                 // -- build new VC
-                IRViewController *contentViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor
-                                                                                                                      data:nil];
-                // -- set delegate to content view controller (this MUST be done before wrapping VC in Navigation and TabBar)
-                self.sideMenuViewController.delegate = contentViewController;
+                contentViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor data:nil];
                 // -- navigation controller and tabBar controller
-                contentViewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerIfNeeded:contentViewController];
+                wrappedContentViewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerIfNeeded:contentViewController];
 
-                [self.sideMenuViewController setContentViewController:contentViewController
-                                                             animated:animated];
+                // -- set delegate to content VC
+                self.sideMenuViewController.delegate = contentViewController;
+                // -- set new wrapped content VC
+                [self.sideMenuViewController setContentViewController:wrappedContentViewController animated:animated];
             });
         }
     }

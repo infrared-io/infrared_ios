@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <RESideMenu/RESideMenu.h>
 #import "IRViewControllerBuilder.h"
 #import "IRViewController.h"
 #import "IRViewControllerDescriptor.h"
@@ -105,7 +106,8 @@
     resultingViewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerIfNeeded:resultingViewController];
     // -- sideMenu controller
     resultingViewController = [IRViewControllerBuilder wrapInSideMenuIfNeeded:resultingViewController
-                                                                   descriptor:viewControllerDescriptor];
+                                                                   descriptor:viewControllerDescriptor
+                                                             sideMenuDelegate:irViewController];
 
     return resultingViewController;
 }
@@ -205,6 +207,7 @@
 
 + (IRViewController *) wrapInSideMenuIfNeeded:(IRViewController *)irViewController
                                    descriptor:(IRViewControllerDescriptor *)viewControllerDescriptor
+                             sideMenuDelegate:(id <RESideMenuDelegate>)delegate
 {
     IRViewController *resultingViewController = irViewController;
     IRViewController *leftVC;
@@ -234,7 +237,8 @@
             sideMenu = [IRViewControllerBuilder buildSideMenuFromScreenDescriptor:viewControllerDescriptor.sideMenu
                                                         withContentViewController:resultingViewController
                                                            leftMenuViewController:leftVC
-                                                          rightMenuViewController:rightVC];
+                                                          rightMenuViewController:rightVC
+                                                                 sideMenuDelegate:delegate];
             resultingViewController = sideMenu;
         }
     }
@@ -312,12 +316,14 @@
     [IRBaseBuilder setRequireGestureRecognizerToFailForView:irViewController.view/*rootView*/
                                              viewController:irViewController];
 }
+
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 + (IRSideMenu *) buildSideMenuFromScreenDescriptor:(IRSideMenuDescriptor *)descriptor
                          withContentViewController:(IRViewController *)contentVC
                             leftMenuViewController:(IRViewController *)leftVC
                            rightMenuViewController:(IRViewController *)rightVC
+                                  sideMenuDelegate:(id <RESideMenuDelegate>)delegate
 {
     IRSideMenu *sideMenu = [[IRSideMenu alloc] initWithContentViewController:contentVC
                                                       leftMenuViewController:leftVC
@@ -372,13 +378,14 @@
     sideMenu.bouncesHorizontally = descriptor.bouncesHorizontally;
     sideMenu.menuPreferredStatusBarStyle = descriptor.menuPreferredStatusBarStyle;
     sideMenu.menuPrefersStatusBarHidden = descriptor.menuPrefersStatusBarHidden;
-    if ([contentVC isKindOfClass:[UINavigationController class]]) {
-        if ([((UINavigationController *) contentVC).viewControllers count] > 0) {
-            sideMenu.delegate = [((UINavigationController *) contentVC).viewControllers firstObject];
-        }
-    } else if ([contentVC isKindOfClass:[UIViewController class]]) {
-        sideMenu.delegate = contentVC;
-    }
+//    if ([contentVC isKindOfClass:[UINavigationController class]]) {
+//        if ([((UINavigationController *) contentVC).viewControllers count] > 0) {
+//            sideMenu.delegate = [((UINavigationController *) contentVC).viewControllers firstObject];
+//        }
+//    } else if ([contentVC isKindOfClass:[UIViewController class]]) {
+//        sideMenu.delegate = contentVC;
+//    }
+    sideMenu.delegate = delegate;
     return sideMenu;
 }
 

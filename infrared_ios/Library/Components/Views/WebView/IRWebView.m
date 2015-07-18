@@ -8,11 +8,13 @@
 #import "IRBaseBuilder.h"
 #import "IRBaseDescriptor.h"
 #import "IRDataController.h"
+#import "IRWebViewObserver.h"
 
 
 @interface IRWebView ()
 
 @property (nonatomic, strong) NSString *internalHtmlString;
+@property (nonatomic, strong) IRWebViewObserver *observer;
 
 @end
 
@@ -26,6 +28,8 @@
     self = [super init];
     if (self) {
         // Initialization code
+        self.observer = [[IRWebViewObserver alloc] init];
+        self.delegate = self.observer;
     }
     return self;
 }

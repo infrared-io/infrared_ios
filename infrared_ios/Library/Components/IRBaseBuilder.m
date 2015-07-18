@@ -403,7 +403,7 @@ withDataBindingItemName:(NSString *)name
         }
 
         actionEnclosing = [NSString stringWithFormat:@
-                                                       "var ActionEnclosing = function () { \n"
+                                                       "var ActionEnclosing_%@ = function () { \n"
                                                        "%@ \n"
                                                        "    this.actionFunction = function () { \n"
 #if ENABLE_SAFARI_DEBUGGING == 1
@@ -418,18 +418,30 @@ withDataBindingItemName:(NSString *)name
                                                        "    }; \n"
                                                        "    this.actionFunctionTimeout = function (%@) {         \n"
                                                        "        %@; \n"
+                                                       "        delete ActionEnclosing_%@; \n"
+                                                       "        delete actionEnclosing_%@; \n"
                                                        "    }; \n"
                                                        "}; \n"
-                                                       "var actionEnclosing = new ActionEnclosing();",
+                                                       "var actionEnclosing_%@ = new ActionEnclosing_%@();",
+                                                     [IRUtil createKeyFromObjectAddress:action],
                                                      internalVariables, irViewController.key, internalVariablesCall,
-                                                     jsInternalMethodParams, action];
+                                                     jsInternalMethodParams, action,
+                                                     [IRUtil createKeyFromObjectAddress:action], [IRUtil createKeyFromObjectAddress:action],
+                                                     [IRUtil createKeyFromObjectAddress:action], [IRUtil createKeyFromObjectAddress:action]];
         jsContext = [[IRDataController sharedInstance] globalJSContext];
         [jsContext evaluateScript:actionEnclosing];
 
-        for (NSString *anKey in dictionary) {
-            jsContext[@"actionEnclosing"][anKey] = dictionary[anKey];
+        @try {
+            for (NSString *anKey in dictionary) {
+                jsContext[[@"actionEnclosing" stringByAppendingFormat:@"_%@", [IRUtil createKeyFromObjectAddress:action]]][anKey] = dictionary[anKey];
+            }
+//            NSLog(@"executeAction:withDictionary:viewController:=%@ [pre]---->", action);
+            [jsContext evaluateScript:[NSString stringWithFormat:@"actionEnclosing_%@.actionFunction();", [IRUtil createKeyFromObjectAddress:action]]];
+//            NSLog(@"executeAction:withDictionary:viewController:=%@ [post]---->", action);
         }
-        [jsContext evaluateScript:@"actionEnclosing.actionFunction();"];
+        @catch (NSException *exception) {
+            NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
+        }
     }
 }
 // --------------------------------------------------------------------------------------------------------------------

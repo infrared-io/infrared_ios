@@ -33,6 +33,8 @@
 @property (nonatomic, strong) NSString *path;
 @property (nonatomic, strong) NSString *htmlString;
 
+@property (nonatomic) BOOL openAllLinksInSafari;
+
 // --------------------------------------------------------------------------------------------------------------------
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;

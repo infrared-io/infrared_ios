@@ -9,6 +9,7 @@
 @class IRViewController;
 @class IRViewControllerDescriptor;
 @class IRScreenDescriptor;
+@protocol RESideMenuDelegate;
 
 
 @interface IRViewControllerBuilder : IRBaseBuilder
@@ -28,8 +29,10 @@
                                                descriptor:(IRViewControllerDescriptor *)viewControllerDescriptor;
 + (IRViewController *) wrapInTabBarControllerIfNeeded:(IRViewController *)irViewController
                                            descriptor:(IRViewControllerDescriptor *)viewControllerDescriptor;
+
 + (IRViewController *) wrapInSideMenuIfNeeded:(IRViewController *)irViewController
-                                   descriptor:(IRViewControllerDescriptor *)viewControllerDescriptor;
+                                   descriptor:(IRViewControllerDescriptor *)viewControllerDescriptor
+                             sideMenuDelegate:(id <RESideMenuDelegate>)delegate;
 
 + (void) addAutoLayoutConstraintsForRootView:(IRViewController *)irViewController;
 + (void) addDataBindingsForRootView:(IRViewController *)irViewController;
