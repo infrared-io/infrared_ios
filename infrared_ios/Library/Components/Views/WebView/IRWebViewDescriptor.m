@@ -126,6 +126,10 @@
         } else {
             self.openAllLinksInSafari = NO;
         }
+
+        // scrollIndicatorStyle
+        string = aDictionary[NSStringFromSelector(@selector(indicatorStyle))];
+        self.indicatorStyle = [IRBaseDescriptor scrollViewIndicatorStyleFromString:string];
     }
     return self;
 }

@@ -34,6 +34,7 @@
 @property (nonatomic, strong) NSString *htmlString;
 
 @property (nonatomic) BOOL openAllLinksInSafari;
+@property (nonatomic) UIScrollViewIndicatorStyle indicatorStyle;
 
 // --------------------------------------------------------------------------------------------------------------------
 
