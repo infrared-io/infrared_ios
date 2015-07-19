@@ -383,12 +383,12 @@
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
-- (void) showAlertViewWithTitle:(NSString *)title
-                        message:(NSString *)message
-                         action:(NSString *)action
-                         cancel:(NSString *)cancelTitle
-                   otherButtons:(NSArray *)otherTitlesArray
-                           data:(id)data
+- (void) showAlertView:(NSString *)title
+         :(NSString *)message
+         :(NSString *)action
+         :(NSString *)cancelTitle
+         :(NSArray *)otherTitlesArray
+         :(id)data
 {
     IRAlertView * alert = [[IRAlertView alloc ] initWithTitle:title
                                                       message:message
@@ -408,12 +408,12 @@
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
-- (void) showActionSheetWithTitle:(NSString *)title
-                           action:(NSString *)action
-                           cancel:(NSString *)cancelTitle
-                      destructive:(NSString *)destructiveTitle
-                     otherButtons:(NSArray *)otherTitlesArray
-                             data:(id)data
+- (void) showActionSheet:(NSString *)title
+         :(NSString *)action
+         :(NSString *)cancelTitle
+         :(NSString *)destructiveTitle
+         :(NSArray *)otherTitlesArray
+         :(id)data
 {
     NSString *destructiveTitleWithCheck = nil;
     // This is necessary - for some reason JSContext transforms null into "null" (NSString) instead of nil

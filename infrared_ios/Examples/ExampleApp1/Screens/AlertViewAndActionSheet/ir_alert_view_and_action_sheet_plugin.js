@@ -1,7 +1,7 @@
 
 IR.plugin("alert_view_and_action_sheet", {
     "showAlertView" : function () {
-        this.showAlertViewWithTitleMessageActionCancelOtherButtonsData(
+        this.showAlertView(
             'Alert View', 'Some question or message',
             'this.showAlertViewResponse(alertView, buttonIndex);',
             'Cancel', ['OK'], null);
@@ -12,8 +12,8 @@ IR.plugin("alert_view_and_action_sheet", {
         }
     },
     "showActionSheet": function () {
-        this.showActionSheetWithTitleActionCancelDestructiveOtherButtonsData(
-            'Set User(s) Role',
+        this.showActionSheet(
+            'Action Sheet',
             'this.showActionSheetResponse(actionSheet, buttonIndex);',
             'Cancel', 'Destroy', ['First', 'Second', 'Third'], null);
     },
