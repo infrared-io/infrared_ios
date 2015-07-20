@@ -3,9 +3,11 @@
 // Copyright (c) 2015 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRWebViewDescriptor.h"
 #import "IRWebViewBuilder.h"
 #import "IRWebView.h"
+#import "UIScrollViewExport.h"
 
 
 @implementation IRWebViewDescriptor
@@ -22,6 +24,18 @@
 + (Class) builderClass
 {
     return [IRWebViewBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIWebView class], @protocol(UIWebViewExport));
+    @try {
+//        class_addProtocol(NSClassFromString(@"_UIWebViewScrollView"), @protocol(UIScrollViewExport));
+        class_addProtocol(NSClassFromString(@"UIWebScrollView"), @protocol(UIScrollViewExport));
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception when adding UIScrollViewExport to WebView: %@, %@", exception, [exception userInfo]);
+    }
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

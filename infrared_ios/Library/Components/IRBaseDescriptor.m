@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRBaseDescriptor.h"
 #import "IRViewDescriptor.h"
 #import "IRLabelDescriptor.h"
@@ -1183,6 +1184,11 @@
 + (Class) builderClass
 {
     return NULL;
+}
+
++ (void) addJSExportProtocol
+{
+
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

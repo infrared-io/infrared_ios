@@ -1,5 +1,5 @@
 
-IR.plugin("collection_view", {
+IR.plugin({
     "selectItem1": function (data, collectionView, indexPath) {
         NSLog('selectItem1');
     },

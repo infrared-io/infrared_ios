@@ -1,6 +1,6 @@
 
 
-IR.plugin("gesture_recognizers", {
+IR.plugin({
     "tapGestureRecognizer": function (gestureRecognizer) {
         this.showAlertView(
             'Tap Gesture Recognizer', "Single Tap",

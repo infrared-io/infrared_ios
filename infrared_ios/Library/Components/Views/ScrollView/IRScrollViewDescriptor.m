@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRScrollViewDescriptor.h"
 #import "IRScrollViewBuilder.h"
 #import "IRScrollView.h"
@@ -22,6 +23,11 @@
 + (Class) builderClass
 {
     return [IRScrollViewBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIScrollView class], @protocol(UIScrollViewExport));
 }
 
 - (NSDictionary *) viewDefaults

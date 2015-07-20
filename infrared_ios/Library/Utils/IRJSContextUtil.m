@@ -127,4 +127,14 @@
     }
 }
 
++ (void) addMD5JSExtensionToJSContext:(JSContext *)jsContext;
+{
+    NSString *jsExtension = [IRUtil stringFromPath:@"md5.min.js"];
+    if (jsExtension) {
+        [jsContext evaluateScript:jsExtension];
+    } else {
+        NSLog(@"md5.min.js MISSING");
+    }
+}
+
 @end

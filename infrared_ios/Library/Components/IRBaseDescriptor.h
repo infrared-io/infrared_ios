@@ -148,6 +148,8 @@ typedef enum {
 
 + (Class) builderClass;
 
++ (void) addJSExportProtocol;
+
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 
 - (NSDictionary *) viewDefaults;

@@ -1,5 +1,5 @@
 
-IR.plugin("alert_view_and_action_sheet", {
+IR.plugin({
     "showAlertView" : function () {
         this.showAlertView(
             'Alert View', 'Some question or message',

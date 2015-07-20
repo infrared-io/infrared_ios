@@ -67,8 +67,13 @@ var infraredClass = function () {
 
     this.pluginsMap = {};
 
-    this.plugin = function (name, dictionary) {
-        this.pluginsMap[name] = dictionary;
+    this.plugin = function (/*name, */dictionary) {
+        //this.pluginsMap[name] = dictionary;
+        var dictAsString = JSON.stringify(dictionary, function(key, value) {
+            return (typeof value === 'function') ? '' + value : value;
+        });
+        dictAsString = md5(dictAsString);
+        this.pluginsMap[dictAsString] = dictionary;
     };
 
     //this.addWatch = function (viewController, propertyName, numberOfLevels) {

@@ -59,6 +59,7 @@
 		F613A26B1284D173592AFF89 /* IRBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AB7418D0C4471759879D /* IRBarItem.m */; };
 		F613A28B80EE2F237E19F262 /* IRLayoutConstraintMetricsDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A3471ACD3AF33EA33B68 /* IRLayoutConstraintMetricsDescriptor.m */; };
 		F613A2925423E9F1F5E15254 /* example1_fr.json in Resources */ = {isa = PBXBuildFile; fileRef = F613A97580E99DF59F93E000 /* example1_fr.json */; };
+		F613A2984DD711833EB5D307 /* md5.min.js in Sources */ = {isa = PBXBuildFile; fileRef = F613A2509E4D754ED269B91E /* md5.min.js */; };
 		F613A29C5FC4D7300E40976C /* IRBarItemBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A632AB8714B5ECE7B17E /* IRBarItemBuilder.m */; };
 		F613A2BE58E238292A9FF2CF /* IRViewControllerBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A9498AA8E8F3B005717B /* IRViewControllerBuilder.m */; };
 		F613A2D4EDC0F35EBFA94B34 /* IRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AAF9D0DFC19A663A507E /* IRNavigationController.m */; };
@@ -318,6 +319,7 @@
 		F613A215502EA0F2E2B099B0 /* IRWebViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRWebViewBuilder.h; sourceTree = "<group>"; };
 		F613A22F88BC02AFAE448FEA /* IRBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBarButtonItem.m; sourceTree = "<group>"; };
 		F613A2336AB1F0FEA4CE0E0B /* UIColorExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorExport.h; sourceTree = "<group>"; };
+		F613A2509E4D754ED269B91E /* md5.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = md5.min.js; sourceTree = "<group>"; };
 		F613A259165741335478702F /* IRPickerViewObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPickerViewObserver.h; sourceTree = "<group>"; };
 		F613A25AB62BBC7BF0EEA04A /* IRCollectionViewCellDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCollectionViewCellDescriptor.h; sourceTree = "<group>"; };
 		F613A2687D4B9BFEE0199C87 /* ir_gesture_recognizers_plugin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ir_gesture_recognizers_plugin.js; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 		F613A292E02E72E93EE6988D /* IRCollectionViewCellBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCollectionViewCellBuilder.m; sourceTree = "<group>"; };
 		F613A296E78FA39D1B5946A3 /* IRMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRMapView.h; sourceTree = "<group>"; };
 		F613A2A53857811C51513E30 /* IRCollectionViewBuilder+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IRCollectionViewBuilder+AutoLayout.m"; sourceTree = "<group>"; };
+		F613A2BED60CB4BF46B8DCDB /* UIWebViewExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWebViewExport.h; sourceTree = "<group>"; };
 		F613A2C149FC50149F94EB4F /* IRTableViewBuilder+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IRTableViewBuilder+AutoLayout.m"; sourceTree = "<group>"; };
 		F613A2CD8A79EB9143734770 /* IRWebViewObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRWebViewObserver.m; sourceTree = "<group>"; };
 		F613A2DD09C93840CE3A8137 /* IRWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRWebView.h; sourceTree = "<group>"; };
@@ -513,6 +516,7 @@
 		F613A9FBFA7B5312CEC15D0A /* IRSegmentedControlDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSegmentedControlDescriptor.h; sourceTree = "<group>"; };
 		F613A9FEED8317449A083AE9 /* ir_combination_of_views.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = ir_combination_of_views.json; sourceTree = "<group>"; };
 		F613AA12A1DD3D590623BD59 /* IRBaseAnnotationViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBaseAnnotationViewBuilder.h; sourceTree = "<group>"; };
+		F613AA1777C528E08ABC09A5 /* UIScrollViewExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewExport.h; sourceTree = "<group>"; };
 		F613AA1995030176026406CB /* IRPinchGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPinchGestureRecognizer.h; sourceTree = "<group>"; };
 		F613AA253EE0C61E221720AA /* IRSearchBarBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSearchBarBuilder.h; sourceTree = "<group>"; };
 		F613AA3AC2A51DB5432BE8B5 /* IRBarButtonItemDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBarButtonItemDescriptor.m; sourceTree = "<group>"; };
@@ -1005,6 +1009,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F613A499D5FAA3A7ECF8FBF0 /* MD5 */ = {
+			isa = PBXGroup;
+			children = (
+				F613A2509E4D754ED269B91E /* md5.min.js */,
+			);
+			path = MD5;
+			sourceTree = "<group>";
+		};
 		F613A4C467CD732D0EF6230A /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1365,6 +1377,7 @@
 				F613A60E508A295564597DD4 /* IRScrollViewDescriptor.h */,
 				F613A895D8EE36E99D203024 /* IRScrollViewBuilder.m */,
 				F613A41C1865A4D8A1ED9D20 /* IRScrollViewBuilder.h */,
+				F613AA1777C528E08ABC09A5 /* UIScrollViewExport.h */,
 			);
 			path = ScrollView;
 			sourceTree = "<group>";
@@ -1374,6 +1387,7 @@
 			children = (
 				F613A59D689D95DE71DACD9F /* WatchJS */,
 				F613A9BC02A851680432C1D4 /* infrared */,
+				F613A499D5FAA3A7ECF8FBF0 /* MD5 */,
 			);
 			path = JSExtensions;
 			sourceTree = "<group>";
@@ -1484,6 +1498,7 @@
 				F613A1979D5B8672AB003AF7 /* IRWebViewDescriptor.m */,
 				F613AE5085281A04E376CF7D /* IRWebViewDescriptor.h */,
 				F613A0AB9B59AB490D26EC33 /* _Observer */,
+				F613A2BED60CB4BF46B8DCDB /* UIWebViewExport.h */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -2302,6 +2317,7 @@
 				F613AD5B73CA2DB8435704AC /* IRWebViewDescriptor.m in Sources */,
 				F613ACBF744ED67A0F2CACBF /* ir_web_view_plugin.js in Sources */,
 				F613AE3A881995C240AFB96C /* IRWebViewObserver.m in Sources */,
+				F613A2984DD711833EB5D307 /* md5.min.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

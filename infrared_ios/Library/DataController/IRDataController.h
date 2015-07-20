@@ -43,6 +43,7 @@
 - (void) registerComponentDescriptor:(Class)baseDescriptorClass;
 - (Class)componentDescriptorClassByName:(NSString *)componentName;
 - (void) addComponentConstructorsToJSContext:(JSContext *)context;
+- (void) addAllJSExportProtocols;
 
 - (IRViewController *) mainScreenViewController;
 - (NSString *) mainScreenViewControllerId;

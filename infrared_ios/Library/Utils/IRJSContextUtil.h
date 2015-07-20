@@ -23,5 +23,6 @@
 + (void) addConsoleNSLogToJSContext:(JSContext *)jsContext;
 
 + (void) addInfraredJSExtensionToJSContext:(JSContext *)jsContext;
++ (void) addMD5JSExtensionToJSContext:(JSContext *)jsContext;
 
 @end

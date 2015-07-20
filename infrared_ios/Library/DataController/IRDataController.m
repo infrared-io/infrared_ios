@@ -99,6 +99,15 @@ static IRDataController *sharedDataController = nil;
     }
 }
 
+- (void) addAllJSExportProtocols
+{
+    Class descriptorClass;
+    for (NSString *componentName in self.componentsDictionary) {
+        descriptorClass = self.componentsDictionary[componentName];
+        [descriptorClass addJSExportProtocol];
+    }
+}
+
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -219,6 +228,7 @@ static IRDataController *sharedDataController = nil;
                                                            "<html><head>"
 //                                                           "<script src='http://jsconsole.com/remote.js?'></script>"
                                                            "<script src='infrared.js'></script>"
+                                                           "<script src='md5.min.js'></script>"
 #if DEBUG == 1
                                                            "<script src='zeroTimeout.js'></script>"
                                                            "<script src='zeroTimeoutWorker.js'></script>"
@@ -244,6 +254,7 @@ static IRDataController *sharedDataController = nil;
     JSContext *temporaryJSContext = [[JSContext alloc] init];
 //    [IRJSContextUtil addConsoleNSLogToJSContext:temporaryJSContext];
     [IRJSContextUtil addInfraredJSExtensionToJSContext:temporaryJSContext];
+    [IRJSContextUtil addMD5JSExtensionToJSContext:temporaryJSContext];
     return temporaryJSContext;
 }
 

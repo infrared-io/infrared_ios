@@ -275,12 +275,12 @@
         tempPluginsMapValue = tempGlobalObject[/*@"infrared"*/[IRUtilLibrary parent]][@"pluginsMap"];
         tempPluginsMap = [tempPluginsMapValue toDictionary];
         for (NSString *pluginName in tempPluginsMap) {
+            // IMPORTANT: 'setZeroTimeout' can not be added here this way. Operation is done on separate thread
+            //            and successive ObjC methods, which expect extended methods te be available,
+            //            don't have guarantee for availability
+            //            If 'setZeroTimeout' becomes necessary (for debugging) JS call-back methods has to be
+            //            introduced so successive ObjC code can rely on extended methods availability
             stringToEvaluate = [NSString stringWithFormat:@
-                                                            // IMPORTANT: 'setZeroTimeout' can not be added here this way. Operation is done on separate thread
-                                                            //            and successive ObjC methods, which expect extended methods te be available,
-                                                            //            don't have guarantee for availability
-                                                            //            If 'setZeroTimeout' becomes necessary (for debugging) JS call-back methods has to be
-                                                            //            introduced so successive ObjC code can rely on extended methods availability
 //#if ENABLE_SAFARI_DEBUGGING == 1
 //                                                        "setZeroTimeout( function() { "
 //#endif

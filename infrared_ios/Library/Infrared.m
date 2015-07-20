@@ -187,8 +187,8 @@ static Infrared *sharedInfraRed = nil;
 
     // 3) download and cache JS files
     jsonPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
-    // 3.1)  watch.js and infrared.js
-    pathsArray = @[@"infrared.js", @"zeroTimeout.js", @"zeroTimeoutWorker.js", @"watch.js"];
+    // 3.1)  internal JS libraries
+    pathsArray = @[@"infrared.js", @"md5.min.js", @"zeroTimeout.js", @"zeroTimeoutWorker.js", @"watch.js"];
     failedPathsArray = [NSMutableArray array];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
                                          destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
@@ -269,13 +269,16 @@ static Infrared *sharedInfraRed = nil;
     // 7) add component constructors ("create" method) to globalJSContext
     [[IRDataController sharedInstance] addComponentConstructorsToJSContext:[[IRDataController sharedInstance] globalJSContext]];
 
-    // 8) init I18N
+    // 8) add JSExport protocols for all component
+    [[IRDataController sharedInstance] addAllJSExportProtocols];
+
+    // 9) init I18N
     [self initI18NData];
 
-    // 9) dispatch JS Event that IR app is ready
+    // 10) dispatch JS Event that IR app is ready
     [[[IRDataController sharedInstance] globalJSContext] evaluateScript:@"window.dispatchEvent(new Event('ir_load'));"];
 
-    // 9) build main view-controller
+    // 11) build main view-controller
     IRScreenDescriptor *mainScreenDescriptor = [[IRDataController sharedInstance].appDescriptor mainScreenDescriptor];
     [self buildViewControllerAndSetRootViewControllerScreenDescriptor:mainScreenDescriptor
                                                                  data:nil];

@@ -1,5 +1,5 @@
 
-IR.plugin("label_button_image", {
+IR.plugin({
     "defaultButtonTapped" : function () {
         this.showAlertView(
             'Default Button', 'Tapped',
