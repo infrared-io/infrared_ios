@@ -32,7 +32,7 @@
 
 
 + (NSString *) basePathAppDescriptorApp:(NSString *)app
-                                 varion:(NSInteger)version;
+                                version:(NSInteger)version;
 + (NSString *) basePathAppDescriptorApp:(NSString *)app;
 + (NSString *) documentsBasePathForInfrared;
 

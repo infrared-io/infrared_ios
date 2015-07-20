@@ -254,6 +254,7 @@
     }
 
     if (self.shouldUnregisterVCStack) {
+//        NSLog(@"viewDidDisappear - unregisterViewController ***STACK*** - key:%@", self.key);
         [self unregisterViewControllerAndItsNavigationStack:self];
     }
 }
@@ -491,6 +492,59 @@
 - (NSArray *) controllersWithScreenId:(NSString *)screenId
 {
     return [[IRUtilLibrary sharedInstance] controllersWithScreenId:screenId];
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
+#pragma mark - NSUserDefaults
+
+- (void) setUserDefaultsValue:(NSString *)value forKey:(NSString *)key
+{
+    [[IRUtilLibrary sharedInstance] setUserDefaultsValue:value forKey:key];
+}
+- (NSString *) userDefaultsValueForKey:(NSString *)key
+{
+    return [[IRUtilLibrary sharedInstance] userDefaultsValueForKey:key];
+}
+- (void) removeDefaultsValueForKey:(NSString *)key
+{
+    [[IRUtilLibrary sharedInstance] removeDefaultsValueForKey:key];
+}
+// --------------------------------------------------------------------------------------------------------------------
+- (void) setUserDefaultsValue:(NSString *)value forKey:(NSString *)key withSuitedName:(NSString *)name
+{
+    [[IRUtilLibrary sharedInstance] setUserDefaultsValue:value forKey:key withSuitedName:name];
+}
+- (NSString *) userDefaultsValueForKey:(NSString *)key withSuitedName:(NSString *)name
+{
+    return [[IRUtilLibrary sharedInstance] userDefaultsValueForKey:key withSuitedName:name];
+}
+- (void) removeDefaultsValueForKey:(NSString *)key withSuitedName:(NSString *)name
+{
+    [[IRUtilLibrary sharedInstance] removeDefaultsValueForKey:key withSuitedName:name];
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
+#pragma mark - Keychain
+
+- (void) setKeychainPassword:(NSString *)password
+                      forKey:(NSString *)key
+                  andAccount:(NSString *)account
+{
+    [[IRUtilLibrary sharedInstance] setKeychainPassword:password forKey:key andAccount:account];
+}
+- (NSString *) keychainPasswordForKey:(NSString *)key
+                           andAccount:(NSString *)account
+{
+    return [[IRUtilLibrary sharedInstance] keychainPasswordForKey:key andAccount:account];
+}
+- (void) removeKeychainPasswordForKey:(NSString *)key
+                           andAccount:(NSString *)account
+{
+    [[IRUtilLibrary sharedInstance] removeKeychainPasswordForKey:key andAccount:account];
 }
 
 // --------------------------------------------------------------------------------------------------------------------

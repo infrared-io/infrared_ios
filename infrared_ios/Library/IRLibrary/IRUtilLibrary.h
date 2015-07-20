@@ -23,6 +23,21 @@
 - (void) hideComponentWithId:(NSString *)componentId
               viewController:(IRViewController *)viewController;
 
+- (void) setUserDefaultsValue:(NSString *)value forKey:(NSString *)key;
+- (NSString *) userDefaultsValueForKey:(NSString *)key;
+- (void) removeDefaultsValueForKey:(NSString *)key;
+- (void) setUserDefaultsValue:(NSString *)value forKey:(NSString *)key withSuitedName:(NSString *)name;
+- (NSString *) userDefaultsValueForKey:(NSString *)key withSuitedName:(NSString *)name;
+- (void) removeDefaultsValueForKey:(NSString *)key withSuitedName:(NSString *)name;
+
+- (void) setKeychainPassword:(NSString *)password
+                      forKey:(NSString *)key
+                  andAccount:(NSString *)account;
+- (NSString *) keychainPasswordForKey:(NSString *)key
+                           andAccount:(NSString *)account;
+- (void) removeKeychainPasswordForKey:(NSString *)key
+                           andAccount:(NSString *)account;
+
 - (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title;
 - (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title mode:(MBProgressHUDMode)mode;
 - (void)dismissGlobalHUD;

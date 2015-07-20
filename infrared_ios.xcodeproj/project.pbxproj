@@ -169,6 +169,7 @@
 		F613AB1ACD4416ECCA503179 /* IRViewAndControlDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ACB1CC349C4838BFB101 /* IRViewAndControlDescriptor.m */; };
 		F613AB30C5BAE89FA2D8BF6A /* IRNavigationBarDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A1137FC709819D7E3EFE /* IRNavigationBarDescriptor.m */; };
 		F613AB37AA20628A662E1EF2 /* ir_gesture_recognizers.json in Resources */ = {isa = PBXBuildFile; fileRef = F613AA57C2E4378626DC048F /* ir_gesture_recognizers.json */; };
+		F613AB3C3E4F9547B5907B19 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F613A31EE37FC31EC0D7D865 /* Security.framework */; };
 		F613AB48C80ED7060C314F7E /* IRDatePickerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AEC5CC6027421DA305C5 /* IRDatePickerDescriptor.m */; };
 		F613AB4E7B6FACE59040DEB7 /* IRTableViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6E735ABDCF4CEA7FE89 /* IRTableViewDescriptor.m */; };
 		F613AB580B08AEF3EB755FB7 /* IRProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A13D68E1D924A5E80024 /* IRProgressView.m */; };
@@ -341,6 +342,7 @@
 		F613A2F6BE4C201F066CCCEA /* IRGestureRecognizerDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRGestureRecognizerDescriptor.m; sourceTree = "<group>"; };
 		F613A31156F12A074272F4E0 /* IRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPickerView.h; sourceTree = "<group>"; };
 		F613A316E936E04639240D3F /* IRDataBindingDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRDataBindingDescriptor.m; sourceTree = "<group>"; };
+		F613A31EE37FC31EC0D7D865 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F613A34266FCD62AB1D38ADD /* IRPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPinAnnotationView.h; sourceTree = "<group>"; };
 		F613A3471ACD3AF33EA33B68 /* IRLayoutConstraintMetricsDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLayoutConstraintMetricsDescriptor.m; sourceTree = "<group>"; };
 		F613A34801298B420310FEE6 /* update_de.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = update_de.json; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 				15136E3D19AB60A600124BCE /* Foundation.framework in Frameworks */,
 				BB7368F0D072D98A7BEB9B7E /* libPods-infrared_ios.a in Frameworks */,
 				00BA8B367CD6517EBD32E619 /* libPods-infrared_ios.a in Frameworks */,
+				F613AB3C3E4F9547B5907B19 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +728,7 @@
 				0CE571C5B20E6E424D34ED75 /* libPods-Infrared_ios_lib.a */,
 				2BC8B77F1ECAEC692DB4B31F /* libPods-infrared_ios.a */,
 				7DD12080D11ABF3D0C822393 /* libPods-infrared_ios_lib.a */,
+				F613A31EE37FC31EC0D7D865 /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -15,6 +15,8 @@
 #import "IRFileLoadingUtil.h"
 #import "IRAppDescriptor.h"
 
+#define APP_AND_VERSION_SUITED_NAME @"io.infrared.library"
+
 @implementation IRUtil
 
 + (NSDictionary *) appDictionaryFromPath:(NSString *)path
@@ -30,7 +32,7 @@
     IRAppDescriptor *tempAppDescriptor;
     NSString *fileDestinationPath;
 
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:APP_AND_VERSION_SUITED_NAME];
 #if PREVENT_JSON_CACHE == 1
     // -- clear user-defaults
     [IRUtil cleanAppAndVersionInUserDefaults];
@@ -100,7 +102,7 @@
 
 + (void) cleanAppAndVersionInUserDefaults
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:APP_AND_VERSION_SUITED_NAME];
     [defaults removeObjectForKey:appKEY];
     [defaults removeObjectForKey:appVersionKEY];
     [defaults synchronize];
@@ -154,7 +156,7 @@
                                         version:(NSInteger)version
 {
     NSString *jsonPathComponent = [NSString stringWithFormat:@"%@/resources",
-                                            [IRUtil basePathAppDescriptorApp:app varion:version]];
+                                            [IRUtil basePathAppDescriptorApp:app version:version]];
     return jsonPathComponent;
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -167,13 +169,13 @@
                                         version:(NSInteger)version
 {
     NSString *jsonPathComponent = [NSString stringWithFormat:@"%@/App",
-                                            [IRUtil basePathAppDescriptorApp:app varion:version]];
+                                            [IRUtil basePathAppDescriptorApp:app version:version]];
     return jsonPathComponent;
 }
 
 // --------------------------------------------------------------------------------------------------------------------
 + (NSString *) basePathAppDescriptorApp:(NSString *)app
-                                 varion:(NSInteger)version
+                                version:(NSInteger)version
 {
     NSString *basePathComponent = [NSString stringWithFormat:@"%@/%@/%d",
                                                              [IRUtil documentsBasePathForInfrared],

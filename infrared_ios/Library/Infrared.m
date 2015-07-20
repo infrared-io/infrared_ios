@@ -432,7 +432,7 @@ static Infrared *sharedInfraRed = nil;
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
-    NSString *basePathComponent = [IRUtil basePathAppDescriptorApp:app varion:version];
+    NSString *basePathComponent = [IRUtil basePathAppDescriptorApp:app version:version];
     NSString *finalPath = [documentsDirectory stringByAppendingPathComponent:basePathComponent];
     NSError *error;
     if ([[NSFileManager defaultManager] fileExistsAtPath:finalPath]) {

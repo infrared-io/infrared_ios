@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-    s.frameworks = "SystemConfiguration", "MapKit", "CoreGraphics", "UIKit"
+    s.frameworks = "SystemConfiguration", "MapKit", "CoreGraphics", "UIKit", "Security"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -108,6 +108,6 @@ Pod::Spec.new do |s|
   s.dependency 'RESideMenu', '~> 4.0.7'
   s.dependency 'IQKeyboardManager'
   s.dependency 'MBProgressHUD', '~> 0.9.1'
-
+  s.dependency 'SSKeychain'
 
 end

@@ -10,6 +10,8 @@ target "infrared_ios" do
   pod 'IQKeyboardManager'
   pod 'MBProgressHUD', '~> 0.9.1'
 
+  pod 'SSKeychain'
+
   inhibit_all_warnings!
 
 end

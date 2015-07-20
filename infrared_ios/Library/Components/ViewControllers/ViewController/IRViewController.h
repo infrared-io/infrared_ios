@@ -307,13 +307,6 @@
 // -----------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------
 
-//- (void) showAlertViewWithTitle:(NSString *)title
-//                        message:(NSString *)message
-//                         action:(NSString *)action
-//                         cancel:(NSString *)cancelTitle
-//                   otherButtons:(NSArray *)otherTitlesArray
-//                           data:(id)data;
-
 - (void) showAlertView:(NSString *)title
          :(NSString *)message
          :(NSString *)action
@@ -323,13 +316,6 @@
 
 // -----------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------
-
-//- (void) showActionSheetWithTitle:(NSString *)title
-//                           action:(NSString *)action
-//                           cancel:(NSString *)cancelTitle
-//                      destructive:(NSString *)destructiveTitle
-//                     otherButtons:(NSArray *)otherTitlesArray
-//                             data:(id)data;
 
 - (void) showActionSheet:(NSString *)title
          :(NSString *)action
@@ -363,6 +349,31 @@
 
 - (NSArray *) controllersWithId:(NSString *)controllerId;
 - (NSArray *) controllersWithScreenId:(NSString *)screenId;
+
+// -----------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------
+
+#pragma mark - NSUserDefaults
+
+- (void) setUserDefaultsValue:(NSString *)value forKey:(NSString *)key;
+- (NSString *) userDefaultsValueForKey:(NSString *)key;
+- (void) removeDefaultsValueForKey:(NSString *)key;
+- (void) setUserDefaultsValue:(NSString *)value forKey:(NSString *)key withSuitedName:(NSString *)name;
+- (NSString *) userDefaultsValueForKey:(NSString *)key withSuitedName:(NSString *)name;
+- (void) removeDefaultsValueForKey:(NSString *)key withSuitedName:(NSString *)name;
+
+// -----------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------
+
+#pragma mark - Keychain
+
+- (void) setKeychainPassword:(NSString *)password
+                      forKey:(NSString *)key
+                  andAccount:(NSString *)account;
+- (NSString *) keychainPasswordForKey:(NSString *)key
+                           andAccount:(NSString *)account;
+- (void) removeKeychainPasswordForKey:(NSString *)key
+                           andAccount:(NSString *)account;
 
 // -----------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------
