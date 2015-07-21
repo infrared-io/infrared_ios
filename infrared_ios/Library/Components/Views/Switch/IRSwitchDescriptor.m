@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRSwitchDescriptor.h"
 #import "IRSwitchBuilder.h"
 #import "IRUtil.h"
@@ -23,6 +24,11 @@
 + (Class) builderClass
 {
     return [IRSwitchBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UISwitch class], @protocol(UISwitchExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

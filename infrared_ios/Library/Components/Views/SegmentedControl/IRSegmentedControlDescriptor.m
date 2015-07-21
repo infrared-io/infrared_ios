@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRSegmentedControlDescriptor.h"
 #import "IRSegmentedControlBuilder.h"
 #import "IRSegment.h"
@@ -24,6 +25,11 @@
 + (Class) builderClass
 {
     return [IRSegmentedControlBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UISegmentedControl class], @protocol(UISegmentedControlExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

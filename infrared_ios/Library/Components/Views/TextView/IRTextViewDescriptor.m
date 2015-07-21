@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRTextViewDescriptor.h"
 #import "IRTextViewBuilder.h"
 #import "IRUtil.h"
@@ -23,6 +24,11 @@
 + (Class) builderClass
 {
     return [IRTextViewBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UITextView class], @protocol(UITextViewExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

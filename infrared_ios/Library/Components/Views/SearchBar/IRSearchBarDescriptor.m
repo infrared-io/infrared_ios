@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRSearchBarDescriptor.h"
 #import "IRSearchBarBuilder.h"
 #import "IRUtil.h"
@@ -23,6 +24,11 @@
 + (Class) builderClass
 {
     return [IRSearchBarBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UISearchBar class], @protocol(UISearchBarExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

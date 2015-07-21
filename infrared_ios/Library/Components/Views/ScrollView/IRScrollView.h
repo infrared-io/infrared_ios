@@ -91,6 +91,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
-@interface IRScrollView : UIScrollView <IRComponentInfoProtocol, UIScrollViewExport, IRScrollViewExport, IRViewExport>
+@interface IRScrollView : UIScrollView <IRComponentInfoProtocol, UIScrollViewExport, IRScrollViewExport, UIViewExport, IRViewExport>
 
 @end

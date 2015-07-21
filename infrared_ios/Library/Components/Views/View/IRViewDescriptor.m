@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRViewDescriptor.h"
 #import "IRUtil.h"
 #import "IRLayoutConstraintDescriptor.h"
@@ -28,6 +29,11 @@
 + (Class) builderClass
 {
     return [IRViewBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIView class], @protocol(UIViewExport));
 }
 
 - (NSDictionary *) viewDefaults

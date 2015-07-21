@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRStepperDescriptor.h"
 #import "IRStepperBuilder.h"
 #import "IRUtil.h"
@@ -23,6 +24,11 @@
 + (Class) builderClass
 {
     return [IRStepperBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIStepper class], @protocol(UIStepperExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

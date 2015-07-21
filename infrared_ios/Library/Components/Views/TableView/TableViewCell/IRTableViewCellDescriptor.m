@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRTableViewCellDescriptor.h"
 #import "IRTableViewCellBuilder.h"
 #import "IRTableViewCell.h"
@@ -22,6 +23,11 @@
 + (Class) builderClass
 {
     return [IRTableViewCellBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UITableViewCell class], @protocol(UITableViewCellExport));
 }
 
 - (NSDictionary *) viewDefaults

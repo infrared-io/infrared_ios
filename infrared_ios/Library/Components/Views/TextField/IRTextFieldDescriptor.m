@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRTextFieldDescriptor.h"
 #import "IRUtil.h"
 #import "IRTextFieldBuilder.h"
@@ -25,6 +26,11 @@
 + (Class) builderClass
 {
     return [IRTextFieldBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UITextField class], @protocol(UITextFieldExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

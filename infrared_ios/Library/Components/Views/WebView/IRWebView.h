@@ -61,6 +61,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
-@interface IRWebView : UIWebView <IRComponentInfoProtocol, UIWebViewExport, IRWebViewExport, IRViewExport>
+@interface IRWebView : UIWebView <IRComponentInfoProtocol, UIWebViewExport, IRWebViewExport, UIViewExport, IRViewExport>
 
 @end

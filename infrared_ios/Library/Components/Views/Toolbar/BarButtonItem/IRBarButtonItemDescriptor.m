@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRBarButtonItemDescriptor.h"
 #import "IRBarButtonItemBuilder.h"
 #import "IRViewDescriptor.h"
@@ -23,6 +24,11 @@
 + (Class) builderClass
 {
     return [IRBarButtonItemBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIBarButtonItem class], @protocol(UIBarButtonItemExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
