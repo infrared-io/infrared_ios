@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRActivityIndicatorViewDescriptor.h"
 #import "IRActivityIndicatorViewBuilder.h"
 #import "IRUtil.h"
@@ -23,6 +24,11 @@
 + (Class) builderClass
 {
     return [IRActivityIndicatorViewBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIActivityIndicatorView class], @protocol(UIActivityIndicatorViewExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

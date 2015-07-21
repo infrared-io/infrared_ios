@@ -3,6 +3,7 @@
 // Copyright (c) 2015 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRCollectionViewCellDescriptor.h"
 #import "IRCollectionViewCell.h"
 #import "IRCollectionViewCellBuilder.h"
@@ -22,6 +23,11 @@
 + (Class) builderClass
 {
     return [IRCollectionViewCellBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UICollectionViewCell class], @protocol(UICollectionViewCellExport));
 }
 
 - (NSDictionary *) viewDefaults

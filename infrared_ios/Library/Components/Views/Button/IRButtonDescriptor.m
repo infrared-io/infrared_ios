@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRViewDescriptor.h"
 #import "IRButtonDescriptor.h"
 #import "IRUtil.h"
@@ -26,6 +27,11 @@
 + (Class) builderClass
 {
     return [IRButtonBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIButton class], @protocol(UIButtonExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

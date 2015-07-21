@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRImageViewDescriptor.h"
 #import "IRImageViewBuilder.h"
 #import "IRUtil.h"
@@ -25,6 +26,11 @@
 + (Class) builderClass
 {
     return [IRImageViewBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIImageView class], @protocol(UIImageViewExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

@@ -68,6 +68,7 @@ static Infrared *sharedInfraRed = nil;
 - (id) init {
     self = [super init];
     if (self) {
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRViewControllerDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRActivityIndicatorViewDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRButtonDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRCollectionViewDescriptor class]];

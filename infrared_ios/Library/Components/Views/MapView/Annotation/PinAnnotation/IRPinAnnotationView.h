@@ -6,7 +6,20 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import "IRComponentInfoProtocol.h"
+#import "IRView.h"
+#import "MKPinAnnotationViewExport.h"
 
 
-@interface IRPinAnnotationView : MKPinAnnotationView <IRComponentInfoProtocol>
+@protocol IRPinAnnotationViewExport <JSExport>
+
+@end
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
+@interface IRPinAnnotationView : MKPinAnnotationView <IRComponentInfoProtocol, MKPinAnnotationViewExport, IRPinAnnotationViewExport, UIViewExport, IRViewExport>
+
+
+
 @end

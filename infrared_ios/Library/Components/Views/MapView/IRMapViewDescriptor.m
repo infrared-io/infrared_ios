@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRMapViewDescriptor.h"
 #import "IRMapViewBuilder.h"
 #import "IRBaseAnnotation.h"
@@ -23,6 +24,11 @@
 + (Class) builderClass
 {
     return [IRMapViewBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([MKMapView class], @protocol(MKMapViewExport));
 }
 
 - (NSDictionary *) viewDefaults

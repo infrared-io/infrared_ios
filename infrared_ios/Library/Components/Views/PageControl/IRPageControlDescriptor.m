@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRPageControlDescriptor.h"
 #import "IRPageControlBuilder.h"
 #import "IRUtil.h"
@@ -23,6 +24,11 @@
 + (Class) builderClass
 {
     return [IRPageControlBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIPageControl class], @protocol(UIPageControlExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRPickerViewDescriptor.h"
 #import "IRPickerViewBuilder.h"
 #import "IRPickerView.h"
@@ -22,6 +23,11 @@
 + (Class) builderClass
 {
     return [IRPickerViewBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIPickerView class], @protocol(UIPickerViewExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

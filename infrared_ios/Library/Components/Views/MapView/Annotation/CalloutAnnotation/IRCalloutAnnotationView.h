@@ -6,8 +6,17 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import "IRComponentInfoProtocol.h"
+#import "IRView.h"
+#import "MKAnnotationViewExport.h"
 
+@protocol IRCalloutAnnotationViewExport <JSExport>
 
-@interface IRCalloutAnnotationView : MKAnnotationView <IRComponentInfoProtocol>
+@end
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
+@interface IRCalloutAnnotationView : MKAnnotationView <IRComponentInfoProtocol, MKAnnotationViewExport, IRCalloutAnnotationViewExport, UIViewExport, IRViewExport>
 
 @end

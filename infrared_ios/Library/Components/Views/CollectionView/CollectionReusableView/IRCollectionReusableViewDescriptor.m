@@ -3,6 +3,7 @@
 // Copyright (c) 2015 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRCollectionReusableViewDescriptor.h"
 #import "IRCollectionReusableView.h"
 #import "IRCollectionReusableViewBuilder.h"
@@ -22,6 +23,11 @@
 + (Class) builderClass
 {
     return [IRCollectionReusableViewBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UICollectionReusableView class], @protocol(UICollectionReusableViewExport));
 }
 
 //- (NSDictionary *) viewDefaults

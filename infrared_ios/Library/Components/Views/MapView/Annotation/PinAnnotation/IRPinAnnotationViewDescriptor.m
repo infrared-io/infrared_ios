@@ -3,10 +3,12 @@
 // Copyright (c) 2015 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRViewDescriptor.h"
 #import "IRPinAnnotationViewDescriptor.h"
 #import "IRPinAnnotationViewBuilder.h"
 #import "IRMapViewDescriptor.h"
+#import "IRPinAnnotationView.h"
 
 
 @implementation IRPinAnnotationViewDescriptor
@@ -15,10 +17,19 @@
 {
     return typePinAnnotationViewKEY;
 }
++ (Class) componentClass
+{
+    return [IRPinAnnotationView class];
+}
 
 + (Class) builderClass
 {
     return [IRPinAnnotationViewBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([MKPinAnnotationView class], @protocol(MKPinAnnotationViewExport));
 }
 
 - (NSDictionary *) viewDefaults

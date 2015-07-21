@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRNavigationBarDescriptor.h"
 #import "IRNavigationBarBuilder.h"
 #import "IRUtil.h"
@@ -23,6 +24,11 @@
 + (Class) builderClass
 {
     return [IRNavigationBarBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UINavigationBar class], @protocol(UINavigationBarExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

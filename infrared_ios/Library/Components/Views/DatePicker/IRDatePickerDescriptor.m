@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRDatePickerDescriptor.h"
 #import "IRDatePickerBuilder.h"
 #import "IRDatePicker.h"
@@ -22,6 +23,11 @@
 + (Class) builderClass
 {
     return [IRDatePickerBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIDatePicker class], @protocol(UIDatePickerExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

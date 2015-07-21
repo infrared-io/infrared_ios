@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRLabelDescriptor.h"
 #import "IRUtil.h"
 #import "IRLabelBuilder.h"
@@ -25,6 +26,11 @@
 + (Class) builderClass
 {
     return [IRLabelBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UILabel class], @protocol(UILabelExport));
 }
 
 - (NSDictionary *) viewDefaults

@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRViewControllerDescriptor.h"
 #import "IRUtil.h"
 #import "IRViewControllerBuilder.h"
@@ -10,6 +11,9 @@
 #import "IRNavigationControllerSubDescriptor.h"
 #import "IRKeyboardManagerSubDescriptor.h"
 #import "IRTabBarControllerSubDescriptor.h"
+#import "IRViewController.h"
+#import "UINavigationControllerExport.h"
+#import "UITabBarControllerExport.h"
 
 
 @implementation IRViewControllerDescriptor
@@ -18,10 +22,21 @@
 {
     return typeViewControllerKEY;
 }
++ (Class) componentClass
+{
+    return [IRViewController class];
+}
 
 + (Class) builderClass
 {
     return [IRViewControllerBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIViewController class], @protocol(UIViewControllerExport));
+    class_addProtocol([UINavigationController class], @protocol(UINavigationControllerExport));
+    class_addProtocol([UITabBarController class], @protocol(UITabBarControllerExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

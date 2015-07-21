@@ -3,6 +3,7 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRProgressViewDescriptor.h"
 #import "IRProgressViewBuilder.h"
 #import "IRUtil.h"
@@ -23,6 +24,11 @@
 + (Class) builderClass
 {
     return [IRProgressViewBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([UIProgressView class], @protocol(UIProgressViewExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary

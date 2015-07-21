@@ -6,6 +6,9 @@
 #import "IRCalloutAnnotationViewDescriptor.h"
 #import "IRViewDescriptor.h"
 #import "IRCalloutAnnotationViewBuilder.h"
+#import "IRCalloutAnnotationView.h"
+#import <MapKit/MapKit.h>
+#import <objc/runtime.h>
 
 
 @implementation IRCalloutAnnotationViewDescriptor
@@ -14,10 +17,19 @@
 {
     return typeCalloutAnnotationViewKEY;
 }
++ (Class) componentClass
+{
+    return [IRCalloutAnnotationView class];
+}
 
 + (Class) builderClass
 {
     return [IRCalloutAnnotationViewBuilder class];
+}
+
++ (void) addJSExportProtocol
+{
+    class_addProtocol([MKAnnotationView class], @protocol(MKAnnotationViewExport));
 }
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
