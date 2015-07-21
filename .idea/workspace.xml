@@ -4,64 +4,10 @@
     <list id="32bc60ea-428b-4574-bd73-560444221e61" name="Default" comment="" />
     <list id="8aa917bd-2999-41a9-b487-38fcdc2f0c67" name="THIOS-7 Implement UITapGestureRecognizer" comment="THIOS-3 UIViewController" />
     <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="Added JSExport to UIKit base objects (number of views) - 2&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/MKAnnotationViewExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/MKMapViewExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/MKPinAnnotationViewExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/UIActivityIndicatorViewExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/UIButtonExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionReusableView/UICollectionReusableViewExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/UICollectionViewCellExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/UICollectionViewExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/DatePicker/UIDatePickerExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/UIImageViewExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/UILabelExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/UINavigationBarExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/NavigationController/UINavigationControllerExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/UINavigationItemExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/UIPageControlExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PickerView/UIPickerViewExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ProgressView/UIProgressViewExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/TabBarController/UITabBarControllerExport.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/UIViewControllerExport.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorView.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorView.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButton.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButton.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/IRCalloutAnnotationView.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/IRCalloutAnnotationView.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/IRCalloutAnnotationViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/IRCalloutAnnotationViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionReusableView/IRCollectionReusableView.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionReusableView/IRCollectionReusableView.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionReusableView/IRCollectionReusableViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionReusableView/IRCollectionReusableViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionView.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionView.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/IRCollectionViewCell.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/IRCollectionViewCell.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/IRCollectionViewCellDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/IRCollectionViewCellDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePicker.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePicker.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageView.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageView.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/IRLabel.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/IRLabel.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/IRLabelDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/IRLabelDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/IRMapView.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/IRMapView.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/IRMapViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/IRMapViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBar.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBar.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/NavigationController/IRNavigationController.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/NavigationController/IRNavigationController.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItem.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItem.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItemDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItemDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/IRPageControl.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/IRPageControl.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/IRPageControlDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/IRPageControlDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerView.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerView.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationView.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationView.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressView.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressView.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/TabBarController/IRTabBarController.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/TabBarController/IRTabBarController.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Infrared.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Infrared.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewBuilder.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewBuilder.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" afterPath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/infrared_ios.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="therma_ios.iws" />
@@ -108,31 +54,21 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="IRTabBarItemDescriptor.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarItemDescriptor.h">
+          <file leaf-file-name="IRWebViewDescriptor.m" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.m">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="1435" max-vertical-offset="2295">
+                  <caret line="141" column="9" selection-start-line="141" selection-start-column="9" selection-end-line="141" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="IRTabBarItemDescriptor.m" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarItemDescriptor.m">
+          <file leaf-file-name="IRWebViewBuilder.m" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewBuilder.m">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IRSideMenu.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_SideMenu/IRSideMenu.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.31976745" vertical-offset="145" max-vertical-offset="1005">
+                  <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -188,11 +124,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="IRViewControllerDescriptor.m" pinned="false" current-in-tab="true">
+          <file leaf-file-name="IRViewControllerDescriptor.m" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.m">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.4883721" vertical-offset="0" max-vertical-offset="1605">
-                  <caret line="38" column="78" selection-start-line="38" selection-start-column="78" selection-end-line="38" selection-end-column="78" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1605">
+                  <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IRWebViewDescriptor.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+                  <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -226,9 +172,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerViewDescriptor.m" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/IRPageControl.h" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/IRPageControlDescriptor.m" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/UINavigationBarExport.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBar.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarDescriptor.m" />
@@ -275,8 +218,11 @@
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/TabBarController/UITabBarControllerExport.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/IRCalloutAnnotationViewDescriptor.m" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewDescriptor.m" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.m" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/UIPageControlExport.h" />
+        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.m" />
+        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.h" />
+        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.m" />
+        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewBuilder.m" />
       </list>
     </option>
   </component>
@@ -285,8 +231,8 @@
   </component>
   <component name="OCFindUsagesOptions" text="false" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="140" />
-    <option name="y" value="97" />
+    <option name="x" value="70" />
+    <option name="y" value="28" />
     <option name="width" value="1734" />
     <option name="height" value="957" />
   </component>
@@ -2282,13 +2228,6 @@
       <option name="number" value="Default" />
       <updated>1409401002811</updated>
     </task>
-    <task id="IRI-127" summary="IQKeyboardManager">
-      <created>1421410742020</created>
-      <option name="issue" value="true" />
-      <option name="number" value="127" />
-      <option name="project" value="IRI" />
-      <updated>1427990123764</updated>
-    </task>
     <task id="IRI-107" summary="UIImage - resizableImageWithCapInsets:">
       <option name="closed" value="true" />
       <created>1418463244493</created>
@@ -2583,7 +2522,13 @@
       <option name="project" value="LOCAL" />
       <updated>1437471661284</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="Added JSExport to UIKit base objects (number of views) - 2&#10;">
+      <created>1437479857595</created>
+      <option name="number" value="00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1437479857596</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <option name="createBranch" value="false" />
     <option name="markAsInProgress" value="true" />
     <servers>
@@ -2622,8 +2567,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="140" y="97" width="1734" height="957" extended-state="6" />
-    <editor active="false" />
+    <frame x="70" y="28" width="1734" height="957" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2637,7 +2582,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18693693" sideWeight="0.4996321" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3384224" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924925" sideWeight="0.49807692" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25490198" sideWeight="0.6368159" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25490198" sideWeight="0.6368159" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371286" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="149" y="122" width="1191" height="678" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2666,7 +2611,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHORT_DIFF_EXTRA_LINES" value="8" />
-    <MESSAGE value="Adding UI example for all Gesture Recognizers" />
     <MESSAGE value="UICollectionView - work in progress - 1" />
     <MESSAGE value="UICollectionView - work in progress - 2" />
     <MESSAGE value="UICollectionView - work in progress - 3" />
@@ -2691,7 +2635,8 @@
     <MESSAGE value="1) added JS support for NSUserDefaults&#10;2) added JS support for Keychain&#10;3) refactorings" />
     <MESSAGE value="1) JSPlugin concept improved to work WITHOUT name&#10;2) WebView and ScrollView - added JSExport to base objects (UIWebView and UIScrollView)&#10;3) added md5.min.js as part of base libraries" />
     <MESSAGE value="Added JSExport to UIKit base objects (number of views) - 1&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added JSExport to UIKit base objects (number of views) - 1&#10;" />
+    <MESSAGE value="Added JSExport to UIKit base objects (number of views) - 2&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added JSExport to UIKit base objects (number of views) - 2&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2817,30 +2762,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIActivityIndicatorView.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorView.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/AlertView/IRAlertView.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="860">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButton.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1015" max-vertical-offset="1875">
@@ -3250,8 +3171,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4883721" vertical-offset="0" max-vertical-offset="1605">
-          <caret line="38" column="78" selection-start-line="38" selection-start-column="78" selection-end-line="38" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1605">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1435" max-vertical-offset="2295">
+          <caret line="141" column="9" selection-start-line="141" selection-start-column="9" selection-end-line="141" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewBuilder.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31976745" vertical-offset="145" max-vertical-offset="1005">
+          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
           <folding />
         </state>
       </provider>

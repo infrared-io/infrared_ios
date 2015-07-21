@@ -61,7 +61,6 @@
     if ([descriptor.htmlString length] > 0) {
         [irWebView setHtmlString:descriptor.htmlString];
     }
-    irWebView.scrollView.indicatorStyle = descriptor.indicatorStyle;
 }
 
 @end
