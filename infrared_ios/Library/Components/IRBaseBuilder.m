@@ -38,6 +38,7 @@
 #import "IRBarButtonItem.h"
 #import "IRActionSheet.h"
 #import "IRAlertView.h"
+#import "IRBaseLibrary.h"
 #import <objc/runtime.h>
 
 
@@ -112,9 +113,11 @@
 {
     NSString *finalText = nil;
     NSString *i18nKey;
+    NSString *i18nJSPrefix;
     if ([originalText length] > 0) {
-        if ([originalText hasPrefix:@"i18n."]) {
-            i18nKey = [originalText substringFromIndex:5]; // [@"i18n." length] == 5
+        i18nJSPrefix = [IRBaseBuilder i18nJSPrefix];
+        if ([originalText hasPrefix:i18nJSPrefix/*@"i18n."*/]) {
+            i18nKey = [originalText substringFromIndex:[i18nJSPrefix length]]; // [@"i18n." length] == 5
             finalText = [IRDataController sharedInstance].i18n[i18nKey];
         }
         if (finalText == nil) {
@@ -122,6 +125,11 @@
         }
     }
     return finalText;
+}
++ (NSString *) i18nJSPrefix
+{
+    NSString *i18nJSPrefix = [NSString stringWithFormat:@"%@.%@.", IR_JS_LIBRARY_KEY, I18N_JS_DATA_KEY];
+    return i18nJSPrefix;
 }
 
 // --------------------------------------------------------------------------------------------------------------------

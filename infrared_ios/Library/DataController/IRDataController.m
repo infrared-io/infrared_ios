@@ -95,7 +95,7 @@ static IRDataController *sharedDataController = nil;
                                     [[componentName substringToIndex:1] capitalizedString],
                                     [componentName substringFromIndex:1]];
         descriptorClass = self.componentsDictionary[componentName];
-        context[[IRUtilLibrary parent]][capitalizedName] = [descriptorClass componentClass];
+        context[IR_JS_LIBRARY_KEY][capitalizedName] = [descriptorClass componentClass];
     }
 }
 
@@ -277,7 +277,6 @@ static IRDataController *sharedDataController = nil;
     [IRJSContextUtil exposeNSDate:self.jsContext];
     [IRJSContextUtil exposeUIColor:self.jsContext];
     [IRJSContextUtil exposeUIImage:self.jsContext];
-    [IRJSContextUtil exposeUINavigationItem:self.jsContext];
     [IRJSContextUtil exposeUIApplication:self.jsContext];
     [IRJSContextUtil exposeNSIndexPath:self.jsContext];
     [IRJSContextUtil exposeNSURL:self.jsContext];

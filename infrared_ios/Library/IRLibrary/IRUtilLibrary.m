@@ -54,7 +54,7 @@ static IRUtilLibrary *sharedIRLibrary = nil;
 
 + (NSString *) parent
 {
-    return @"IR";
+    return IR_JS_LIBRARY_KEY;
 }
 
 + (NSString *) name

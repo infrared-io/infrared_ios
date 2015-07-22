@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
+#define IR_JS_LIBRARY_KEY        @"IR"
 
 @interface IRBaseLibrary : NSObject
 

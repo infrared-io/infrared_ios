@@ -310,7 +310,7 @@ static Infrared *sharedInfraRed = nil;
         if (dictionary) {
             [IRDataController sharedInstance].i18n = dictionary;
             globalContext = [IRDataController sharedInstance].globalJSContext;
-            globalContext[@"i18n"] = [IRDataController sharedInstance].i18n;
+            globalContext[IR_JS_LIBRARY_KEY][I18N_JS_DATA_KEY] = [IRDataController sharedInstance].i18n;
         }
     }
 }

@@ -6,6 +6,8 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+#define I18N_JS_DATA_KEY             @"i18n"
+
 @class IRView;
 @class IRBaseDescriptor;
 @class IRButton;

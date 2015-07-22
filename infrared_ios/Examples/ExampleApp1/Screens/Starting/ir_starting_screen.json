@@ -2,7 +2,7 @@
   "id" : "ir_starting_screen",
   "controller" : {
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
-    "title" : "i18n.ir_starting_screen_vc_title",
+    "title" : "IR.i18n.ir_starting_screen_vc_title",
     "jsPluginPath" : "ir_starting_screen_plugin.js",
     "navigationController" : {
       "autoAddIfNeeded" : true,

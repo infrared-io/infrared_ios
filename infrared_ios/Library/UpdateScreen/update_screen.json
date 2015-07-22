@@ -30,7 +30,7 @@
             "id": "update_label",
             "type": "label",
             "backgroundColor": "#000000",
-            "text": "i18n.update",
+            "text": "IR.i18n.update",
             "textAlignment": "NSTextAlignmentCenter",
             "textColor": "#ffffff",
             "font": "HelveticaNeue, 24"

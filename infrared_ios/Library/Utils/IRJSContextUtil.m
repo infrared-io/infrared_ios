@@ -5,7 +5,6 @@
 
 #import "IRJSContextUtil.h"
 #import "IRUtil.h"
-#import "UINavigationItemExport.h"
 #import "UIColorExport.h"
 #import "UIImageExport.h"
 #import "UIApplicationExport.h"
@@ -72,16 +71,10 @@
     jsContext[@"UIImage"] = [UIImage class];
 }
 
-+ (void) exposeUINavigationItem:(JSContext *)jsContext
-{
-    class_addProtocol([UINavigationItem class], @protocol(UINavigationItemExport));
-}
-
 + (void) exposeUIApplication:(JSContext *)jsContext
 {
     class_addProtocol([UIApplication class], @protocol(UIApplicationExport));
     jsContext[@"UIApplication"] = [UIApplication class];
-
 }
 
 + (void) exposeNSIndexPath:(JSContext *)jsContext

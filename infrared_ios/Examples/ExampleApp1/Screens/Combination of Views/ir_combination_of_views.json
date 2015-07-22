@@ -2,7 +2,7 @@
   "id" : "ir_combination_of_views",
   "controller" : {
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
-    "title" : "i18n.ir_main_vc_title",
+    "title" : "IR.i18n.ir_main_vc_title",
     "jsPluginPath" : "ir_combination_of_views_plugin.js",
     "navigationController" : {
       "autoAddIfNeeded" : true,
@@ -74,7 +74,7 @@
                     "type" : "textField",
                     "backgroundColor" : "#ff000080",
                     "textColor" : "#ffffffaa",
-                    "placeholder" : "i18n.ir_text_field_placeholder",
+                    "placeholder" : "IR.i18n.ir_text_field_placeholder",
                     "borderStyle" : "UITextBorderStyleLine",
                     "font" : "System, 16",
                     "dataBinding" : [
@@ -108,7 +108,7 @@
                     "id" : "bottom_button1",
                     "type" : "button",
                     "backgroundColor" : "#ff000080",
-                    "normalTitle" : "i18n.ir_button_1",
+                    "normalTitle" : "IR.i18n.ir_button_1",
                     "normalTitleColor" : "#ffffffaa",
                     "highlightedTitleColor" : "#ffffff80",
                     "font" : "SystemBold, 16",
@@ -118,7 +118,7 @@
                     "id" : "bottom_button2",
                     "type" : "button",
                     "backgroundColor" : "#ff000080",
-                    "normalTitle" : "i18n.ir_button_2",
+                    "normalTitle" : "IR.i18n.ir_button_2",
                     "normalTitleColor" : "#ffffffaa",
                     "highlightedTitleColor" : "#ffffff80",
                     "font" : "SystemBold, 16",
@@ -128,7 +128,7 @@
                     "id" : "bottom_button3",
                     "type" : "button",
                     "backgroundColor" : "#ff000080",
-                    "normalTitle" : "i18n.ir_button_3",
+                    "normalTitle" : "IR.i18n.ir_button_3",
                     "normalTitleColor" : "#ffffffaa",
                     "highlightedTitleColor" : "#ffffff80",
                     "font" : "SystemBold, 16",
@@ -173,7 +173,7 @@
                 "id": "bar_button_1",
                 "type": "barButtonItem",
                 "style": "UIBarButtonItemStylePlain",
-                "title": "i18n.ir_bar_button_1",
+                "title": "IR.i18n.ir_bar_button_1",
                 "backgroundColor" : "#ff000080",
                 "action" : "this.barButtonItemAction(control);"
               },
@@ -198,7 +198,7 @@
                 "id": "bar_button_5",
                 "type": "barButtonItem",
                 "style": "UIBarButtonItemStylePlain",
-                "title": "i18n.ir_bar_button_3",
+                "title": "IR.i18n.ir_bar_button_3",
                 "action" : "this.barButtonItemAction(control);"
               }
             ]

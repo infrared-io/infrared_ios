@@ -2,7 +2,7 @@
   "id" : "ir_table_view",
   "controller" : {
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
-    "title" : "i18n.ir_table_view_vc_title",
+    "title" : "IR.i18n.ir_table_view_vc_title",
     "jsPluginPath" : "ir_table_view_plugin.js",
     "navigationController" : {
       "autoAddIfNeeded" : true,
@@ -351,7 +351,7 @@
             "id": "bar_button_1",
             "type": "barButtonItem",
             "style": "UIBarButtonItemStylePlain",
-            "title": "i18n.ir_bar_button_1",
+            "title": "IR.i18n.ir_bar_button_1",
             "backgroundColor" : "#ff000080",
             "action" : "this.barButtonItemAction(control);"
           },
@@ -364,7 +364,7 @@
             "id": "bar_button_3",
             "type": "barButtonItem",
             "style": "UIBarButtonItemStylePlain",
-            "title": "i18n.ir_bar_button_2",
+            "title": "IR.i18n.ir_bar_button_2",
             "action" : "this.barButtonItemAction(control);"
           }
         ]

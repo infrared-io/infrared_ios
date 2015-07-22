@@ -2,7 +2,7 @@
   "id" : "ir_gesture_recognizers",
   "controller" : {
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown",
-    "title" : "i18n.ir_gesture_recognizers_title",
+    "title" : "IR.i18n.ir_gesture_recognizers_title",
     "jsPluginPath" : "ir_gesture_recognizers_plugin.js",
     "navigationController" : {
       "autoAddIfNeeded" : true,

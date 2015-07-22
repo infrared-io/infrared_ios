@@ -272,7 +272,7 @@
         tempJSContext = [[IRDataController sharedInstance] vcPluginExtensionJSContext];
         [tempJSContext evaluateScript:jsPluginString];
         tempGlobalObject = tempJSContext.globalObject;
-        tempPluginsMapValue = tempGlobalObject[/*@"infrared"*/[IRUtilLibrary parent]][@"pluginsMap"];
+        tempPluginsMapValue = tempGlobalObject[IR_JS_LIBRARY_KEY][@"pluginsMap"];
         tempPluginsMap = [tempPluginsMapValue toDictionary];
         for (NSString *pluginName in tempPluginsMap) {
             // IMPORTANT: 'setZeroTimeout' can not be added here this way. Operation is done on separate thread
@@ -288,7 +288,7 @@
 //#if ENABLE_SAFARI_DEBUGGING == 1
 //                                                        " } );"
 //#endif
-              , [IRUtilLibrary parent], irViewController.key, pluginName];
+              , IR_JS_LIBRARY_KEY, irViewController.key, pluginName];
             [jsContext evaluateScript:stringToEvaluate];
         }
     }

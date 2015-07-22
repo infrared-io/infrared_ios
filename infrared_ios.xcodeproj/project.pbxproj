@@ -333,7 +333,6 @@
 		F613A26CD93D39BCC53A8F52 /* IRNavigationItemDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRNavigationItemDescriptor.h; sourceTree = "<group>"; };
 		F613A26D3ECD41D0678D3F05 /* IRWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRWebView.m; sourceTree = "<group>"; };
 		F613A275FAD2CA602E87835E /* IRFileLoadingUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRFileLoadingUtil.h; sourceTree = "<group>"; };
-		F613A27F309FDA597329F94B /* UINavigationItemExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationItemExport.h; sourceTree = "<group>"; };
 		F613A2804E4B650EF4741FD4 /* IRNavigationBarBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRNavigationBarBuilder.h; sourceTree = "<group>"; };
 		F613A28056AD44333B7BE079 /* IRFileLoadingUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRFileLoadingUtil.m; sourceTree = "<group>"; };
 		F613A285B5F7DCAFC4A2E0E2 /* IRLayoutConstraintICSPriorityDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLayoutConstraintICSPriorityDescriptor.m; sourceTree = "<group>"; };
@@ -981,7 +980,6 @@
 		F613A2B93F1F559059F33D5F /* JSExports */ = {
 			isa = PBXGroup;
 			children = (
-				F613A27F309FDA597329F94B /* UINavigationItemExport.h */,
 				F613A1BA80514B7461F8197C /* UIImageExport.h */,
 				F613A2336AB1F0FEA4CE0E0B /* UIColorExport.h */,
 				F613AC52283C8B444291B7FB /* UIApplicationExport.h */,
