@@ -43,6 +43,7 @@
 #import "IRToolbarDescriptor.h"
 #import "IRBarButtonItemDescriptor.h"
 #import "IRWebViewDescriptor.h"
+#import "Main.h"
 
 @implementation IRPrecache
 
@@ -75,6 +76,7 @@
     NSString *jsonPathComponent;
     NSArray *paths;
     NSString *documentsDirectory;
+    NSString *precacheDirectory;
 
     NSLog(@"#############################");
     NSLog(@"###  Precaching Started!  ###\n\n");
@@ -88,6 +90,7 @@
 
     paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     documentsDirectory = [paths firstObject];
+    precacheDirectory = [documentsDirectory stringByAppendingPathComponent:@"IRPrecache"];
 
     // 1) cache App.json and build global App descriptor
     NSLog(@"1. Downloading JSON UI Files ...");
@@ -98,7 +101,7 @@
     // -- cache app.json
     jsonPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:appDescriptor];
     [IRFileLoadingUtil downloadOrCopyFileWithPath:path
-                                  destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
+                                  destinationPath:[precacheDirectory stringByAppendingPathComponent:jsonPathComponent]
                                      preserveName:YES];
     NSLog(@"    ... Done\n\n");
 
@@ -113,7 +116,7 @@
     pathsArray = [IRPrecache processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
+                                         destinationPath:[precacheDirectory stringByAppendingPathComponent:resourcesPathComponent]
                                             preserveName:YES
                                       failedLoadingPaths:failedPathsArray];
     NSLog(@"    ... Done\n\n");
@@ -125,19 +128,18 @@
     imagePathsArray = [IRPrecache processFilePathsArray:imagePathsArray appDescriptor:appDescriptor];
     NSMutableArray *failedImagePathsArray = [NSMutableArray array];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:imagePathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
+                                         destinationPath:[precacheDirectory stringByAppendingPathComponent:resourcesPathComponent]
                                             preserveName:NO
                                       failedLoadingPaths:failedImagePathsArray];
     NSLog(@"    ... Done\n\n");
     
     // 4) download and cache JS files
-//    jsonPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:appDescriptor];
 //    // 4.1)  internal JS libraries
     NSLog(@"4. Copying Internal JS Libaries ...");
     pathsArray = @[@"infrared.js", @"infrared_md5.min.js", @"zeroTimeout.js", @"zeroTimeoutWorker.js", @"watch.js"];
     failedPathsArray = [NSMutableArray array];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
+                                         destinationPath:[precacheDirectory stringByAppendingPathComponent:jsonPathComponent]
                                             preserveName:YES
                                       failedLoadingPaths:failedPathsArray];
     NSLog(@"    ... Done\n\n");
@@ -147,7 +149,7 @@
     pathsArray = [IRPrecache processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
+                                         destinationPath:[precacheDirectory stringByAppendingPathComponent:jsonPathComponent]
                                             preserveName:YES
                                       failedLoadingPaths:failedPathsArray];
     NSLog(@"    ... Done\n\n");
@@ -157,7 +159,7 @@
     pathsArray = [IRPrecache processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
+                                         destinationPath:[precacheDirectory stringByAppendingPathComponent:jsonPathComponent]
                                             preserveName:YES
                                       failedLoadingPaths:failedPathsArray];
     NSLog(@"    ... Done\n\n");
@@ -167,10 +169,26 @@
     pathsArray = [IRPrecache processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
+                                         destinationPath:[precacheDirectory stringByAppendingPathComponent:jsonPathComponent]
                                             preserveName:YES
                                       failedLoadingPaths:failedPathsArray];
     NSLog(@"    ... Done\n\n");
+
+    // 5) Zip all files
+    NSLog(@"8. Createing Zip Archive ...");
+    NSString *zipDestinationPath = [precacheDirectory stringByAppendingFormat:@"/IRPrecache_%@_%d.zip",
+                                                      appDescriptor.app, appDescriptor.version];
+    NSString *dictionaryWithContent = [precacheDirectory stringByAppendingPathComponent:[IRUtil documentsBasePathForInfrared]];
+//    dictionaryWithContent = [dictionaryWithContent stringByAppendingPathComponent:appDescriptor.app];
+    [Main createZipFileAtPath:zipDestinationPath
+      withContentsOfDirectory:dictionaryWithContent];
+    NSLog(@"    ... Done\n\n");
+
+    NSLog(@"Copy zip archive from path \"%@\" and paste it to your Infrared project.\n", zipDestinationPath);
+    NSLog(@"In your Infrard project set method \"\" to point to zip archive.\n");
+    NSLog(@"Example:\n");
+    NSLog(@"\n");
+    NSLog(@"\n\n");
 
     NSLog(@"### Precaching Completed! ###");
     NSLog(@"#############################");

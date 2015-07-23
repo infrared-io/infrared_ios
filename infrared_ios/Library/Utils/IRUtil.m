@@ -118,15 +118,23 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
     NSString *jsonAndJsPathComponent = [IRUtil jsonAndJsPathForAppDescriptorApp:app version:version];
+    NSString *destinationPath;
+
+#if TARGET_OS_IPHONE
+    destinationPath = [documentsDirectory stringByAppendingPathComponent:jsonAndJsPathComponent];
+#else
+    destinationPath = [documentsDirectory stringByAppendingPathComponent:@"IRPrecache"];
+    destinationPath = [destinationPath stringByAppendingPathComponent:jsonAndJsPathComponent];
+#endif
 
     // -- download or copy JSON files ot cache folder (if needed)
     [IRFileLoadingUtil downloadOrCopyFileWithPath:path
-                                  destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonAndJsPathComponent]
+                                  destinationPath:destinationPath
                                      preserveName:YES];
 
     // -- load json and build dictionary from it
     NSData *fileData = [IRFileLoadingUtil dataForFileWithPath:path
-                                              destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonAndJsPathComponent]
+                                              destinationPath:destinationPath
                                                  preserveName:YES];
     if (fileData) {
         dictionary = [NSJSONSerialization JSONObjectWithData:fileData
@@ -195,11 +203,11 @@
 // --------------------------------------------------------------------------------------------------------------------
 + (NSString *) documentsBasePathForInfrared
 {
-#if TARGET_OS_IPHONE
+//#if TARGET_OS_IPHONE
     return @"IR";
-#else
-    return @"IRPrecache";
-#endif
+//#else
+//    return @"IRPrecache";
+//#endif
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
