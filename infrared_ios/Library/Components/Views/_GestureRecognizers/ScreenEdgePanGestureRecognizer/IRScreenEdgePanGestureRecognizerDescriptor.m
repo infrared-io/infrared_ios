@@ -14,9 +14,11 @@
     if (self) {
         NSString *string;
 
+#if TARGET_OS_IPHONE
         // edges
         string = aDictionary[NSStringFromSelector(@selector(edges))];
         self.edges = [IRBaseDescriptor rectEdgeForString:string];
+#endif
     }
     return self;
 }

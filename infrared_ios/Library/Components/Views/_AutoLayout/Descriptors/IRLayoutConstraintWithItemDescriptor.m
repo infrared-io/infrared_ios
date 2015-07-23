@@ -18,21 +18,25 @@
         string = aDictionary[NSStringFromSelector(@selector(withItem))];
         self.withItem = string;
 
+#if TARGET_OS_IPHONE
         // withItemAttribute
         string = aDictionary[NSStringFromSelector(@selector(withItemAttribute))];
         self.withItemAttribute = [IRLayoutConstraintDescriptor layoutAttributeFromString:string];
 
         // relatedBy
         string = aDictionary[NSStringFromSelector(@selector(relatedBy))];
-        self.relatedBy = [IRLayoutConstraintDescriptor layoutRelationFromString:string];;
+        self.relatedBy = [IRLayoutConstraintDescriptor layoutRelationFromString:string];
+#endif
 
         // toItem
         string = aDictionary[NSStringFromSelector(@selector(toItem))];
         self.toItem = string;
 
+#if TARGET_OS_IPHONE
         // toItemAttribute
         string = aDictionary[NSStringFromSelector(@selector(toItemAttribute))];
         self.toItemAttribute = [IRLayoutConstraintDescriptor layoutAttributeFromString:string];
+#endif
 
         // multiplier
         number = aDictionary[NSStringFromSelector(@selector(multiplier))];

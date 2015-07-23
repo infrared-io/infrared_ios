@@ -4,8 +4,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
-@protocol JSExport;
+//@protocol JSExport;
 
 @protocol UIViewControllerExport <JSExport>
 

@@ -13,6 +13,7 @@
 #import "IRBaseDescriptor.h"
 #import "IRViewController.h"
 #import "IRViewDescriptor.h"
+#import "IRUtil.h"
 
 
 @implementation IRSliderBuilder
@@ -42,8 +43,8 @@
     irSlider.minimumValue = descriptor.minimumValue;
     irSlider.maximumValue = descriptor.maximumValue;
     // TODO: implement setting image
-    irSlider.minimumValueImage = [[IRSimpleCache sharedInstance] imageForURI:descriptor.minimumValueImage];
-    irSlider.maximumValueImage = [[IRSimpleCache sharedInstance] imageForURI:descriptor.maximumValueImage];
+    irSlider.minimumValueImage = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.minimumValueImage];
+    irSlider.maximumValueImage = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.maximumValueImage];
     irSlider.continuous = descriptor.continuous;
     irSlider.minimumTrackTintColor = descriptor.minimumTrackTintColor;
     irSlider.maximumTrackTintColor = descriptor.maximumTrackTintColor;

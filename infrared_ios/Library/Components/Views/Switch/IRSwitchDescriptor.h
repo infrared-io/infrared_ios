@@ -9,12 +9,14 @@
 
 @interface IRSwitchDescriptor : IRViewAndControlDescriptor
 
+#if TARGET_OS_IPHONE
 @property(nonatomic, retain) UIColor *onTintColor NS_AVAILABLE_IOS(5_0) UI_APPEARANCE_SELECTOR;
 @property(nonatomic, retain) UIColor *tintColor NS_AVAILABLE_IOS(6_0);
 @property(nonatomic, retain) UIColor *thumbTintColor NS_AVAILABLE_IOS(6_0) UI_APPEARANCE_SELECTOR;
+#endif
 
-@property(nonatomic, retain) NSString *onImage NS_AVAILABLE_IOS(6_0) UI_APPEARANCE_SELECTOR;
-@property(nonatomic, retain) NSString *offImage NS_AVAILABLE_IOS(6_0) UI_APPEARANCE_SELECTOR;
+@property(nonatomic, retain) NSString *onImage /*NS_AVAILABLE_IOS(6_0) UI_APPEARANCE_SELECTOR*/;
+@property(nonatomic, retain) NSString *offImage /*NS_AVAILABLE_IOS(6_0) UI_APPEARANCE_SELECTOR*/;
 
 @property(nonatomic/*,getter=isOn*/) BOOL on;
 

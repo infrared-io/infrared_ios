@@ -6,9 +6,11 @@
 #import <objc/runtime.h>
 #import "IRViewDescriptor.h"
 #import "IRPinAnnotationViewDescriptor.h"
-#import "IRPinAnnotationViewBuilder.h"
 #import "IRMapViewDescriptor.h"
+#if TARGET_OS_IPHONE
+#import "IRPinAnnotationViewBuilder.h"
 #import "IRPinAnnotationView.h"
+#endif
 
 
 @implementation IRPinAnnotationViewDescriptor
@@ -17,6 +19,7 @@
 {
     return typePinAnnotationViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRPinAnnotationView class];
@@ -31,6 +34,7 @@
 {
     class_addProtocol([MKPinAnnotationView class], @protocol(MKPinAnnotationViewExport));
 }
+#endif
 
 - (NSDictionary *) viewDefaults
 {

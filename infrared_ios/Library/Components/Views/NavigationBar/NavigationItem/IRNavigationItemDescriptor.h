@@ -31,15 +31,15 @@
    rightBarButtonItems are placed right to left with the first item in the list at
  the right outside edge and right aligned.
  */
-@property(nonatomic,copy) NSArray *leftBarButtonItems NS_AVAILABLE_IOS(5_0);
-@property(nonatomic,copy) NSArray *rightBarButtonItems NS_AVAILABLE_IOS(5_0);
+@property(nonatomic,copy) NSArray *leftBarButtonItems /*NS_AVAILABLE_IOS(5_0)*/;
+@property(nonatomic,copy) NSArray *rightBarButtonItems /*NS_AVAILABLE_IOS(5_0)*/;
 
 /* By default, the leftItemsSupplementBackButton property is NO. In this case,
  the back button is not drawn and the left item or items replace it. If you
  would like the left items to appear in addition to the back button (as opposed to instead of it)
  set leftItemsSupplementBackButton to YES.
  */
-@property(nonatomic) BOOL leftItemsSupplementBackButton NS_AVAILABLE_IOS(5_0);
+@property(nonatomic) BOOL leftItemsSupplementBackButton /*NS_AVAILABLE_IOS(5_0)*/;
 
 
 // Some navigation items want to display a custom left or right item when they're on top of the stack.

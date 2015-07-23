@@ -14,6 +14,7 @@
 #import "IRBaseDescriptor.h"
 #import "IRViewDescriptor.h"
 #import "IRViewController.h"
+#import "IRUtil.h"
 
 
 @implementation IRSwitchBuilder
@@ -41,8 +42,8 @@
     irSwitch.onTintColor = descriptor.onTintColor;
     irSwitch.tintColor = descriptor.tintColor;
     irSwitch.thumbTintColor = descriptor.thumbTintColor;
-    irSwitch.onImage = [[IRSimpleCache sharedInstance] imageForURI:descriptor.onImage];
-    irSwitch.offImage = [[IRSimpleCache sharedInstance] imageForURI:descriptor.offImage];
+    irSwitch.onImage = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.onImage];
+    irSwitch.offImage = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.offImage];
 }
 
 @end

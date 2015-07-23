@@ -72,7 +72,7 @@ var infraredClass = function () {
         var dictAsString = JSON.stringify(dictionary, function(key, value) {
             return (typeof value === 'function') ? '' + value : value;
         });
-        dictAsString = md5(dictAsString);
+        dictAsString = IR.md5(dictAsString);
         this.pluginsMap[dictAsString] = dictionary;
     };
 

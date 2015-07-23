@@ -5,9 +5,11 @@
 
 #import <objc/runtime.h>
 #import "IRPageControlDescriptor.h"
-#import "IRPageControlBuilder.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
+#import "IRPageControlBuilder.h"
 #import "IRPageControl.h"
+#endif
 
 
 @implementation IRPageControlDescriptor
@@ -16,6 +18,7 @@
 {
     return typePageControlKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRPageControl class];
@@ -30,6 +33,7 @@
 {
     class_addProtocol([UIPageControl class], @protocol(UIPageControlExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -71,6 +75,7 @@
             self.defersCurrentPageDisplay = NO;
         }
 
+#if TARGET_OS_IPHONE
         // pageIndicatorTintColor
         string = aDictionary[NSStringFromSelector(@selector(pageIndicatorTintColor))];
         self.pageIndicatorTintColor = [IRUtil transformHexColorToUIColor:string];
@@ -78,6 +83,7 @@
         // currentPageIndicatorTintColor
         string = aDictionary[NSStringFromSelector(@selector(currentPageIndicatorTintColor))];
         self.currentPageIndicatorTintColor = [IRUtil transformHexColorToUIColor:string];
+#endif
     }
     return self;
 }

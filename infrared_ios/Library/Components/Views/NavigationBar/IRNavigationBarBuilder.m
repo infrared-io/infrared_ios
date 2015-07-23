@@ -14,6 +14,7 @@
 #import "IRScreenDescriptor.h"
 #import "IRViewDescriptor.h"
 #import "IRViewController.h"
+#import "IRUtil.h"
 
 
 @implementation IRNavigationBarBuilder
@@ -52,9 +53,9 @@
     }
     irNavigationBar.items = array;
     irNavigationBar.barTintColor = descriptor.barTintColor;
-    irNavigationBar.shadowImage = [[IRSimpleCache sharedInstance] imageForURI:descriptor.shadowImage];
-    irNavigationBar.backIndicatorImage = [[IRSimpleCache sharedInstance] imageForURI:descriptor.backIndicatorImage];
-    irNavigationBar.backIndicatorTransitionMaskImage = [[IRSimpleCache sharedInstance] imageForURI:descriptor.backIndicatorTransitionMaskImage];
+    irNavigationBar.shadowImage = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.shadowImage];
+    irNavigationBar.backIndicatorImage = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.backIndicatorImage];
+    irNavigationBar.backIndicatorTransitionMaskImage = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.backIndicatorTransitionMaskImage];
 }
 
 @end

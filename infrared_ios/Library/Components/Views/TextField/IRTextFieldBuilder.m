@@ -13,6 +13,7 @@
 #import "IRBaseDescriptor.h"
 #import "IRViewController.h"
 #import "IRViewDescriptor.h"
+#import "IRUtil.h"
 
 
 @implementation IRTextFieldBuilder
@@ -46,8 +47,8 @@
     if (descriptor.placeholderColor) {
         [irTextField setValue:descriptor.placeholderColor forKeyPath:@"_placeholderLabel.textColor"];
     }
-    irTextField.background = [[IRSimpleCache sharedInstance] imageForURI:descriptor.background];
-    irTextField.disabledBackground = [[IRSimpleCache sharedInstance] imageForURI:descriptor.disabledBackground];
+    irTextField.background = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.background];
+    irTextField.disabledBackground = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.disabledBackground];
     irTextField.borderStyle = descriptor.borderStyle;
     irTextField.clearButtonMode = descriptor.clearButtonMode;
     irTextField.clearsOnBeginEditing = descriptor.clearsOnBeginEditing;

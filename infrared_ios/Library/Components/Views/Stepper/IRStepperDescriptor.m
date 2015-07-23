@@ -5,9 +5,11 @@
 
 #import <objc/runtime.h>
 #import "IRStepperDescriptor.h"
-#import "IRStepperBuilder.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
+#import "IRStepperBuilder.h"
 #import "IRStepper.h"
+#endif
 
 
 @implementation IRStepperDescriptor
@@ -16,6 +18,7 @@
 {
     return typeStepperKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRStepper class];
@@ -30,6 +33,7 @@
 {
     class_addProtocol([UIStepper class], @protocol(UIStepperExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {

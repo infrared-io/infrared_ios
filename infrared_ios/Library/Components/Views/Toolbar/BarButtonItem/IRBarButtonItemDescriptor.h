@@ -11,8 +11,10 @@
 
 @interface IRBarButtonItemDescriptor : IRBarItemDescriptor
 
+#if TARGET_OS_IPHONE
 @property(nonatomic)         UIBarButtonSystemItem  identifier;
 @property(nonatomic)         UIBarButtonItemStyle   style;            // default is UIBarButtonItemStylePlain
+#endif
 @property(nonatomic)         CGFloat                width;            // default is 0.0
 @property(nonatomic,copy)    NSSet                 *possibleTitles;   // default is nil
 @property(nonatomic,retain)  IRViewDescriptor      *customView;       // default is nil

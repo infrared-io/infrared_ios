@@ -15,9 +15,11 @@
         NSString *string;
         NSNumber *number;
 
+#if TARGET_OS_IPHONE
         // direction
         string = aDictionary[NSStringFromSelector(@selector(direction))];
         self.direction = [IRGestureRecognizerDescriptor swipeGestureRecognizerDirectionForString:string];
+#endif
 
         // numberOfTouchesRequired
         number = aDictionary[NSStringFromSelector(@selector(numberOfTouchesRequired))];

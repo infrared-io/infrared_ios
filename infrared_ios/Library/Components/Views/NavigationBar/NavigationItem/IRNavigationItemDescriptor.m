@@ -5,9 +5,12 @@
 
 #import <objc/runtime.h>
 #import "IRNavigationItemDescriptor.h"
-#import "IRNavigationItemBuilder.h"
 #import "IRViewDescriptor.h"
+#if TARGET_OS_IPHONE
+#import "IRNavigationItemBuilder.h"
 #import "IRNavigationItem.h"
+#import "UINavigationItemExport.h"
+#endif
 
 
 @implementation IRNavigationItemDescriptor
@@ -16,6 +19,7 @@
 {
     return typeNavigationItemKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRNavigationItem class];
@@ -30,6 +34,7 @@
 {
     class_addProtocol([UINavigationItem class], @protocol(UINavigationItemExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {

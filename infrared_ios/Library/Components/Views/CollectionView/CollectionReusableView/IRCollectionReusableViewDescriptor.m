@@ -5,8 +5,10 @@
 
 #import <objc/runtime.h>
 #import "IRCollectionReusableViewDescriptor.h"
+#if TARGET_OS_IPHONE
 #import "IRCollectionReusableView.h"
 #import "IRCollectionReusableViewBuilder.h"
+#endif
 
 
 @implementation IRCollectionReusableViewDescriptor
@@ -15,6 +17,7 @@
 {
     return typeCollectionReusableViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRCollectionReusableView class];
@@ -29,6 +32,7 @@
 {
     class_addProtocol([UICollectionReusableView class], @protocol(UICollectionReusableViewExport));
 }
+#endif
 
 //- (NSDictionary *) viewDefaults
 //{

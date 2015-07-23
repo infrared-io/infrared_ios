@@ -3,12 +3,14 @@
 // Copyright (c) 2015 infrared.io. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "IRCalloutAnnotationViewDescriptor.h"
 #import "IRViewDescriptor.h"
+#if TARGET_OS_IPHONE
+#import <MapKit/MapKit.h>
 #import "IRCalloutAnnotationViewBuilder.h"
 #import "IRCalloutAnnotationView.h"
-#import <MapKit/MapKit.h>
-#import <objc/runtime.h>
+#endif
 
 
 @implementation IRCalloutAnnotationViewDescriptor
@@ -17,6 +19,7 @@
 {
     return typeCalloutAnnotationViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRCalloutAnnotationView class];
@@ -31,6 +34,7 @@
 {
     class_addProtocol([MKAnnotationView class], @protocol(MKAnnotationViewExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {

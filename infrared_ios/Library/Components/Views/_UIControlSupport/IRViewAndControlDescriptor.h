@@ -11,6 +11,7 @@
 
 @interface IRViewAndControlDescriptor : IRViewDescriptor <UIControlIRExtension>
 
+#if TARGET_OS_IPHONE
 /*
  UIControlContentHorizontalAlignmentCenter = 0, UIControlContentHorizontalAlignmentLeft, UIControlContentHorizontalAlignmentRight, UIControlContentHorizontalAlignmentFill
  */
@@ -19,6 +20,7 @@
  UIControlContentVerticalAlignmentCenter = 0, UIControlContentVerticalAlignmentTop, UIControlContentVerticalAlignmentBottom, UIControlContentVerticalAlignmentFill
  */
 @property(nonatomic) UIControlContentVerticalAlignment contentVerticalAlignment;
+#endif
 
 @property(nonatomic, getter=isSelected) BOOL selected;
 @property(nonatomic, getter=isEnabled) BOOL enabled;

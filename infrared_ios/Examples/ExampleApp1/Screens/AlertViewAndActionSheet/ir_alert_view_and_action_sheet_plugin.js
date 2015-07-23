@@ -1,6 +1,6 @@
 
 IR.plugin({
-    "showAlertView" : function () {
+    "showMyAlertView" : function () {
         this.showAlertView(
             'Alert View', 'Some question or message',
             'this.showAlertViewResponse(alertView, buttonIndex);',
@@ -11,7 +11,7 @@ IR.plugin({
             NSLog('showAlertViewResponse - OK!');
         }
     },
-    "showActionSheet": function () {
+    "showMyActionSheet": function () {
         this.showActionSheet(
             'Action Sheet',
             'this.showActionSheetResponse(actionSheet, buttonIndex);',

@@ -5,8 +5,10 @@
 
 #import <objc/runtime.h>
 #import "IRPickerViewDescriptor.h"
+#if TARGET_OS_IPHONE
 #import "IRPickerViewBuilder.h"
 #import "IRPickerView.h"
+#endif
 
 
 @implementation IRPickerViewDescriptor
@@ -15,6 +17,7 @@
 {
     return typePickerViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRPickerView class];
@@ -29,6 +32,7 @@
 {
     class_addProtocol([UIPickerView class], @protocol(UIPickerViewExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {

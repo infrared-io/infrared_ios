@@ -5,9 +5,11 @@
 
 #import <objc/runtime.h>
 #import "IRSearchBarDescriptor.h"
-#import "IRSearchBarBuilder.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
+#import "IRSearchBarBuilder.h"
 #import "IRSearchBar.h"
+#endif
 
 
 @implementation IRSearchBarDescriptor
@@ -16,6 +18,7 @@
 {
     return typeSearchBarKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRSearchBar class];
@@ -30,6 +33,7 @@
 {
     class_addProtocol([UISearchBar class], @protocol(UISearchBarExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -40,9 +44,11 @@
         NSArray *array;
         NSDictionary *dictionary;
 
+#if TARGET_OS_IPHONE
         // barStyle
         string = aDictionary[NSStringFromSelector(@selector(barStyle))];
         self.barStyle = [IRBaseDescriptor barStyleFromString:string];
+#endif
 
         // text
         string = aDictionary[NSStringFromSelector(@selector(text))];
@@ -88,6 +94,7 @@
             self.searchResultsButtonSelected = NO;
         }
 
+#if TARGET_OS_IPHONE
         // barTintColor
         string = aDictionary[NSStringFromSelector(@selector(barTintColor))];
         self.barTintColor = [IRUtil transformHexColorToUIColor:string];
@@ -95,6 +102,7 @@
         // searchBarStyle
         string = aDictionary[NSStringFromSelector(@selector(searchBarStyle))];
         self.searchBarStyle = [IRBaseDescriptor searchBarStyleFromString:string];
+#endif
 
         // translucent
         number = aDictionary[NSStringFromSelector(@selector(translucent))];
@@ -142,10 +150,10 @@
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if (self.backgroundImage && [IRUtil isLocalFile:self.backgroundImage] == NO) {
+    if (self.backgroundImage && [IRUtil isFileForDownload:self.backgroundImage]) {
         [imagePaths addObject:self.backgroundImage];
     }
-    if (self.scopeBarBackgroundImage && [IRUtil isLocalFile:self.scopeBarBackgroundImage] == NO) {
+    if (self.scopeBarBackgroundImage && [IRUtil isFileForDownload:self.scopeBarBackgroundImage]) {
         [imagePaths addObject:self.scopeBarBackgroundImage];
     }
 }

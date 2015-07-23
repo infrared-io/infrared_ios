@@ -9,8 +9,10 @@
 #import <objc/runtime.h>
 #import "IRLabelDescriptor.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
 #import "IRLabelBuilder.h"
 #import "IRLabel.h"
+#endif
 
 @implementation IRLabelDescriptor
 
@@ -18,6 +20,7 @@
 {
     return typeLabelKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRLabel class];
@@ -32,6 +35,7 @@
 {
     class_addProtocol([UILabel class], @protocol(UILabelExport));
 }
+#endif
 
 - (NSDictionary *) viewDefaults
 {
@@ -56,13 +60,16 @@
     if (self) {
         NSNumber *number;
         NSString *string;
+#if TARGET_OS_IPHONE
         UIColor *color;
+#endif
         NSDictionary *dictionary;
 
         // text
         string = aDictionary[NSStringFromSelector(@selector(text))];
         self.text = string;
 
+#if TARGET_OS_IPHONE
         // textColor
         string = aDictionary[NSStringFromSelector(@selector(textColor))];
         color = [IRUtil transformHexColorToUIColor:string];
@@ -79,6 +86,7 @@
         // textAlignment
         string = aDictionary[NSStringFromSelector(@selector(textAlignment))];
         self.textAlignment = [IRBaseDescriptor textAlignmentFromString:string];
+#endif
 
         // attributedText
         // TODO: to be implemented
@@ -115,6 +123,7 @@
             self.adjustsFontSizeToFitWidth = [[self viewDefaults][NSStringFromSelector(@selector(adjustsFontSizeToFitWidth))] boolValue];
         }
 
+#if TARGET_OS_IPHONE
         // baselineAdjustment
         string = aDictionary[NSStringFromSelector(@selector(baselineAdjustment))];
         self.baselineAdjustment = [IRBaseDescriptor baselineAdjustmentFromString:string];
@@ -122,6 +131,7 @@
         // lineBreakMode
         string = aDictionary[NSStringFromSelector(@selector(lineBreakMode))];
         self.lineBreakMode = [IRBaseDescriptor lineBreakModeFromString:string];
+#endif
 
         // minimumScaleFactor
         number = aDictionary[NSStringFromSelector(@selector(minimumScaleFactor))];
@@ -131,6 +141,7 @@
             self.minimumScaleFactor = [[self viewDefaults][NSStringFromSelector(@selector(minimumScaleFactor))] floatValue];
         }
 
+#if TARGET_OS_IPHONE
         // highlightedTextColor
         string = aDictionary[NSStringFromSelector(@selector(highlightedTextColor))];
         color = [IRUtil transformHexColorToUIColor:string];
@@ -144,6 +155,7 @@
         if (color) {
             self.shadowColor = color;
         }
+#endif
 
         // shadowOffset
         dictionary = aDictionary[NSStringFromSelector(@selector(shadowOffset))];

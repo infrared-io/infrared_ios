@@ -13,6 +13,7 @@
 #import "IRBaseDescriptor.h"
 #import "IRViewController.h"
 #import "IRViewDescriptor.h"
+#import "IRUtil.h"
 
 
 @implementation IRProgressViewBuilder
@@ -42,8 +43,8 @@
     irProgressView.progress = descriptor.progress;
     irProgressView.progressTintColor = descriptor.progressTintColor;
     irProgressView.trackTintColor = descriptor.trackTintColor;
-    irProgressView.progressImage = [[IRSimpleCache sharedInstance] imageForURI:descriptor.progressImage];
-    irProgressView.trackImage = [[IRSimpleCache sharedInstance] imageForURI:descriptor.trackImage];
+    irProgressView.progressImage = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.progressImage];
+    irProgressView.trackImage = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.trackImage];
 }
 
 @end

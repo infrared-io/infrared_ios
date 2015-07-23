@@ -18,7 +18,9 @@
 @property (nonatomic) BOOL allowsSelection; // default is YES
 @property (nonatomic) BOOL allowsMultipleSelection; // default is NO
 
+#if TARGET_OS_IPHONE
 @property (nonatomic) UICollectionViewScrollDirection scrollDirection;
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -35,7 +37,10 @@
 @property (nonatomic) CGFloat sectionFooterHeight;
 
 @property (nonatomic) CGSize cellSize;
+
+#if TARGET_OS_IPHONE
 @property (nonatomic) UIEdgeInsets sectionEdgeInsets;
+#endif
 
 @property (nonatomic, strong) NSArray *collectionData;
 

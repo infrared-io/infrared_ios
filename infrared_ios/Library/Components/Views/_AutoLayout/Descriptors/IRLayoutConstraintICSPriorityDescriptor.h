@@ -16,8 +16,10 @@
                              forAxis:UILayoutConstraintAxisHorizontal];
  */
 
+#if TARGET_OS_IPHONE
 @property (nonatomic) LayoutConstraintICSType contentRelationType;
 @property (nonatomic) UILayoutConstraintAxis forAxis;
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 

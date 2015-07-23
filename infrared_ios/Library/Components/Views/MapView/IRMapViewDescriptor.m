@@ -5,9 +5,11 @@
 
 #import <objc/runtime.h>
 #import "IRMapViewDescriptor.h"
-#import "IRMapViewBuilder.h"
 #import "IRBaseAnnotation.h"
+#if TARGET_OS_IPHONE
+#import "IRMapViewBuilder.h"
 #import "IRMapView.h"
+#endif
 
 
 @implementation IRMapViewDescriptor
@@ -16,6 +18,7 @@
 {
     return typeMapViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRMapView class];
@@ -30,6 +33,7 @@
 {
     class_addProtocol([MKMapView class], @protocol(MKMapViewExport));
 }
+#endif
 
 - (NSDictionary *) viewDefaults
 {

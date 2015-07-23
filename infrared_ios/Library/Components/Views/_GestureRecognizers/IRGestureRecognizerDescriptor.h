@@ -27,7 +27,9 @@ typedef enum {
 
 + (IRGestureRecognizerDescriptor *) newGestureRecognizerDescriptorWithDictionary:(NSDictionary *)sourceDictionary;
 
+#if TARGET_OS_IPHONE
 + (UISwipeGestureRecognizerDirection) swipeGestureRecognizerDirectionForString:(NSString *)string;
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 

@@ -9,6 +9,8 @@
 
 @interface IRScreenEdgePanGestureRecognizerDescriptor : IRGestureRecognizerDescriptor
 
+#if TARGET_OS_IPHONE
 @property (readwrite, nonatomic, assign) UIRectEdge edges; //< The edges on which this gesture recognizes, relative to the current interface orientation
+#endif
 
 @end

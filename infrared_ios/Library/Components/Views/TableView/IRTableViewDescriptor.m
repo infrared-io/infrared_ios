@@ -6,10 +6,12 @@
 #import <objc/runtime.h>
 #import "IRViewDescriptor.h"
 #import "IRTableViewDescriptor.h"
-#import "IRTableViewBuilder.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
 #import "IRView.h"
 #import "IRTableView.h"
+#import "IRTableViewBuilder.h"
+#endif
 
 
 @implementation IRTableViewDescriptor
@@ -18,6 +20,7 @@
 {
     return typeTableViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRTableView class];
@@ -32,6 +35,7 @@
 {
     class_addProtocol([UITableView class], @protocol(UITableViewExport));
 }
+#endif
 
 - (NSDictionary *) viewDefaults
 {
@@ -52,9 +56,11 @@
         NSDictionary *dictionary;
         NSArray *array;
 
+#if TARGET_OS_IPHONE
         // style
         string = aDictionary[NSStringFromSelector(@selector(style))];
         self.style = [IRBaseDescriptor tableViewStyleFromString:string];
+#endif
 
         // rowHeight
         number = aDictionary[NSStringFromSelector(@selector(rowHeight))];
@@ -104,9 +110,11 @@
             self.estimatedSectionFooterHeight = CGFLOAT_UNDEFINED;
         }
 
+#if TARGET_OS_IPHONE
         // separatorInset
         dictionary = aDictionary[NSStringFromSelector(@selector(separatorInset))];
         self.separatorInset = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+#endif
 
         // backgroundView
         dictionary = aDictionary[NSStringFromSelector(@selector(backgroundView))];
@@ -160,6 +168,7 @@
             self.sectionIndexMinimumDisplayRowCount = NO;
         }
 
+#if TARGET_OS_IPHONE
         // sectionIndexColor
         string = aDictionary[NSStringFromSelector(@selector(sectionIndexColor))];
         self.sectionIndexColor = [IRUtil transformHexColorToUIColor:string];
@@ -179,6 +188,7 @@
         // separatorColor
         string = aDictionary[NSStringFromSelector(@selector(separatorColor))];
         self.separatorColor = [IRUtil transformHexColorToUIColor:string];
+#endif
 
         // tableHeaderView
         dictionary = aDictionary[NSStringFromSelector(@selector(tableHeaderView))];

@@ -34,6 +34,71 @@
 		15136E6119AB60A700124BCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15136E4019AB60A600124BCE /* UIKit.framework */; };
 		15136E6919AB60A700124BCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15136E6719AB60A700124BCE /* InfoPlist.strings */; };
 		15136E6B19AB60A700124BCE /* Infrared_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15136E6A19AB60A700124BCE /* Infrared_iosTests.m */; };
+		155B439D1B5FD1E8006E88D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 155B439C1B5FD1E8006E88D8 /* main.m */; };
+		155B43A41B5FD61E006E88D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155B43A31B5FD61E006E88D8 /* Foundation.framework */; };
+		155B43AD1B5FE1D3006E88D8 /* IRPrecache.m in Sources */ = {isa = PBXBuildFile; fileRef = 155B43AC1B5FE1D3006E88D8 /* IRPrecache.m */; };
+		155B440F1B600BF1006E88D8 /* IRScrollViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A079C12F8082BBB5EC5D /* IRScrollViewDescriptor.m */; };
+		155B44131B600C06006E88D8 /* IRLabelDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AA6E468878E964E5DBE3 /* IRLabelDescriptor.m */; };
+		155B44161B600C11006E88D8 /* IRButtonDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A34DD99E60ADF2DF74B5 /* IRButtonDescriptor.m */; };
+		155B44181B600C1A006E88D8 /* IRImageViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7D27E745F350A9CEC3B /* IRImageViewDescriptor.m */; };
+		155B441C1B600C21006E88D8 /* IRTextFieldDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A00F70E93E88F2036F39 /* IRTextFieldDescriptor.m */; };
+		155B441F1B600C2F006E88D8 /* IRViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A19CFDD88C9742E88914 /* IRViewDescriptor.m */; };
+		155B44221B600C3C006E88D8 /* IRTapGestureRecognizerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AD93B6777B093E26C005 /* IRTapGestureRecognizerDescriptor.m */; };
+		155B44241B600C41006E88D8 /* IRSwipeGestureRecognizerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6ED85C9F039744D3B6C /* IRSwipeGestureRecognizerDescriptor.m */; };
+		155B44261B600C49006E88D8 /* IRPinchGestureRecognizerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7AE21A710C3E9F2979D /* IRPinchGestureRecognizerDescriptor.m */; };
+		155B44271B600C4D006E88D8 /* IRGestureRecognizerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A2F6BE4C201F066CCCEA /* IRGestureRecognizerDescriptor.m */; };
+		155B44291B600C54006E88D8 /* IRRotationGestureRecognizerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ADD25370FFF0B1563BBB /* IRRotationGestureRecognizerDescriptor.m */; };
+		155B442C1B600C59006E88D8 /* IRPanGestureRecognizerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A0BB58F57964621B747D /* IRPanGestureRecognizerDescriptor.m */; };
+		155B442E1B600C5E006E88D8 /* IRLongPressGestureRecognizerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ABE75CA984681F7640D2 /* IRLongPressGestureRecognizerDescriptor.m */; };
+		155B44301B600C64006E88D8 /* IRScreenEdgePanGestureRecognizerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7D04E3F9F4CB5A9F714 /* IRScreenEdgePanGestureRecognizerDescriptor.m */; };
+		155B44351B600C7A006E88D8 /* IRLayoutConstraintWithItemDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A1B3EECA92C89BECE7AB /* IRLayoutConstraintWithItemDescriptor.m */; };
+		155B44361B600C7A006E88D8 /* IRLayoutConstraintWithVFDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AC11B4A0229B33AAE072 /* IRLayoutConstraintWithVFDescriptor.m */; };
+		155B44371B600C7A006E88D8 /* IRLayoutConstraintMetricsDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A3471ACD3AF33EA33B68 /* IRLayoutConstraintMetricsDescriptor.m */; };
+		155B44381B600C7A006E88D8 /* IRLayoutConstraintDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A38FB80229C683E49475 /* IRLayoutConstraintDescriptor.m */; };
+		155B44391B600C7A006E88D8 /* IRLayoutConstraintICSPriorityDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A285B5F7DCAFC4A2E0E2 /* IRLayoutConstraintICSPriorityDescriptor.m */; };
+		155B443A1B600C83006E88D8 /* IRViewAndControlDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ACB1CC349C4838BFB101 /* IRViewAndControlDescriptor.m */; };
+		155B44411B600C91006E88D8 /* IRSegmentedControlDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A38AE848206B42810529 /* IRSegmentedControlDescriptor.m */; };
+		155B44421B600C91006E88D8 /* IRSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A8F613FE1232E3DAD401 /* IRSegment.m */; };
+		155B44451B600C99006E88D8 /* IRSliderDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AEFEF66B6629495BFA37 /* IRSliderDescriptor.m */; };
+		155B44481B600C9F006E88D8 /* IRSwitchDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A050D3D6692A6FFABCB4 /* IRSwitchDescriptor.m */; };
+		155B444E1B600CAF006E88D8 /* IRProgressViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A4B26C8127556656F68A /* IRProgressViewDescriptor.m */; };
+		155B44511B600CB4006E88D8 /* IRActivityIndicatorViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A97B23FDB4FF2F84DE24 /* IRActivityIndicatorViewDescriptor.m */; };
+		155B44541B600CBC006E88D8 /* IRTableViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6E735ABDCF4CEA7FE89 /* IRTableViewDescriptor.m */; };
+		155B44571B600CC7006E88D8 /* IRTableViewCellDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A64087C816213650F9E0 /* IRTableViewCellDescriptor.m */; };
+		155B445B1B600CD1006E88D8 /* IRPageControlDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A9B5338A75BABD46214E /* IRPageControlDescriptor.m */; };
+		155B445E1B600CD8006E88D8 /* IRPickerViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AD14A5F676FA54AA58F7 /* IRPickerViewDescriptor.m */; };
+		155B44621B600CE5006E88D8 /* IRDatePickerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AEC5CC6027421DA305C5 /* IRDatePickerDescriptor.m */; };
+		155B44651B600CEE006E88D8 /* IRToolbarDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A013B0EBAC049D1719B9 /* IRToolbarDescriptor.m */; };
+		155B44681B600CF5006E88D8 /* IRBarButtonItemDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AA3AC2A51DB5432BE8B5 /* IRBarButtonItemDescriptor.m */; };
+		155B44691B600CFD006E88D8 /* IRBarItemDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AAD844C05A4559EE0117 /* IRBarItemDescriptor.m */; };
+		155B446C1B600D04006E88D8 /* IRSearchBarDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AD390D073D1B85FA0641 /* IRSearchBarDescriptor.m */; };
+		155B44711B600D0C006E88D8 /* IRNavigationBarDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A1137FC709819D7E3EFE /* IRNavigationBarDescriptor.m */; };
+		155B44741B600D13006E88D8 /* IRNavigationItemDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6CDC85EDB46B156FB98 /* IRNavigationItemDescriptor.m */; };
+		155B44771B600D1A006E88D8 /* IRMapViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7C5B7B6E01F97B3AD16 /* IRMapViewDescriptor.m */; };
+		155B44791B600D24006E88D8 /* IRAnnotationViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A188D9BB802F7EA3B304 /* IRAnnotationViewDescriptor.m */; };
+		155B447B1B600D2C006E88D8 /* IRCalloutAnnotationViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A9432CF7C9F1781AF75F /* IRCalloutAnnotationViewDescriptor.m */; };
+		155B447E1B600D38006E88D8 /* IRPinAnnotationViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A694CE6F2D23AD802635 /* IRPinAnnotationViewDescriptor.m */; };
+		155B44821B600D43006E88D8 /* IRBaseAnnotationViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A9A26529B1EF8F7EF36B /* IRBaseAnnotationViewDescriptor.m */; };
+		155B44871B600D8D006E88D8 /* IRCollectionViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A5CB83A2FA7F75F8450E /* IRCollectionViewDescriptor.m */; };
+		155B44881B600DB3006E88D8 /* IRCollectionViewCellDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A8CB3FF5E0E065C7C726 /* IRCollectionViewCellDescriptor.m */; };
+		155B44891B600DBE006E88D8 /* IRCollectionReusableViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ABE49F839F86C8B611CF /* IRCollectionReusableViewDescriptor.m */; };
+		155B448A1B600DC7006E88D8 /* IRWebViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A1979D5B8672AB003AF7 /* IRWebViewDescriptor.m */; };
+		155B448B1B600EC5006E88D8 /* IRTextViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A037F9AA01066A5F0CDF /* IRTextViewDescriptor.m */; };
+		155B448C1B600F0C006E88D8 /* IRStepperDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A1607720817DA14D03B9 /* IRStepperDescriptor.m */; };
+		155B448D1B600FFD006E88D8 /* IRViewControllerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7875B4756EA039F0DF6 /* IRViewControllerDescriptor.m */; };
+		155B448E1B60100A006E88D8 /* IRSideMenuDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ADBA7D34C1DB792A6EB8 /* IRSideMenuDescriptor.m */; };
+		155B448F1B601010006E88D8 /* IRNavigationControllerSubDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6F8F5A610DEF7F71A23 /* IRNavigationControllerSubDescriptor.m */; };
+		155B44901B601029006E88D8 /* IRKeyboardManagerSubDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A0D6BBD2D618DF1FC838 /* IRKeyboardManagerSubDescriptor.m */; };
+		155B44911B60102E006E88D8 /* IRTabBarControllerSubDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A208D64B229EF2B04C14 /* IRTabBarControllerSubDescriptor.m */; };
+		155B44921B601032006E88D8 /* IRTabBarItemDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A3EE6119B527969AB68A /* IRTabBarItemDescriptor.m */; };
+		155B44931B601041006E88D8 /* IRScreenDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AABCF51293A2EBCD6D3A /* IRScreenDescriptor.m */; };
+		155B44941B601046006E88D8 /* IRAppDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AC0B84C9046839E647E1 /* IRAppDescriptor.m */; };
+		155B44951B60104B006E88D8 /* IRBaseDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AF09D902A8509356AE72 /* IRBaseDescriptor.m */; };
+		155B44961B601051006E88D8 /* IRI18NDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A8FB89C280EFE203E207 /* IRI18NDescriptor.m */; };
+		155B44971B601070006E88D8 /* IRSimpleCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A8153704A7E2BF888EA6 /* IRSimpleCache.m */; };
+		155B44981B601075006E88D8 /* IRFileLoadingUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A28056AD44333B7BE079 /* IRFileLoadingUtil.m */; };
+		155B44991B60107D006E88D8 /* IRUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A994D33A5A8B1BFFC963 /* IRUtil.m */; };
+		155B449B1B605029006E88D8 /* IRDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6CFFC401CB61EF09167 /* IRDataController.m */; };
 		1572FA251A3C42700087D18A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1572FA241A3C42700087D18A /* MapKit.framework */; };
 		BB7368F0D072D98A7BEB9B7E /* libPods-infrared_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5898BCB4DDC8E23F97DC8411 /* libPods-infrared_ios.a */; };
 		F613A0062C4D9585FD46D778 /* IRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AF33EB3C7F2647FB65C7 /* IRNavigationBar.m */; };
@@ -59,11 +124,12 @@
 		F613A26B1284D173592AFF89 /* IRBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AB7418D0C4471759879D /* IRBarItem.m */; };
 		F613A28B80EE2F237E19F262 /* IRLayoutConstraintMetricsDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A3471ACD3AF33EA33B68 /* IRLayoutConstraintMetricsDescriptor.m */; };
 		F613A2925423E9F1F5E15254 /* example1_fr.json in Resources */ = {isa = PBXBuildFile; fileRef = F613A97580E99DF59F93E000 /* example1_fr.json */; };
-		F613A2984DD711833EB5D307 /* md5.min.js in Sources */ = {isa = PBXBuildFile; fileRef = F613A2509E4D754ED269B91E /* md5.min.js */; };
+		F613A2984DD711833EB5D307 /* infrared_md5.min.js in Sources */ = {isa = PBXBuildFile; fileRef = F613A2509E4D754ED269B91E /* infrared_md5.min.js */; };
 		F613A29C5FC4D7300E40976C /* IRBarItemBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A632AB8714B5ECE7B17E /* IRBarItemBuilder.m */; };
 		F613A2BE58E238292A9FF2CF /* IRViewControllerBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A9498AA8E8F3B005717B /* IRViewControllerBuilder.m */; };
 		F613A2D4EDC0F35EBFA94B34 /* IRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AAF9D0DFC19A663A507E /* IRNavigationController.m */; };
 		F613A2DB2F00B1A93DEC4EBE /* IRView.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A9D9371996CAF1F2951E /* IRView.m */; };
+		F613A2E04A71144A8EB5C216 /* NSURLRequest+IgnoreSSL.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A34B4C67916370BEF21E /* NSURLRequest+IgnoreSSL.m */; };
 		F613A2F4BE9343FF5B89C1EE /* IRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AB3090839399CE05C747 /* IRTabBarController.m */; };
 		F613A2FF97A01D3C7D52AFAD /* IRPinAnnotationViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A694CE6F2D23AD802635 /* IRPinAnnotationViewDescriptor.m */; };
 		F613A30B31223A38D586C8B0 /* IRLayoutConstraintICSPriorityDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A285B5F7DCAFC4A2E0E2 /* IRLayoutConstraintICSPriorityDescriptor.m */; };
@@ -246,6 +312,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		155B43981B5FD1E8006E88D8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0CE571C5B20E6E424D34ED75 /* libPods-Infrared_ios_lib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Infrared_ios_lib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15136E3919AB60A600124BCE /* infrared_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = infrared_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +342,16 @@
 		15136E6619AB60A700124BCE /* infrared_iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "infrared_iosTests-Info.plist"; sourceTree = "<group>"; };
 		15136E6819AB60A700124BCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15136E6A19AB60A700124BCE /* Infrared_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Infrared_iosTests.m; sourceTree = "<group>"; };
+		155B439A1B5FD1E8006E88D8 /* precaching */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = precaching; sourceTree = BUILT_PRODUCTS_DIR; };
+		155B439C1B5FD1E8006E88D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		155B43A31B5FD61E006E88D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		155B43A61B5FD880006E88D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		155B43A81B5FD88E006E88D8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		155B43A91B5FD88E006E88D8 /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/SecurityFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		155B43AC1B5FE1D3006E88D8 /* IRPrecache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPrecache.m; sourceTree = "<group>"; };
+		155B43AE1B5FE1F7006E88D8 /* IRPrecache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRPrecache.h; sourceTree = "<group>"; };
+		155B449E1B611954006E88D8 /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/SecurityInterface.framework; sourceTree = DEVELOPER_DIR; };
+		155B44A01B611965006E88D8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		1572FA241A3C42700087D18A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2BC8B77F1ECAEC692DB4B31F /* libPods-infrared_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-infrared_ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46EEA3B9FFD5E510A06E8276 /* Pods-infrared_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-infrared_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-infrared_ios/Pods-infrared_ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +364,7 @@
 		F613A013B0EBAC049D1719B9 /* IRToolbarDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRToolbarDescriptor.m; sourceTree = "<group>"; };
 		F613A037F9AA01066A5F0CDF /* IRTextViewDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTextViewDescriptor.m; sourceTree = "<group>"; };
 		F613A03DDC69E9B9C57A8B97 /* UINavigationItemExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationItemExport.h; sourceTree = "<group>"; };
+		F613A0409E69C320CB7269F9 /* NSURLRequest+IgnoreSSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+IgnoreSSL.h"; sourceTree = "<group>"; };
 		F613A050D3D6692A6FFABCB4 /* IRSwitchDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSwitchDescriptor.m; sourceTree = "<group>"; };
 		F613A0548D9AEA58673CDB8E /* IRTextFieldDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTextFieldDescriptor.h; sourceTree = "<group>"; };
 		F613A05B1174F4F36E0F2EF0 /* IRGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRGestureRecognizerExport.h; sourceTree = "<group>"; };
@@ -325,7 +414,7 @@
 		F613A215502EA0F2E2B099B0 /* IRWebViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRWebViewBuilder.h; sourceTree = "<group>"; };
 		F613A22F88BC02AFAE448FEA /* IRBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBarButtonItem.m; sourceTree = "<group>"; };
 		F613A2336AB1F0FEA4CE0E0B /* UIColorExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorExport.h; sourceTree = "<group>"; };
-		F613A2509E4D754ED269B91E /* md5.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = md5.min.js; sourceTree = "<group>"; };
+		F613A2509E4D754ED269B91E /* infrared_md5.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = infrared_md5.min.js; sourceTree = "<group>"; };
 		F613A259165741335478702F /* IRPickerViewObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPickerViewObserver.h; sourceTree = "<group>"; };
 		F613A25AB62BBC7BF0EEA04A /* IRCollectionViewCellDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCollectionViewCellDescriptor.h; sourceTree = "<group>"; };
 		F613A2687D4B9BFEE0199C87 /* ir_gesture_recognizers_plugin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ir_gesture_recognizers_plugin.js; sourceTree = "<group>"; };
@@ -355,6 +444,7 @@
 		F613A34266FCD62AB1D38ADD /* IRPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPinAnnotationView.h; sourceTree = "<group>"; };
 		F613A3471ACD3AF33EA33B68 /* IRLayoutConstraintMetricsDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLayoutConstraintMetricsDescriptor.m; sourceTree = "<group>"; };
 		F613A34801298B420310FEE6 /* update_de.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = update_de.json; sourceTree = "<group>"; };
+		F613A34B4C67916370BEF21E /* NSURLRequest+IgnoreSSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+IgnoreSSL.m"; sourceTree = "<group>"; };
 		F613A34DD99E60ADF2DF74B5 /* IRButtonDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRButtonDescriptor.m; sourceTree = "<group>"; };
 		F613A35C990FCD84B5A61050 /* IRTextFieldObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTextFieldObserver.m; sourceTree = "<group>"; };
 		F613A35DFB8D2FEE9226CC09 /* IRPickerViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPickerViewBuilder.h; sourceTree = "<group>"; };
@@ -717,6 +807,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		155B43971B5FD1E8006E88D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				155B43A41B5FD61E006E88D8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -736,6 +834,7 @@
 			children = (
 				15136E4219AB60A600124BCE /* infrared_ios */,
 				15136E6419AB60A700124BCE /* infrared_iosTests */,
+				155B439B1B5FD1E8006E88D8 /* precaching */,
 				15136E3B19AB60A600124BCE /* Frameworks */,
 				15136E3A19AB60A600124BCE /* Products */,
 				0A57E171B51DCD58197DC7FA /* Pods */,
@@ -747,6 +846,7 @@
 			children = (
 				15136E3919AB60A600124BCE /* infrared_ios.app */,
 				15136E5D19AB60A700124BCE /* infrared_ios.xctest */,
+				155B439A1B5FD1E8006E88D8 /* precaching */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -754,6 +854,12 @@
 		15136E3B19AB60A600124BCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				155B44A01B611965006E88D8 /* CoreFoundation.framework */,
+				155B449E1B611954006E88D8 /* SecurityInterface.framework */,
+				155B43A81B5FD88E006E88D8 /* Security.framework */,
+				155B43A91B5FD88E006E88D8 /* SecurityFoundation.framework */,
+				155B43A61B5FD880006E88D8 /* CoreGraphics.framework */,
+				155B43A31B5FD61E006E88D8 /* Foundation.framework */,
 				1572FA241A3C42700087D18A /* MapKit.framework */,
 				15136E3C19AB60A600124BCE /* Foundation.framework */,
 				15136E3E19AB60A600124BCE /* CoreGraphics.framework */,
@@ -808,6 +914,17 @@
 				15136E6719AB60A700124BCE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		155B439B1B5FD1E8006E88D8 /* precaching */ = {
+			isa = PBXGroup;
+			children = (
+				155B439C1B5FD1E8006E88D8 /* main.m */,
+				155B43AE1B5FE1F7006E88D8 /* IRPrecache.h */,
+				155B43AC1B5FE1D3006E88D8 /* IRPrecache.m */,
+				F613A170AFE1E20250D91C31 /* NSURLRequestCategory */,
+			);
+			path = precaching;
 			sourceTree = "<group>";
 		};
 		F613A05645B3B59FE9BEE679 /* Label */ = {
@@ -926,6 +1043,15 @@
 				F613A76D2E7821A9C137BBBA /* UIProgressViewExport.h */,
 			);
 			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		F613A170AFE1E20250D91C31 /* NSURLRequestCategory */ = {
+			isa = PBXGroup;
+			children = (
+				F613A34B4C67916370BEF21E /* NSURLRequest+IgnoreSSL.m */,
+				F613A0409E69C320CB7269F9 /* NSURLRequest+IgnoreSSL.h */,
+			);
+			path = NSURLRequestCategory;
 			sourceTree = "<group>";
 		};
 		F613A1B4DF663264956B56F5 /* TextField */ = {
@@ -1048,7 +1174,7 @@
 		F613A499D5FAA3A7ECF8FBF0 /* MD5 */ = {
 			isa = PBXGroup;
 			children = (
-				F613A2509E4D754ED269B91E /* md5.min.js */,
+				F613A2509E4D754ED269B91E /* infrared_md5.min.js */,
 			);
 			path = MD5;
 			sourceTree = "<group>";
@@ -2043,6 +2169,24 @@
 			productReference = 15136E5D19AB60A700124BCE /* infrared_ios.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		155B43991B5FD1E8006E88D8 /* precaching */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 155B43A01B5FD1E8006E88D8 /* Build configuration list for PBXNativeTarget "precaching" */;
+			buildPhases = (
+				155B449C1B611898006E88D8 /* Copy all JS files into built app */,
+				155B43961B5FD1E8006E88D8 /* Sources */,
+				155B43971B5FD1E8006E88D8 /* Frameworks */,
+				155B43981B5FD1E8006E88D8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = precaching;
+			productName = precaching;
+			productReference = 155B439A1B5FD1E8006E88D8 /* precaching */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2058,6 +2202,9 @@
 					};
 					1535F1791A48F596001F547C = {
 						CreatedOnToolsVersion = 6.1.1;
+					};
+					155B43991B5FD1E8006E88D8 = {
+						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
@@ -2077,6 +2224,7 @@
 				15136E3819AB60A600124BCE /* infrared_ios */,
 				15136E5C19AB60A700124BCE /* infrared_iosTests */,
 				1535F1791A48F596001F547C /* Framework */,
+				155B43991B5FD1E8006E88D8 /* precaching */,
 			);
 		};
 /* End PBXProject section */
@@ -2139,6 +2287,20 @@
 			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=${PROJECT_NAME}\nRW_INPUT_STATIC_LIB=\"lib${PROJECT_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\n\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n\n\n# 1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\nRW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 2 - Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\nRW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 3 - Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\nRW_OTHER_PLATFORM=iphonesimulator\nelse\nRW_OTHER_PLATFORM=iphoneos\nfi\n\n# 4 - Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\nRW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\necho \"Could not find other platform build directory.\"\nexit 1\nfi\n\n\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\nbuild_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n\n\n# Ensure that the framework is present in both platform's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the user's desktop\nditto \"${RW_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/${RW_FRAMEWORK_NAME}.framework\"";
 		};
 		153AA63F1AC43477000ACF8B /* Copy all JS files into built app */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy all JS files into built app";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "find ${PROJECT_DIR}/ -name \"*.js\" -type f  -exec cp  {} ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app \\;";
+		};
+		155B449C1B611898006E88D8 /* Copy all JS files into built app */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2379,7 +2541,7 @@
 				F613AD5B73CA2DB8435704AC /* IRWebViewDescriptor.m in Sources */,
 				F613ACBF744ED67A0F2CACBF /* ir_web_view_plugin.js in Sources */,
 				F613AE3A881995C240AFB96C /* IRWebViewObserver.m in Sources */,
-				F613A2984DD711833EB5D307 /* md5.min.js in Sources */,
+				F613A2984DD711833EB5D307 /* infrared_md5.min.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2388,6 +2550,78 @@
 			buildActionMask = 2147483647;
 			files = (
 				15136E6B19AB60A700124BCE /* Infrared_iosTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		155B43961B5FD1E8006E88D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				155B44791B600D24006E88D8 /* IRAnnotationViewDescriptor.m in Sources */,
+				155B44951B60104B006E88D8 /* IRBaseDescriptor.m in Sources */,
+				155B44931B601041006E88D8 /* IRScreenDescriptor.m in Sources */,
+				155B448E1B60100A006E88D8 /* IRSideMenuDescriptor.m in Sources */,
+				155B448D1B600FFD006E88D8 /* IRViewControllerDescriptor.m in Sources */,
+				155B44411B600C91006E88D8 /* IRSegmentedControlDescriptor.m in Sources */,
+				155B44131B600C06006E88D8 /* IRLabelDescriptor.m in Sources */,
+				155B44891B600DBE006E88D8 /* IRCollectionReusableViewDescriptor.m in Sources */,
+				155B44681B600CF5006E88D8 /* IRBarButtonItemDescriptor.m in Sources */,
+				155B44291B600C54006E88D8 /* IRRotationGestureRecognizerDescriptor.m in Sources */,
+				155B44921B601032006E88D8 /* IRTabBarItemDescriptor.m in Sources */,
+				155B44981B601075006E88D8 /* IRFileLoadingUtil.m in Sources */,
+				155B44381B600C7A006E88D8 /* IRLayoutConstraintDescriptor.m in Sources */,
+				155B448F1B601010006E88D8 /* IRNavigationControllerSubDescriptor.m in Sources */,
+				155B445B1B600CD1006E88D8 /* IRPageControlDescriptor.m in Sources */,
+				155B447B1B600D2C006E88D8 /* IRCalloutAnnotationViewDescriptor.m in Sources */,
+				155B44301B600C64006E88D8 /* IRScreenEdgePanGestureRecognizerDescriptor.m in Sources */,
+				155B44971B601070006E88D8 /* IRSimpleCache.m in Sources */,
+				155B439D1B5FD1E8006E88D8 /* main.m in Sources */,
+				155B44711B600D0C006E88D8 /* IRNavigationBarDescriptor.m in Sources */,
+				155B44821B600D43006E88D8 /* IRBaseAnnotationViewDescriptor.m in Sources */,
+				155B442E1B600C5E006E88D8 /* IRLongPressGestureRecognizerDescriptor.m in Sources */,
+				155B44511B600CB4006E88D8 /* IRActivityIndicatorViewDescriptor.m in Sources */,
+				155B44391B600C7A006E88D8 /* IRLayoutConstraintICSPriorityDescriptor.m in Sources */,
+				155B44881B600DB3006E88D8 /* IRCollectionViewCellDescriptor.m in Sources */,
+				155B44221B600C3C006E88D8 /* IRTapGestureRecognizerDescriptor.m in Sources */,
+				155B44351B600C7A006E88D8 /* IRLayoutConstraintWithItemDescriptor.m in Sources */,
+				155B43AD1B5FE1D3006E88D8 /* IRPrecache.m in Sources */,
+				155B44941B601046006E88D8 /* IRAppDescriptor.m in Sources */,
+				155B44991B60107D006E88D8 /* IRUtil.m in Sources */,
+				155B44651B600CEE006E88D8 /* IRToolbarDescriptor.m in Sources */,
+				155B44181B600C1A006E88D8 /* IRImageViewDescriptor.m in Sources */,
+				155B44361B600C7A006E88D8 /* IRLayoutConstraintWithVFDescriptor.m in Sources */,
+				155B447E1B600D38006E88D8 /* IRPinAnnotationViewDescriptor.m in Sources */,
+				155B448A1B600DC7006E88D8 /* IRWebViewDescriptor.m in Sources */,
+				155B44691B600CFD006E88D8 /* IRBarItemDescriptor.m in Sources */,
+				155B44741B600D13006E88D8 /* IRNavigationItemDescriptor.m in Sources */,
+				155B44421B600C91006E88D8 /* IRSegment.m in Sources */,
+				155B449B1B605029006E88D8 /* IRDataController.m in Sources */,
+				155B448C1B600F0C006E88D8 /* IRStepperDescriptor.m in Sources */,
+				155B44541B600CBC006E88D8 /* IRTableViewDescriptor.m in Sources */,
+				155B44871B600D8D006E88D8 /* IRCollectionViewDescriptor.m in Sources */,
+				155B442C1B600C59006E88D8 /* IRPanGestureRecognizerDescriptor.m in Sources */,
+				155B44161B600C11006E88D8 /* IRButtonDescriptor.m in Sources */,
+				155B44371B600C7A006E88D8 /* IRLayoutConstraintMetricsDescriptor.m in Sources */,
+				155B443A1B600C83006E88D8 /* IRViewAndControlDescriptor.m in Sources */,
+				155B44571B600CC7006E88D8 /* IRTableViewCellDescriptor.m in Sources */,
+				155B44451B600C99006E88D8 /* IRSliderDescriptor.m in Sources */,
+				155B44621B600CE5006E88D8 /* IRDatePickerDescriptor.m in Sources */,
+				155B44261B600C49006E88D8 /* IRPinchGestureRecognizerDescriptor.m in Sources */,
+				155B44911B60102E006E88D8 /* IRTabBarControllerSubDescriptor.m in Sources */,
+				155B448B1B600EC5006E88D8 /* IRTextViewDescriptor.m in Sources */,
+				155B441C1B600C21006E88D8 /* IRTextFieldDescriptor.m in Sources */,
+				155B446C1B600D04006E88D8 /* IRSearchBarDescriptor.m in Sources */,
+				155B44241B600C41006E88D8 /* IRSwipeGestureRecognizerDescriptor.m in Sources */,
+				155B44961B601051006E88D8 /* IRI18NDescriptor.m in Sources */,
+				155B444E1B600CAF006E88D8 /* IRProgressViewDescriptor.m in Sources */,
+				155B440F1B600BF1006E88D8 /* IRScrollViewDescriptor.m in Sources */,
+				155B44901B601029006E88D8 /* IRKeyboardManagerSubDescriptor.m in Sources */,
+				155B44481B600C9F006E88D8 /* IRSwitchDescriptor.m in Sources */,
+				155B44771B600D1A006E88D8 /* IRMapViewDescriptor.m in Sources */,
+				155B445E1B600CD8006E88D8 /* IRPickerViewDescriptor.m in Sources */,
+				155B441F1B600C2F006E88D8 /* IRViewDescriptor.m in Sources */,
+				155B44271B600C4D006E88D8 /* IRGestureRecognizerDescriptor.m in Sources */,
+				F613A2E04A71144A8EB5C216 /* NSURLRequest+IgnoreSSL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2513,8 +2747,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = infrared_ios;
 				PROVISIONING_PROFILE = "41b474f4-f350-4387-bd13-e650f67fb857";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/** \"${PROJECT_DIR}/Pods\"/**";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2534,8 +2770,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = infrared_ios;
 				PROVISIONING_PROFILE = "41b474f4-f350-4387-bd13-e650f67fb857";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/** \"${PROJECT_DIR}/Pods\"/**";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2622,6 +2860,39 @@
 			};
 			name = Release;
 		};
+		155B439E1B5FD1E8006E88D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		155B439F1B5FD1E8006E88D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2657,6 +2928,15 @@
 			buildConfigurations = (
 				1535F17B1A48F596001F547C /* Debug */,
 				1535F17C1A48F596001F547C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		155B43A01B5FD1E8006E88D8 /* Build configuration list for PBXNativeTarget "precaching" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				155B439E1B5FD1E8006E88D8 /* Debug */,
+				155B439F1B5FD1E8006E88D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

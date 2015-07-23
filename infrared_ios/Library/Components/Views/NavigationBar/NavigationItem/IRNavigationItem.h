@@ -4,9 +4,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 #import "IRComponentInfoProtocol.h"
 #import "UINavigationItemExport.h"
-#import <JavaScriptCore/JavaScriptCore.h>
 
 
 @protocol IRNavigationItemExport <JSExport>
@@ -62,6 +62,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
-@interface IRNavigationItem : UINavigationItem <IRComponentInfoProtocol, UINavigationItemExport, IRNavigationItemExport>
+@interface IRNavigationItem : UINavigationItem <IRComponentInfoProtocol, /*UINavigationItemExport,*/ IRNavigationItemExport>
 
 @end

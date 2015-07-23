@@ -21,10 +21,14 @@
  */
 
 @property (nonatomic, strong) NSString *withItem;
+#if TARGET_OS_IPHONE
 @property (nonatomic) NSLayoutAttribute withItemAttribute;
 @property (nonatomic) NSLayoutRelation relatedBy;
+#endif
 @property (nonatomic, strong) NSString *toItem;
+#if TARGET_OS_IPHONE
 @property (nonatomic) NSLayoutAttribute toItemAttribute;
+#endif
 @property (nonatomic, strong) NSNumber *multiplier;
 @property (nonatomic, strong) NSNumber *constant;
 

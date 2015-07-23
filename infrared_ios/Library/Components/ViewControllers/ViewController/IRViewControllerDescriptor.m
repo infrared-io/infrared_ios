@@ -6,14 +6,16 @@
 #import <objc/runtime.h>
 #import "IRViewControllerDescriptor.h"
 #import "IRUtil.h"
-#import "IRViewControllerBuilder.h"
 #import "IRSideMenuDescriptor.h"
 #import "IRNavigationControllerSubDescriptor.h"
 #import "IRKeyboardManagerSubDescriptor.h"
 #import "IRTabBarControllerSubDescriptor.h"
+#if TARGET_OS_IPHONE
 #import "IRViewController.h"
+#import "IRViewControllerBuilder.h"
 #import "UINavigationControllerExport.h"
 #import "UITabBarControllerExport.h"
+#endif
 
 
 @implementation IRViewControllerDescriptor
@@ -22,6 +24,7 @@
 {
     return typeViewControllerKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRViewController class];
@@ -38,6 +41,7 @@
     class_addProtocol([UINavigationController class], @protocol(UINavigationControllerExport));
     class_addProtocol([UITabBarController class], @protocol(UITabBarControllerExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -59,9 +63,11 @@
         string = aDictionary[NSStringFromSelector(@selector(jsPluginPath))];
         self.jsPluginPath = string;
 
+#if TARGET_OS_IPHONE
         // preferredStatusBarStyle
         string = aDictionary[NSStringFromSelector(@selector(preferredStatusBarStyle))];
         self.preferredStatusBarStyle = [IRBaseDescriptor statusBarStyleFromString:string];
+#endif
 
         // prefersStatusBarHidden
         number = aDictionary[NSStringFromSelector(@selector(prefersStatusBarHidden))];
@@ -71,9 +77,11 @@
             self.prefersStatusBarHidden = NO;
         }
 
+#if TARGET_OS_IPHONE
         // supportedInterfaceOrientationsArray
         string = aDictionary[supportedInterfaceOrientationsKEY];
         self.supportedInterfaceOrientationsArray = [IRBaseDescriptor interfaceOrientationsFromString:string];
+#endif
 
         // sideMenu
         dictionary = aDictionary[NSStringFromSelector(@selector(sideMenu))];

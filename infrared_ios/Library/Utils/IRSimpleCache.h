@@ -13,7 +13,9 @@
 - (void) setAdditionalCacheFolderPath:(NSString *)anCacheFolderPath;
 
 - (BOOL) hasDataForURI:(NSString *)uri;
+#if TARGET_OS_IPHONE
 - (UIImage *) imageForURI:(NSString *)uri;
+#endif
 - (NSString *) dataStringForURI:(NSString *)uri;
 - (NSData *) cachedDataForURI:(NSString *)uri;
 - (void) setData:(NSData *)data

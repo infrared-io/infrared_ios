@@ -5,17 +5,19 @@
 
 #import "IRDataController.h"
 #import "IRAppDescriptor.h"
-#import "IRViewController.h"
 #import "IRScreenDescriptor.h"
-#import "IRView.h"
 #import "IRIdsAndComponentsForScreen.h"
 #import "IRLayoutConstraintMetricsDescriptor.h"
-#import "IRJSContextUtil.h"
 #import "IRBaseDescriptor.h"
 #import "IRViewDescriptor.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
 #import "Infrared.h"
 #import "IRUtilLibrary.h"
+#import "IRJSContextUtil.h"
+#import "IRView.h"
+#import "IRViewController.h"
+#endif
 
 @interface IRDataController ()
 
@@ -24,7 +26,9 @@
 //@property(nonatomic, strong) JSVirtualMachine *jsVirtualMachine;
 @property(nonatomic, strong) JSContext *jsContext;
 
+#if TARGET_OS_IPHONE
 @property(nonatomic, strong) UIWebView *webView;
+#endif
 
 @end
 
@@ -86,6 +90,7 @@ static IRDataController *sharedDataController = nil;
     return baseDescriptor;
 }
 
+#if TARGET_OS_IPHONE
 - (void) addComponentConstructorsToJSContext:(JSContext *)context
 {
     NSString *capitalizedName;
@@ -107,10 +112,12 @@ static IRDataController *sharedDataController = nil;
         [descriptorClass addJSExportProtocol];
     }
 }
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
+#if TARGET_OS_IPHONE
 - (IRViewController *) mainScreenViewController
 {
     IRViewController *mainScreenViewController = nil;
@@ -123,6 +130,7 @@ static IRDataController *sharedDataController = nil;
     }
     return mainScreenViewController;
 }
+#endif
 
 - (NSString *) mainScreenViewControllerId
 {
@@ -193,6 +201,7 @@ static IRDataController *sharedDataController = nil;
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
+#if TARGET_OS_IPHONE
 - (void) initJSContext
 {
     // -- create WebView
@@ -214,21 +223,35 @@ static IRDataController *sharedDataController = nil;
     NSMutableArray *jsPluginPathsArray = [NSMutableArray array];
     [jsPluginPathsArray addObjectsFromArray:[IRDataController sharedInstance].appDescriptor.jsLibrariesArray];
     [jsPluginPathsArray addObjectsFromArray:[IRBaseDescriptor allJSFilesPaths]];
+    NSString *anEscapedPluginPath;
     NSString *jsPluginNameFromPath;
     NSString *scriptTags = @"";
     for (NSString *anPluginPath in jsPluginPathsArray) {
-        if ([IRUtil isLocalFile:anPluginPath]) {
-            scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", anPluginPath];
+        /*if ([[IRDataController sharedInstance].appDescriptor.baseUrl length] > 0) {
+            if ([IRUtil hasFilePrefix:anPluginPath]) {
+                // TODO: fix for path "file://library.js"
+                scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", anPluginPath];
+            } else {
+                jsPluginNameFromPath = [IRUtil fileNameFromPath:anPluginPath];
+                scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
+            }
         } else {
-            jsPluginNameFromPath = [IRUtil fileNameFromPath:anPluginPath];
-            scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
-        }
+            if ([IRUtil isLocalFile:anPluginPath]) {
+                scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", anPluginPath];
+            } else {
+                jsPluginNameFromPath = [IRUtil fileNameFromPath:anPluginPath];
+                scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
+            }
+        }*/
+        anEscapedPluginPath = [anPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        jsPluginNameFromPath = [IRUtil fileNameFromPath:anEscapedPluginPath];
+        scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
     }
     [self.webView loadHTMLString:[NSString stringWithFormat:@""
                                                            "<html><head>"
 //                                                           "<script src='http://jsconsole.com/remote.js?'></script>"
                                                            "<script src='infrared.js'></script>"
-                                                           "<script src='md5.min.js'></script>"
+                                                           "<script src='infrared_md5.min.js'></script>"
 #if DEBUG == 1
                                                            "<script src='zeroTimeout.js'></script>"
                                                            "<script src='zeroTimeoutWorker.js'></script>"
@@ -257,12 +280,14 @@ static IRDataController *sharedDataController = nil;
     [IRJSContextUtil addMD5JSExtensionToJSContext:temporaryJSContext];
     return temporaryJSContext;
 }
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
 #pragma mark - UIWebViewDelegate
 
+#if TARGET_OS_IPHONE
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     self.jsContext.exception = nil;
@@ -277,6 +302,7 @@ static IRDataController *sharedDataController = nil;
     [IRJSContextUtil exposeNSDate:self.jsContext];
     [IRJSContextUtil exposeUIColor:self.jsContext];
     [IRJSContextUtil exposeUIImage:self.jsContext];
+    [IRJSContextUtil exposeUINavigationItem:self.jsContext];
     [IRJSContextUtil exposeUIApplication:self.jsContext];
     [IRJSContextUtil exposeNSIndexPath:self.jsContext];
     [IRJSContextUtil exposeNSURL:self.jsContext];
@@ -291,10 +317,12 @@ static IRDataController *sharedDataController = nil;
 {
     NSLog(@"Error for WEBVIEW: %@", [error description]);
 }
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
+#if TARGET_OS_IPHONE
 - (void) registerViewController:(id <IRComponentInfoProtocol>)component
 {
     if ([self.viewControllersArray containsObject:component] == NO) {
@@ -335,7 +363,9 @@ static IRDataController *sharedDataController = nil;
     // 4) clean Watch.JS observers and VC
     [viewController cleanWatchJSObserversAndVC];
 }
+#endif
 
+#if TARGET_OS_IPHONE
 - (void) registerView:(id <IRComponentInfoProtocol>)component
        viewController:(IRViewController *)viewController
 {
@@ -354,6 +384,7 @@ static IRDataController *sharedDataController = nil;
     }
     [idsAndComponentsForScreen registerComponent:component];
 }
+#endif
 
 - (void) registerGlobalLayoutConstraintMetrics:(IRLayoutConstraintMetricsDescriptor *)descriptor
 {
@@ -362,6 +393,7 @@ static IRDataController *sharedDataController = nil;
     }
 }
 
+#if TARGET_OS_IPHONE
 - (void) registerGestureRecognizer:(id <IRComponentInfoProtocol>)component
                     viewController:(IRViewController *)viewController
 {
@@ -380,10 +412,12 @@ static IRDataController *sharedDataController = nil;
     }
     [idsAndGestureRecognizersForScreen registerComponent:component];
 }
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
+#if TARGET_OS_IPHONE
 - (void) registerViewsArray:(NSArray *)viewsArray
    inSameScreenAsParentView:(id<IRComponentInfoProtocol>)parentView
 {
@@ -461,10 +495,12 @@ inSameScreenAsParentView:(id<IRComponentInfoProtocol>)parentView
     }
     return view;
 }
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
+#if TARGET_OS_IPHONE
 - (NSArray *) controllersWithId:(NSString *)controllerId
 {
     NSMutableArray *controllersArray = [NSMutableArray array];
@@ -476,10 +512,12 @@ inSameScreenAsParentView:(id<IRComponentInfoProtocol>)parentView
     }
     return controllersArray;
 }
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
+#if TARGET_OS_IPHONE
 - (UIGestureRecognizer *) gestureRecognizerWithId:(NSString *)gestureRecognizerId
                                    viewController:(IRViewController *)viewController
 {
@@ -488,6 +526,7 @@ inSameScreenAsParentView:(id<IRComponentInfoProtocol>)parentView
                                                                  insideIdsAndComponentsArray:self.idsAndGestureRecognizersPerScreenArray];
     return gestureRecognizer;
 }
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
@@ -502,6 +541,7 @@ inSameScreenAsParentView:(id<IRComponentInfoProtocol>)parentView
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
+#if TARGET_OS_IPHONE
 - (id) objectWithId:(NSString *)objectId
              viewController:(IRViewController *)viewController
 insideIdsAndComponentsArray:(NSArray *)idsAndComponentsArray
@@ -520,6 +560,7 @@ insideIdsAndComponentsArray:(NSArray *)idsAndComponentsArray
     }
     return object;
 }
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------

@@ -185,7 +185,7 @@
                 }
             }
             anTabBarViewController.tabBarItem.title = irTabBarItemDescriptor.title;
-            anTabBarViewController.tabBarItem.image = [[IRSimpleCache sharedInstance] imageForURI:irTabBarItemDescriptor.image];
+            anTabBarViewController.tabBarItem.image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:irTabBarItemDescriptor.title];
 
             if (anTabBarViewController) {
                 [viewControllersArray addObject:anTabBarViewController];
@@ -264,7 +264,9 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
     NSString *jsonImagesPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
-    NSData *fileData = [IRFileLoadingUtil dataForFileWithPath:descriptor.jsPluginPath
+    NSString *escapedPluginPath = [descriptor.jsPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *jsPluginNameFromPath = [IRUtil fileNameFromPath:escapedPluginPath];
+    NSData *fileData = [IRFileLoadingUtil dataForFileWithPath:jsPluginNameFromPath/*descriptor.jsPluginPath*/
                                               destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonImagesPathComponent]
                                                  preserveName:YES];
     jsPluginString = [[NSString alloc] initWithData:fileData encoding:NSUTF8StringEncoding];
@@ -331,7 +333,7 @@
     if (descriptor.animationDuration != CGDOUBLE_UNDEFINED) {
         sideMenu.animationDuration = descriptor.animationDuration;
     }
-    sideMenu.backgroundImage = [[IRSimpleCache sharedInstance] imageForURI:descriptor.backgroundImage];
+    sideMenu.backgroundImage = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.backgroundImage];
     sideMenu.panGestureEnabled = descriptor.panGestureEnabled;
     sideMenu.panFromEdge = descriptor.panFromEdge;
     if (descriptor.panMinimumOpenThreshold != NSUINTEGER_UNDEFINED) {

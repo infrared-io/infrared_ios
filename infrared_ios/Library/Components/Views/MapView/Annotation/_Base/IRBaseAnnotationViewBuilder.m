@@ -13,6 +13,7 @@
 #import "IRScreenDescriptor.h"
 #import "IRViewController.h"
 #import "IRBaseDescriptor.h"
+#import "IRUtil.h"
 
 
 @implementation IRBaseAnnotationViewBuilder
@@ -33,7 +34,7 @@
     [IRViewBuilder setUpComponent:mkAnnotationView componentDescriptor:descriptor viewController:viewController
                             extra:extra];
 
-    mkAnnotationView.image = [[IRSimpleCache sharedInstance] imageForURI:descriptor.image];
+    mkAnnotationView.image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.image];
     mkAnnotationView.centerOffset = descriptor.centerOffset;
     mkAnnotationView.calloutOffset = descriptor.calloutOffset;
     mkAnnotationView.enabled = descriptor.enabled;

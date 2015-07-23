@@ -37,6 +37,7 @@ typedef enum {
 
 + (IRLayoutConstraintDescriptor *) newLayoutConstraintDescriptorWithDictionary:(NSDictionary *)sourceDictionary;
 
+#if TARGET_OS_IPHONE
 + (LayoutConstraintICSType) layoutConstraintICSTypeFromString:(NSString *)string;
 
 + (UILayoutConstraintAxis) layoutConstraintAxisFromString:(NSString *)string;
@@ -46,6 +47,7 @@ typedef enum {
 + (NSLayoutRelation) layoutRelationFromString:(NSString *)string;
 
 + (NSLayoutFormatOptions) layoutFormatOptionsFromString:(NSString *)string;
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 

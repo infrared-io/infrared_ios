@@ -5,8 +5,10 @@
 
 #import <objc/runtime.h>
 #import "IRCollectionViewCellDescriptor.h"
+#if TARGET_OS_IPHONE
 #import "IRCollectionViewCell.h"
 #import "IRCollectionViewCellBuilder.h"
+#endif
 
 
 @implementation IRCollectionViewCellDescriptor
@@ -15,6 +17,7 @@
 {
     return typeCollectionViewCellKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRCollectionViewCell class];
@@ -29,6 +32,7 @@
 {
     class_addProtocol([UICollectionViewCell class], @protocol(UICollectionViewCellExport));
 }
+#endif
 
 - (NSDictionary *) viewDefaults
 {
@@ -80,9 +84,11 @@
         dictionary = aDictionary[NSStringFromSelector(@selector(cellSize))];
         self.cellSize = [IRBaseDescriptor sizeFromDictionary:dictionary];
 
+#if TARGET_OS_IPHONE
         // insets
         dictionary = aDictionary[NSStringFromSelector(@selector(insets))];
         self.insets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+#endif
     }
     return self;
 }

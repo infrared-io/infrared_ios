@@ -15,10 +15,10 @@
 @property (nonatomic, readonly) NSString *app;
 @property (nonatomic) NSInteger version;
 @property (nonatomic) BOOL silentUpdate;
+@property (nonatomic, strong) NSString *baseUrl;
 @property (nonatomic, strong) NSArray *screensArray;
 @property (nonatomic, strong) NSArray *fontsArray;
 @property (nonatomic, strong) NSString *mainScreenId;
-@property (nonatomic, strong) NSString *baseUrl;
 @property (nonatomic, strong) NSArray *jsLibrariesArray;
 @property (nonatomic, strong) IRI18NDescriptor *i18n;
 

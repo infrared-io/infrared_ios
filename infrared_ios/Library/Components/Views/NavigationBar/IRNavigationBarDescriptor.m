@@ -5,9 +5,11 @@
 
 #import <objc/runtime.h>
 #import "IRNavigationBarDescriptor.h"
-#import "IRNavigationBarBuilder.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
+#import "IRNavigationBarBuilder.h"
 #import "IRNavigationBar.h"
+#endif
 
 
 @implementation IRNavigationBarDescriptor
@@ -16,6 +18,7 @@
 {
     return typeNavigationBarKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRNavigationBar class];
@@ -30,6 +33,7 @@
 {
     class_addProtocol([UINavigationBar class], @protocol(UINavigationBarExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -39,9 +43,11 @@
         NSString *string;
         NSArray *array;
 
+#if TARGET_OS_IPHONE
         // barStyle
         string = aDictionary[NSStringFromSelector(@selector(barStyle))];
         self.barStyle = [IRBaseDescriptor barStyleFromString:string];
+#endif
 
         // translucent
         number = aDictionary[NSStringFromSelector(@selector(translucent))];
@@ -55,9 +61,11 @@
         array = aDictionary[NSStringFromSelector(@selector(items))];
         self.items = [IRBaseDescriptor viewDescriptorsHierarchyFromArray:array];
 
+#if TARGET_OS_IPHONE
         // barTintColor
         string = aDictionary[NSStringFromSelector(@selector(barTintColor))];
         self.barTintColor = [IRUtil transformHexColorToUIColor:string];
+#endif
 
         // shadowImage
         string = aDictionary[NSStringFromSelector(@selector(shadowImage))];
@@ -80,13 +88,13 @@
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if (self.shadowImage && [IRUtil isLocalFile:self.shadowImage] == NO) {
+    if (self.shadowImage && [IRUtil isFileForDownload:self.shadowImage]) {
         [imagePaths addObject:self.shadowImage];
     }
-    if (self.backIndicatorImage && [IRUtil isLocalFile:self.backIndicatorImage] == NO) {
+    if (self.backIndicatorImage && [IRUtil isFileForDownload:self.backIndicatorImage]) {
         [imagePaths addObject:self.backIndicatorImage];
     }
-    if (self.backIndicatorTransitionMaskImage && [IRUtil isLocalFile:self.backIndicatorTransitionMaskImage] == NO) {
+    if (self.backIndicatorTransitionMaskImage && [IRUtil isFileForDownload:self.backIndicatorTransitionMaskImage]) {
         [imagePaths addObject:self.backIndicatorTransitionMaskImage];
     }
 }

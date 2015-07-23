@@ -18,9 +18,11 @@
 
 @property(nonatomic/*,getter=isContinuous*/) BOOL continuous;        // if set, value change events are generated any time the value changes due to dragging. default = YES
 
+#if TARGET_OS_IPHONE
 @property(nonatomic,retain) UIColor *minimumTrackTintColor NS_AVAILABLE_IOS(5_0) UI_APPEARANCE_SELECTOR;
 @property(nonatomic,retain) UIColor *maximumTrackTintColor NS_AVAILABLE_IOS(5_0) UI_APPEARANCE_SELECTOR;
 @property(nonatomic,retain) UIColor *thumbTintColor NS_AVAILABLE_IOS(5_0) UI_APPEARANCE_SELECTOR;
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 

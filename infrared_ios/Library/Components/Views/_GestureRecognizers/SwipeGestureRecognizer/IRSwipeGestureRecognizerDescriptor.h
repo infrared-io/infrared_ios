@@ -9,10 +9,12 @@
 
 @interface IRSwipeGestureRecognizerDescriptor : IRGestureRecognizerDescriptor
 
+#if TARGET_OS_IPHONE
 /*
 UISwipeGestureRecognizerDirectionRight, UISwipeGestureRecognizerDirectionLeft, UISwipeGestureRecognizerDirectionUp, UISwipeGestureRecognizerDirectionDown
  */
 @property(nonatomic) UISwipeGestureRecognizerDirection direction;
+#endif
 @property(nonatomic) NSUInteger numberOfTouchesRequired;
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;

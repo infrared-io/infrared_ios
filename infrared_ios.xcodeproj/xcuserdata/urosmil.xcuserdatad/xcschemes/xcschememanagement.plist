@@ -7,7 +7,7 @@
 		<key>Framework.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>1</integer>
 		</dict>
 		<key>infrared_ios.xcscheme</key>
 		<dict>
@@ -18,6 +18,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>precaching.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -33,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>1535F1791A48F596001F547C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>155B43991B5FD1E8006E88D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -9,11 +9,15 @@
 
 @interface IRActivityIndicatorViewDescriptor : IRViewDescriptor
 
+#if TARGET_OS_IPHONE
 @property(nonatomic) UIActivityIndicatorViewStyle activityIndicatorViewStyle; // default is UIActivityIndicatorViewStyleWhite
+#endif
 @property(nonatomic) BOOL                         hidesWhenStopped;           // default is YES. calls -setHidden when animating gets set to NO
 @property(nonatomic) BOOL                         animating;           // default is NO.
 
+#if TARGET_OS_IPHONE
 @property (readwrite, nonatomic, retain) UIColor *color NS_AVAILABLE_IOS(5_0) UI_APPEARANCE_SELECTOR;
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 

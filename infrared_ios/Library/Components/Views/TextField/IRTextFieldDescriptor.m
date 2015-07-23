@@ -9,8 +9,10 @@
 #import <objc/runtime.h>
 #import "IRTextFieldDescriptor.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
 #import "IRTextFieldBuilder.h"
 #import "IRTextField.h"
+#endif
 
 @implementation IRTextFieldDescriptor
 
@@ -18,6 +20,7 @@
 {
     return typeTextFieldKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRTextField class];
@@ -32,6 +35,7 @@
 {
     class_addProtocol([UITextField class], @protocol(UITextFieldExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -45,6 +49,7 @@
         string = aDictionary[NSStringFromSelector(@selector(text))];
         self.text = string;
 
+#if TARGET_OS_IPHONE
         // textColor
         string = aDictionary[NSStringFromSelector(@selector(textColor))];
         self.textColor = [IRUtil transformHexColorToUIColor:string];
@@ -56,14 +61,17 @@
         // textAlignment
         string = aDictionary[NSStringFromSelector(@selector(textAlignment))];
         self.textAlignment = [IRBaseDescriptor textAlignmentFromString:string];
+#endif
 
         // placeholder
         string = aDictionary[NSStringFromSelector(@selector(placeholder))];
         self.placeholder = string;
 
+#if TARGET_OS_IPHONE
         // placeholderColor
         string = aDictionary[NSStringFromSelector(@selector(placeholderColor))];
         self.placeholderColor = [IRUtil transformHexColorToUIColor:string];
+#endif
 
         // background
         string = aDictionary[NSStringFromSelector(@selector(background))];
@@ -73,6 +81,7 @@
         string = aDictionary[NSStringFromSelector(@selector(disabledBackground))];
         self.disabledBackground = string;
 
+#if TARGET_OS_IPHONE
         // borderStyle
         string = aDictionary[NSStringFromSelector(@selector(borderStyle))];
         self.borderStyle = [IRBaseDescriptor borderStyleFromString:string];
@@ -80,6 +89,7 @@
         // clearButtonMode
         string = aDictionary[NSStringFromSelector(@selector(clearButtonMode))];
         self.clearButtonMode = [IRBaseDescriptor textFieldViewModeFromString:string];
+#endif
 
         // clearsOnBeginEditing
         number = aDictionary[NSStringFromSelector(@selector(clearsOnBeginEditing))];
@@ -109,17 +119,21 @@
         dictionary = aDictionary[NSStringFromSelector(@selector(leftView))];
         self.leftView = (IRViewDescriptor *) [IRBaseDescriptor newViewDescriptorWithDictionary:dictionary];
 
+#if TARGET_OS_IPHONE
         // leftViewMode
         string = aDictionary[NSStringFromSelector(@selector(leftViewMode))];
         self.leftViewMode = [IRBaseDescriptor textFieldViewModeFromString:string];
+#endif
 
         // rightView
         dictionary = aDictionary[NSStringFromSelector(@selector(rightView))];
         self.rightView = (IRViewDescriptor *) [IRBaseDescriptor newViewDescriptorWithDictionary:dictionary];
 
+#if TARGET_OS_IPHONE
         // rightViewMode
         string = aDictionary[NSStringFromSelector(@selector(rightViewMode))];
         self.rightViewMode = [IRBaseDescriptor textFieldViewModeFromString:string];
+#endif
 
         // clearsOnInsertion
         number = aDictionary[NSStringFromSelector(@selector(clearsOnInsertion))];
@@ -129,6 +143,7 @@
             self.clearsOnInsertion = NO;
         }
 
+#if TARGET_OS_IPHONE
         // autocapitalizationType
         string = aDictionary[NSStringFromSelector(@selector(autocapitalizationType))];
         self.autocapitalizationType = [IRBaseDescriptor textAutocapitalizationTypeFromString:string];
@@ -152,6 +167,7 @@
         // returnKeyType
         string = aDictionary[NSStringFromSelector(@selector(returnKeyType))];
         self.returnKeyType = [IRBaseDescriptor returnKeyTypeFromString:string];
+#endif
 
         // enablesReturnKeyAutomatically
         number = aDictionary[NSStringFromSelector(@selector(enablesReturnKeyAutomatically))];
@@ -176,10 +192,10 @@
 {
     [self.leftView extendImagePathsArray:imagePaths];
     [self.rightView extendImagePathsArray:imagePaths];
-    if (self.background && [IRUtil isLocalFile:self.background] == NO) {
+    if (self.background && [IRUtil isFileForDownload:self.background]) {
         [imagePaths addObject:self.background];
     }
-    if (self.disabledBackground && [IRUtil isLocalFile:self.disabledBackground] == NO) {
+    if (self.disabledBackground && [IRUtil isFileForDownload:self.disabledBackground]) {
         [imagePaths addObject:self.disabledBackground];
     }
 }

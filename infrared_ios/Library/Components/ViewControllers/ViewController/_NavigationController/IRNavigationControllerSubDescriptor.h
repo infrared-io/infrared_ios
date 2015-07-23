@@ -13,10 +13,12 @@
 @property (nonatomic) BOOL autoAddIfNeeded;
 @property (nonatomic) BOOL hideNavigationBar;
 @property (nonatomic) BOOL navigationBarTranslucent;
+#if TARGET_OS_IPHONE
 @property (nonatomic, strong) UIColor* navigationBarTintColor;
 @property (nonatomic, strong) UIColor* navigationTintColor;
 @property (nonatomic, strong) UIColor* navigationTitleColor;
 @property (nonatomic, strong) UIFont* navigationTitleFont;
+#endif
 @property (nonatomic, strong) NSString* backIndicatorImage;
 @property (nonatomic) BOOL backIndicatorNoText;
 @property (nonatomic, strong) IRBarButtonItemDescriptor *leftBarButtonItem;

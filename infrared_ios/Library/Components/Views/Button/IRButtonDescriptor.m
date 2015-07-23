@@ -10,8 +10,10 @@
 #import "IRViewDescriptor.h"
 #import "IRButtonDescriptor.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
 #import "IRButtonBuilder.h"
 #import "IRButton.h"
+#endif
 
 @implementation IRButtonDescriptor
 
@@ -19,6 +21,7 @@
 {
     return typeButtonKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRButton class];
@@ -33,6 +36,7 @@
 {
     class_addProtocol([UIButton class], @protocol(UIButtonExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -42,9 +46,11 @@
         NSString *string;
         NSDictionary *dictionary;
 
+#if TARGET_OS_IPHONE
         // buttonType
         string = aDictionary[NSStringFromSelector(@selector(buttonType))];
         self.buttonType = [IRBaseDescriptor buttonTypeFromString:string];
+#endif
 
         // -----------------------------------------------------------------------------------
 
@@ -52,6 +58,7 @@
         string = aDictionary[NSStringFromSelector(@selector(normalTitle))];
         self.normalTitle = string;
 
+#if TARGET_OS_IPHONE
         // normalTitleColor
         string = aDictionary[NSStringFromSelector(@selector(normalTitleColor))];
         self.normalTitleColor = [IRUtil transformHexColorToUIColor:string];
@@ -59,6 +66,7 @@
         // normalTitleShadowColor
         string = aDictionary[NSStringFromSelector(@selector(normalTitleShadowColor))];
         self.normalTitleShadowColor = [IRUtil transformHexColorToUIColor:string];
+#endif
 
         // normalImage
         string = aDictionary[NSStringFromSelector(@selector(normalImage))];
@@ -74,6 +82,7 @@
         string = aDictionary[NSStringFromSelector(@selector(highlightedTitle))];
         self.highlightedTitle = string;
 
+#if TARGET_OS_IPHONE
         // highlightedTitleColor
         string = aDictionary[NSStringFromSelector(@selector(highlightedTitleColor))];
         self.highlightedTitleColor = [IRUtil transformHexColorToUIColor:string];
@@ -81,6 +90,7 @@
         // highlightedTitleShadowColor
         string = aDictionary[NSStringFromSelector(@selector(highlightedTitleShadowColor))];
         self.highlightedTitleShadowColor = [IRUtil transformHexColorToUIColor:string];
+#endif
 
         // highlightedImage
         string = aDictionary[NSStringFromSelector(@selector(highlightedImage))];
@@ -96,6 +106,7 @@
         string = aDictionary[NSStringFromSelector(@selector(selectedTitle))];
         self.selectedTitle = string;
 
+#if TARGET_OS_IPHONE
         // selectedTitleColor
         string = aDictionary[NSStringFromSelector(@selector(selectedTitleColor))];
         self.selectedTitleColor = [IRUtil transformHexColorToUIColor:string];
@@ -103,6 +114,7 @@
         // selectedTitleShadowColor
         string = aDictionary[NSStringFromSelector(@selector(selectedTitleShadowColor))];
         self.selectedTitleShadowColor = [IRUtil transformHexColorToUIColor:string];
+#endif
 
         // selectedImage
         string = aDictionary[NSStringFromSelector(@selector(selectedImage))];
@@ -118,6 +130,7 @@
         string = aDictionary[NSStringFromSelector(@selector(disabledTitle))];
         self.disabledTitle = string;
 
+#if TARGET_OS_IPHONE
         // disabledTitleColor
         string = aDictionary[NSStringFromSelector(@selector(disabledTitleColor))];
         self.disabledTitleColor = [IRUtil transformHexColorToUIColor:string];
@@ -125,6 +138,7 @@
         // disabledTitleShadowColor
         string = aDictionary[NSStringFromSelector(@selector(disabledTitleShadowColor))];
         self.disabledTitleShadowColor = [IRUtil transformHexColorToUIColor:string];
+#endif
 
         // disabledImage
         string = aDictionary[NSStringFromSelector(@selector(disabledImage))];
@@ -136,9 +150,11 @@
 
         // -----------------------------------------------------------------------------------
 
+#if TARGET_OS_IPHONE
         // font
         string = aDictionary[NSStringFromSelector(@selector(font))];
         self.font = [IRBaseDescriptor fontFromString:string];
+#endif
 
         // titleShadowOffset
         dictionary = aDictionary[NSStringFromSelector(@selector(titleShadowOffset))];
@@ -176,6 +192,7 @@
             self.adjustsImageWhenDisabled = YES;
         }
 
+#if TARGET_OS_IPHONE
         // lineBreakMode
         string = aDictionary[NSStringFromSelector(@selector(lineBreakMode))];
         self.lineBreakMode = [IRBaseDescriptor lineBreakModeFromString:string];
@@ -191,37 +208,38 @@
         // imageEdgeInsets
         dictionary = aDictionary[NSStringFromSelector(@selector(imageEdgeInsets))];
         self.imageEdgeInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+#endif
     }
     return self;
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if (self.normalImage && [IRUtil isLocalFile:self.normalImage] == NO) {
+    if (self.normalImage && [IRUtil isFileForDownload:self.normalImage]) {
         [imagePaths addObject:self.normalImage];
     }
-    if (self.normalBackgroundImage && [IRUtil isLocalFile:self.normalBackgroundImage] == NO) {
+    if (self.normalBackgroundImage && [IRUtil isFileForDownload:self.normalBackgroundImage]) {
         [imagePaths addObject:self.normalBackgroundImage];
     }
 
-    if (self.highlightedImage && [IRUtil isLocalFile:self.highlightedImage] == NO) {
+    if (self.highlightedImage && [IRUtil isFileForDownload:self.highlightedImage]) {
         [imagePaths addObject:self.highlightedImage];
     }
-    if (self.highlightedBackgroundImage && [IRUtil isLocalFile:self.highlightedBackgroundImage] == NO) {
+    if (self.highlightedBackgroundImage && [IRUtil isFileForDownload:self.highlightedBackgroundImage]) {
         [imagePaths addObject:self.highlightedBackgroundImage];
     }
 
-    if (self.selectedImage && [IRUtil isLocalFile:self.selectedImage] == NO) {
+    if (self.selectedImage && [IRUtil isFileForDownload:self.selectedImage]) {
         [imagePaths addObject:self.selectedImage];
     }
-    if (self.selectedBackgroundImage && [IRUtil isLocalFile:self.selectedBackgroundImage] == NO) {
+    if (self.selectedBackgroundImage && [IRUtil isFileForDownload:self.selectedBackgroundImage]) {
         [imagePaths addObject:self.selectedBackgroundImage];
     }
 
-    if (self.disabledImage && [IRUtil isLocalFile:self.disabledImage] == NO) {
+    if (self.disabledImage && [IRUtil isFileForDownload:self.disabledImage]) {
         [imagePaths addObject:self.disabledImage];
     }
-    if (self.disabledBackgroundImage && [IRUtil isLocalFile:self.disabledBackgroundImage] == NO) {
+    if (self.disabledBackgroundImage && [IRUtil isFileForDownload:self.disabledBackgroundImage]) {
         [imagePaths addObject:self.disabledBackgroundImage];
     }
 }

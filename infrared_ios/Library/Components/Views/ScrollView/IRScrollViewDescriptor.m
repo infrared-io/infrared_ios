@@ -5,8 +5,10 @@
 
 #import <objc/runtime.h>
 #import "IRScrollViewDescriptor.h"
+#if TARGET_OS_IPHONE
 #import "IRScrollViewBuilder.h"
 #import "IRScrollView.h"
+#endif
 
 
 @implementation IRScrollViewDescriptor
@@ -15,6 +17,7 @@
 {
     return typeScrollViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRScrollView class];
@@ -29,6 +32,7 @@
 {
     class_addProtocol([UIScrollView class], @protocol(UIScrollViewExport));
 }
+#endif
 
 - (NSDictionary *) viewDefaults
 {
@@ -52,6 +56,7 @@
         dictionary = aDictionary[NSStringFromSelector(@selector(contentSize))];
         self.contentSize = [IRBaseDescriptor sizeFromDictionary:dictionary];
 
+#if TARGET_OS_IPHONE
         // contentInset
         dictionary = aDictionary[NSStringFromSelector(@selector(contentInset))];
         self.contentInset = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
@@ -59,6 +64,7 @@
         // indicatorStyle
         string = aDictionary[NSStringFromSelector(@selector(indicatorStyle))];
         self.indicatorStyle = [IRBaseDescriptor scrollViewIndicatorStyleFromString:string];
+#endif
 
         // showsHorizontalScrollIndicator
         number = aDictionary[NSStringFromSelector(@selector(showsHorizontalScrollIndicator))];
@@ -164,9 +170,11 @@
             self.canCancelContentTouches = YES;
         }
 
+#if TARGET_OS_IPHONE
         // keyboardDismissMode
         string = aDictionary[NSStringFromSelector(@selector(keyboardDismissMode))];
         self.keyboardDismissMode = [IRBaseDescriptor scrollViewKeyboardDismissModeFromString:string];
+#endif
     }
     return self;
 }

@@ -5,9 +5,11 @@
 
 #import <objc/runtime.h>
 #import "IRSwitchDescriptor.h"
-#import "IRSwitchBuilder.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
+#import "IRSwitchBuilder.h"
 #import "IRSwitch.h"
+#endif
 
 
 @implementation IRSwitchDescriptor
@@ -16,6 +18,7 @@
 {
     return typeSwitchKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRSwitch class];
@@ -30,6 +33,7 @@
 {
     class_addProtocol([UISwitch class], @protocol(UISwitchExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -38,6 +42,7 @@
         NSNumber *number;
         NSString *string;
 
+#if TARGET_OS_IPHONE
         // onTintColor
         string = aDictionary[NSStringFromSelector(@selector(onTintColor))];
         self.onTintColor = [IRUtil transformHexColorToUIColor:string];
@@ -49,6 +54,7 @@
         // thumbTintColor
         string = aDictionary[NSStringFromSelector(@selector(thumbTintColor))];
         self.thumbTintColor = [IRUtil transformHexColorToUIColor:string];
+#endif
 
         // onImage
         string = aDictionary[NSStringFromSelector(@selector(onImage))];
@@ -71,10 +77,10 @@
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if (self.onImage && [IRUtil isLocalFile:self.onImage] == NO) {
+    if (self.onImage && [IRUtil isFileForDownload:self.onImage]) {
         [imagePaths addObject:self.onImage];
     }
-    if (self.offImage && [IRUtil isLocalFile:self.offImage] == NO) {
+    if (self.offImage && [IRUtil isFileForDownload:self.offImage]) {
         [imagePaths addObject:self.offImage];
     }
 }

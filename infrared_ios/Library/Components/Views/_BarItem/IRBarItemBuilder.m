@@ -12,6 +12,7 @@
 #import "IRScreenDescriptor.h"
 #import "IRViewDescriptor.h"
 #import "IRViewController.h"
+#import "IRUtil.h"
 
 
 @implementation IRBarItemBuilder
@@ -29,12 +30,14 @@
          viewController:(IRViewController *)viewController
                   extra:(id)extra
 {
+    NSString *imagePath;
+
     [IRBaseBuilder setUpComponent:irBarItem componentDescriptor:descriptor viewController:viewController extra:extra];
 
     irBarItem.enabled = descriptor.enabled;
     irBarItem.title = [IRBaseBuilder textWithI18NCheck:descriptor.title];
-    irBarItem.image = [[IRSimpleCache sharedInstance] imageForURI:descriptor.image];
-    irBarItem.landscapeImagePhone = [[IRSimpleCache sharedInstance] imageForURI:descriptor.landscapeImagePhone];
+    irBarItem.image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.image];
+    irBarItem.landscapeImagePhone = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.landscapeImagePhone];
     if (UIEdgeInsetsEqualToEdgeInsets(descriptor.imageInsets, UIEdgeInsetsNull) == NO) {
         irBarItem.imageInsets = descriptor.imageInsets;
     }

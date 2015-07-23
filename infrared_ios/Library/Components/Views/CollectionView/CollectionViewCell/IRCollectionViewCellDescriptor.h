@@ -26,6 +26,8 @@
 @property (nonatomic, strong) NSString *selectItemAction;
 
 @property (nonatomic) CGSize cellSize;
+#if TARGET_OS_IPHONE
 @property (nonatomic) UIEdgeInsets insets;
+#endif
 
 @end

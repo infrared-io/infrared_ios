@@ -20,7 +20,9 @@
  */
 
 @property (nonatomic, strong) NSString *visualFormat;
+#if TARGET_OS_IPHONE
 @property (nonatomic) NSLayoutFormatOptions options;
+#endif
 @property (nonatomic, strong) IRLayoutConstraintMetricsDescriptor *metrics;
 
 // --------------------------------------------------------------------------------------------------------------------

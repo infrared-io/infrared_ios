@@ -16,8 +16,10 @@
 
 @property(nonatomic/*, getter=isHighlighted*/) BOOL highlighted;
 
+#if TARGET_OS_IPHONE
 @property(nonatomic) UIEdgeInsets imageCapInsets;
 @property(nonatomic) UIEdgeInsets highlightedImageCapInsets;
+#endif
 
 // TODO: implement this
 //@property(nonatomic) BOOL preserveAspectRatio;

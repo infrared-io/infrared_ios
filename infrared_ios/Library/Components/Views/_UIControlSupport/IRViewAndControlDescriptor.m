@@ -32,6 +32,7 @@
         NSNumber *number;
         NSString *string;
 
+#if TARGET_OS_IPHONE
         // contentHorizontalAlignment
         string = aDictionary[NSStringFromSelector(@selector(contentHorizontalAlignment))];
         self.contentHorizontalAlignment = [IRBaseDescriptor contentHorizontalAlignmentFromString:string];
@@ -39,6 +40,7 @@
         // contentVerticalAlignment
         string = aDictionary[NSStringFromSelector(@selector(contentVerticalAlignment))];
         self.contentVerticalAlignment = [IRBaseDescriptor contentVerticalAlignmentFromString:string];
+#endif
 
         // selected
         number = aDictionary[NSStringFromSelector(@selector(selected))];

@@ -29,11 +29,11 @@
 @property (nonatomic/*, getter=isZoomEnabled*/) BOOL zoomEnabled;
 @property (nonatomic/*, getter=isScrollEnabled*/) BOOL scrollEnabled;
 // Rotate and pitch are enabled by default on Mac OS X and on iOS 7.0 and later.
-@property (nonatomic/*, getter=isRotateEnabled*/) BOOL rotateEnabled NS_AVAILABLE(10_9, 7_0);
-@property (nonatomic/*, getter=isPitchEnabled*/) BOOL pitchEnabled NS_AVAILABLE(10_9, 7_0);
+@property (nonatomic/*, getter=isRotateEnabled*/) BOOL rotateEnabled /*NS_AVAILABLE(10_9, 7_0)*/;
+@property (nonatomic/*, getter=isPitchEnabled*/) BOOL pitchEnabled /*NS_AVAILABLE(10_9, 7_0)*/;
 
-@property (nonatomic) BOOL showsPointsOfInterest NS_AVAILABLE(10_9, 7_0); // Affects MKMapTypeStandard and MKMapTypeHybrid
-@property (nonatomic) BOOL showsBuildings NS_AVAILABLE(10_9, 7_0); // Affects MKMapTypeStandard
+@property (nonatomic) BOOL showsPointsOfInterest /*NS_AVAILABLE(10_9, 7_0)*/; // Affects MKMapTypeStandard and MKMapTypeHybrid
+@property (nonatomic) BOOL showsBuildings /*NS_AVAILABLE(10_9, 7_0)*/; // Affects MKMapTypeStandard
 
 // Set to YES to add the user location annotation to the map and start updating its location
 @property (nonatomic) BOOL showsUserLocation;

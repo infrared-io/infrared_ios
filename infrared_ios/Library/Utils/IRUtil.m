@@ -5,7 +5,6 @@
 
 #import "IRUtil.h"
 #import "IRGlobal.h"
-#import "IRViewController.h"
 #import "IRViewControllerDescriptor.h"
 #import "IRBaseDescriptor.h"
 #import "IRViewDescriptor.h"
@@ -14,6 +13,9 @@
 #import "IRSimpleCache.h"
 #import "IRFileLoadingUtil.h"
 #import "IRAppDescriptor.h"
+#if TARGET_OS_IPHONE
+#import "IRViewController.h"
+#endif
 
 #define APP_AND_VERSION_SUITED_NAME @"io.infrared.library"
 
@@ -115,16 +117,16 @@
     NSDictionary *dictionary = nil;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
-    NSString *jsonAndjsPathComponent = [IRUtil jsonAndJsPathForAppDescriptorApp:app version:version];
+    NSString *jsonAndJsPathComponent = [IRUtil jsonAndJsPathForAppDescriptorApp:app version:version];
 
     // -- download or copy JSON files ot cache folder (if needed)
     [IRFileLoadingUtil downloadOrCopyFileWithPath:path
-                                  destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonAndjsPathComponent]
+                                  destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonAndJsPathComponent]
                                      preserveName:YES];
 
     // -- load json and build dictionary from it
     NSData *fileData = [IRFileLoadingUtil dataForFileWithPath:path
-                                              destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonAndjsPathComponent]
+                                              destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonAndJsPathComponent]
                                                  preserveName:YES];
     if (fileData) {
         dictionary = [NSJSONSerialization JSONObjectWithData:fileData
@@ -193,7 +195,11 @@
 // --------------------------------------------------------------------------------------------------------------------
 + (NSString *) documentsBasePathForInfrared
 {
+#if TARGET_OS_IPHONE
     return @"IR";
+#else
+    return @"IRPrecache";
+#endif
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
@@ -202,8 +208,16 @@
     NSString *name = @"";
     NSURL *candidateURL = [NSURL URLWithString:path];
     // -- construct name
-    if ([candidateURL.lastPathComponent length] > 0) {
-        name = candidateURL.lastPathComponent;
+    if (candidateURL.fileURL) {
+        if ([candidateURL.lastPathComponent length] > 0) {
+            name = candidateURL.lastPathComponent;
+        } else if ([candidateURL.host length] > 0) {
+            name = candidateURL.host; // resourceSpecifier
+        }
+    } else {
+        if ([candidateURL.lastPathComponent length] > 0) {
+            name = candidateURL.lastPathComponent;
+        }
     }
     if ([candidateURL.query length] > 0) {
         name = [name stringByAppendingFormat:@"_%@", candidateURL.query];
@@ -229,19 +243,39 @@
 + (NSString *) prefixFilePathWithBaseUrlIfNeeded:(NSString *)filePath
                                    appDescriptor:(IRAppDescriptor *)appDescriptor
 {
+    return [IRUtil prefixFilePathWithBaseUrlIfNeeded:filePath baseUrl:appDescriptor.baseUrl];
+
+}
++ (NSString *) prefixFilePathWithBaseUrlIfNeeded:(NSString *)filePath
+                                         baseUrl:(NSString *)baseUrl
+{
     NSString *processFilePath = filePath;
-    NSString *baseUrl;
-    if ([appDescriptor.baseUrl length] > 0) {
-        baseUrl = appDescriptor.baseUrl;
+    if ([baseUrl length] > 0) {
         if ([baseUrl hasSuffix:@"/"] == NO) {
             baseUrl = [baseUrl stringByAppendingString:@"/"];
         }
-        if ([IRUtil isLocalFile:filePath] == NO && [IRUtil hasHTTPPrefix:filePath] == NO) {
+        if (/*[IRUtil isLocalFile:filePath]*/[IRUtil hasFilePrefix:filePath] == NO && [IRUtil hasHTTPPrefix:filePath] == NO) {
             processFilePath = [baseUrl stringByAppendingString:filePath];
         }
+        processFilePath = [processFilePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
     return processFilePath;
 }
+// --------------------------------------------------------------------------------------------------------------------
+#if TARGET_OS_IPHONE
++(UIImage *) imagePrefixedWithBaseUrlIfNeeded:(NSString *)path
+{
+    UIImage *image = nil;
+    NSString *imagePath;
+    if (path) {
+        imagePath = [IRUtil prefixFilePathWithBaseUrlIfNeeded:path];
+        if ([imagePath length] > 0) {
+            image = [[IRSimpleCache sharedInstance] imageForURI:imagePath];
+        }
+    }
+    return image;
+}
+#endif
 // --------------------------------------------------------------------------------------------------------------------
 + (NSData *) dataFromPath:(NSString *)path
 {
@@ -354,10 +388,29 @@
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
++ (BOOL) isFileForDownload:(NSString *)path
+{
+    BOOL isFileForDownload = NO;
+    BOOL hasFilePrefix = [IRUtil hasFilePrefix:path];
+    NSString *baseUrl = [IRDataController sharedInstance].appDescriptor.baseUrl;
+    BOOL isValidURLWithHostAndPath = [IRUtil isValidURLWithHostAndPath:path];
+    if (hasFilePrefix == NO &&
+        (([baseUrl length] > 0 && [path length] > 0) || isValidURLWithHostAndPath))
+    {
+        isFileForDownload = YES;
+    }
+    return isFileForDownload;
+}
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 + (BOOL) isLocalFile:(NSString *)path
 {
     BOOL isLocalFile = NO;
-    if ([IRUtil hasFilePrefix:path] || [IRUtil isValidURLWithHostAndPath:path] == NO) {
+    NSString *baseUrl = [IRDataController sharedInstance].appDescriptor.baseUrl;
+    BOOL hasBaseUrl = (baseUrl && [baseUrl length] > 0);
+    if ([IRUtil hasFilePrefix:path] ||
+        (hasBaseUrl == NO && [IRUtil isValidURLWithHostAndPath:path] == NO))
+    {
         isLocalFile = YES;
     }
     return isLocalFile;
@@ -383,6 +436,7 @@
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
+#if TARGET_OS_IPHONE
 + (UIColor *) transformHexColorToUIColor:(NSString *)hexColor {
     CGFloat alpha = 1.0;
     NSString *alphaString;
@@ -438,6 +492,7 @@
     }
     return key;
 }
+#endif
 // --------------------------------------------------------------------------------------------------------------------
 + (NSString *) createKeyFromObjectAddress:(NSObject *)object
 {

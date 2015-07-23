@@ -38,7 +38,7 @@
 
 // If YES and the underlying id<MKAnnotation> responds to setCoordinate:,
 // the user will be able to drag this annotation view around the map.
-@property (nonatomic/*, getter=isDraggable*/) BOOL draggable NS_AVAILABLE(10_9, 4_0);
+@property (nonatomic/*, getter=isDraggable*/) BOOL draggable /*NS_AVAILABLE(10_9, 4_0)*/;
 
 @property (nonatomic, strong) NSString *selectAnnotationAction;
 @property (nonatomic, strong) NSString *deselectAnnotationAction;

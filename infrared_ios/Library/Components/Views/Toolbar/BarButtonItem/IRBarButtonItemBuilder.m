@@ -14,6 +14,7 @@
 #import "IRBaseDescriptor.h"
 #import "IRViewController.h"
 #import "IRSimpleCache.h"
+#import "IRUtil.h"
 
 
 @implementation IRBarButtonItemBuilder
@@ -34,7 +35,7 @@
                                                           target:[IRBarButtonItemBuilder class]
                                                           action:@selector(action:)];
     } else if ([descriptor.image length] > 0) {
-        irBarButtonItem = [[IRBarButtonItem alloc] initWithImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.image]
+        irBarButtonItem = [[IRBarButtonItem alloc] initWithImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.image]
                                                            style:descriptor.style
                                                           target:[IRBarButtonItemBuilder class]
                                                           action:@selector(action:)];

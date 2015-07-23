@@ -41,25 +41,36 @@
 + (NSString *) prefixFilePathWithBaseUrlIfNeeded:(NSString *)filePath;
 + (NSString *) prefixFilePathWithBaseUrlIfNeeded:(NSString *)filePath
                                    appDescriptor:(IRAppDescriptor *)appDescriptor;
++ (NSString *) prefixFilePathWithBaseUrlIfNeeded:(NSString *)filePath
+                                         baseUrl:(NSString *)baseUrl;
+
+#if TARGET_OS_IPHONE
++(UIImage *) imagePrefixedWithBaseUrlIfNeeded:(NSString *)path;
+#endif
 
 + (NSData *) dataFromPath:(NSString *)path;
 + (NSString *) stringFromPath:(NSString *)path;
 
 + (NSURL *) ulrForPath:(NSString *)path;
 
++ (BOOL) hasFilePrefix:(NSString *)path;
 + (BOOL) hasHTTPPrefix:(NSString *)path;
+
++ (BOOL) isFileForDownload:(NSString *)path;
 
 + (BOOL) isLocalFile:(NSString *)path;
 + (NSData *) localFileData:(NSString *)path;
 
 + (IRBaseDescriptor *) buildUIDescriptorFromDictionary:(NSDictionary *)sourceDictionary;
 
+#if TARGET_OS_IPHONE
 + (UIColor *) transformHexColorToUIColor:(NSString *)hexColor;
 + (UIColor *) transformHexTripletToUIColor:(NSString *)hexTriplet;
 + (UIColor *) transformHexTripletToUIColor:(NSString *)hexTriplet
                                  withAlpha:(CGFloat)alpha;
 
 + (NSString *) createKeyFromVCAddress:(IRViewController *)irViewController;
+#endif
 + (NSString *) createKeyFromObjectAddress:(NSObject *)object;
 
 @end

@@ -41,6 +41,7 @@
 + (NSArray *) newScreenDescriptorsArrayFromDictionariesArray:(NSArray *)aArray
                                                          app:(NSString *)app
                                                      version:(NSInteger)version
+                                                     baseUrl:(NSString *)baseUrl
 {
     NSMutableArray *screenDescriptorsArray = [[NSMutableArray alloc] init];
     NSDictionary *dictionary;
@@ -48,18 +49,25 @@
     NSString *anScreenPath;
     for (NSDictionary *anScreenDictionary in aArray) {
         anDeviceType = anScreenDictionary[deviceTypeKEY];
-        if ([IRBaseDescriptor isDeviceTypeMatchingDevice:anDeviceType]) {
+#if TARGET_OS_IPHONE
+        if ([IRBaseDescriptor isDeviceTypeMatchingDevice:anDeviceType])
+#else
+        if (YES)
+#endif
+        {
             anScreenPath = anScreenDictionary[pathKEY];
+            anScreenPath = [IRUtil prefixFilePathWithBaseUrlIfNeeded:anScreenPath baseUrl:baseUrl];
             dictionary = [IRUtil screenDictionaryFromPath:anScreenPath app:app version:version];
             if (dictionary) {
                 [screenDescriptorsArray addObject:[[IRScreenDescriptor alloc] initDescriptorWithDictionary:dictionary]];
             } else {
-                NSLog(@" ########## newScreenDescriptorsArrayFromDictionariesArray:app:version: - MISSING or INVALID json with path '%@'", anScreenPath);
+                NSLog(@" ########## newScreenDescriptorsArrayFromDictionariesArray:app:version:baseUrl: - MISSING or INVALID json with path '%@'", anScreenPath);
             }
         }
     }
     return screenDescriptorsArray;
 }
+#if TARGET_OS_IPHONE
 + (BOOL) isDeviceTypeMatchingDevice:(NSString *)deviceType
 {
     BOOL isDeviceTypeMatchingDevice = NO;
@@ -91,6 +99,7 @@
     }
     return isDeviceTypeTablet;
 }
+#endif
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 + (NSMutableArray *) viewDescriptorsHierarchyFromArray:(NSArray *)aArray
@@ -136,6 +145,7 @@
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
+#if TARGET_OS_IPHONE
 + (UIViewContentMode) contentModeFromString:(NSString *)string
 {
     UIViewContentMode contentMode;
@@ -290,6 +300,7 @@
     }
     return font;
 }
+#endif
 // --------------------------------------------------------------------------------------------------------------------
 + (BOOL) isSystemFamilyFontString:(NSString *)string
 {
@@ -327,6 +338,7 @@
     return isSystemItalicFontString;
 }
 // --------------------------------------------------------------------------------------------------------------------
+#if TARGET_OS_IPHONE
 + (BOOL) isFontTextStyle:(NSString *)fontString
 {
     BOOL isFontTextStyle = NO;
@@ -341,8 +353,10 @@
     }
     return isFontTextStyle;
 }
+#endif
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
+#if TARGET_OS_IPHONE
 + (NSTextAlignment) textAlignmentFromString:(NSString *)string
 {
     NSTextAlignment textAlignment;
@@ -393,6 +407,7 @@
     }
     return lineBreakMode;
 }
+#endif
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 + (CGRect) frameFromDictionary:(NSDictionary *)dictionary
@@ -439,6 +454,7 @@
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
+#if TARGET_OS_IPHONE
 + (UIEdgeInsets) edgeInsetsFromDictionary:(NSDictionary *)dictionary
 {
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
@@ -1047,6 +1063,7 @@
     }
     return webPaginationMode;
 }
+#endif
 // --------------------------------------------------------------------------------------------------------------------
 + (NSDate *)dateWithISO8601String:(NSString *)dateString
 {
@@ -1099,6 +1116,7 @@
     return dataBindingMode;
 }
 // --------------------------------------------------------------------------------------------------------------------
+#if TARGET_OS_IPHONE
 + (UIRectEdge) rectEdgeForString:(NSString *)string
 {
     UIRectEdge rectEdge;
@@ -1115,27 +1133,9 @@
     } else {
         rectEdge = UIRectEdgeNone;
     }
-//    NSArray *rectEdgeArray;
-//    NSString *anRectEdge;
-//    if ([string length] > 0) {
-//        rectEdgeArray = [IRBaseDescriptor componentsArrayFromString:string];
-//        for (NSString *anTrait in rectEdgeArray) {
-//            anRectEdge = [anTrait stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-//            if ([@"UIRectEdgeTop" isEqualToString:anRectEdge]) {
-//                rectEdge = rectEdge | UIRectEdgeTop;
-//            } else if ([@"UIRectEdgeLeft" isEqualToString:anRectEdge]) {
-//                rectEdge = rectEdge | UIRectEdgeLeft;
-//            } else if ([@"UIRectEdgeBottom" isEqualToString:anRectEdge]) {
-//                rectEdge = rectEdge | UIRectEdgeBottom;
-//            } else if ([@"UIRectEdgeRight" isEqualToString:anRectEdge]) {
-//                rectEdge = rectEdge | UIRectEdgeRight;
-//            } else if ([@"UIRectEdgeAll" isEqualToString:anRectEdge]) {
-//                rectEdge = rectEdge | UIRectEdgeAll;
-//            }
-//        }
-//    }
     return rectEdge;
 }
+#endif
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 + (NSArray *) allImagePaths
@@ -1176,6 +1176,7 @@
 {
     return nil;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return NULL;
@@ -1190,6 +1191,7 @@
 {
 
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {

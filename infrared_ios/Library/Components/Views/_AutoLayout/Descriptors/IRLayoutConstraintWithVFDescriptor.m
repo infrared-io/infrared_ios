@@ -20,9 +20,11 @@
         string = aDictionary[NSStringFromSelector(@selector(visualFormat))];
         self.visualFormat = string;
 
+#if TARGET_OS_IPHONE
         // options
         string = aDictionary[NSStringFromSelector(@selector(options))];
         self.options = [IRLayoutConstraintDescriptor layoutFormatOptionsFromString:string];
+#endif
 
         // metrics
         dictionary = aDictionary[NSStringFromSelector(@selector(metrics))];

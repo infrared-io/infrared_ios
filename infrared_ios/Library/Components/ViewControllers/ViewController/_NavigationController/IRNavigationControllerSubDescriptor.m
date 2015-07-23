@@ -43,6 +43,7 @@
             self.navigationBarTranslucent = NO;
         }
 
+#if TARGET_OS_IPHONE
         // navigationBarTintColor
         string = aDictionary[NSStringFromSelector(@selector(navigationBarTintColor))];
         self.navigationBarTintColor = [IRUtil transformHexColorToUIColor:string];
@@ -58,6 +59,7 @@
         // navigationTitleFont
         string = aDictionary[NSStringFromSelector(@selector(navigationTitleFont))];
         self.navigationTitleFont = [IRBaseDescriptor fontFromString:string];
+#endif
 
         // backIndicatorImage
         string = aDictionary[NSStringFromSelector(@selector(backIndicatorImage))];
@@ -80,7 +82,7 @@
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if (self.backIndicatorImage && [IRUtil isLocalFile:self.backIndicatorImage] == NO) {
+    if (self.backIndicatorImage && [IRUtil isFileForDownload:self.backIndicatorImage]) {
         [imagePaths addObject:self.backIndicatorImage];
     }
 }

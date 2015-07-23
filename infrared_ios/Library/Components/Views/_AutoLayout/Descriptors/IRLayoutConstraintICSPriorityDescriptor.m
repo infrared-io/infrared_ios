@@ -14,13 +14,15 @@
     if (self) {
         NSString *string;
 
+#if TARGET_OS_IPHONE
         // contentRelationType
         string = aDictionary[NSStringFromSelector(@selector(contentRelationType))];
         self.contentRelationType = [IRLayoutConstraintDescriptor layoutConstraintICSTypeFromString:string];
 
         // forAxis
         string = aDictionary[NSStringFromSelector(@selector(forAxis))];
-        self.forAxis = [IRLayoutConstraintDescriptor layoutConstraintAxisFromString:string];;
+        self.forAxis = [IRLayoutConstraintDescriptor layoutConstraintAxisFromString:string];
+#endif
     }
     return self;
 }

@@ -14,6 +14,7 @@
 #import "CLLocationManagerExport.h"
 #import "NSIndexPathExport.h"
 #import "NSDataExport.h"
+#import "UINavigationItemExport.h"
 #import <objc/runtime.h>
 #import <MapKit/MapKit.h>
 
@@ -71,6 +72,11 @@
     jsContext[@"UIImage"] = [UIImage class];
 }
 
++ (void) exposeUINavigationItem:(JSContext *)jsContext
+{
+    class_addProtocol([UINavigationItem class], @protocol(UINavigationItemExport));
+}
+
 + (void) exposeUIApplication:(JSContext *)jsContext
 {
     class_addProtocol([UIApplication class], @protocol(UIApplicationExport));
@@ -122,11 +128,11 @@
 
 + (void) addMD5JSExtensionToJSContext:(JSContext *)jsContext;
 {
-    NSString *jsExtension = [IRUtil stringFromPath:@"md5.min.js"];
+    NSString *jsExtension = [IRUtil stringFromPath:@"infrared_md5.min.js"];
     if (jsExtension) {
         [jsContext evaluateScript:jsExtension];
     } else {
-        NSLog(@"md5.min.js MISSING");
+        NSLog(@"infrared_md5.min.js MISSING");
     }
 }
 

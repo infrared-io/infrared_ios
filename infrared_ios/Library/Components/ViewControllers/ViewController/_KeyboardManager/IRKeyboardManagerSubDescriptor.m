@@ -49,6 +49,7 @@
             self.enableAutoToolbar = YES;
         }
 
+#if TARGET_OS_IPHONE
         // toolbarManageBehaviour
         string = aDictionary[NSStringFromSelector(@selector(toolbarManageBehaviour))];
         if (string) {
@@ -56,6 +57,7 @@
         } else {
             self.toolbarManageBehaviour = IQAutoToolbarBySubviews;
         }
+#endif
 
         // shouldToolbarUsesTextFieldTintColor
         number = aDictionary[NSStringFromSelector(@selector(shouldToolbarUsesTextFieldTintColor))];
@@ -73,6 +75,7 @@
             self.shouldShowTextFieldPlaceholder = YES;
         }
 
+#if TARGET_OS_IPHONE
         // placeholderFont
         string = aDictionary[NSStringFromSelector(@selector(placeholderFont))];
         if (string) {
@@ -80,6 +83,7 @@
         } else {
             self.placeholderFont = nil;
         }
+#endif
 
         // placeholderFont
         number = aDictionary[NSStringFromSelector(@selector(canAdjustTextView))];
@@ -105,6 +109,7 @@
             self.overrideKeyboardAppearance = NO;
         }
 
+#if TARGET_OS_IPHONE
         // keyboardAppearance
         string = aDictionary[NSStringFromSelector(@selector(keyboardAppearance))];
         if (string) {
@@ -112,6 +117,7 @@
         } else {
             self.keyboardAppearance = UIKeyboardAppearanceDefault;
         }
+#endif
 
         // shouldResignOnTouchOutside
         number = aDictionary[NSStringFromSelector(@selector(shouldResignOnTouchOutside))];
@@ -148,6 +154,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
+#if TARGET_OS_IPHONE
 + (IQAutoToolbarManageBehaviour) toolbarManageBehaviourFromString:(NSString *)string
 {
     IQAutoToolbarManageBehaviour autoToolbarManageBehaviour;
@@ -162,5 +169,6 @@
     }
     return autoToolbarManageBehaviour;
 }
+#endif
 
 @end

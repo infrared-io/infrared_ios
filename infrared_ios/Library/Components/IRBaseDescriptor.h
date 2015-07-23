@@ -3,20 +3,24 @@
 // Copyright (c) 2014 infrared.io. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#if TARGET_OS_IPHONE
+    #import <UIKit/UIKit.h>
+#endif
 #import <Foundation/Foundation.h>
 #import "IRDesctiptorDefaultKeys.h"
 
-#define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
-#define IS_IPHONE ( [ [ [ UIDevice currentDevice ] model ] isEqualToString: @"iPhone" ] )
-#define IS_IPOD   ( [ [ [ UIDevice currentDevice ] model ] isEqualToString: @"iPod touch" ] )
-#define IS_IPHONE_5 ( (IS_IPHONE || IS_IPOD) && IS_WIDESCREEN )
+#if TARGET_OS_IPHONE
+    #define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+    #define IS_IPHONE ( [ [ [ UIDevice currentDevice ] model ] isEqualToString: @"iPhone" ] )
+    #define IS_IPOD   ( [ [ [ UIDevice currentDevice ] model ] isEqualToString: @"iPod touch" ] )
+    #define IS_IPHONE_5 ( (IS_IPHONE || IS_IPOD) && IS_WIDESCREEN )
 
-#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
-#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
-#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+    #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+    #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+    #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+    #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+    #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+#endif
 
 typedef enum {
     DataBindingModeOneWayFromData = 0,
@@ -33,7 +37,8 @@ typedef enum {
 
 + (NSArray *) newScreenDescriptorsArrayFromDictionariesArray:(NSArray *)aArray
                                                          app:(NSString *)app
-                                                     version:(NSInteger)version;
+                                                     version:(NSInteger)version
+                                                     baseUrl:(NSString *)baseUrl;
 
 + (NSMutableArray *) viewDescriptorsHierarchyFromArray:(NSArray *)aArray;
 
@@ -42,6 +47,7 @@ typedef enum {
 + (IRBaseDescriptor *) newControllerDescriptorWithDictionary:(NSDictionary *)controllerDictionary
                                             screenDictionary:(NSDictionary *)screenDictionary;
 
+#if TARGET_OS_IPHONE
 + (UIViewContentMode) contentModeFromString:(NSString *)string;
 + (UIAccessibilityTraits) accessibilityTraitsFromString:(NSString *)string
                                           forDescriptor:(IRBaseDescriptor *)descriptor;
@@ -49,19 +55,26 @@ typedef enum {
 + (NSArray *) interfaceOrientationsFromString:(NSString *)string;
 
 + (UIFont *) fontFromString:(NSString *)fontString;
+#endif
 + (BOOL) isSystemFamilyFontString:(NSString *)string;
 + (BOOL) isSystemRegularFontString:(NSString *)string;
 + (BOOL) isSystemBoldFontString:(NSString *)string;
 + (BOOL) isSystemItalicFontString:(NSString *)string;
+#if TARGET_OS_IPHONE
 + (BOOL) isFontTextStyle:(NSString *)fontString;
+#endif
 
+#if TARGET_OS_IPHONE
 + (NSTextAlignment) textAlignmentFromString:(NSString *)string;
 + (UIBaselineAdjustment) baselineAdjustmentFromString:(NSString *)string;
 + (NSLineBreakMode) lineBreakModeFromString:(NSString *)string;
+#endif
 
 + (CGRect) frameFromDictionary:(NSDictionary *)dictionary;
 + (CGSize) sizeFromDictionary:(NSDictionary *)dictionary;
 + (CGPoint) pointFromDictionary:(NSDictionary *)dictionary;
+
+#if TARGET_OS_IPHONE
 + (UIEdgeInsets) edgeInsetsFromDictionary:(NSDictionary *)dictionary;
 
 + (UIControlContentHorizontalAlignment) contentHorizontalAlignmentFromString:(NSString *)string;
@@ -126,6 +139,7 @@ typedef enum {
 + (UIWebPaginationMode) webPaginationModeFromString:(NSString *)string;
 
 + (UIWebPaginationBreakingMode) webPaginationBreakingModeFromString:(NSString *)string;
+#endif
 
 + (NSDate *)dateWithISO8601String:(NSString *)dateString;
 + (NSDate *)dateFromString:(NSString *)dateString
@@ -135,7 +149,9 @@ typedef enum {
 
 + (DataBindingMode) dataBindingModeForString:(NSString *)string;
 
+#if TARGET_OS_IPHONE
 + (UIRectEdge) rectEdgeForString:(NSString *)string;
+#endif
 
 + (NSArray *) allImagePaths;
 
@@ -144,11 +160,13 @@ typedef enum {
 // --------------------------------------------------------------------------------------------------------------------
 
 + (NSString *) componentName;
+#if TARGET_OS_IPHONE
 + (Class) componentClass;
 
 + (Class) builderClass;
 
 + (void) addJSExportProtocol;
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 

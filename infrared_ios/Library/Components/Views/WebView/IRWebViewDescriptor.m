@@ -5,9 +5,11 @@
 
 #import <objc/runtime.h>
 #import "IRWebViewDescriptor.h"
+#if TARGET_OS_IPHONE
 #import "IRWebViewBuilder.h"
 #import "IRWebView.h"
 #import "UIScrollViewExport.h"
+#endif
 
 
 @implementation IRWebViewDescriptor
@@ -16,6 +18,7 @@
 {
     return typeWebViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRWebView class];
@@ -37,6 +40,7 @@
         NSLog(@"Exception when adding UIScrollViewExport to WebView: %@, %@", exception, [exception userInfo]);
     }
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -53,16 +57,23 @@
             self.scalesPageToFit = NO;
         }
 
+#if TARGET_OS_IPHONE
         // dataDetectorTypes
         string = aDictionary[NSStringFromSelector(@selector(dataDetectorTypes))];
         self.dataDetectorTypes = [IRBaseDescriptor dataDetectorTypesFromString:string];
+#endif
 
         // allowsInlineMediaPlayback
         number = aDictionary[NSStringFromSelector(@selector(allowsInlineMediaPlayback))];
         if (number) {
             self.allowsInlineMediaPlayback = [number boolValue];
         } else {
-            if (IS_IPHONE) {
+#if TARGET_OS_IPHONE
+            if (IS_IPHONE)
+#else
+            if (YES)
+#endif
+            {
                 self.allowsInlineMediaPlayback = NO;
             } else {
                 self.allowsInlineMediaPlayback = YES;
@@ -101,6 +112,7 @@
             self.keyboardDisplayRequiresUserAction = YES;
         }
 
+#if TARGET_OS_IPHONE
         // paginationMode
         string = aDictionary[NSStringFromSelector(@selector(paginationMode))];
         self.paginationMode = [IRBaseDescriptor webPaginationModeFromString:string];
@@ -108,6 +120,7 @@
         // paginationBreakingMode
         string = aDictionary[NSStringFromSelector(@selector(paginationBreakingMode))];
         self.paginationBreakingMode = [IRBaseDescriptor webPaginationBreakingModeFromString:string];
+#endif
 
         // pageLength
         number = aDictionary[NSStringFromSelector(@selector(pageLength))];

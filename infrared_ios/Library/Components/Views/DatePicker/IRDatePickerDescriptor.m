@@ -5,8 +5,10 @@
 
 #import <objc/runtime.h>
 #import "IRDatePickerDescriptor.h"
+#if TARGET_OS_IPHONE
 #import "IRDatePickerBuilder.h"
 #import "IRDatePicker.h"
+#endif
 
 
 @implementation IRDatePickerDescriptor
@@ -15,6 +17,7 @@
 {
     return typeDatePickerKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRDatePicker class];
@@ -29,6 +32,7 @@
 {
     class_addProtocol([UIDatePicker class], @protocol(UIDatePickerExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -37,9 +41,11 @@
         NSNumber *number;
         NSString *string;
 
+#if TARGET_OS_IPHONE
         // datePickerMode
         string = aDictionary[NSStringFromSelector(@selector(datePickerMode))];
         self.datePickerMode = [IRBaseDescriptor datePickerModeFromString:string];
+#endif
 
         // date
         string = aDictionary[NSStringFromSelector(@selector(date))];

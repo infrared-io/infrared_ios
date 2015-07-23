@@ -9,6 +9,7 @@
 #import "IRBarButtonItemBuilder.h"
 #import "IRSimpleCache.h"
 #import "IRBarButtonItemDescriptor.h"
+#import "IRUtil.h"
 
 
 @implementation IRBarButtonItem
@@ -53,7 +54,7 @@
 
 + (id) createWithImagePath:(NSString *)imagePath componentId:(NSString *)componentId
 {
-    IRBarButtonItem *irBarButtonItem = [[IRBarButtonItem alloc] initWithImage:[[IRSimpleCache sharedInstance] imageForURI:imagePath]
+    IRBarButtonItem *irBarButtonItem = [[IRBarButtonItem alloc] initWithImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:imagePath]
                                                                         style:UIBarButtonItemStylePlain
                                                                        target:[IRBarButtonItemBuilder class]
                                                                        action:@selector(action:)];

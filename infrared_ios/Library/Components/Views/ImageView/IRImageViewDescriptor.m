@@ -8,9 +8,11 @@
 
 #import <objc/runtime.h>
 #import "IRImageViewDescriptor.h"
-#import "IRImageViewBuilder.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
+#import "IRImageViewBuilder.h"
 #import "IRImageView.h"
+#endif
 
 @implementation IRImageViewDescriptor
 
@@ -18,6 +20,7 @@
 {
     return typeImageViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRImageView class];
@@ -32,6 +35,7 @@
 {
     class_addProtocol([UIImageView class], @protocol(UIImageViewExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -57,6 +61,7 @@
             self.highlighted = NO;
         }
 
+#if TARGET_OS_IPHONE
         // imageCapInsets
         dictionary = aDictionary[NSStringFromSelector(@selector(imageCapInsets))];
         self.imageCapInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
@@ -64,6 +69,7 @@
         // highlightedImageCapInsets
         dictionary = aDictionary[NSStringFromSelector(@selector(highlightedImageCapInsets))];
         self.highlightedImageCapInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+#endif
 
         // preserveAspectRatio
 //        number = aDictionary[NSStringFromSelector(@selector(preserveAspectRatio))];
@@ -78,10 +84,10 @@
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if (self.image && [IRUtil isLocalFile:self.image] == NO) {
+    if (self.image && [IRUtil isFileForDownload:self.image]) {
         [imagePaths addObject:self.image];
     }
-    if (self.highlightedImage && [IRUtil isLocalFile:self.highlightedImage] == NO) {
+    if (self.highlightedImage && [IRUtil isFileForDownload:self.highlightedImage]) {
         [imagePaths addObject:self.highlightedImage];
     }
 }

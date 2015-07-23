@@ -5,10 +5,12 @@
 
 #import <objc/runtime.h>
 #import "IRSegmentedControlDescriptor.h"
-#import "IRSegmentedControlBuilder.h"
 #import "IRSegment.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
+#import "IRSegmentedControlBuilder.h"
 #import "IRSegmentedControl.h"
+#endif
 
 
 @implementation IRSegmentedControlDescriptor
@@ -17,6 +19,7 @@
 {
     return typeSegmentedControlKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRSegmentedControl class];
@@ -31,6 +34,7 @@
 {
     class_addProtocol([UISegmentedControl class], @protocol(UISegmentedControlExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -102,7 +106,7 @@
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
     for (IRSegment *anSegment in self.segmentsArray) {
-        if ([anSegment.image length] > 0 && [IRUtil isLocalFile:anSegment.image] == NO) {
+        if ([anSegment.image length] > 0 && [IRUtil isFileForDownload:anSegment.image]) {
             [imagePaths addObject:anSegment.image];
         }
     }

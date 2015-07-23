@@ -13,6 +13,7 @@
 #import "IRBaseDescriptor.h"
 #import "IRViewDescriptor.h"
 #import "IRViewController.h"
+#import "IRUtil.h"
 
 
 @implementation IRSearchBarBuilder
@@ -53,8 +54,8 @@
     irSearchBar.showsScopeBar = descriptor.showsScopeBar;
     irSearchBar.inputAccessoryView = [IRBaseBuilder buildComponentFromDescriptor:descriptor.inputAccessoryView
                                                                   viewController:viewController extra:extra];
-    irSearchBar.backgroundImage = [[IRSimpleCache sharedInstance] imageForURI:descriptor.backgroundImage];
-    irSearchBar.scopeBarBackgroundImage = [[IRSimpleCache sharedInstance] imageForURI:descriptor.scopeBarBackgroundImage];
+    irSearchBar.backgroundImage = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.backgroundImage];
+    irSearchBar.scopeBarBackgroundImage = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.scopeBarBackgroundImage];
 }
 
 @end

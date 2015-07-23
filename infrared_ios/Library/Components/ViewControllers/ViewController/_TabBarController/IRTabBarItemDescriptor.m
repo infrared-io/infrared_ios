@@ -37,7 +37,7 @@
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if ([self.image length] > 0 && [IRUtil isLocalFile:self.image] == NO) {
+    if ([self.image length] > 0 && [IRUtil isFileForDownload:self.image]) {
         [imagePaths addObject:self.image];
     }
 }

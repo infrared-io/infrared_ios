@@ -5,9 +5,11 @@
 
 #import <objc/runtime.h>
 #import "IRActivityIndicatorViewDescriptor.h"
-#import "IRActivityIndicatorViewBuilder.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
+#import "IRActivityIndicatorViewBuilder.h"
 #import "IRActivityIndicatorView.h"
+#endif
 
 
 @implementation IRActivityIndicatorViewDescriptor
@@ -16,6 +18,7 @@
 {
     return typeActivityIndicatorViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRActivityIndicatorView class];
@@ -30,6 +33,7 @@
 {
     class_addProtocol([UIActivityIndicatorView class], @protocol(UIActivityIndicatorViewExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -38,9 +42,11 @@
         NSNumber *number;
         NSString *string;
 
+#if TARGET_OS_IPHONE
         // activityIndicatorViewStyle
         string = aDictionary[NSStringFromSelector(@selector(activityIndicatorViewStyle))];
         self.activityIndicatorViewStyle = [IRBaseDescriptor activityIndicatorViewStyleFromString:string];
+#endif
 
         // hidesWhenStopped
         number = aDictionary[NSStringFromSelector(@selector(hidesWhenStopped))];
@@ -58,9 +64,11 @@
             self.animating = YES;
         }
 
+#if TARGET_OS_IPHONE
         // color
         string = aDictionary[NSStringFromSelector(@selector(color))];
         self.color = [IRUtil transformHexColorToUIColor:string];
+#endif
     }
     return self;
 }

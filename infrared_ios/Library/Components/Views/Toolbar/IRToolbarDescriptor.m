@@ -5,9 +5,11 @@
 
 #import <objc/runtime.h>
 #import "IRToolbarDescriptor.h"
-#import "IRToolbarBuilder.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
+#import "IRToolbarBuilder.h"
 #import "IRToolbar.h"
+#endif
 
 
 @implementation IRToolbarDescriptor
@@ -16,6 +18,7 @@
 {
     return typeToolbarKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRToolbar class];
@@ -30,6 +33,7 @@
 {
     class_addProtocol([UIToolbar class], @protocol(UIToolbarExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -39,9 +43,11 @@
         NSString *string;
         NSArray *array;
 
+#if TARGET_OS_IPHONE
         // barStyle
         string = aDictionary[NSStringFromSelector(@selector(barStyle))];
         self.barStyle = [IRBaseDescriptor barStyleFromString:string];
+#endif
 
         // items
         array = aDictionary[NSStringFromSelector(@selector(items))];
@@ -55,9 +61,11 @@
             self.translucent = YES;
         }
 
+#if TARGET_OS_IPHONE
         // barTintColor
         string = aDictionary[NSStringFromSelector(@selector(barTintColor))];
         self.barTintColor = [IRUtil transformHexColorToUIColor:string];
+#endif
     }
     return self;
 }

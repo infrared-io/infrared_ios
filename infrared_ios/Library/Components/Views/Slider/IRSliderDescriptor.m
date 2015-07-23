@@ -5,9 +5,11 @@
 
 #import <objc/runtime.h>
 #import "IRSliderDescriptor.h"
-#import "IRSliderBuilder.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
+#import "IRSliderBuilder.h"
 #import "IRSlider.h"
+#endif
 
 
 @implementation IRSliderDescriptor
@@ -16,6 +18,7 @@
 {
     return typeSliderKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRSlider class];
@@ -30,6 +33,7 @@
 {
     class_addProtocol([UISlider class], @protocol(UISliderExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -78,6 +82,7 @@
             self.continuous = YES;
         }
 
+#if TARGET_OS_IPHONE
         // minimumTrackTintColor
         string = aDictionary[NSStringFromSelector(@selector(minimumTrackTintColor))];
         self.minimumTrackTintColor = [IRUtil transformHexColorToUIColor:string];
@@ -89,16 +94,17 @@
         // thumbTintColor
         string = aDictionary[NSStringFromSelector(@selector(thumbTintColor))];
         self.thumbTintColor = [IRUtil transformHexColorToUIColor:string];
+#endif
     }
     return self;
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if (self.minimumValueImage && [IRUtil isLocalFile:self.minimumValueImage] == NO) {
+    if (self.minimumValueImage && [IRUtil isFileForDownload:self.minimumValueImage]) {
         [imagePaths addObject:self.minimumValueImage];
     }
-    if (self.maximumValueImage && [IRUtil isLocalFile:self.maximumValueImage] == NO) {
+    if (self.maximumValueImage && [IRUtil isFileForDownload:self.maximumValueImage]) {
         [imagePaths addObject:self.maximumValueImage];
     }
 }

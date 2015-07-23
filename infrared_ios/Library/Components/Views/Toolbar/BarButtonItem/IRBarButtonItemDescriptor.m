@@ -5,9 +5,12 @@
 
 #import <objc/runtime.h>
 #import "IRBarButtonItemDescriptor.h"
-#import "IRBarButtonItemBuilder.h"
 #import "IRViewDescriptor.h"
+#import "IRUtil.h"
+#if TARGET_OS_IPHONE
+#import "IRBarButtonItemBuilder.h"
 #import "IRBarButtonItem.h"
+#endif
 
 
 @implementation IRBarButtonItemDescriptor
@@ -16,6 +19,7 @@
 {
     return typeBarButtonItemKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRBarButtonItem class];
@@ -30,6 +34,7 @@
 {
     class_addProtocol([UIBarButtonItem class], @protocol(UIBarButtonItemExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -40,6 +45,7 @@
         NSArray *array;
         NSDictionary *dictionary;
 
+#if TARGET_OS_IPHONE
         // identifier
         string = aDictionary[NSStringFromSelector(@selector(identifier))];
         self.identifier = [IRBaseDescriptor barButtonSystemItemFromString:string];
@@ -47,6 +53,7 @@
         // style
         string = aDictionary[NSStringFromSelector(@selector(style))];
         self.style = [IRBaseDescriptor barButtonItemStyleFromString:string];
+#endif
 
         // width
         number = aDictionary[NSStringFromSelector(@selector(width))];
@@ -69,6 +76,14 @@
         self.actions = string;
     }
     return self;
+}
+
+- (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+{
+    if (self.image && [IRUtil isFileForDownload:self.image]) {
+        [imagePaths addObject:self.image];
+    }
+    [self.customView extendImagePathsArray:imagePaths];
 }
 
 @end

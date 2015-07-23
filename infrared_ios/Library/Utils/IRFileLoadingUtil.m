@@ -41,7 +41,7 @@
         failedLoadingPaths = YES;
         return failedLoadingPaths;
     }
-    if ([IRUtil isLocalFile:filePath]) {
+    if ([IRUtil isLocalFile:filePath]) { // [IRUtil isValidURLWithHostAndPath:filePath]
         fileDestinationPath = [destinationPath stringByAppendingFormat:@"/%@", filePath];
         if ([[NSFileManager defaultManager] fileExistsAtPath:fileDestinationPath]) {
 //            NSLog(@"IRFileLoadingUtil-downloadOrCopyFilesFromPathsArray - copyItemAtURL '%@': file already exist - NO copying", filePath);

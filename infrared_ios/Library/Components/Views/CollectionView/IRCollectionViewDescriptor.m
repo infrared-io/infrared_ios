@@ -6,9 +6,11 @@
 #import <objc/runtime.h>
 #import "IRViewDescriptor.h"
 #import "IRCollectionViewDescriptor.h"
+#if TARGET_OS_IPHONE
 #import "IRView.h"
 #import "IRCollectionView.h"
 #import "IRCollectionViewBuilder.h"
+#endif
 
 
 @implementation IRCollectionViewDescriptor
@@ -17,6 +19,7 @@
 {
     return typeCollectionViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRCollectionView class];
@@ -31,6 +34,7 @@
 {
     class_addProtocol([UICollectionView class], @protocol(UICollectionViewExport));
 }
+#endif
 
 - (NSDictionary *) viewDefaults
 {
@@ -73,9 +77,11 @@
             self.allowsMultipleSelection = NO;
         }
 
+#if TARGET_OS_IPHONE
         // scrollDirection
         string = aDictionary[NSStringFromSelector(@selector(scrollDirection))];
         self.scrollDirection = [IRBaseDescriptor scrollDirectionFromString:string];
+#endif
 
         // sectionHeadersArray
         array = aDictionary[sectionHeadersKEY];
@@ -129,9 +135,11 @@
         dictionary = aDictionary[NSStringFromSelector(@selector(cellSize))];
         self.cellSize = [IRBaseDescriptor sizeFromDictionary:dictionary];
 
+#if TARGET_OS_IPHONE
         // sectionEdgeInsets
         dictionary = aDictionary[NSStringFromSelector(@selector(sectionEdgeInsets))];
         self.sectionEdgeInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+#endif
 
         // collectionData
         array = aDictionary[NSStringFromSelector(@selector(collectionData))];

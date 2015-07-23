@@ -77,6 +77,7 @@ static IRSimpleCache *sharedCache;
     return hasDataForURI;
 }
 // --------------------------------------------------------------------------------------------------------------------
+#if TARGET_OS_IPHONE
 - (UIImage *) imageForURI:(NSString *)uri {
     UIImage *image = nil;
     NSData *data;
@@ -94,6 +95,7 @@ static IRSimpleCache *sharedCache;
     }
     return image;
 }
+#endif
 // --------------------------------------------------------------------------------------------------------------------
 - (NSString *) dataStringForURI:(NSString *)uri {
     NSString *string = nil;

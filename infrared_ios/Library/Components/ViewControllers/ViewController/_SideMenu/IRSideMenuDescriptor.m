@@ -130,9 +130,11 @@
             self.contentViewShadowEnabled = [[self viewDefaults][NSStringFromSelector(@selector(contentViewShadowEnabled))] boolValue];
         }
 
+#if TARGET_OS_IPHONE
         // contentViewShadowColor
         string = aDictionary[NSStringFromSelector(@selector(contentViewShadowColor))];
-        self.contentViewShadowColor = [IRUtil transformHexColorToUIColor:string];;
+        self.contentViewShadowColor = [IRUtil transformHexColorToUIColor:string];
+#endif
 
         // contentViewShadowOffset
         dictionary = aDictionary[NSStringFromSelector(@selector(contentViewShadowOffset))];
@@ -210,9 +212,11 @@
             self.parallaxContentMaximumRelativeValue = CGFLOAT_UNDEFINED;
         }
 
+#if TARGET_OS_IPHONE
         // menuViewControllerTransformation
         dictionary = aDictionary[NSStringFromSelector(@selector(menuViewControllerTransformation))];
         self.menuViewControllerTransformation = [IRBaseDescriptor affineTransformFromDictionary:dictionary];
+#endif
 
         // parallaxEnabled
         number = aDictionary[NSStringFromSelector(@selector(parallaxEnabled))];
@@ -230,9 +234,11 @@
             self.bouncesHorizontally = [[self viewDefaults][NSStringFromSelector(@selector(bouncesHorizontally))] boolValue];
         }
 
+#if TARGET_OS_IPHONE
         // menuPreferredStatusBarStyle
         string = aDictionary[NSStringFromSelector(@selector(menuPreferredStatusBarStyle))];
         self.menuPreferredStatusBarStyle = [IRBaseDescriptor statusBarStyleFromString:string];
+#endif
 
         // menuPrefersStatusBarHidden
         number = aDictionary[NSStringFromSelector(@selector(menuPrefersStatusBarHidden))];
@@ -255,7 +261,7 @@
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if ([self.backgroundImage length] > 0 && [IRUtil isLocalFile:self.backgroundImage] == NO) {
+    if ([self.backgroundImage length] > 0 && [IRUtil isFileForDownload:self.backgroundImage]) {
         [imagePaths addObject:self.backgroundImage];
     }
 }

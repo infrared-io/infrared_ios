@@ -35,11 +35,18 @@
             self.silentUpdate = NO;
         }
 
+        // baseUrl
+        string = aDictionary[NSStringFromSelector(@selector(baseUrl))];
+        if ([string length] > 0) {
+            self.baseUrl = string;
+        }
+
         // screensArray
         array = aDictionary[screensKEY];
         self.screensArray = [IRBaseDescriptor newScreenDescriptorsArrayFromDictionariesArray:array
                                                                                          app:self.app
-                                                                                     version:self.version];
+                                                                                     version:self.version
+                                                                                     baseUrl:self.baseUrl];
 
         // fontsArray
         array = aDictionary[fontsKEY];
@@ -48,12 +55,6 @@
         // mainScreenId
         string = aDictionary[NSStringFromSelector(@selector(mainScreenId))];
         self.mainScreenId = string;
-
-        // baseUrl
-        string = aDictionary[NSStringFromSelector(@selector(baseUrl))];
-        if ([string length] > 0) {
-            self.baseUrl = string;
-        }
 
         // jsLibrariesArray
         array = aDictionary[jsLibrariesKEY];

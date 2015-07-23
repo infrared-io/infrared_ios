@@ -13,6 +13,7 @@
 + (IRLayoutConstraintDescriptor *) newLayoutConstraintDescriptorWithDictionary:(NSDictionary *)sourceDictionary
 {
     IRLayoutConstraintDescriptor *descriptor = nil;
+#if TARGET_OS_IPHONE
     LayoutConstraintDescriptorType type = [IRLayoutConstraintDescriptor layoutConstraintDescriptorTypeForDictionary:sourceDictionary];
     switch (type) {
         case LayoutConstraintDescriptorTypeICS:
@@ -26,9 +27,11 @@
             break;
         case LayoutConstraintDescriptorTypeNone:break;
     }
+#endif
     return descriptor;
 }
 
+#if TARGET_OS_IPHONE
 + (LayoutConstraintDescriptorType) layoutConstraintDescriptorTypeForDictionary:(NSDictionary *)dictionary
 {
     LayoutConstraintDescriptorType layoutConstraintDescriptorType;
@@ -199,6 +202,7 @@
     }
     return layoutFormatOptions;
 }
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------

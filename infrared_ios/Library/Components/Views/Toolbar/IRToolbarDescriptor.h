@@ -9,7 +9,9 @@
 
 @interface IRToolbarDescriptor : IRViewDescriptor
 
+#if TARGET_OS_IPHONE
 @property(nonatomic)        UIBarStyle barStyle;    // default is UIBarStyleDefault (blue)
+#endif
 @property(nonatomic,copy)   NSArray   *items;       // get/set visible UIBarButtonItem. default is nil. changes not animated. shown in order
 
 /*
@@ -24,14 +26,16 @@
  it will provide an opaque background for the image using the bar's barTintColor if defined, or black
  for UIBarStyleBlack or white for UIBarStyleDefault if barTintColor is nil.
  */
-@property(nonatomic,assign/*,getter=isTranslucent*/) BOOL translucent NS_AVAILABLE_IOS(3_0); // Default is NO on iOS 6 and earlier. Always YES if barStyle is set to UIBarStyleBlackTranslucent
+@property(nonatomic,assign/*,getter=isTranslucent*/) BOOL translucent /*NS_AVAILABLE_IOS(3_0)*/; // Default is NO on iOS 6 and earlier. Always YES if barStyle is set to UIBarStyleBlackTranslucent
 
+#if TARGET_OS_IPHONE
 /*
  The behavior of tintColor for bars has changed on iOS 7.0. It no longer affects the bar's background
  and behaves as described for the tintColor property added to UIView.
  To tint the bar's background, please use -barTintColor.
  */
 @property(nonatomic,retain) UIColor *barTintColor NS_AVAILABLE_IOS(7_0) UI_APPEARANCE_SELECTOR;  // default is nil
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 

@@ -13,10 +13,12 @@
 
 @property(nonatomic) CGRect frame;
 
+#if TARGET_OS_IPHONE
 /*
  UIViewContentModeScaleToFill, UIViewContentModeScaleAspectFit, UIViewContentModeScaleAspectFill, UIViewContentModeRedraw, UIViewContentModeCenter, UIViewContentModeTop, UIViewContentModeBottom, UIViewContentModeLeft, UIViewContentModeRight, UIViewContentModeTopLeft, UIViewContentModeTopRight, UIViewContentModeBottomLeft, UIViewContentModeBottomRight
  */
 @property(nonatomic) UIViewContentMode contentMode;
+#endif
 
 @property(nonatomic) NSInteger tag;
 
@@ -24,8 +26,10 @@
 @property(nonatomic/*, getter=isMultipleTouchEnabled*/) BOOL multipleTouchEnabled;
 
 @property(nonatomic) CGFloat alpha;
+#if TARGET_OS_IPHONE
 @property(nonatomic, strong) UIColor *backgroundColor;
 @property(nonatomic, strong) UIColor *tintColor;
+#endif
 
 @property(nonatomic/*, getter=isOpaque*/) BOOL opaque;
 @property(nonatomic/*, getter=isHidden*/) BOOL hidden;
@@ -40,17 +44,22 @@
 @property(nonatomic) BOOL isAccessibilityElement;
 @property(nonatomic, strong) NSString *accessibilityLabel;
 @property(nonatomic, strong) NSString *accessibilityHint;
+#if TARGET_OS_IPHONE
 /*
  UIAccessibilityTraitNone, UIAccessibilityTraitButton, UIAccessibilityTraitLink, UIAccessibilityTraitImage, UIAccessibilityTraitSelected, UIAccessibilityTraitStaticText, UIAccessibilityTraitSearchField, UIAccessibilityTraitPlaysSound, UIAccessibilityTraitKeyboardKey, UIAccessibilityTraitSummaryElement, UIAccessibilityTraitUpdatesFrequently, UIAccessibilityTraitAllowsDirectInteraction
  */
 @property(nonatomic, assign) UIAccessibilityTraits accessibilityTraits;
+#endif
 
 // --------------------------------------------------------------------------------------------------------------------
 
+#if TARGET_OS_IPHONE
 @property (nonatomic, strong) NSArray *restrictToOrientationsArray;
+#endif
 
 @property (nonatomic, strong) NSMutableArray *subviewsArray;
 
+#if TARGET_OS_IPHONE
 @property (nonatomic, strong) NSMutableArray *dataBindingsArray;
 
 @property (nonatomic, strong) NSMutableArray *intrinsicContentSizePriorityArray;
@@ -61,6 +70,8 @@
 
 @property (nonatomic, strong) UIColor *borderColor;
 @property (nonatomic) CGFloat borderWidth;
+#endif
+
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 

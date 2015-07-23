@@ -193,7 +193,7 @@
     }
     // -- backIndicatorImage
     if (descriptor.navigationController.backIndicatorImage) {
-        UIImage *image = [[IRSimpleCache sharedInstance] imageForURI:descriptor.navigationController.backIndicatorImage];
+        UIImage *image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.navigationController.backIndicatorImage];
         [self.navigationController.navigationBar setBackIndicatorImage:image];
         [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:image];
     } else {

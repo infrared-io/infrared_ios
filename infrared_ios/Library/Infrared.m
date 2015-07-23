@@ -189,7 +189,7 @@ static Infrared *sharedInfraRed = nil;
     // 3) download and cache JS files
     jsonPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
     // 3.1)  internal JS libraries
-    pathsArray = @[@"infrared.js", @"md5.min.js", @"zeroTimeout.js", @"zeroTimeoutWorker.js", @"watch.js"];
+    pathsArray = @[@"infrared.js", @"infrared_md5.min.js", @"zeroTimeout.js", @"zeroTimeoutWorker.js", @"watch.js"];
     failedPathsArray = [NSMutableArray array];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
                                          destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
@@ -324,6 +324,8 @@ static Infrared *sharedInfraRed = nil;
     if (currentLanguageFileName == nil) {
         currentLanguageFileName = descriptor.languagesArray[descriptor.defaultLanguage];
     }
+    currentLanguageFileName = [currentLanguageFileName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    currentLanguageFileName = [IRUtil fileNameFromPath:currentLanguageFileName];
     return currentLanguageFileName;
 }
 - (void) loadFonts:(IRAppDescriptor *)appDescriptor

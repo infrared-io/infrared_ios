@@ -4,7 +4,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#if TARGET_OS_IPHONE
 #import <IQKeyboardManager/IQKeyboardManagerConstants.h>
+#endif
 
 
 @interface IRKeyboardManagerSubDescriptor : NSObject
@@ -43,19 +45,21 @@
  */
 @property(nonatomic, assign) BOOL enableAutoToolbar;
 
+#if TARGET_OS_IPHONE
 /*!
     @property toolbarManageStyle
 
     @abstract AutoToolbar managing behaviour. Default is IQAutoToolbarBySubviews.
  */
 @property(nonatomic, assign) IQAutoToolbarManageBehaviour toolbarManageBehaviour;
+#endif
 
 /*!
     @property shouldToolbarUsesTextFieldTintColor
 
     @abstract If YES, then uses textField's tintColor property for IQToolbar, otherwise tint color is black. Default is NO.
  */
-@property(nonatomic, assign) BOOL shouldToolbarUsesTextFieldTintColor   NS_AVAILABLE_IOS(7_0);
+@property(nonatomic, assign) BOOL shouldToolbarUsesTextFieldTintColor   /*NS_AVAILABLE_IOS(7_0)*/;
 
 /*!
     @property shouldShowTextFieldPlaceholder
@@ -64,13 +68,14 @@
  */
 @property(nonatomic, assign) BOOL shouldShowTextFieldPlaceholder;
 
+#if TARGET_OS_IPHONE
 /*!
     @property placeholderFont
 
     @abstract Placeholder Font. Default is nil.
  */
 @property(nonatomic, strong) UIFont *placeholderFont;
-
+#endif
 
 /*******************************************/
 
@@ -104,12 +109,14 @@
  */
 @property(nonatomic, assign) BOOL overrideKeyboardAppearance;
 
+#if TARGET_OS_IPHONE
 /*!
     @property keyboardAppearance
 
     @abstract If overrideKeyboardAppearance is YES, then all the textField keyboardAppearance is set using this property.
  */
 @property(nonatomic, assign) UIKeyboardAppearance keyboardAppearance;
+#endif
 
 
 /*******************************************/

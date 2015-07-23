@@ -5,8 +5,10 @@
 
 #import <objc/runtime.h>
 #import "IRTableViewCellDescriptor.h"
+#if TARGET_OS_IPHONE
 #import "IRTableViewCellBuilder.h"
 #import "IRTableViewCell.h"
+#endif
 
 
 @implementation IRTableViewCellDescriptor
@@ -15,6 +17,7 @@
 {
     return typeTableViewCellKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRTableViewCell class];
@@ -29,6 +32,7 @@
 {
     class_addProtocol([UITableViewCell class], @protocol(UITableViewCellExport));
 }
+#endif
 
 - (NSDictionary *) viewDefaults
 {
@@ -48,9 +52,11 @@
         NSString *string;
         NSDictionary *dictionary;
 
+#if TARGET_OS_IPHONE
         // style
         string = aDictionary[NSStringFromSelector(@selector(style))];
         self.style = [IRBaseDescriptor tableViewCellStyleFromString:string];
+#endif
 
         // backgroundView
         dictionary = aDictionary[NSStringFromSelector(@selector(backgroundView))];
@@ -64,9 +70,11 @@
         dictionary = aDictionary[NSStringFromSelector(@selector(multipleSelectionBackgroundView))];
         self.multipleSelectionBackgroundView = (IRViewDescriptor *) [IRBaseDescriptor newViewDescriptorWithDictionary:dictionary];
 
+#if TARGET_OS_IPHONE
         // selectionStyle
         string = aDictionary[NSStringFromSelector(@selector(selectionStyle))];
         self.selectionStyle = [IRBaseDescriptor tableViewCellSelectionStyleFromString:string];
+#endif
 
         // selected
         number = aDictionary[NSStringFromSelector(@selector(selected))];
@@ -84,9 +92,11 @@
             self.highlighted = NO;
         }
 
+#if TARGET_OS_IPHONE
         // editingStyle
         string = aDictionary[NSStringFromSelector(@selector(editingStyle))];
         self.editingStyle = [IRBaseDescriptor tableViewCellEditingStyleFromString:string];
+#endif
 
         // showsReorderControl
         number = aDictionary[NSStringFromSelector(@selector(showsReorderControl))];
@@ -104,17 +114,21 @@
             self.shouldIndentWhileEditing = YES;
         }
 
+#if TARGET_OS_IPHONE
         // accessoryType
         string = aDictionary[NSStringFromSelector(@selector(accessoryType))];
         self.accessoryType = [IRBaseDescriptor tableViewCellAccessoryTypeFromString:string];
+#endif
 
         // accessoryView
         dictionary = aDictionary[NSStringFromSelector(@selector(accessoryView))];
         self.accessoryView = (IRViewDescriptor *) [IRBaseDescriptor newViewDescriptorWithDictionary:dictionary];
 
+#if TARGET_OS_IPHONE
         // editingAccessoryType
         string = aDictionary[NSStringFromSelector(@selector(editingAccessoryType))];
         self.editingAccessoryType = [IRBaseDescriptor tableViewCellAccessoryTypeFromString:string];
+#endif
 
         // editingAccessoryView
         dictionary = aDictionary[NSStringFromSelector(@selector(editingAccessoryView))];
@@ -132,9 +146,11 @@
             self.indentationWidth = 10.0;
         }
 
+#if TARGET_OS_IPHONE
         // separatorInset
         dictionary = aDictionary[NSStringFromSelector(@selector(indentationLevel))];
         self.separatorInset = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+#endif
 
         // editing
         number = aDictionary[NSStringFromSelector(@selector(editing))];

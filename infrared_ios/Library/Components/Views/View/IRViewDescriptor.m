@@ -9,11 +9,13 @@
 #import <objc/runtime.h>
 #import "IRViewDescriptor.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
 #import "IRLayoutConstraintDescriptor.h"
-#import "IRDataBindingDescriptor.h"
 #import "IRGestureRecognizerDescriptor.h"
+#import "IRDataBindingDescriptor.h"
 #import "IRViewBuilder.h"
 #import "IRView.h"
+#endif
 
 @implementation IRViewDescriptor
 
@@ -21,6 +23,7 @@
 {
     return typeViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRView class];
@@ -35,6 +38,7 @@
 {
     class_addProtocol([UIView class], @protocol(UIViewExport));
 }
+#endif
 
 - (NSDictionary *) viewDefaults
 {
@@ -42,7 +46,9 @@
       @"userInteractionEnabled" : @(YES),
       @"multipleTouchEnabled" : @(NO),
       @"alpha" : @(1.0),
+#if TARGET_OS_IPHONE
       @"backgroundColor" : [UIColor clearColor],
+#endif
       @"opaque" : @(YES),
       @"hidden" : @(NO),
       @"clearsContextBeforeDrawing" : @(YES),
@@ -57,7 +63,9 @@
     if (self) {
         NSNumber *number;
         NSString *string;
+#if TARGET_OS_IPHONE
         UIColor *color;
+#endif
         NSDictionary *dictionary;
         NSArray *array;
         IRBaseDescriptor *descriptor;
@@ -66,9 +74,11 @@
         dictionary = aDictionary[NSStringFromSelector(@selector(frame))];
         self.frame = [IRBaseDescriptor frameFromDictionary:dictionary];
 
+#if TARGET_OS_IPHONE
         // contentMode
         string = aDictionary[NSStringFromSelector(@selector(contentMode))];
         self.contentMode = [IRBaseDescriptor contentModeFromString:string];
+#endif
 
         // tag
         number = aDictionary[NSStringFromSelector(@selector(tag))];
@@ -98,6 +108,7 @@
             self.alpha = [[self viewDefaults][NSStringFromSelector(@selector(alpha))] floatValue];
         }
 
+#if TARGET_OS_IPHONE
         // backgroundColor
         string = aDictionary[NSStringFromSelector(@selector(backgroundColor))];
         color = [IRUtil transformHexColorToUIColor:string];
@@ -113,6 +124,7 @@
         if (color) {
             self.tintColor = color;
         }
+#endif
 
         // opaque
         number = aDictionary[NSStringFromSelector(@selector(opaque))];
@@ -162,14 +174,18 @@
         string = aDictionary[NSStringFromSelector(@selector(accessibilityHint))];
         self.accessibilityHint = string;
 
+#if TARGET_OS_IPHONE
         // accessibilityTraits
         string = aDictionary[NSStringFromSelector(@selector(accessibilityTraits))];
         self.accessibilityTraits = [IRBaseDescriptor accessibilityTraitsFromString:string
                                                                      forDescriptor:self];
+#endif
 
+#if TARGET_OS_IPHONE
         // restrictToOrientationsArray
         string = aDictionary[restrictToOrientationsKEY];
         self.restrictToOrientationsArray = [IRBaseDescriptor interfaceOrientationsFromString:string];
+#endif
 
         // subviewsArray
         array = aDictionary[subviewsKEY];
@@ -183,6 +199,7 @@
             }
         }
 
+#if TARGET_OS_IPHONE
         // dataBindingsArray
         array = aDictionary[dataBindingKEY];
         if (array && [array count]) {
@@ -261,6 +278,7 @@
         } else {
             self.borderWidth = CGFLOAT_UNDEFINED;
         }
+#endif
     }
     return self;
 }

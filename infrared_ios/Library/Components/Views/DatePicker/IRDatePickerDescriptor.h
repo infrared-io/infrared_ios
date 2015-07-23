@@ -9,7 +9,9 @@
 
 @interface IRDatePickerDescriptor : IRViewAndControlDescriptor
 
+#if TARGET_OS_IPHONE
 @property (nonatomic) UIDatePickerMode datePickerMode; // default is UIDatePickerModeDateAndTime
+#endif
 
 @property (nonatomic, retain) NSDate *date;        // default is current date when picker created. Ignored in countdown timer mode. for that mode, picker starts at 0:00
 @property (nonatomic, retain) NSDate *minimumDate; // specify min/max date range. default is nil. When min > max, the values are ignored. Ignored in countdown timer mode

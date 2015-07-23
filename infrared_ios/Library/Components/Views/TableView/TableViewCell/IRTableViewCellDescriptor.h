@@ -9,7 +9,9 @@
 
 @interface IRTableViewCellDescriptor : IRViewDescriptor
 
+#if TARGET_OS_IPHONE
 @property (nonatomic) UITableViewCellStyle style;
+#endif
 
 // Default is nil for cells in UITableViewStylePlain, and non-nil for UITableViewStyleGrouped. The 'backgroundView' will be added as a subview behind all other views.
 @property (nonatomic, retain) IRViewDescriptor       *backgroundView;
@@ -18,25 +20,35 @@
 @property (nonatomic, retain) IRViewDescriptor       *selectedBackgroundView;
 
 // If not nil, takes the place of the selectedBackgroundView when using multiple selection.
-@property (nonatomic, retain) IRViewDescriptor       *multipleSelectionBackgroundView NS_AVAILABLE_IOS(5_0);
+@property (nonatomic, retain) IRViewDescriptor       *multipleSelectionBackgroundView /*NS_AVAILABLE_IOS(5_0)*/;
 
+#if TARGET_OS_IPHONE
 @property (nonatomic) UITableViewCellSelectionStyle   selectionStyle;             // default is UITableViewCellSelectionStyleBlue.
+#endif
 @property (nonatomic/*, getter=isSelected*/) BOOL     selected;                   // set selected state (title, image, background). default is NO. animated is NO
 @property (nonatomic/*, getter=isHighlighted*/) BOOL  highlighted;                // set highlighted state (title, image, background). default is NO. animated is NO
 
+#if TARGET_OS_IPHONE
 @property (nonatomic) UITableViewCellEditingStyle     editingStyle;
+#endif
 
 @property (nonatomic) BOOL                            showsReorderControl;        // default is NO
 @property (nonatomic) BOOL                            shouldIndentWhileEditing;   // default is YES.  This is unrelated to the indentation level below.
 
+#if TARGET_OS_IPHONE
 @property (nonatomic) UITableViewCellAccessoryType    accessoryType;              // default is UITableViewCellAccessoryNone. use to set standard type
+#endif
 @property (nonatomic, retain) IRViewDescriptor       *accessoryView;              // if set, use custom view. ignore accessoryType. tracks if enabled can calls accessory action
+#if TARGET_OS_IPHONE
 @property (nonatomic) UITableViewCellAccessoryType    editingAccessoryType;       // default is UITableViewCellAccessoryNone. use to set standard type
+#endif
 @property (nonatomic, retain) IRViewDescriptor       *editingAccessoryView;       // if set, use custom view. ignore editingAccessoryType. tracks if enabled can calls accessory action
 
 @property (nonatomic) NSInteger                       indentationLevel;           // adjust content indent. default is 0
 @property (nonatomic) CGFloat                         indentationWidth;           // width for each level. default is 10.0
-@property (nonatomic) UIEdgeInsets                    separatorInset NS_AVAILABLE_IOS(7_0) UI_APPEARANCE_SELECTOR; // allows customization of the separator frame
+#if TARGET_OS_IPHONE
+@property (nonatomic) UIEdgeInsets                    separatorInset /*NS_AVAILABLE_IOS(7_0) UI_APPEARANCE_SELECTOR*/; // allows customization of the separator frame
+#endif
 
 @property (nonatomic/*, getter=isEditing*/) BOOL          editing;                    // show appropriate edit controls (+/- & reorder). By default -setEditing: calls setEditing:animated: with NO for animated.
 

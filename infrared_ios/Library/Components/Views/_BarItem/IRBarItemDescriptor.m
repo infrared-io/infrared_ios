@@ -36,6 +36,7 @@
         string = aDictionary[NSStringFromSelector(@selector(landscapeImagePhone))];
         self.landscapeImagePhone = string;
 
+#if TARGET_OS_IPHONE
         // imageInsets
         string = aDictionary[NSStringFromSelector(@selector(imageInsets))];
         self.imageInsets = [IRBaseDescriptor edgeInsetsFromDictionary:string];
@@ -43,6 +44,7 @@
         // landscapeImagePhoneInsets
         string = aDictionary[NSStringFromSelector(@selector(landscapeImagePhoneInsets))];
         self.landscapeImagePhoneInsets = [IRBaseDescriptor edgeInsetsFromDictionary:string];
+#endif
 
         // tag
         number = aDictionary[NSStringFromSelector(@selector(tag))];
@@ -53,10 +55,10 @@
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if (self.image && [IRUtil isLocalFile:self.image] == NO) {
+    if (self.image && [IRUtil isFileForDownload:self.image]) {
         [imagePaths addObject:self.image];
     }
-    if (self.landscapeImagePhone && [IRUtil isLocalFile:self.landscapeImagePhone] == NO) {
+    if (self.landscapeImagePhone && [IRUtil isFileForDownload:self.landscapeImagePhone]) {
         [imagePaths addObject:self.landscapeImagePhone];
     }
 }

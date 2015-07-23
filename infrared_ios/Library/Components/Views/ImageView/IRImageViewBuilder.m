@@ -12,6 +12,7 @@
 #import "IRView.h"
 #import "IRBaseDescriptor.h"
 #import "IRViewController.h"
+#import "IRUtil.h"
 
 
 @implementation IRImageViewBuilder
@@ -39,7 +40,7 @@
     [IRViewBuilder setUpComponent:irImageView componentDescriptor:descriptor viewController:viewController extra:extra];
 
     // -- image
-    image = [[IRSimpleCache sharedInstance] imageForURI:descriptor.image];
+    image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.image];
     if (UIEdgeInsetsEqualToEdgeInsets(descriptor.imageCapInsets, UIEdgeInsetsNull) == NO) {
         irImageView.image = [image resizableImageWithCapInsets:descriptor.imageCapInsets];
     } else {
@@ -47,7 +48,7 @@
     }
 
     // -- highlighted image
-    image = [[IRSimpleCache sharedInstance] imageForURI:descriptor.highlightedImage];
+    image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.highlightedImage];
     if (UIEdgeInsetsEqualToEdgeInsets(descriptor.highlightedImageCapInsets, UIEdgeInsetsNull) == NO) {
         irImageView.highlightedImage = [image resizableImageWithCapInsets:descriptor.highlightedImageCapInsets];
     } else {

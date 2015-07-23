@@ -5,9 +5,11 @@
 
 #import <objc/runtime.h>
 #import "IRTextViewDescriptor.h"
-#import "IRTextViewBuilder.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
 #import "IRTextView.h"
+#import "IRTextViewBuilder.h"
+#endif
 
 
 @implementation IRTextViewDescriptor
@@ -16,6 +18,7 @@
 {
     return typeTextViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRTextView class];
@@ -30,6 +33,7 @@
 {
     class_addProtocol([UITextView class], @protocol(UITextViewExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -42,6 +46,7 @@
         string = aDictionary[NSStringFromSelector(@selector(text))];
         self.text = string;
 
+#if TARGET_OS_IPHONE
         // textColor
         string = aDictionary[NSStringFromSelector(@selector(textColor))];
         self.textColor = [IRUtil transformHexColorToUIColor:string];
@@ -53,6 +58,7 @@
         // textAlignment
         string = aDictionary[NSStringFromSelector(@selector(textAlignment))];
         self.textAlignment = [IRBaseDescriptor textAlignmentFromString:string];
+#endif
 
         // editable
         number = aDictionary[NSStringFromSelector(@selector(editable))];
@@ -70,9 +76,11 @@
             self.selectable = YES;
         }
 
+#if TARGET_OS_IPHONE
         // dataDetectorTypes
         string = aDictionary[NSStringFromSelector(@selector(dataDetectorTypes))];
         self.dataDetectorTypes = [IRBaseDescriptor dataDetectorTypesFromString:string];
+#endif
 
         // clearsOnInsertion
         number = aDictionary[NSStringFromSelector(@selector(clearsOnInsertion))];
@@ -82,6 +90,7 @@
             self.clearsOnInsertion = NO;
         }
 
+#if TARGET_OS_IPHONE
         // autocapitalizationType
         string = aDictionary[NSStringFromSelector(@selector(autocapitalizationType))];
         self.autocapitalizationType = [IRBaseDescriptor textAutocapitalizationTypeFromString:string];
@@ -105,6 +114,7 @@
         // returnKeyType
         string = aDictionary[NSStringFromSelector(@selector(returnKeyType))];
         self.returnKeyType = [IRBaseDescriptor returnKeyTypeFromString:string];
+#endif
 
         // enablesReturnKeyAutomatically
         number = aDictionary[NSStringFromSelector(@selector(enablesReturnKeyAutomatically))];

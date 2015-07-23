@@ -14,6 +14,7 @@
 #import "IRScreenDescriptor.h"
 #import "IRViewDescriptor.h"
 #import "IRViewController.h"
+#import "IRUtil.h"
 
 
 @implementation IRSegmentedControlBuilder
@@ -53,7 +54,7 @@
                                                atIndex:segmentIndex animated:NO];
         } else if ([anSegment.image length] > 0) {
             segmentInserted = YES;
-            [irSegmentedControl insertSegmentWithImage:[[IRSimpleCache sharedInstance] imageForURI:anSegment.image]
+            [irSegmentedControl insertSegmentWithImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:anSegment.image]
                                                atIndex:segmentIndex animated:NO];
         }
         if (segmentInserted) {

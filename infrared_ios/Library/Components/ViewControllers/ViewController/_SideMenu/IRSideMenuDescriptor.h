@@ -20,7 +20,9 @@
 @property (assign, readwrite, nonatomic) BOOL scaleBackgroundImageView;
 @property (assign, readwrite, nonatomic) BOOL scaleMenuView;
 @property (assign, readwrite, nonatomic) BOOL contentViewShadowEnabled;
+#if TARGET_OS_IPHONE
 @property (strong, readwrite, nonatomic) UIColor *contentViewShadowColor;
+#endif
 @property (assign, readwrite, nonatomic) CGSize contentViewShadowOffset;
 @property (assign, readwrite, nonatomic) CGFloat contentViewShadowOpacity;
 @property (assign, readwrite, nonatomic) CGFloat contentViewShadowRadius;
@@ -31,10 +33,14 @@
 @property (assign, readwrite, nonatomic) CGFloat parallaxMenuMaximumRelativeValue;
 @property (assign, readwrite, nonatomic) CGFloat parallaxContentMinimumRelativeValue;
 @property (assign, readwrite, nonatomic) CGFloat parallaxContentMaximumRelativeValue;
+#if TARGET_OS_IPHONE
 @property (assign, readwrite, nonatomic) CGAffineTransform menuViewControllerTransformation;
+#endif
 @property (assign, readwrite, nonatomic) BOOL parallaxEnabled;
 @property (assign, readwrite, nonatomic) BOOL bouncesHorizontally;
+#if TARGET_OS_IPHONE
 @property (assign, readwrite, nonatomic) UIStatusBarStyle menuPreferredStatusBarStyle;
+#endif
 @property (assign, readwrite, nonatomic) BOOL menuPrefersStatusBarHidden;
 
 @property (nonatomic, strong) NSString* leftMenuScreenId;

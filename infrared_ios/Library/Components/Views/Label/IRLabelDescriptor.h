@@ -14,6 +14,7 @@
 @property (nonatomic, getter=isAttributedTextEnabled) BOOL attributedTextEnabled;
 
 @property(nonatomic, strong) NSString *text;
+#if TARGET_OS_IPHONE
 @property(nonatomic, retain) UIColor *textColor;
 /*
 Types:
@@ -30,6 +31,7 @@ Examples:
   */
 @property(nonatomic, retain) UIFont *font;
 @property(nonatomic) NSTextAlignment textAlignment;
+#endif
 
 //@property(nonatomic, strong) NSAttributedString *attributedText;
 // TODO: Add remaining attributed text fields later
@@ -39,6 +41,7 @@ Examples:
 @property(nonatomic/*, getter=isHighlighted*/) BOOL highlighted;
 
 @property(nonatomic) BOOL adjustsFontSizeToFitWidth;
+#if TARGET_OS_IPHONE
 /*
  UIBaselineAdjustmentAlignBaselines = 0, UIBaselineAdjustmentAlignCenters, UIBaselineAdjustmentNone
  */
@@ -47,11 +50,14 @@ Examples:
  NSLineBreakByWordWrapping = 0, NSLineBreakByCharWrapping, NSLineBreakByClipping, NSLineBreakByTruncatingHead, NSLineBreakByTruncatingTail, NSLineBreakByTruncatingMiddle
  */
 @property(nonatomic) NSLineBreakMode lineBreakMode;
+#endif
 
 @property(nonatomic) CGFloat minimumScaleFactor;
 
+#if TARGET_OS_IPHONE
 @property(nonatomic, retain) UIColor *highlightedTextColor;
 @property(nonatomic, retain) UIColor *shadowColor;
+#endif
 @property(nonatomic) CGSize shadowOffset;
 
 @property(nonatomic) CGFloat preferredMaxLayoutWidth;

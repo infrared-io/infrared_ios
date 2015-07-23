@@ -90,7 +90,7 @@
                     "id" : "text_field2",
                     "type" : "textField",
                     "backgroundColor" : "#00ff0080",
-                    "text" : "TH Label",
+                    "text" : "IR Label",
                     "textAlignment" : "NSTextAlignmentCenter",
                     "textColor" : "#ffffffaa",
                     "font" : "SystemBold, 16",

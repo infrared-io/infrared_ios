@@ -15,6 +15,7 @@
 #import "IRScreenDescriptor.h"
 #import "IRViewDescriptor.h"
 #import "IRViewController.h"
+#import "IRUtil.h"
 
 
 @implementation IRButtonBuilder
@@ -46,9 +47,9 @@
     if (descriptor.normalTitleShadowColor) {
         [irButton setTitleShadowColor:descriptor.normalTitleShadowColor forState:UIControlStateNormal];
     }
-    [irButton setImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.normalImage]
+    [irButton setImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.normalImage]
               forState:UIControlStateNormal];
-    [irButton setBackgroundImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.normalBackgroundImage]
+    [irButton setBackgroundImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.normalBackgroundImage]
                         forState:UIControlStateNormal];
 
     [irButton setTitle:[IRBaseBuilder textWithI18NCheck:descriptor.highlightedTitle] forState:UIControlStateHighlighted];
@@ -58,9 +59,9 @@
     if (descriptor.highlightedTitleShadowColor) {
         [irButton setTitleShadowColor:descriptor.highlightedTitleShadowColor forState:UIControlStateHighlighted];
     }
-    [irButton setImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.highlightedImage]
+    [irButton setImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.highlightedImage]
               forState:UIControlStateHighlighted];
-    [irButton setBackgroundImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.highlightedBackgroundImage]
+    [irButton setBackgroundImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.highlightedBackgroundImage]
                         forState:UIControlStateHighlighted];
 
     [irButton setTitle:[IRBaseBuilder textWithI18NCheck:descriptor.selectedTitle] forState:UIControlStateSelected];
@@ -70,9 +71,9 @@
     if (descriptor.selectedTitleShadowColor) {
         [irButton setTitleShadowColor:descriptor.selectedTitleShadowColor forState:UIControlStateSelected];
     }
-    [irButton setImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.selectedImage]
+    [irButton setImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.selectedImage]
               forState:UIControlStateSelected];
-    [irButton setBackgroundImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.selectedBackgroundImage]
+    [irButton setBackgroundImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.selectedBackgroundImage]
                         forState:UIControlStateSelected];
 
     [irButton setTitle:[IRBaseBuilder textWithI18NCheck:descriptor.disabledTitle] forState:UIControlStateDisabled];
@@ -82,9 +83,9 @@
     if (descriptor.disabledTitleShadowColor) {
         [irButton setTitleShadowColor:descriptor.disabledTitleShadowColor forState:UIControlStateDisabled];
     }
-    [irButton setImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.disabledImage]
+    [irButton setImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.disabledImage]
               forState:UIControlStateDisabled];
-    [irButton setBackgroundImage:[[IRSimpleCache sharedInstance] imageForURI:descriptor.disabledBackgroundImage]
+    [irButton setBackgroundImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.disabledBackgroundImage]
                         forState:UIControlStateDisabled];
 
     irButton.titleLabel.font = descriptor.font;

@@ -8,18 +8,23 @@
 #define UPDATE_JSON_PATH            @"update.json"
 
 @class IRAppDescriptor;
-@class IRViewController;
 @class JSContext;
-@class IRView;
 @protocol IRComponentInfoProtocol;
 @class IRScreenDescriptor;
 @class IRLayoutConstraintDescriptor;
 @class IRLayoutConstraintMetricsDescriptor;
+#if TARGET_OS_IPHONE
+@class IRView;
+@class IRViewController;
+#endif
 
 @class IRGestureRecognizerDescriptor;
 @class IRBaseDescriptor;
 
-@interface IRDataController : NSObject <UIWebViewDelegate>
+@interface IRDataController : NSObject
+#if TARGET_OS_IPHONE
+  <UIWebViewDelegate>
+#endif
 
 @property (nonatomic, strong) IRAppDescriptor *appDescriptor;
 
@@ -42,10 +47,14 @@
 
 - (void) registerComponentDescriptor:(Class)baseDescriptorClass;
 - (Class)componentDescriptorClassByName:(NSString *)componentName;
+#if TARGET_OS_IPHONE
 - (void) addComponentConstructorsToJSContext:(JSContext *)context;
 - (void) addAllJSExportProtocols;
+#endif
 
+#if TARGET_OS_IPHONE
 - (IRViewController *) mainScreenViewController;
+#endif
 - (NSString *) mainScreenViewControllerId;
 
 - (IRScreenDescriptor *) screenDescriptorWithId:(NSString *)screenId;
@@ -54,20 +63,29 @@
 - (NSString *) screenIdForControllerId:(NSString *)controllerId;
 - (NSString *) controllerIdForScreenId:(NSString *)screenId;
 
+#if TARGET_OS_IPHONE
 - (void) initJSContext;
 - (JSContext *) globalJSContext;
 - (JSContext *) vcPluginExtensionJSContext;
+#endif
 
+#if TARGET_OS_IPHONE
 - (void) registerViewController:(id <IRComponentInfoProtocol>)component;
 - (void) unregisterViewController:(IRViewController *)viewController;
+#endif
 
+#if TARGET_OS_IPHONE
 - (void) registerView:(id <IRComponentInfoProtocol>)component
        viewController:(IRViewController *)viewController;
+#endif
 - (void) registerGlobalLayoutConstraintMetrics:(IRLayoutConstraintMetricsDescriptor *)descriptor;
 
+#if TARGET_OS_IPHONE
 - (void) registerGestureRecognizer:(id <IRComponentInfoProtocol>)component
                     viewController:(IRViewController *)viewController;
+#endif
 
+#if TARGET_OS_IPHONE
 - (void) registerViewsArray:(NSArray *)viewsArray
    inSameScreenAsParentView:(id<IRComponentInfoProtocol>)parentView;
 - (void)    registerView:(id <IRComponentInfoProtocol>)irView
@@ -76,16 +94,23 @@ inSameScreenAsParentView:(id<IRComponentInfoProtocol>)parentView;
 
 - (IRView *) viewWithId:(NSString *)viewId
          viewController:(IRViewController *)viewController;
+#endif
 
+#if TARGET_OS_IPHONE
 - (NSArray *) controllersWithId:(NSString *)controllerId;
+#endif
 
+#if TARGET_OS_IPHONE
 - (UIGestureRecognizer *) gestureRecognizerWithId:(NSString *)gestureRecognizerId
                                    viewController:(IRViewController *)viewController;
+#endif
 
 - (IRLayoutConstraintMetricsDescriptor *) layoutConstraintMetricsWithId:(NSString *)metricsId;
 
+#if TARGET_OS_IPHONE
 - (id) objectWithId:(NSString *)objectId
              viewController:(IRViewController *)viewController
 insideIdsAndComponentsArray:(NSArray *)idsAndComponentsArray;
+#endif
 
 @end

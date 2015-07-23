@@ -5,9 +5,11 @@
 
 #import <objc/runtime.h>
 #import "IRProgressViewDescriptor.h"
-#import "IRProgressViewBuilder.h"
 #import "IRUtil.h"
+#if TARGET_OS_IPHONE
+#import "IRProgressViewBuilder.h"
 #import "IRProgressView.h"
+#endif
 
 
 @implementation IRProgressViewDescriptor
@@ -16,6 +18,7 @@
 {
     return typeProgressViewKEY;
 }
+#if TARGET_OS_IPHONE
 + (Class) componentClass
 {
     return [IRProgressView class];
@@ -30,6 +33,7 @@
 {
     class_addProtocol([UIProgressView class], @protocol(UIProgressViewExport));
 }
+#endif
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
@@ -38,9 +42,11 @@
         NSNumber *number;
         NSString *string;
 
+#if TARGET_OS_IPHONE
         // progressViewStyle
         string = aDictionary[NSStringFromSelector(@selector(progressViewStyle))];
         self.progressViewStyle = [IRBaseDescriptor progressViewStyleFromString:string];
+#endif
 
         // progress
         number = aDictionary[NSStringFromSelector(@selector(progress))];
@@ -50,6 +56,7 @@
             self.progress = 0;
         }
 
+#if TARGET_OS_IPHONE
         // progressTintColor
         string = aDictionary[NSStringFromSelector(@selector(progressTintColor))];
         self.progressTintColor = [IRUtil transformHexColorToUIColor:string];
@@ -57,6 +64,7 @@
         // trackTintColor
         string = aDictionary[NSStringFromSelector(@selector(trackTintColor))];
         self.trackTintColor = [IRUtil transformHexColorToUIColor:string];
+#endif
 
         // progressImage
         string = aDictionary[NSStringFromSelector(@selector(progressImage))];
@@ -71,10 +79,10 @@
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
-    if (self.progressImage && [IRUtil isLocalFile:self.progressImage] == NO) {
+    if (self.progressImage && [IRUtil isFileForDownload:self.progressImage]) {
         [imagePaths addObject:self.progressImage];
     }
-    if (self.trackImage && [IRUtil isLocalFile:self.trackImage] == NO) {
+    if (self.trackImage && [IRUtil isFileForDownload:self.trackImage]) {
         [imagePaths addObject:self.trackImage];
     }
 }
