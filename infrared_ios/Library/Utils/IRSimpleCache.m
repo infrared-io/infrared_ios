@@ -68,7 +68,7 @@ static IRSimpleCache *sharedCache;
         filePath = [self.cacheFolderPath stringByAppendingPathComponent:fileId];
         hasDataForURI = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
         if (hasDataForURI == NO) {
-            fileId = [IRUtil fileNameFromPath:uri];
+//            fileId = [IRUtil fileNameFromPath:uri];
             filePath = [self.extraCacheFolderPath stringByAppendingPathComponent:fileId];
             hasDataForURI = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
         }
@@ -122,7 +122,7 @@ static IRSimpleCache *sharedCache;
         filePath = [self.cacheFolderPath stringByAppendingPathComponent:fileId];
         dataForURI = [NSData dataWithContentsOfFile:filePath];
         if (dataForURI == nil) {
-            fileId = [IRUtil fileNameFromPath:uri];
+//            fileId = [IRUtil fileNameFromPath:uri];
             filePath = [self.extraCacheFolderPath stringByAppendingPathComponent:fileId];
             dataForURI = [NSData dataWithContentsOfFile:filePath];
         }

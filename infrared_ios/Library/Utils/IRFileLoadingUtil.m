@@ -42,7 +42,12 @@
         return failedLoadingPaths;
     }
     if ([IRUtil isLocalFile:filePath]) { // [IRUtil isValidURLWithHostAndPath:filePath]
-        fileDestinationPath = [destinationPath stringByAppendingFormat:@"/%@", filePath];
+//        fileDestinationPath = [destinationPath stringByAppendingFormat:@"/%@", filePath];
+        if (preserverName) {
+            fileDestinationPath = [destinationPath stringByAppendingFormat:@"/%@", [IRUtil fileNameFromPath:filePath]];
+        } else {
+            fileDestinationPath = [destinationPath stringByAppendingFormat:@"/%@", [[IRSimpleCache sharedInstance] fileIdForURI:filePath]];
+        }
         if ([[NSFileManager defaultManager] fileExistsAtPath:fileDestinationPath]) {
 //            NSLog(@"IRFileLoadingUtil-downloadOrCopyFilesFromPathsArray - copyItemAtURL '%@': file already exist - NO copying", filePath);
         } else {
