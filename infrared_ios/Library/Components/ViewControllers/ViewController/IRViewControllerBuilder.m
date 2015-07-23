@@ -185,7 +185,7 @@
                 }
             }
             anTabBarViewController.tabBarItem.title = irTabBarItemDescriptor.title;
-            anTabBarViewController.tabBarItem.image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:irTabBarItemDescriptor.title];
+            anTabBarViewController.tabBarItem.image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:irTabBarItemDescriptor.image];
 
             if (anTabBarViewController) {
                 [viewControllersArray addObject:anTabBarViewController];

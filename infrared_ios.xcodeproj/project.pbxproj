@@ -129,7 +129,6 @@
 		F613A2BE58E238292A9FF2CF /* IRViewControllerBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A9498AA8E8F3B005717B /* IRViewControllerBuilder.m */; };
 		F613A2D4EDC0F35EBFA94B34 /* IRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AAF9D0DFC19A663A507E /* IRNavigationController.m */; };
 		F613A2DB2F00B1A93DEC4EBE /* IRView.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A9D9371996CAF1F2951E /* IRView.m */; };
-		F613A2E04A71144A8EB5C216 /* NSURLRequest+IgnoreSSL.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A34B4C67916370BEF21E /* NSURLRequest+IgnoreSSL.m */; };
 		F613A2F4BE9343FF5B89C1EE /* IRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AB3090839399CE05C747 /* IRTabBarController.m */; };
 		F613A2FF97A01D3C7D52AFAD /* IRPinAnnotationViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A694CE6F2D23AD802635 /* IRPinAnnotationViewDescriptor.m */; };
 		F613A30B31223A38D586C8B0 /* IRLayoutConstraintICSPriorityDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A285B5F7DCAFC4A2E0E2 /* IRLayoutConstraintICSPriorityDescriptor.m */; };
@@ -2621,7 +2620,6 @@
 				155B445E1B600CD8006E88D8 /* IRPickerViewDescriptor.m in Sources */,
 				155B441F1B600C2F006E88D8 /* IRViewDescriptor.m in Sources */,
 				155B44271B600C4D006E88D8 /* IRGestureRecognizerDescriptor.m in Sources */,
-				F613A2E04A71144A8EB5C216 /* NSURLRequest+IgnoreSSL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

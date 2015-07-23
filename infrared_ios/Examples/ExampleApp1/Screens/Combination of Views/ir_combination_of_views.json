@@ -16,7 +16,7 @@
       {
         "id" : "whole_ui",
         "type" : "view",
-        "backgroundColor" : "#00ff0080",
+        "backgroundColor" : "#00ff00",
         "subviews" : [
           {
             "id" : "internal_scroll_view",
@@ -30,7 +30,7 @@
               {
                 "id" : "internal_view",
                 "type" : "view",
-                "backgroundColor" : "#0000ff80",
+                "backgroundColor" : "#0000ff",
                 "subviews" : [
                   {
                     "id" : "title_label",
