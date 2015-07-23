@@ -15,8 +15,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 
-    NSString *appJsonPath = @"ir_app.json";
-//    NSString *appJsonPath = @"https://dl.dropboxusercontent.com/u/133728/ExampleApp1/ir_app.json";
+//    NSString *appJsonPath = @"ir_app.json";
+    NSString *appJsonPath = @"https://dl.dropboxusercontent.com/u/133728/ExampleApp1/ir_app.json";
     [[Infrared sharedInstance] buildInfraredAppFromPath:appJsonPath];
 
     return YES;

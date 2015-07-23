@@ -113,6 +113,7 @@
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
 {
     [self.navigationController extendImagePathsArray:imagePaths];
+    [self.tabBarController extendImagePathsArray:imagePaths];
     [self.sideMenu extendImagePathsArray:imagePaths];
 }
 

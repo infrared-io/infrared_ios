@@ -68,15 +68,20 @@
     NSArray *paths;
     NSString *documentsDirectory;
 
+    NSLog(@"#############################");
+    NSLog(@"###  Precaching Started!  ###\n\n");
+
     [IRPrecache registerComponents];
 
     // clean precache folder
     [IRPrecache cleanPrecacheFolder];
 
     // build global App descriptor
+    NSLog(@"1. Downloading JSON UI Files ...");
     dictionary = [IRUtil dictionaryFromPath:path];
     appDescriptor = (IRAppDescriptor *) [IRBaseDescriptor newAppDescriptorWithDictionary:dictionary];
     [IRDataController sharedInstance].appDescriptor = appDescriptor;
+    NSLog(@"    ... Done\n\n");
 
     // ------------------------------------------------------------------------
     // ------------------------------------------------------------------------
@@ -86,6 +91,7 @@
     documentsDirectory = [paths firstObject];
 
     // 1) cache Fonts
+    NSLog(@"2. Downloading Fonts ...");
     resourcesPathComponent = [IRUtil resourcesPathForAppDescriptor:appDescriptor];
     pathsArray = appDescriptor.fontsArray;
     pathsArray = [IRPrecache processFilePathsArray:pathsArray appDescriptor:appDescriptor];
@@ -94,8 +100,10 @@
                                          destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
                                             preserveName:YES
                                       failedLoadingPaths:failedPathsArray];
+    NSLog(@"    ... Done\n\n");
 
     // 2) download and cache all images
+    NSLog(@"3. Donwloading Images ...");
     resourcesPathComponent = [IRUtil resourcesPathForAppDescriptor:appDescriptor];
     NSArray *imagePathsArray = [IRBaseDescriptor allImagePaths];
     imagePathsArray = [IRPrecache processFilePathsArray:imagePathsArray appDescriptor:appDescriptor];
@@ -104,17 +112,21 @@
                                          destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
                                             preserveName:NO
                                       failedLoadingPaths:failedImagePathsArray];
+    NSLog(@"    ... Done\n\n");
     
     // 3) download and cache JS files
     jsonPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:appDescriptor];
 //    // 3.1)  internal JS libraries
+    NSLog(@"4. Copying Internal JS Libaries ...");
     pathsArray = @[@"infrared.js", @"infrared_md5.min.js", @"zeroTimeout.js", @"zeroTimeoutWorker.js", @"watch.js"];
     failedPathsArray = [NSMutableArray array];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
                                          destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
                                             preserveName:YES
                                       failedLoadingPaths:failedPathsArray];
+    NSLog(@"    ... Done\n\n");
     // 3.2) all JSPlugin files
+    NSLog(@"5. Downloading JSPlugin Files ...");
     pathsArray = [IRBaseDescriptor allJSFilesPaths];
     pathsArray = [IRPrecache processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
@@ -122,7 +134,9 @@
                                          destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
                                             preserveName:YES
                                       failedLoadingPaths:failedPathsArray];
+    NSLog(@"    ... Done\n\n");
     // 3.3) all JSLibrary files
+    NSLog(@"6. Downloading JS Libraries ...");
     pathsArray = appDescriptor.jsLibrariesArray;
     pathsArray = [IRPrecache processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
@@ -130,7 +144,9 @@
                                          destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
                                             preserveName:YES
                                       failedLoadingPaths:failedPathsArray];
+    NSLog(@"    ... Done\n\n");
     // 3.4) all I18N files
+    NSLog(@"7. Downloading I18N Files ...");
     pathsArray = [appDescriptor.i18n.languagesArray allValues];
     pathsArray = [IRPrecache processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
@@ -138,6 +154,10 @@
                                          destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
                                             preserveName:YES
                                       failedLoadingPaths:failedPathsArray];
+    NSLog(@"    ... Done\n\n");
+
+    NSLog(@"### Precaching Completed! ###");
+    NSLog(@"#############################");
 }
 
 + (void) registerComponents

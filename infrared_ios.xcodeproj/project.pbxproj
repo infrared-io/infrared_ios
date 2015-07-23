@@ -99,6 +99,11 @@
 		155B44981B601075006E88D8 /* IRFileLoadingUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A28056AD44333B7BE079 /* IRFileLoadingUtil.m */; };
 		155B44991B60107D006E88D8 /* IRUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A994D33A5A8B1BFFC963 /* IRUtil.m */; };
 		155B449B1B605029006E88D8 /* IRDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6CFFC401CB61EF09167 /* IRDataController.m */; };
+		155B44A21B61483C006E88D8 /* watch.js in Copy Files */ = {isa = PBXBuildFile; fileRef = F613A457D3E0937EB707308B /* watch.js */; };
+		155B44A31B61483F006E88D8 /* infrared.js in Copy Files */ = {isa = PBXBuildFile; fileRef = F613A894C64399B19D6F651B /* infrared.js */; };
+		155B44A41B614841006E88D8 /* zeroTimeout.js in Copy Files */ = {isa = PBXBuildFile; fileRef = F613A7916AF500482444ABCA /* zeroTimeout.js */; };
+		155B44A51B614844006E88D8 /* zeroTimeoutWorker.js in Copy Files */ = {isa = PBXBuildFile; fileRef = F613A35FA850D772BA39BF9D /* zeroTimeoutWorker.js */; };
+		155B44A61B614848006E88D8 /* infrared_md5.min.js in Copy Files */ = {isa = PBXBuildFile; fileRef = F613A2509E4D754ED269B91E /* infrared_md5.min.js */; };
 		1572FA251A3C42700087D18A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1572FA241A3C42700087D18A /* MapKit.framework */; };
 		BB7368F0D072D98A7BEB9B7E /* libPods-infrared_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5898BCB4DDC8E23F97DC8411 /* libPods-infrared_ios.a */; };
 		F613A0062C4D9585FD46D778 /* IRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AF33EB3C7F2647FB65C7 /* IRNavigationBar.m */; };
@@ -312,14 +317,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		155B43981B5FD1E8006E88D8 /* CopyFiles */ = {
+		155B43981B5FD1E8006E88D8 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 7;
 			files = (
+				155B44A21B61483C006E88D8 /* watch.js in Copy Files */,
+				155B44A31B61483F006E88D8 /* infrared.js in Copy Files */,
+				155B44A61B614848006E88D8 /* infrared_md5.min.js in Copy Files */,
+				155B44A41B614841006E88D8 /* zeroTimeout.js in Copy Files */,
+				155B44A51B614844006E88D8 /* zeroTimeoutWorker.js in Copy Files */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -2175,7 +2186,7 @@
 				155B449C1B611898006E88D8 /* Copy all JS files into built app */,
 				155B43961B5FD1E8006E88D8 /* Sources */,
 				155B43971B5FD1E8006E88D8 /* Frameworks */,
-				155B43981B5FD1E8006E88D8 /* CopyFiles */,
+				155B43981B5FD1E8006E88D8 /* Copy Files */,
 			);
 			buildRules = (
 			);
