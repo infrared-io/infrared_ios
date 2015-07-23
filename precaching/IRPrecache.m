@@ -49,15 +49,23 @@
 + (void) precacheInfraredAppFromPath:(NSString *)path
        withExtraComponentDescriptors:(NSArray *)descriptorClassedArray
 {
-    // 1) register additional components
+    // 1) register internal components
+    [IRPrecache registerComponents];
+    // 2) register additional components
     for (Class anDescriptorClass in descriptorClassedArray) {
         [[IRDataController sharedInstance] registerComponentDescriptor:anDescriptorClass];
     }
-    // 2) precache app
-    [IRPrecache precacheInfraredAppFromPath:path];
+    // 3) precache app
+    [IRPrecache precacheInfraredAppFromPath:path registerComponents:NO];
 }
 
 + (void) precacheInfraredAppFromPath:(NSString *)path
+{
+    [IRPrecache precacheInfraredAppFromPath:path registerComponents:YES];
+}
+
++ (void) precacheInfraredAppFromPath:(NSString *)path
+                  registerComponents:(BOOL)registerComponents
 {
     NSDictionary *dictionary;
     IRAppDescriptor *appDescriptor;
@@ -71,7 +79,9 @@
     NSLog(@"#############################");
     NSLog(@"###  Precaching Started!  ###\n\n");
 
-    [IRPrecache registerComponents];
+    if (registerComponents) {
+        [IRPrecache registerComponents];
+    }
 
     // clean precache folder
     [IRPrecache cleanPrecacheFolder];
