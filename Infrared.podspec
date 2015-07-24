@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "Infrared"
   s.version      = "0.9.1"
-  s.summary      = "Building native iOS apps which can be update without App Store."
+  s.summary      = "Building native iOS apps with JavaScript."
 
   s.homepage     = "http://infrared.io"
 
@@ -92,7 +92,9 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-    s.frameworks = "SystemConfiguration", "MapKit", "CoreGraphics", "UIKit", "Security"
+  s.frameworks = "SystemConfiguration", "MapKit", "CoreGraphics", "UIKit", "Security"
+
+  s.library   = 'libz.dylib'
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

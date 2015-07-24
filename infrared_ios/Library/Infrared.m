@@ -49,6 +49,7 @@
 #import "IRCollectionViewCellDescriptor.h"
 #import "IRCollectionReusableViewDescriptor.h"
 #import "IRWebViewDescriptor.h"
+#import "Main.h"
 #import <CoreText/CoreText.h>
 
 @interface Infrared ()
@@ -111,7 +112,23 @@ static Infrared *sharedInfraRed = nil;
 #pragma mark - Public methods
 
 - (void) buildInfraredAppFromPath:(NSString *)path
-    withExtraComponentDescriptors:(NSArray *)descriptorClassedArray
+        extraComponentDescriptors:(NSArray *)descriptorClassedArray
+                 precacheFileName:(NSString *)precacheFileName
+{
+    NSAssert(false, @"This is not fully supported yet. Precaching does NOT work with extra components at the moment");
+    [self buildInfraredAppFromPath:path
+         extraComponentDescriptors:descriptorClassedArray];
+}
+- (void) buildInfraredAppFromPath:(NSString *)path
+                 precacheFileName:(NSString *)precacheFileName
+{
+    NSString *precachePath = [[NSBundle mainBundle] pathForResource:precacheFileName ofType:@""];
+    [Main unzipFileAtPath:precachePath
+            toDestination:@""];
+    [self buildInfraredAppFromPath:path];
+}
+- (void) buildInfraredAppFromPath:(NSString *)path
+        extraComponentDescriptors:(NSArray *)descriptorClassedArray
 {
     [self registerExtraComponentDescriptors:descriptorClassedArray];
     [self buildInfraredAppFromPath:path];

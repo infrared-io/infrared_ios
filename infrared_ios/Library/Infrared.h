@@ -17,7 +17,12 @@
 + (Infrared *)sharedInstance;
 
 - (void) buildInfraredAppFromPath:(NSString *)path
-    withExtraComponentDescriptors:(NSArray *)descriptorClassedArray;
+        extraComponentDescriptors:(NSArray *)descriptorClassedArray
+                 precacheFileName:(NSString *)precacheFileName;
+- (void) buildInfraredAppFromPath:(NSString *)path
+                 precacheFileName:(NSString *)precacheFileName;
+- (void) buildInfraredAppFromPath:(NSString *)path
+        extraComponentDescriptors:(NSArray *)descriptorClassedArray;
 - (void) buildInfraredAppFromPath:(NSString *)path;
 
 - (void) buildInfraredAppFromPath2ndPhase;

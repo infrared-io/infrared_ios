@@ -45,6 +45,8 @@
 #import "IRWebViewDescriptor.h"
 #import "Main.h"
 
+#define PROCESSING_DIRECTORY_NAME      @"Processing"
+
 @implementation IRPrecache
 
 + (void) precacheInfraredAppFromPath:(NSString *)path
@@ -176,22 +178,61 @@
 
     // 5) Zip all files
     NSLog(@"8. Createing Zip Archive ...");
-    NSString *zipDestinationPath = [precacheDirectory stringByAppendingFormat:@"/IRPrecache_%@_%d.zip",
-                                                      appDescriptor.app, appDescriptor.version];
-    NSString *dictionaryWithContent = [precacheDirectory stringByAppendingPathComponent:[IRUtil documentsBasePathForInfrared]];
-//    dictionaryWithContent = [dictionaryWithContent stringByAppendingPathComponent:appDescriptor.app];
-    [Main createZipFileAtPath:zipDestinationPath
-      withContentsOfDirectory:dictionaryWithContent];
+    BOOL folderAvailable = [IRFileLoadingUtil crateNoSyncFolderIfNeeded:
+                                                [precacheDirectory stringByAppendingPathComponent:PROCESSING_DIRECTORY_NAME]];
+    if (folderAvailable == NO) {
+        NSAssert(false, [NSString stringWithFormat:@"Directory \"%@\" can NOT be created!", PROCESSING_DIRECTORY_NAME]);
+    }
+    // -- compress app data
+    NSString *zipDataDestinationPath = [precacheDirectory stringByAppendingFormat:@"/%@/IRPrecacheData_%@_%d.zip",
+                                                                                  PROCESSING_DIRECTORY_NAME,
+                                                                                  appDescriptor.app,
+                                                                                  appDescriptor.version];
+    NSString *irDataDictionary = [precacheDirectory stringByAppendingPathComponent:[IRUtil documentsBasePathForInfrared]];
+    [Main createZipFileAtPath:zipDataDestinationPath
+      withContentsOfDirectory:irDataDictionary];
+    // -- add App/Version data
+    NSString *appAndVersionJson = [NSString stringWithFormat:@"{\"%@\": \"%@\", \"%@\": %d}",
+                                            appKEY, appDescriptor.app,
+                                            appVersionKEY, appDescriptor.version];
+    NSString *appAndVersionDataPath = [precacheDirectory stringByAppendingFormat:@"/%@/AppAndVersion.txt", PROCESSING_DIRECTORY_NAME];
+    NSError *error;
+    BOOL succeed = [appAndVersionJson writeToFile:appAndVersionDataPath
+                                       atomically:YES
+                                         encoding:NSUTF8StringEncoding
+                                            error:&error];
+    if (!succeed){
+        NSAssert(false, @"App and Version file could NOT be saved!");
+    }
+    // -- create final zip
+    NSString *precacheFileName = [NSString stringWithFormat:@"IRPrecache_%@_%d.zip",
+                                                            appDescriptor.app,
+                                                            appDescriptor.version];
+    NSString *finalZipDestinationPath = [precacheDirectory stringByAppendingFormat:@"/%@", precacheFileName];
+    NSString *processingDictionary = [irDataDictionary stringByAppendingPathComponent:PROCESSING_DIRECTORY_NAME];
+    [Main createZipFileAtPath:finalZipDestinationPath
+      withContentsOfDirectory:processingDictionary];
     NSLog(@"    ... Done\n\n");
 
-    NSLog(@"Copy zip archive from path \"%@\" and paste it to your Infrared project.\n", zipDestinationPath);
-    NSLog(@"In your Infrard project set method \"\" to point to zip archive.\n");
-    NSLog(@"Example:\n");
-    NSLog(@"\n");
-    NSLog(@"\n\n");
+    NSLog(@"\n\n\n"
+           "#####################################################################################################\n"
+           "########################                Precaching Completed!                ########################"
+           "\n\n\n"
+           "Copy zip archive from path \"%@\" and paste it to your Infrared project. \n"
+           "(Don't forget to add it to Xcode project)\n\n"
+           "In your Infrared project init app with following method: \n"
+           "[Infrared buildInfraredAppFromPath:@\"PATH_HERE\" precacheFileName:@\"%@\"]"
+           "\n\n\n"
+           "#####################################################################################################"
+           "",
+           finalZipDestinationPath, precacheFileName);
+//    NSLog(@"In your Infrared project use method ``[Infrared buildInfraredAppFromPath:@\"PATH_HERE\" precacheFileName:@\"%@\"]`` to init app.\n", finalZipDestinationPath);
+//    NSLog(@"Example:\n");
+//    NSLog(@"\n");
+//    NSLog(@"\n\n");
 
-    NSLog(@"### Precaching Completed! ###");
-    NSLog(@"#############################");
+//    NSLog(@"### Precaching Completed! ###");
+//    NSLog(@"#############################");
 }
 
 + (void) registerComponents
@@ -248,7 +289,7 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
-    NSString *finalPath = [documentsDirectory stringByAppendingPathComponent:[IRUtil documentsBasePathForInfrared]];
+    NSString *finalPath = [documentsDirectory stringByAppendingPathComponent:@"IRPrecache"];
     NSError *error;
     if ([[NSFileManager defaultManager] fileExistsAtPath:finalPath]) {
         [[NSFileManager defaultManager] removeItemAtPath:finalPath error:&error];
