@@ -45,6 +45,7 @@
 #import "IRWebViewDescriptor.h"
 #import "Main.h"
 
+#define IRPRECACHE_DIRECTORY_NAME      @"IRPrecache"
 #define PROCESSING_DIRECTORY_NAME      @"Processing"
 
 @implementation IRPrecache
@@ -92,7 +93,7 @@
 
     paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     documentsDirectory = [paths firstObject];
-    precacheDirectory = [documentsDirectory stringByAppendingPathComponent:@"IRPrecache"];
+    precacheDirectory = [documentsDirectory stringByAppendingPathComponent:IRPRECACHE_DIRECTORY_NAME];
 
     // 1) cache App.json and build global App descriptor
     NSLog(@"1. Downloading JSON UI Files ...");
@@ -181,7 +182,8 @@
     BOOL folderAvailable = [IRFileLoadingUtil crateNoSyncFolderIfNeeded:
                                                 [precacheDirectory stringByAppendingPathComponent:PROCESSING_DIRECTORY_NAME]];
     if (folderAvailable == NO) {
-        NSAssert(false, [NSString stringWithFormat:@"Directory \"%@\" can NOT be created!", PROCESSING_DIRECTORY_NAME]);
+        NSString *description = [NSString stringWithFormat:@"Directory \"%@\" can NOT be created!", PROCESSING_DIRECTORY_NAME];
+        NSAssert(false, description);
     }
     // -- compress app data
     NSString *zipDataDestinationPath = [precacheDirectory stringByAppendingFormat:@"/%@/IRPrecacheData_%@_%d.zip",
@@ -209,7 +211,7 @@
                                                             appDescriptor.app,
                                                             appDescriptor.version];
     NSString *finalZipDestinationPath = [precacheDirectory stringByAppendingFormat:@"/%@", precacheFileName];
-    NSString *processingDictionary = [irDataDictionary stringByAppendingPathComponent:PROCESSING_DIRECTORY_NAME];
+    NSString *processingDictionary = [precacheDirectory stringByAppendingPathComponent:PROCESSING_DIRECTORY_NAME];
     [Main createZipFileAtPath:finalZipDestinationPath
       withContentsOfDirectory:processingDictionary];
     NSLog(@"    ... Done\n\n");
@@ -226,13 +228,6 @@
            "#####################################################################################################"
            "",
            finalZipDestinationPath, precacheFileName);
-//    NSLog(@"In your Infrared project use method ``[Infrared buildInfraredAppFromPath:@\"PATH_HERE\" precacheFileName:@\"%@\"]`` to init app.\n", finalZipDestinationPath);
-//    NSLog(@"Example:\n");
-//    NSLog(@"\n");
-//    NSLog(@"\n\n");
-
-//    NSLog(@"### Precaching Completed! ###");
-//    NSLog(@"#############################");
 }
 
 + (void) registerComponents
@@ -289,7 +284,7 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
-    NSString *finalPath = [documentsDirectory stringByAppendingPathComponent:@"IRPrecache"];
+    NSString *finalPath = [documentsDirectory stringByAppendingPathComponent:IRPRECACHE_DIRECTORY_NAME];
     NSError *error;
     if ([[NSFileManager defaultManager] fileExistsAtPath:finalPath]) {
         [[NSFileManager defaultManager] removeItemAtPath:finalPath error:&error];

@@ -388,7 +388,6 @@
 		F613A013B0EBAC049D1719B9 /* IRToolbarDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRToolbarDescriptor.m; sourceTree = "<group>"; };
 		F613A037F9AA01066A5F0CDF /* IRTextViewDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTextViewDescriptor.m; sourceTree = "<group>"; };
 		F613A03DDC69E9B9C57A8B97 /* UINavigationItemExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationItemExport.h; sourceTree = "<group>"; };
-		F613A0409E69C320CB7269F9 /* NSURLRequest+IgnoreSSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+IgnoreSSL.h"; sourceTree = "<group>"; };
 		F613A050D3D6692A6FFABCB4 /* IRSwitchDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSwitchDescriptor.m; sourceTree = "<group>"; };
 		F613A0548D9AEA58673CDB8E /* IRTextFieldDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTextFieldDescriptor.h; sourceTree = "<group>"; };
 		F613A05B1174F4F36E0F2EF0 /* IRGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRGestureRecognizerExport.h; sourceTree = "<group>"; };
@@ -468,7 +467,6 @@
 		F613A34266FCD62AB1D38ADD /* IRPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPinAnnotationView.h; sourceTree = "<group>"; };
 		F613A3471ACD3AF33EA33B68 /* IRLayoutConstraintMetricsDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLayoutConstraintMetricsDescriptor.m; sourceTree = "<group>"; };
 		F613A34801298B420310FEE6 /* update_de.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = update_de.json; sourceTree = "<group>"; };
-		F613A34B4C67916370BEF21E /* NSURLRequest+IgnoreSSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+IgnoreSSL.m"; sourceTree = "<group>"; };
 		F613A34DD99E60ADF2DF74B5 /* IRButtonDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRButtonDescriptor.m; sourceTree = "<group>"; };
 		F613A35C990FCD84B5A61050 /* IRTextFieldObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTextFieldObserver.m; sourceTree = "<group>"; };
 		F613A35DFB8D2FEE9226CC09 /* IRPickerViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPickerViewBuilder.h; sourceTree = "<group>"; };
@@ -961,7 +959,6 @@
 				155B439C1B5FD1E8006E88D8 /* main.m */,
 				155B43AE1B5FE1F7006E88D8 /* IRPrecache.h */,
 				155B43AC1B5FE1D3006E88D8 /* IRPrecache.m */,
-				F613A170AFE1E20250D91C31 /* NSURLRequestCategory */,
 			);
 			path = precaching;
 			sourceTree = "<group>";
@@ -1083,15 +1080,6 @@
 				F613A76D2E7821A9C137BBBA /* UIProgressViewExport.h */,
 			);
 			path = ProgressView;
-			sourceTree = "<group>";
-		};
-		F613A170AFE1E20250D91C31 /* NSURLRequestCategory */ = {
-			isa = PBXGroup;
-			children = (
-				F613A34B4C67916370BEF21E /* NSURLRequest+IgnoreSSL.m */,
-				F613A0409E69C320CB7269F9 /* NSURLRequest+IgnoreSSL.h */,
-			);
-			path = NSURLRequestCategory;
 			sourceTree = "<group>";
 		};
 		F613A1B4DF663264956B56F5 /* TextField */ = {
