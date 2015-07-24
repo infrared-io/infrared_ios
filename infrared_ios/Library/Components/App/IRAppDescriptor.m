@@ -19,6 +19,10 @@
         NSArray *array;
         NSDictionary *dictionary;
 
+        if (self.app == nil || [self.app length] == 0) {
+            NSAssert(false, @"App Descriptor must have \"id\" property set");
+        }
+
         // version
         number = aDictionary[appVersionKEY];
         if ([number integerValue] >= 0) {
@@ -75,6 +79,10 @@
     if (self) {
         NSNumber *number;
 
+        if (self.app == nil || [self.app length] == 0) {
+            NSAssert(false, @"App Descriptor must have \"id\" property set");
+        }
+
         // version
         number = aDictionary[appVersionKEY];
         if ([number integerValue] >= 0) {
@@ -101,6 +109,10 @@
         NSString *string;
         NSNumber *number;
         NSArray *array;
+
+        if (self.app == nil || [self.app length] == 0) {
+            NSAssert(false, @"App Descriptor must have \"id\" property set");
+        }
 
         // version
         number = aDictionary[appVersionKEY];
