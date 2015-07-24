@@ -10,25 +10,25 @@
 
 @implementation IRFileLoadingUtil
 
-+ (void) downloadOrCopyFilesFromPathsArray:(NSArray *)filePathsArray
-                           destinationPath:(NSString *)destinationPath
-                              preserveName:(BOOL)preserverName
-                        failedLoadingPaths:(NSMutableArray *)failedPaths
++ (void) downloadOrCopyFilesFromPathsArrayIfNeeded:(NSArray *)filePathsArray
+                                   destinationPath:(NSString *)destinationPath
+                                      preserveName:(BOOL)preserverName
+                                failedLoadingPaths:(NSMutableArray *)failedPaths
 {
     BOOL failedLoadingPaths;
     for (NSString *anFilePath in filePathsArray) {
-        failedLoadingPaths = [IRFileLoadingUtil downloadOrCopyFileWithPath:anFilePath
-                                                           destinationPath:destinationPath
-                                                              preserveName:preserverName];
+        failedLoadingPaths = [IRFileLoadingUtil downloadOrCopyFileWithPathIfNeeded:anFilePath
+                                                                   destinationPath:destinationPath
+                                                                      preserveName:preserverName];
         if (failedLoadingPaths) {
             [failedPaths addObject:anFilePath];
         }
     }
 }
 
-+ (BOOL) downloadOrCopyFileWithPath:(NSString *)filePath
-                    destinationPath:(NSString *)destinationPath
-                       preserveName:(BOOL)preserverName
++ (BOOL) downloadOrCopyFileWithPathIfNeeded:(NSString *)filePath
+                            destinationPath:(NSString *)destinationPath
+                               preserveName:(BOOL)preserverName
 {
     BOOL failedLoadingPaths = NO;
     BOOL folderAvailable = NO;

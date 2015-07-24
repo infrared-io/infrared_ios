@@ -39,6 +39,9 @@ typedef enum {
                                                          app:(NSString *)app
                                                      version:(NSInteger)version
                                                      baseUrl:(NSString *)baseUrl;
+#if TARGET_OS_IPHONE
++ (BOOL) isDeviceTypeMatchingDevice:(NSString *)deviceType;
+#endif
 
 + (NSMutableArray *) viewDescriptorsHierarchyFromArray:(NSArray *)aArray;
 

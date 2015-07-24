@@ -5,6 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define APP_AND_VERSION_SUITED_NAME @"io.infrared.library"
+
 @class IRBaseDescriptor;
 @class IRViewController;
 @class IRAppDescriptor;

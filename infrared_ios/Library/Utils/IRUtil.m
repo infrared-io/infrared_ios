@@ -17,7 +17,6 @@
 #import "IRViewController.h"
 #endif
 
-#define APP_AND_VERSION_SUITED_NAME @"io.infrared.library"
 
 @implementation IRUtil
 
@@ -128,9 +127,9 @@
 #endif
 
     // -- download or copy JSON files ot cache folder (if needed)
-    [IRFileLoadingUtil downloadOrCopyFileWithPath:path
-                                  destinationPath:destinationPath
-                                     preserveName:YES];
+    [IRFileLoadingUtil downloadOrCopyFileWithPathIfNeeded:path
+                                          destinationPath:destinationPath
+                                             preserveName:YES];
 
     // -- load json and build dictionary from it
     NSData *fileData = [IRFileLoadingUtil dataForFileWithPath:path

@@ -8,14 +8,14 @@
 
 @interface IRFileLoadingUtil : NSObject
 
-+ (void) downloadOrCopyFilesFromPathsArray:(NSArray *)filePathsArray
-                           destinationPath:(NSString *)destinationPath
-                              preserveName:(BOOL)preserverName
-                        failedLoadingPaths:(NSMutableArray *)failedPaths;
++ (void) downloadOrCopyFilesFromPathsArrayIfNeeded:(NSArray *)filePathsArray
+                                   destinationPath:(NSString *)destinationPath
+                                      preserveName:(BOOL)preserverName
+                                failedLoadingPaths:(NSMutableArray *)failedPaths;
 
-+ (BOOL) downloadOrCopyFileWithPath:(NSString *)filePath
-                    destinationPath:(NSString *)destinationPath
-                       preserveName:(BOOL)preserverName;
++ (BOOL) downloadOrCopyFileWithPathIfNeeded:(NSString *)filePath
+                            destinationPath:(NSString *)destinationPath
+                               preserveName:(BOOL)preserverName;
 
 + (BOOL) crateNoSyncFolderIfNeeded:(NSString *)folderPath;
 

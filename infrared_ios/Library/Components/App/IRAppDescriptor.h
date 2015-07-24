@@ -27,7 +27,7 @@
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 
 - (id) initDescriptorForVersionWithDictionary:(NSDictionary *)aDictionary;
-- (id) initDescriptorForFontsWithDictionary:(NSDictionary *)aDictionary;
+- (id) initDescriptorForFontsAndScreensWithDictionary:(NSDictionary *)aDictionary;
 
 - (IRScreenDescriptor *) mainScreenDescriptor;
 

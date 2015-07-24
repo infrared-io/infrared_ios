@@ -99,11 +99,6 @@
 		155B44981B601075006E88D8 /* IRFileLoadingUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A28056AD44333B7BE079 /* IRFileLoadingUtil.m */; };
 		155B44991B60107D006E88D8 /* IRUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A994D33A5A8B1BFFC963 /* IRUtil.m */; };
 		155B449B1B605029006E88D8 /* IRDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6CFFC401CB61EF09167 /* IRDataController.m */; };
-		155B44A21B61483C006E88D8 /* watch.js in Copy Files */ = {isa = PBXBuildFile; fileRef = F613A457D3E0937EB707308B /* watch.js */; };
-		155B44A31B61483F006E88D8 /* infrared.js in Copy Files */ = {isa = PBXBuildFile; fileRef = F613A894C64399B19D6F651B /* infrared.js */; };
-		155B44A41B614841006E88D8 /* zeroTimeout.js in Copy Files */ = {isa = PBXBuildFile; fileRef = F613A7916AF500482444ABCA /* zeroTimeout.js */; };
-		155B44A51B614844006E88D8 /* zeroTimeoutWorker.js in Copy Files */ = {isa = PBXBuildFile; fileRef = F613A35FA850D772BA39BF9D /* zeroTimeoutWorker.js */; };
-		155B44A61B614848006E88D8 /* infrared_md5.min.js in Copy Files */ = {isa = PBXBuildFile; fileRef = F613A2509E4D754ED269B91E /* infrared_md5.min.js */; };
 		155B44A91B616861006E88D8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 155B44A81B616861006E88D8 /* libz.dylib */; };
 		155B44AB1B616868006E88D8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 155B44AA1B616868006E88D8 /* libz.dylib */; };
 		1572FA251A3C42700087D18A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1572FA241A3C42700087D18A /* MapKit.framework */; };
@@ -184,6 +179,7 @@
 		F613A5E9BE665CA1F3EBEBDF /* ir_app.json in Resources */ = {isa = PBXBuildFile; fileRef = F613A41F1B82A90E7BB350ED /* ir_app.json */; };
 		F613A5FCD896C8ED479DF1D0 /* IRCollectionViewObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AF01509348A7946B4137 /* IRCollectionViewObserver.m */; };
 		F613A604CA27BD9D94C8DB89 /* IRTabBarControllerSubDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A208D64B229EF2B04C14 /* IRTabBarControllerSubDescriptor.m */; };
+		F613A61F85E35782AF5AE1FE /* IRPrecache_infrared_4.zip in Resources */ = {isa = PBXBuildFile; fileRef = F613AE52DFD1CECF45D44254 /* IRPrecache_infrared_4.zip */; };
 		F613A6281426B47433C6FADE /* ir_picker_view_plugin.js in Sources */ = {isa = PBXBuildFile; fileRef = F613A8E6329F6313C29F7A1C /* ir_picker_view_plugin.js */; };
 		F613A6282689F50B9757648D /* IRWebViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A3FACFDC8B9F8B4EE057 /* IRWebViewBuilder.m */; };
 		F613A634F353A447ED219AD4 /* IRCollectionReusableViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ABE49F839F86C8B611CF /* IRCollectionReusableViewDescriptor.m */; };
@@ -335,11 +331,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				155B44A21B61483C006E88D8 /* watch.js in Copy Files */,
-				155B44A31B61483F006E88D8 /* infrared.js in Copy Files */,
-				155B44A61B614848006E88D8 /* infrared_md5.min.js in Copy Files */,
-				155B44A41B614841006E88D8 /* zeroTimeout.js in Copy Files */,
-				155B44A51B614844006E88D8 /* zeroTimeoutWorker.js in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -775,6 +766,7 @@
 		F613AE4402898490A83494C6 /* IRSwitchBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSwitchBuilder.h; sourceTree = "<group>"; };
 		F613AE471F3A768DEEB1DB45 /* IRCalloutAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCalloutAnnotationView.h; sourceTree = "<group>"; };
 		F613AE5085281A04E376CF7D /* IRWebViewDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRWebViewDescriptor.h; sourceTree = "<group>"; };
+		F613AE52DFD1CECF45D44254 /* IRPrecache_infrared_4.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = IRPrecache_infrared_4.zip; sourceTree = "<group>"; };
 		F613AE53FEC9EE07C9AF3259 /* IRNavigationBarDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRNavigationBarDescriptor.h; sourceTree = "<group>"; };
 		F613AE5A163F235C61D6F6C1 /* NSIndexPathExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSIndexPathExport.h; sourceTree = "<group>"; };
 		F613AE724B2D34705A94711A /* IRTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTableViewCell.h; sourceTree = "<group>"; };
@@ -920,6 +912,7 @@
 				15136E4319AB60A600124BCE /* Supporting Files */,
 				F613A0750B8E47D032FB4F57 /* Library */,
 				F613A092F551D66DF844A3A8 /* Examples */,
+				F613A7D986A6E1CF72063E23 /* PrecacheData */,
 			);
 			path = infrared_ios;
 			sourceTree = "<group>";
@@ -1460,6 +1453,14 @@
 				F613A62D657DE7FA66BED909 /* IRScreenDescriptor.h */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		F613A7D986A6E1CF72063E23 /* PrecacheData */ = {
+			isa = PBXGroup;
+			children = (
+				F613AE52DFD1CECF45D44254 /* IRPrecache_infrared_4.zip */,
+			);
+			path = PrecacheData;
 			sourceTree = "<group>";
 		};
 		F613A8493A6CF9C9FEF19DD4 /* _UIControlSupport */ = {
@@ -2312,6 +2313,7 @@
 				F613AD9BED5E972BCB46B63E /* 249-piechart@2x.png in Resources */,
 				F613A2175A06BD55188EABE8 /* 245-paperairplane@2x.png in Resources */,
 				F613A45CCFACCEA8DC43EA5B /* ir_web_view.json in Resources */,
+				F613A61F85E35782AF5AE1FE /* IRPrecache_infrared_4.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

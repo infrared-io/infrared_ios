@@ -122,9 +122,47 @@ static Infrared *sharedInfraRed = nil;
 - (void) buildInfraredAppFromPath:(NSString *)path
                  precacheFileName:(NSString *)precacheFileName
 {
+    // -- unzip IRPrecache
     NSString *precachePath = [[NSBundle mainBundle] pathForResource:precacheFileName ofType:@""];
+    NSArray *cachePaths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cacheDirectory = [cachePaths firstObject];
+    NSString *precacheDestinationPath = [cacheDirectory stringByAppendingPathComponent:@"Precache"];
     [Main unzipFileAtPath:precachePath
-            toDestination:@""];
+            toDestination:precacheDestinationPath];
+
+    // -- read AppAndVersion.txt
+    NSString *appAndVersionDataPath = [precacheDestinationPath stringByAppendingPathComponent:@"AppAndVersion.txt"];
+    NSData *fileData = [NSData dataWithContentsOfFile:appAndVersionDataPath];
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:fileData
+                                                               options:kNilOptions
+                                                                 error:nil];
+    IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForVersionWithDictionary:dictionary];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:APP_AND_VERSION_SUITED_NAME];
+    BOOL copyPrecacheFiles = YES;
+    NSString *app = [defaults objectForKey:appKEY];
+    NSInteger version = [defaults integerForKey:appVersionKEY];
+    if ([app length] > 0
+         && [app isEqualToString:appDescriptor.app]
+         && version >= appDescriptor.version)
+    {
+        copyPrecacheFiles = NO;
+    }
+    if (copyPrecacheFiles) {
+        // -- set app/value in user-defaults
+        [defaults setObject:appDescriptor.app forKey:appKEY];
+        [defaults setInteger:appDescriptor.version forKey:appVersionKEY];
+        [defaults synchronize];
+
+        // -- unzip IRPrecacheData and copy to Documents dictionary
+        NSArray *documentsPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [documentsPaths firstObject];
+        NSString *irDocumentsDirectory = [documentsDirectory stringByAppendingPathComponent:[IRUtil documentsBasePathForInfrared]];
+        NSString *precacheDataFilePath = [precacheDestinationPath stringByAppendingPathComponent:@"IRPrecacheData.zip"];
+        [Main unzipFileAtPath:precacheDataFilePath
+                toDestination:irDocumentsDirectory];
+    }
+
+    // -- build app
     [self buildInfraredAppFromPath:path];
 }
 - (void) buildInfraredAppFromPath:(NSString *)path
@@ -171,9 +209,11 @@ static Infrared *sharedInfraRed = nil;
             return;
         }
     }
+
+    // -- descriptor for fonts and screens
+    appDescriptor = [[IRAppDescriptor alloc] initDescriptorForFontsAndScreensWithDictionary:dictionary];
     // -- cache and load Fonts
     // ---- copy Fonts
-    appDescriptor = [[IRAppDescriptor alloc] initDescriptorForFontsWithDictionary:dictionary];
     resourcesPathComponent = [IRUtil resourcesPathForAppDescriptor:appDescriptor];
 #if DEBUG == 1
     NSLog(@"resources-path: %@", [documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]);
@@ -181,12 +221,20 @@ static Infrared *sharedInfraRed = nil;
     pathsArray = appDescriptor.fontsArray;
     pathsArray = [self processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
-    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
-                                            preserveName:YES
-                                      failedLoadingPaths:failedPathsArray];
+    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
+                                                 destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
+                                                    preserveName:YES
+                                              failedLoadingPaths:failedPathsArray];
     // ---- load Fonts
     [self loadFonts:appDescriptor];
+//    // -- download all screen files
+//    pathsArray = [self screenPathsArray:appDescriptor.screensArray];
+//    pathsArray = [self processFilePathsArray:pathsArray appDescriptor:appDescriptor];
+//    failedPathsArray = [NSMutableArray array];
+//    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
+//                                                 destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
+//                                                    preserveName:YES
+//                                              failedLoadingPaths:failedPathsArray];
     // -- build global App descriptor
     appDescriptor = (IRAppDescriptor *) [IRBaseDescriptor newAppDescriptorWithDictionary:dictionary];
     [IRDataController sharedInstance].appDescriptor = appDescriptor;
@@ -196,10 +244,10 @@ static Infrared *sharedInfraRed = nil;
     NSArray *imagePathsArray = [IRBaseDescriptor allImagePaths];
     imagePathsArray = [self processFilePathsArray:imagePathsArray];
     NSMutableArray *failedImagePathsArray = [NSMutableArray array];
-    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:imagePathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
-                                            preserveName:NO
-                                      failedLoadingPaths:failedImagePathsArray];
+    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:imagePathsArray
+                                                 destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
+                                                    preserveName:NO
+                                              failedLoadingPaths:failedImagePathsArray];
     // 2.1) set second cache path
     [[IRSimpleCache sharedInstance] setAdditionalCacheFolderPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]];
 
@@ -208,34 +256,34 @@ static Infrared *sharedInfraRed = nil;
     // 3.1)  internal JS libraries
     pathsArray = @[@"infrared.js", @"infrared_md5.min.js", @"zeroTimeout.js", @"zeroTimeoutWorker.js", @"watch.js"];
     failedPathsArray = [NSMutableArray array];
-    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
-                                            preserveName:YES
-                                      failedLoadingPaths:failedPathsArray];
+    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
+                                                 destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
+                                                    preserveName:YES
+                                              failedLoadingPaths:failedPathsArray];
     // 3.2) all JSPlugin files
     pathsArray = [IRBaseDescriptor allJSFilesPaths];
     pathsArray = [self processFilePathsArray:pathsArray];
     failedPathsArray = [NSMutableArray array];
-    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
-                                            preserveName:YES
-                                      failedLoadingPaths:failedPathsArray];
+    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
+                                                 destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
+                                                    preserveName:YES
+                                              failedLoadingPaths:failedPathsArray];
     // 3.3) all JSLibrary files
     pathsArray = [IRDataController sharedInstance].appDescriptor.jsLibrariesArray;
     pathsArray = [self processFilePathsArray:pathsArray];
     failedPathsArray = [NSMutableArray array];
-    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
-                                            preserveName:YES
-                                      failedLoadingPaths:failedPathsArray];
+    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
+                                                 destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
+                                                    preserveName:YES
+                                              failedLoadingPaths:failedPathsArray];
     // 3.4) all I18N files
     pathsArray = [[IRDataController sharedInstance].appDescriptor.i18n.languagesArray allValues];
     pathsArray = [self processFilePathsArray:pathsArray];
     failedPathsArray = [NSMutableArray array];
-    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArray:pathsArray
-                                         destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
-                                            preserveName:YES
-                                      failedLoadingPaths:failedPathsArray];
+    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
+                                                 destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
+                                                    preserveName:YES
+                                              failedLoadingPaths:failedPathsArray];
 
       // 4) create JSContext from UIWebView
     [[IRDataController sharedInstance] initJSContext];
@@ -263,6 +311,23 @@ static Infrared *sharedInfraRed = nil;
 
     // NEXT STEP
     // - method "buildInfraredAppFromPath2ndPhase" will be called after UIWebView in IRDataController is loaded
+}
+
+- (NSArray *) screenPathsArray:(NSArray *)screenDictionariesArray
+{
+    NSMutableArray *screenDescriptorsArray = [[NSMutableArray alloc] init];
+    NSDictionary *dictionary;
+    NSString *anDeviceType;
+    NSString *anScreenPath;
+    for (NSDictionary *anScreenDictionary in screenDictionariesArray) {
+        anDeviceType = anScreenDictionary[deviceTypeKEY];
+        if ([IRBaseDescriptor isDeviceTypeMatchingDevice:anDeviceType])
+        {
+            anScreenPath = anScreenDictionary[pathKEY];
+            [screenDescriptorsArray addObject:anScreenPath];
+        }
+    }
+    return screenDescriptorsArray;
 }
 
 - (BOOL) shouldOfferAppUpdate:(NSString *)appJsonPath

@@ -94,7 +94,7 @@
     return self;
 }
 
-- (id) initDescriptorForFontsWithDictionary:(NSDictionary *)aDictionary
+- (id) initDescriptorForFontsAndScreensWithDictionary:(NSDictionary *)aDictionary
 {
     self = [super initDescriptorWithDictionary:aDictionary];
     if (self) {
@@ -127,6 +127,10 @@
         // fontsArray
         array = aDictionary[fontsKEY];
         self.fontsArray = array;
+
+        // screensArray
+        array = aDictionary[screensKEY];
+        self.screensArray = array;
     }
     return self;
 }
