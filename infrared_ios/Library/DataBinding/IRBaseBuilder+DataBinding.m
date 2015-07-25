@@ -138,6 +138,7 @@
     NSString *keyPath;
     RACChannel *modelChannel;
     RACSignal *racSignal;
+    RACChannelTerminal *channelTerminal;
 
     if (dataBinding.property) {
         target = [IRBaseBuilder targetOfDataPath:dataBinding.data sourceView:view];
@@ -145,23 +146,32 @@
         modelChannel = [[RACKVOChannel alloc] initWithTarget:target keyPath:keyPath nilValue:nil];
         if ([dataBinding.property isEqualToString:@"text"]) {
             if ([view isKindOfClass:[UITextField class]]) {
-                racSignal = ((UITextField *)view).rac_textSignal;
+                channelTerminal = ((UITextField *) view).rac_newTextChannel;
+                [channelTerminal subscribe:modelChannel.followingTerminal];
+                [channelTerminal subscribeNext:^(NSString *newValue) {
+//                    NSLog(@"********** keyPath=%@, newValue=%@", keyPath, newValue);
+                    [viewController keyPathUpdatedInReactiveCocoa:keyPath newStringValue:newValue];
+                }];
+
+                /*
+                racSignal = ((UITextField *) view).rac_textSignal;
                 [racSignal subscribe:modelChannel.followingTerminal];
-//                [racSignal subscribe:[modelChannel.followingTerminal
-//                  map:^id(id value) {
-//                    return value;
-//                  }]];
                 [racSignal subscribeNext:^(NSString *newValue) {
 //                    NSLog(@"********** keyPath=%@, newValue=%@", keyPath, newValue);
                     [viewController keyPathUpdatedInReactiveCocoa:keyPath newStringValue:newValue];
                 }];
+                */
             } else if ([view isKindOfClass:[UITextView class]]) {
+//                channelTerminal = ((UITextView *) view).rac_textSignal;
+//                [channelTerminal subscribe:modelChannel.followingTerminal];
+//                [channelTerminal subscribeNext:^(NSString *newValue) {
+////                    NSLog(@"********** keyPath=%@, newValue=%@", keyPath, newValue);
+//                    [viewController keyPathUpdatedInReactiveCocoa:keyPath newStringValue:newValue];
+//                }];
+
+
                 racSignal = ((UITextView *)view).rac_textSignal;
                 [racSignal subscribe:modelChannel.followingTerminal];
-//                [racSignal subscribe:[modelChannel.followingTerminal
-//                  map:^id(id value) {
-//                      return value;
-//                  }]];
                 [racSignal subscribeNext:^(NSString *newValue) {
 //                    NSLog(@"********** keyPath=%@, newValue=%@", keyPath, newValue);
                     [viewController keyPathUpdatedInReactiveCocoa:keyPath newStringValue:newValue];

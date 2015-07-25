@@ -14,7 +14,6 @@
 + (void) exposeNSDate:(JSContext *)jsContext;
 + (void) exposeUIColor:(JSContext *)jsContext;
 + (void) exposeUIImage:(JSContext *)jsContext;
-+ (void) exposeUINavigationItem:(JSContext *)jsContext;
 + (void) exposeUIApplication:(JSContext *)jsContext;
 + (void) exposeNSIndexPath:(JSContext *)jsContext;
 + (void) exposeNSURL:(JSContext *)jsContext;

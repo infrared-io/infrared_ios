@@ -302,7 +302,6 @@ static IRDataController *sharedDataController = nil;
     [IRJSContextUtil exposeNSDate:self.jsContext];
     [IRJSContextUtil exposeUIColor:self.jsContext];
     [IRJSContextUtil exposeUIImage:self.jsContext];
-    [IRJSContextUtil exposeUINavigationItem:self.jsContext];
     [IRJSContextUtil exposeUIApplication:self.jsContext];
     [IRJSContextUtil exposeNSIndexPath:self.jsContext];
     [IRJSContextUtil exposeNSURL:self.jsContext];

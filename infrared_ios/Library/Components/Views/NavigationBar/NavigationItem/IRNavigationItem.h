@@ -62,6 +62,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
-@interface IRNavigationItem : UINavigationItem <IRComponentInfoProtocol, /*UINavigationItemExport,*/ IRNavigationItemExport>
+@interface IRNavigationItem : UINavigationItem <IRComponentInfoProtocol, UINavigationItemExport, IRNavigationItemExport>
 
 @end

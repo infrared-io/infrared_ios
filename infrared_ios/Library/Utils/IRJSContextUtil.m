@@ -72,11 +72,6 @@
     jsContext[@"UIImage"] = [UIImage class];
 }
 
-+ (void) exposeUINavigationItem:(JSContext *)jsContext
-{
-    class_addProtocol([UINavigationItem class], @protocol(UINavigationItemExport));
-}
-
 + (void) exposeUIApplication:(JSContext *)jsContext
 {
     class_addProtocol([UIApplication class], @protocol(UIApplicationExport));

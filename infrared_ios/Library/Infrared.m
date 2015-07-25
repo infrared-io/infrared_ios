@@ -349,11 +349,13 @@ static Infrared *sharedInfraRed = nil;
     // 6) register all libraries
     [IRUtilLibrary registerLibrary:[[IRDataController sharedInstance] globalJSContext]];
 
-    // 7) add component constructors ("create" method) to globalJSContext
-    [[IRDataController sharedInstance] addComponentConstructorsToJSContext:[[IRDataController sharedInstance] globalJSContext]];
-
-    // 8) add JSExport protocols for all component
+    // 7) add JSExport protocols for all component
+    // This step has to go before "8" (addComponentConstructorsToJSContext), otherwise protocols will not be registered properly
+    // At time of writing this I was able to figure out why is this happening
     [[IRDataController sharedInstance] addAllJSExportProtocols];
+
+    // 8) add component constructors ("create" method) to globalJSContext
+    [[IRDataController sharedInstance] addComponentConstructorsToJSContext:[[IRDataController sharedInstance] globalJSContext]];
 
     // 9) init I18N
     [self initI18NData];
