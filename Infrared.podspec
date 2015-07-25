@@ -72,7 +72,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = 'infrared_ios/Library/**/*.{h,m}'
+  s.source_files  = 'infrared_ios/Library/**/*.{h,m,c}'
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -94,7 +94,7 @@ Pod::Spec.new do |s|
 
   s.frameworks = "SystemConfiguration", "MapKit", "CoreGraphics", "UIKit", "Security"
 
-  s.library   = 'libz.dylib'
+  s.library = 'z'
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
