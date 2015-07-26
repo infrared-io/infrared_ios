@@ -5,8 +5,18 @@
 
 #import <Foundation/Foundation.h>
 #import <RESideMenu/RESideMenu.h>
+//#import <JavaScriptCore/JavaScriptCore.h>
+//#import "RESideMenuExport.h"
 
+//@protocol IRSideMenuExport <JSExport>
+//
+//@end
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 
 @interface IRSideMenu : RESideMenu
+//  <RESideMenuExport, IRSideMenuExport>
 
 @end

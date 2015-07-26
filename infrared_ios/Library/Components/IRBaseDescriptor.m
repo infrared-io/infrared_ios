@@ -137,10 +137,10 @@
     IRBaseDescriptor *descriptor = nil;
     IRBaseDescriptor *screenDescriptor;
     descriptor = [[IRViewControllerDescriptor alloc] initDescriptorWithDictionary:controllerDictionary];
-    if (descriptor.componentId == nil || descriptor.componentId.length == 0) {
-        screenDescriptor = [[IRBaseDescriptor alloc] initDescriptorWithDictionary:screenDictionary];
-        descriptor.componentId = [screenDescriptor.componentId stringByAppendingString:@"_vc"];
-    }
+//    if (descriptor.componentId == nil || descriptor.componentId.length == 0) {
+//        screenDescriptor = [[IRBaseDescriptor alloc] initDescriptorWithDictionary:screenDictionary];
+//        descriptor.componentId = [screenDescriptor.componentId stringByAppendingString:@"_vc"];
+//    }
     return descriptor;
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -1206,7 +1206,7 @@
             self.componentId = string;
         } else {
             if ([self isIdRequired]) {
-                NSLog(@"Component must have \"id\" property set in JSON description file! View may not work properly without it!");
+                NSLog(@"Component must have \"id\" set in JSON description file! It may not work properly without it!");
             }
             self.componentId = [IRUtil createKeyFromObjectAddress:self];
         }

@@ -15,6 +15,7 @@
 #import "IRViewControllerBuilder.h"
 #import "UINavigationControllerExport.h"
 #import "UITabBarControllerExport.h"
+#import "RESideMenuExport.h"
 #endif
 
 
@@ -22,6 +23,7 @@
 
 + (NSString *) componentName
 {
+    // TODO: There is no need for componentName (VC is not created by type) !!!
     return typeViewControllerKEY;
 }
 #if TARGET_OS_IPHONE
@@ -40,6 +42,7 @@
     class_addProtocol([UIViewController class], @protocol(UIViewControllerExport));
     class_addProtocol([UINavigationController class], @protocol(UINavigationControllerExport));
     class_addProtocol([UITabBarController class], @protocol(UITabBarControllerExport));
+//    class_addProtocol([RESideMenu class], @protocol(RESideMenuExport));
 }
 #endif
 

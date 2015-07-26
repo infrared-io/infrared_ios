@@ -448,6 +448,7 @@
 		F613A2C149FC50149F94EB4F /* IRTableViewBuilder+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IRTableViewBuilder+AutoLayout.m"; sourceTree = "<group>"; };
 		F613A2CD8A79EB9143734770 /* IRWebViewObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRWebViewObserver.m; sourceTree = "<group>"; };
 		F613A2DD09C93840CE3A8137 /* IRWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRWebView.h; sourceTree = "<group>"; };
+		F613A2DF8922A4F4A96F4211 /* RESideMenuExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenuExport.h; sourceTree = "<group>"; };
 		F613A2E313FD541F72E10BC4 /* IRTableViewObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTableViewObserver.h; sourceTree = "<group>"; };
 		F613A2EF0AF9D7145F6D5D50 /* IRSearchBarDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSearchBarDescriptor.h; sourceTree = "<group>"; };
 		F613A2F5E91D1B24A5C0CC46 /* IRCalloutAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCalloutAnnotation.h; sourceTree = "<group>"; };
@@ -1509,6 +1510,7 @@
 				F613A53A0BF031B93DD843CB /* IRSideMenuDescriptor.h */,
 				F613A71E1BDF602971AA1C47 /* IRSideMenu.m */,
 				F613ABC8C8F305968BDAE25A /* IRSideMenu.h */,
+				F613A2DF8922A4F4A96F4211 /* RESideMenuExport.h */,
 			);
 			path = _SideMenu;
 			sourceTree = "<group>";
