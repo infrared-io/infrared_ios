@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-@protocol IRGestureRecognizerExport <JSExport>
+@protocol UIGestureRecognizerExport <JSExport>
 
 @property(nonatomic,readonly) UIGestureRecognizerState state;  // the current state of the gesture recognizer
 

@@ -380,8 +380,9 @@
 		F613A037F9AA01066A5F0CDF /* IRTextViewDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTextViewDescriptor.m; sourceTree = "<group>"; };
 		F613A03DDC69E9B9C57A8B97 /* UINavigationItemExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationItemExport.h; sourceTree = "<group>"; };
 		F613A050D3D6692A6FFABCB4 /* IRSwitchDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSwitchDescriptor.m; sourceTree = "<group>"; };
+		F613A0539E0E7C7983D4E545 /* UISwipeGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISwipeGestureRecognizerExport.h; sourceTree = "<group>"; };
 		F613A0548D9AEA58673CDB8E /* IRTextFieldDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTextFieldDescriptor.h; sourceTree = "<group>"; };
-		F613A05B1174F4F36E0F2EF0 /* IRGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRGestureRecognizerExport.h; sourceTree = "<group>"; };
+		F613A05B1174F4F36E0F2EF0 /* UIGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIGestureRecognizerExport.h; sourceTree = "<group>"; };
 		F613A05D856C9BE2508FD46F /* MKUserLocationExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKUserLocationExport.h; sourceTree = "<group>"; };
 		F613A0624206E8B5B67545E3 /* IRTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTextView.h; sourceTree = "<group>"; };
 		F613A067340E98BBF7740101 /* IRButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRButton.m; sourceTree = "<group>"; };
@@ -467,6 +468,7 @@
 		F613A383E05B2F6E5CE960C1 /* IRPinAnnotationViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPinAnnotationViewBuilder.m; sourceTree = "<group>"; };
 		F613A38AE848206B42810529 /* IRSegmentedControlDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSegmentedControlDescriptor.m; sourceTree = "<group>"; };
 		F613A38FB80229C683E49475 /* IRLayoutConstraintDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLayoutConstraintDescriptor.m; sourceTree = "<group>"; };
+		F613A390671FA25CDDBE9A01 /* UIScreenEdgePanGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScreenEdgePanGestureRecognizerExport.h; sourceTree = "<group>"; };
 		F613A39615050D7CC3C41AD1 /* IRTabBarControllerSubDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTabBarControllerSubDescriptor.h; sourceTree = "<group>"; };
 		F613A3A902C609254756C325 /* 245-paperairplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "245-paperairplane@2x.png"; sourceTree = "<group>"; };
 		F613A3AD28AEF308FAAD0EA0 /* IRLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLayoutConstraint.m; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 		F613A5675EEC6FBB5C369D56 /* IRLabelBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLabelBuilder.m; sourceTree = "<group>"; };
 		F613A578F69BD496D19ABA13 /* IRSegmentedControlBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSegmentedControlBuilder.m; sourceTree = "<group>"; };
 		F613A57D1B0F60FEE4639289 /* IRTapGestureRecognizerDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTapGestureRecognizerDescriptor.h; sourceTree = "<group>"; };
+		F613A58491CCC185DA571A73 /* UIPanGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPanGestureRecognizerExport.h; sourceTree = "<group>"; };
 		F613A58B12123E200228ACD9 /* IRTableViewBuilder+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IRTableViewBuilder+AutoLayout.h"; sourceTree = "<group>"; };
 		F613A58FB89EC316EC1F9D02 /* IRCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCollectionReusableView.h; sourceTree = "<group>"; };
 		F613A5944F79F76CCA98D6E1 /* IRLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLabel.m; sourceTree = "<group>"; };
@@ -561,6 +564,7 @@
 		F613A6ED85C9F039744D3B6C /* IRSwipeGestureRecognizerDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSwipeGestureRecognizerDescriptor.m; sourceTree = "<group>"; };
 		F613A6F8F5A610DEF7F71A23 /* IRNavigationControllerSubDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRNavigationControllerSubDescriptor.m; sourceTree = "<group>"; };
 		F613A6FCE50D014C541ED0FC /* ir_alert_view_and_action_sheet.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = ir_alert_view_and_action_sheet.json; sourceTree = "<group>"; };
+		F613A6FF9A9D0AF55F45E909 /* UIPinchGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPinchGestureRecognizerExport.h; sourceTree = "<group>"; };
 		F613A70EDF348D13884DE749 /* IRBarButtonItemDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBarButtonItemDescriptor.h; sourceTree = "<group>"; };
 		F613A711A3AF0D0DF85F982B /* IRSegmentedControlBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSegmentedControlBuilder.h; sourceTree = "<group>"; };
 		F613A71E1BDF602971AA1C47 /* IRSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSideMenu.m; sourceTree = "<group>"; };
@@ -716,6 +720,8 @@
 		F613AC27B289D2FA2A514870 /* ir_combination_of_views_plugin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ir_combination_of_views_plugin.js; sourceTree = "<group>"; };
 		F613AC323C3909EA93703A63 /* example1_de.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = example1_de.json; sourceTree = "<group>"; };
 		F613AC3BE6BC8CC53825EF14 /* IRBaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBaseBuilder.h; sourceTree = "<group>"; };
+		F613AC3D296397449D13E97C /* UIRotationGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRotationGestureRecognizerExport.h; sourceTree = "<group>"; };
+		F613AC442783EE6A795FCBAE /* UITapGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITapGestureRecognizerExport.h; sourceTree = "<group>"; };
 		F613AC52283C8B444291B7FB /* UIApplicationExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIApplicationExport.h; sourceTree = "<group>"; };
 		F613AC52F1676428D4962AD1 /* MKAnnotationViewExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKAnnotationViewExport.h; sourceTree = "<group>"; };
 		F613AC6133898287264EAD77 /* IRPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPinAnnotation.m; sourceTree = "<group>"; };
@@ -756,6 +762,7 @@
 		F613ADD6C3823982D2971887 /* UIViewExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExport.h; sourceTree = "<group>"; };
 		F613ADE78F11B1C362169543 /* IRImageViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRImageViewBuilder.h; sourceTree = "<group>"; };
 		F613ADFBB33561A8E4D34738 /* IRCollectionViewBuilder+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IRCollectionViewBuilder+AutoLayout.h"; sourceTree = "<group>"; };
+		F613AE03C5227A3729212C38 /* UILongPressGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILongPressGestureRecognizerExport.h; sourceTree = "<group>"; };
 		F613AE0577C953985AC94E5C /* IRButtonBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRButtonBuilder.m; sourceTree = "<group>"; };
 		F613AE08B10458CF15DE168D /* IRUtilLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRUtilLibrary.m; sourceTree = "<group>"; };
 		F613AE0E1564F22A0B300264 /* IRCollectionViewCellBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCollectionViewCellBuilder.h; sourceTree = "<group>"; };
@@ -1016,6 +1023,7 @@
 				F613A8494D75048455868689 /* IRRotationGestureRecognizerDescriptor.h */,
 				F613AE323AB3D5FFDB69EC66 /* IRRotationGestureRecognizer.m */,
 				F613A8AC7EC93B47AF2B2F4E /* IRRotationGestureRecognizer.h */,
+				F613AC3D296397449D13E97C /* UIRotationGestureRecognizerExport.h */,
 			);
 			path = RotationGestureRecognizer;
 			sourceTree = "<group>";
@@ -1120,6 +1128,7 @@
 				F613ABEF4CF2C3040CFB745E /* IRSwipeGestureRecognizer.h */,
 				F613A6ED85C9F039744D3B6C /* IRSwipeGestureRecognizerDescriptor.m */,
 				F613ABF4F35EE5324F9A655A /* IRSwipeGestureRecognizerDescriptor.h */,
+				F613A0539E0E7C7983D4E545 /* UISwipeGestureRecognizerExport.h */,
 			);
 			path = SwipeGestureRecognizer;
 			sourceTree = "<group>";
@@ -1280,7 +1289,7 @@
 				F613AD9DFC18FE9C50E5AB79 /* PanGestureRecognizer */,
 				F613A6E661AA158375755C36 /* LongPressGestureRecognizer */,
 				F613A76BC6002D3C0924A496 /* ScreenEdgePanGestureRecognizer */,
-				F613A05B1174F4F36E0F2EF0 /* IRGestureRecognizerExport.h */,
+				F613A05B1174F4F36E0F2EF0 /* UIGestureRecognizerExport.h */,
 			);
 			path = _GestureRecognizers;
 			sourceTree = "<group>";
@@ -1337,6 +1346,7 @@
 				F613AA8C1C20AF965A1F2BE5 /* IRTapGestureRecognizer.h */,
 				F613AD93B6777B093E26C005 /* IRTapGestureRecognizerDescriptor.m */,
 				F613A57D1B0F60FEE4639289 /* IRTapGestureRecognizerDescriptor.h */,
+				F613AC442783EE6A795FCBAE /* UITapGestureRecognizerExport.h */,
 			);
 			path = TapGestureRecognizer;
 			sourceTree = "<group>";
@@ -1383,6 +1393,7 @@
 				F613A8C5A7434659190DD2D7 /* IRLongPressGestureRecognizer.h */,
 				F613ABE75CA984681F7640D2 /* IRLongPressGestureRecognizerDescriptor.m */,
 				F613A988D533F4E80EE52DB6 /* IRLongPressGestureRecognizerDescriptor.h */,
+				F613AE03C5227A3729212C38 /* UILongPressGestureRecognizerExport.h */,
 			);
 			path = LongPressGestureRecognizer;
 			sourceTree = "<group>";
@@ -1426,6 +1437,7 @@
 				F613A6D16EA92D06AE7EBE0B /* IRScreenEdgePanGestureRecognizer.h */,
 				F613A7D04E3F9F4CB5A9F714 /* IRScreenEdgePanGestureRecognizerDescriptor.m */,
 				F613A825B7D2C8C636CBE303 /* IRScreenEdgePanGestureRecognizerDescriptor.h */,
+				F613A390671FA25CDDBE9A01 /* UIScreenEdgePanGestureRecognizerExport.h */,
 			);
 			path = ScreenEdgePanGestureRecognizer;
 			sourceTree = "<group>";
@@ -1670,6 +1682,7 @@
 				F613A1458920B41BBA99CCD8 /* IRPinchGestureRecognizer.m */,
 				F613A6AF6D376A10373CFFFE /* IRPinchGestureRecognizerDescriptor.h */,
 				F613A7AE21A710C3E9F2979D /* IRPinchGestureRecognizerDescriptor.m */,
+				F613A6FF9A9D0AF55F45E909 /* UIPinchGestureRecognizerExport.h */,
 			);
 			path = PinchGestureRecognizer;
 			sourceTree = "<group>";
@@ -1976,6 +1989,7 @@
 				F613AB0A857D1CE4ABC00833 /* IRPanGestureRecognizer.h */,
 				F613A0BB58F57964621B747D /* IRPanGestureRecognizerDescriptor.m */,
 				F613A1356BE448F6D63696CE /* IRPanGestureRecognizerDescriptor.h */,
+				F613A58491CCC185DA571A73 /* UIPanGestureRecognizerExport.h */,
 			);
 			path = PanGestureRecognizer;
 			sourceTree = "<group>";

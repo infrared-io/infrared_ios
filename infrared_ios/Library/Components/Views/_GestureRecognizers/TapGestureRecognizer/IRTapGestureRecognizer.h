@@ -5,13 +5,14 @@
 
 #import <Foundation/Foundation.h>
 #import "IRComponentInfoProtocol.h"
-#import "IRGestureRecognizerExport.h"
+#import "UIGestureRecognizerExport.h"
+#import "UITapGestureRecognizerExport.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 
 @protocol IRTapGestureRecognizerExport <JSExport>
 
-@property (nonatomic) NSUInteger  numberOfTapsRequired;       // Default is 1. The number of taps required to match
-@property (nonatomic) NSUInteger  numberOfTouchesRequired;    // Default is 1. The number of fingers required to match
+//@property (nonatomic) NSUInteger  numberOfTapsRequired;       // Default is 1. The number of taps required to match
+//@property (nonatomic) NSUInteger  numberOfTouchesRequired;    // Default is 1. The number of fingers required to match
 
 @end
 
@@ -19,6 +20,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
-@interface IRTapGestureRecognizer : UITapGestureRecognizer <IRComponentInfoProtocol, IRTapGestureRecognizerExport, IRGestureRecognizerExport>
+@interface IRTapGestureRecognizer : UITapGestureRecognizer <IRComponentInfoProtocol, UITapGestureRecognizerExport, IRTapGestureRecognizerExport, UIGestureRecognizerExport>
 
 @end

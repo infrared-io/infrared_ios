@@ -114,4 +114,9 @@
     return self;
 }
 
+- (BOOL) isIdRequired
+{
+    return NO;
+}
+
 @end

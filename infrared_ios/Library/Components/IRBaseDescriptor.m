@@ -1193,6 +1193,7 @@
 }
 #endif
 
+
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
     self = [super init];
@@ -1201,9 +1202,21 @@
 
         // componentId
         string = aDictionary[idKEY];
-        self.componentId = string;
+        if ([string length] > 0) {
+            self.componentId = string;
+        } else {
+            if ([self isIdRequired]) {
+                NSLog(@"Component must have \"id\" property set in JSON description file! View may not work properly without it!");
+            }
+            self.componentId = [IRUtil createKeyFromObjectAddress:self];
+        }
     }
     return self;
+}
+
+- (BOOL) isIdRequired
+{
+    return YES;
 }
 
 - (NSDictionary *) viewDefaults

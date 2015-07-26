@@ -15,6 +15,13 @@
 #import "IRDataBindingDescriptor.h"
 #import "IRViewBuilder.h"
 #import "IRView.h"
+#import "UITapGestureRecognizerExport.h"
+#import "UISwipeGestureRecognizerExport.h"
+#import "UIScreenEdgePanGestureRecognizerExport.h"
+#import "UIRotationGestureRecognizerExport.h"
+#import "UIPinchGestureRecognizerExport.h"
+#import "UIPanGestureRecognizerExport.h"
+#import "UILongPressGestureRecognizerExport.h"
 #endif
 
 @implementation IRViewDescriptor
@@ -37,6 +44,13 @@
 + (void) addJSExportProtocol
 {
     class_addProtocol([UIView class], @protocol(UIViewExport));
+    class_addProtocol([UILongPressGestureRecognizer class], @protocol(UILongPressGestureRecognizerExport));
+    class_addProtocol([UIPanGestureRecognizer class], @protocol(UIPanGestureRecognizerExport));
+    class_addProtocol([UIPinchGestureRecognizer class], @protocol(UIPinchGestureRecognizerExport));
+    class_addProtocol([UIRotationGestureRecognizer class], @protocol(UIRotationGestureRecognizerExport));
+    class_addProtocol([UIScreenEdgePanGestureRecognizer class], @protocol(UIScreenEdgePanGestureRecognizerExport));
+    class_addProtocol([UISwipeGestureRecognizer class], @protocol(UISwipeGestureRecognizerExport));
+    class_addProtocol([UITapGestureRecognizer class], @protocol(UITapGestureRecognizerExport));
 }
 #endif
 

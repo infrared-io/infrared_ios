@@ -8,6 +8,14 @@
 
 @implementation IRTapGestureRecognizerDescriptor
 
+- (NSDictionary *) viewDefaults
+{
+    return @{
+      @"numberOfTapsRequired" : @(1),
+      @"numberOfTouchesRequired" : @(1)
+    };
+}
+
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
     self = [super initDescriptorWithDictionary:aDictionary];
@@ -19,7 +27,7 @@
         if (number) {
             self.numberOfTapsRequired = [number unsignedIntegerValue];
         } else {
-            self.numberOfTapsRequired = 1;
+            self.numberOfTapsRequired = [[self viewDefaults][NSStringFromSelector(@selector(numberOfTapsRequired))] unsignedIntegerValue];;
         }
 
         // numberOfTouchesRequired
@@ -27,7 +35,7 @@
         if (number) {
             self.numberOfTouchesRequired = [number unsignedIntegerValue];
         } else {
-            self.numberOfTouchesRequired = 1;
+            self.numberOfTouchesRequired = [[self viewDefaults][NSStringFromSelector(@selector(numberOfTouchesRequired))] unsignedIntegerValue];;
         }
     }
     return self;

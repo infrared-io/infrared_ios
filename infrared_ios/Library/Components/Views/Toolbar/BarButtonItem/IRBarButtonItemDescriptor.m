@@ -33,6 +33,7 @@
 + (void) addJSExportProtocol
 {
     class_addProtocol([UIBarButtonItem class], @protocol(UIBarButtonItemExport));
+    class_addProtocol([UIBarItem class], @protocol(UIBarItemExport));
 }
 #endif
 

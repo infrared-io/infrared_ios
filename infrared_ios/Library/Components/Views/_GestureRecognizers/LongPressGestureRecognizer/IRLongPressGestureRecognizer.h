@@ -6,13 +6,14 @@
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "IRComponentInfoProtocol.h"
-#import "IRGestureRecognizerExport.h"
+#import "UIGestureRecognizerExport.h"
 #import "IRTapGestureRecognizer.h"
+#import "UILongPressGestureRecognizerExport.h"
 
 @protocol IRLongPressGestureRecognizerExport <JSExport>
 
-@property (nonatomic) CFTimeInterval minimumPressDuration; // Default is 0.5. Time in seconds the fingers must be held down for the gesture to be recognized
-@property (nonatomic) CGFloat allowableMovement;           // Default is 10. Maximum movement in pixels allowed before the gesture fails. Once recognized (after minimumPressDuration) there is no limit on finger movement for the remainder of the touch tracking
+//@property (nonatomic) CFTimeInterval minimumPressDuration; // Default is 0.5. Time in seconds the fingers must be held down for the gesture to be recognized
+//@property (nonatomic) CGFloat allowableMovement;           // Default is 10. Maximum movement in pixels allowed before the gesture fails. Once recognized (after minimumPressDuration) there is no limit on finger movement for the remainder of the touch tracking
 
 @end
 
@@ -20,6 +21,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
-@interface IRLongPressGestureRecognizer : UILongPressGestureRecognizer  <IRComponentInfoProtocol, IRLongPressGestureRecognizerExport, IRTapGestureRecognizerExport, IRGestureRecognizerExport>
+@interface IRLongPressGestureRecognizer : UILongPressGestureRecognizer  <IRComponentInfoProtocol, UILongPressGestureRecognizerExport, IRLongPressGestureRecognizerExport, UITapGestureRecognizerExport, IRTapGestureRecognizerExport, UIGestureRecognizerExport>
 
 @end

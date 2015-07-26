@@ -8,6 +8,14 @@
 
 @implementation IRLongPressGestureRecognizerDescriptor
 
+- (NSDictionary *) viewDefaults
+{
+    return @{
+      @"numberOfTapsRequired" : @(0),
+      @"numberOfTouchesRequired" : @(1)
+    };
+}
+
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
     self = [super initDescriptorWithDictionary:aDictionary];

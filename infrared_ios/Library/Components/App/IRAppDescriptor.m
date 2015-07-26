@@ -6,6 +6,7 @@
 #import "IRAppDescriptor.h"
 #import "IRScreenDescriptor.h"
 #import "IRI18NDescriptor.h"
+#import "IRUtil.h"
 
 
 @implementation IRAppDescriptor
@@ -20,7 +21,7 @@
         NSDictionary *dictionary;
 
         if (self.app == nil || [self.app length] == 0) {
-            NSAssert(false, @"App Descriptor must have \"id\" property set");
+            NSLog(@"App Descriptor must have \"id\" property set! System will not work properly without it!");
         }
 
         // version
@@ -80,7 +81,7 @@
         NSNumber *number;
 
         if (self.app == nil || [self.app length] == 0) {
-            NSAssert(false, @"App Descriptor must have \"id\" property set");
+            NSLog(@"App Descriptor must have \"id\" property set! System will not work properly without it!");
         }
 
         // version
@@ -111,7 +112,8 @@
         NSArray *array;
 
         if (self.app == nil || [self.app length] == 0) {
-            NSAssert(false, @"App Descriptor must have \"id\" property set");
+            NSLog(@"App Descriptor must have \"id\" property set! System may not work properly without it!");
+            self.componentId = [IRUtil createKeyFromObjectAddress:self];
         }
 
         // version

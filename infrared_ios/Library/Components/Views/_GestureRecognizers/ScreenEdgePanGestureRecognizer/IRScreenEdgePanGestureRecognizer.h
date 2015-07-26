@@ -5,12 +5,14 @@
 
 #import <Foundation/Foundation.h>
 #import "IRComponentInfoProtocol.h"
-#import "IRGestureRecognizerExport.h"
+#import "UIGestureRecognizerExport.h"
+#import "UIScreenEdgePanGestureRecognizerExport.h"
+#import "IRPanGestureRecognizer.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 
 @protocol IRScreenEdgeGestureRecognizerExport <JSExport>
 
-@property (readwrite, nonatomic, assign) UIRectEdge edges; //< The edges on which this gesture recognizes, relative to the current interface orientation
+//@property (readwrite, nonatomic, assign) UIRectEdge edges; //< The edges on which this gesture recognizes, relative to the current interface orientation
 
 @end
 
@@ -18,6 +20,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
-@interface IRScreenEdgePanGestureRecognizer : UIScreenEdgePanGestureRecognizer <IRComponentInfoProtocol, IRScreenEdgeGestureRecognizerExport, IRGestureRecognizerExport>
+@interface IRScreenEdgePanGestureRecognizer : UIScreenEdgePanGestureRecognizer <IRComponentInfoProtocol, UIScreenEdgePanGestureRecognizerExport, IRScreenEdgeGestureRecognizerExport, UIPanGestureRecognizerExport, IRPanGestureRecognizerExport, UIGestureRecognizerExport>
 
 @end

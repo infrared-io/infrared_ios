@@ -173,6 +173,8 @@ typedef enum {
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 
+- (BOOL) isIdRequired;
+
 - (NSDictionary *) viewDefaults;
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths;
