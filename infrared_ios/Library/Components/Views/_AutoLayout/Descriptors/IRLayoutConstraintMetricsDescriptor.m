@@ -29,6 +29,11 @@
     return self;
 }
 
+- (BOOL) isIdRequired
+{
+    return NO;
+}
+
 - (NSDictionary *) values
 {
     NSDictionary *finalValue = nil;

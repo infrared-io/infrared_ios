@@ -43,6 +43,11 @@
 }
 #endif
 
+- (BOOL) isIdRequired
+{
+    return NO;
+}
+
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
     self = [super initDescriptorWithDictionary:aDictionary];

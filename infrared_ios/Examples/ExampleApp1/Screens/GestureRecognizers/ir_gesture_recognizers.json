@@ -205,14 +205,8 @@
             "minimumScaleFactor": 0.5,
             "textColor": "#e10707",
             "textAlignment": "NSTextAlignmentCenter",
-            "numberOfLines": 0,
-            "gestureRecognizers" : [
-              {
-                "id" : "panGR",
-                "gestureType" : "pan",
-                "gestureActions" : "this.panGestureRecognizer(gestureRecognizer);"
-              }
-            ]
+            "numberOfLines": 0
+
           }
         ],
         "constraints" : [

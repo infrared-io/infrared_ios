@@ -66,7 +66,9 @@
         gestureRecognizer = [IRBaseBuilder createPinchGestureRecognizerForDescriptor:(IRPinchGestureRecognizerDescriptor *) descriptor];
     } else if ([descriptor isKindOfClass:[IRRotationGestureRecognizerDescriptor class]]) {
         gestureRecognizer = [IRBaseBuilder createRotationGestureRecognizerForDescriptor:(IRRotationGestureRecognizerDescriptor *) descriptor];
-    } else if ([descriptor isKindOfClass:[IRPanGestureRecognizerDescriptor class]]) {
+    } else if ([descriptor isKindOfClass:[IRPanGestureRecognizerDescriptor class]]
+               && [descriptor isKindOfClass:[IRScreenEdgePanGestureRecognizerDescriptor class]] == NO)
+    {
         gestureRecognizer = [IRBaseBuilder createPanGestureRecognizerForDescriptor:(IRPanGestureRecognizerDescriptor *) descriptor];
     } else if ([descriptor isKindOfClass:[IRLongPressGestureRecognizerDescriptor class]]) {
         gestureRecognizer = [IRBaseBuilder createLongPressGestureRecognizerForDescriptor:(IRLongPressGestureRecognizerDescriptor *) descriptor];
