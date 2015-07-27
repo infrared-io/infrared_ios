@@ -332,6 +332,8 @@ static IRDataController *sharedDataController = nil;
 {
     NSString *vcAddress = viewController.key;
 
+//    NSLog(@"unregisterViewController: %@", vcAddress);
+
     // 1) remove all views from viewController
     IRIdsAndComponentsForScreen *idsAndComponentsForScreen = nil;
     for (IRIdsAndComponentsForScreen *anObject in self.idsAndViewsPerScreenArray) {
@@ -344,7 +346,10 @@ static IRDataController *sharedDataController = nil;
         [self.idsAndViewsPerScreenArray removeObject:idsAndComponentsForScreen];
     }
 
-    // 2) remove all gesture recognizers from viewController
+    // 2) unbind ReactiveCocoa DataBinding
+
+
+    // 3) remove all gesture recognizers from viewController
     IRIdsAndComponentsForScreen *idsAndGestureRecognizersForScreen = nil;
     for (IRIdsAndComponentsForScreen *anObject in self.idsAndGestureRecognizersPerScreenArray) {
         if ([anObject.viewControllerAddress isEqualToString:vcAddress]) {
@@ -356,11 +361,26 @@ static IRDataController *sharedDataController = nil;
         [self.idsAndGestureRecognizersPerScreenArray removeObject:idsAndGestureRecognizersForScreen];
     }
 
-    // 3) remove from viewControllersArray
+    // 4) remove from viewControllersArray
     [self.viewControllersArray removeObject:viewController];
 
-    // 4) clean Watch.JS observers and VC
+    // 5) clean Watch.JS observers and VC
     [viewController cleanWatchJSObserversAndVC];
+    [self performSelector:@selector(nilJSContextVCWithName:) withObject:viewController.key afterDelay:0.5];
+
+    // 6) nil pluginInjectionJsContext
+    viewController.pluginInjectionJsContext = nil;
+
+    // 7) clean views with restricted orientations
+    viewController.viewsArrayForOrientationRestriction = nil;
+}
+
+- (void) nilJSContextVCWithName:(NSString *)vcName
+{
+//    NSLog(@"nilJSContextVCWithName: %@", vcName);
+
+    JSContext *jsContext = [IRDataController sharedInstance].globalJSContext;
+    jsContext[vcName] = nil;
 }
 #endif
 

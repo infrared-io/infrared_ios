@@ -100,14 +100,18 @@ var infraredClass = function () {
     this.extendVCWithPluginName = function (viewController, pluginName) {
         var plugin = null;
         for (var anPluginName in this.pluginsMap) {
-            if (anPluginName == pluginName) {
-                plugin = this.pluginsMap[anPluginName];
-                break;
+            if (this.pluginsMap.hasOwnProperty(anPluginName)) {
+                if (anPluginName == pluginName) {
+                    plugin = this.pluginsMap[anPluginName];
+                    break;
+                }
             }
         }
 
-        if (plugin != null) {
-            extend(viewController, plugin, true);
+        if (typeof viewController !== "undefined") {
+            if (plugin != null) {
+                extend(viewController, plugin, true);
+            }
         }
     };
 

@@ -303,9 +303,10 @@
 //    if ([[NSThread currentThread] isMainThread]) {
 //        NSLog(@"main 2");
 //    }
+    __weak IRViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
 //        NSLog(@"pushViewControllerWithScreenId=%@ [pre]---->", screenId);
-        [self pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+        [weakSelf pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
 //        NSLog(@"pushViewControllerWithScreenId=%@ [post]---->", screenId);
     });
 }
@@ -318,22 +319,25 @@
 {
     IRScreenDescriptor *screenDescriptor;
     screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithControllerId:viewControllerId];
+    __weak IRViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+        [weakSelf pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
     });
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) popViewControllerAnimated:(BOOL)animated
 {
+    __weak IRViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.navigationController popViewControllerAnimated:animated];
+        [weakSelf.navigationController popViewControllerAnimated:animated];
     });
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) popToRootViewControllerAnimated:(BOOL)animated
 {
+    __weak IRViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.navigationController popToRootViewControllerAnimated:animated];
+        [weakSelf.navigationController popToRootViewControllerAnimated:animated];
     });
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -345,8 +349,9 @@
 {
     IRScreenDescriptor *screenDescriptor;
     screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:screenId];
+    __weak IRViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self presentVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+        [weakSelf presentVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
     });
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -358,16 +363,18 @@
 {
     IRScreenDescriptor *screenDescriptor;
     screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithControllerId:viewControllerId];
+    __weak IRViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self presentVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+        [weakSelf presentVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
     });
 }
 - (void)dismissViewControllerAnimated:(BOOL)animated
 {
+    __weak IRViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self dismissViewControllerAnimated:animated
+        [weakSelf dismissViewControllerAnimated:animated
                                  completion:^{
-                                     [self unregisterViewControllerAndItsNavigationStack:self];
+                                     [weakSelf unregisterViewControllerAndItsNavigationStack:weakSelf];
                                  }];
     });
 }
@@ -438,7 +445,7 @@
         [actionSheet setCancelButtonIndex:[actionSheet numberOfButtons] - 1];
     }
     dispatch_async(dispatch_get_main_queue(), ^{
-        [actionSheet showInView:self.view];
+        [actionSheet showInView:weakSelf.view];
     });
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -553,10 +560,11 @@
 - (void) updateComponentsWithDataBindingKey:(NSString *)dataBindingKey
 {
     // KVO related triggering (ReactiveCocoa uses KVO as base)
+    __weak IRViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
 //        [self setJsMapUsedInDataBindingForKey:dataBindingKey currentValue:nil];
-        [self willChangeValueForKey:dataBindingKey];
-        [self didChangeValueForKey:dataBindingKey];
+        [weakSelf willChangeValueForKey:dataBindingKey];
+        [weakSelf didChangeValueForKey:dataBindingKey];
     });
 }
 
@@ -575,22 +583,25 @@
 
 - (void)presentLeftMenuViewController:(id)sender
 {
+    __weak IRViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.sideMenuViewController presentLeftMenuViewController];
+        [weakSelf.sideMenuViewController presentLeftMenuViewController];
     });
 }
 
 - (void)presentRightMenuViewController:(id)sender
 {
+    __weak IRViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.sideMenuViewController presentLeftMenuViewController];
+        [weakSelf.sideMenuViewController presentLeftMenuViewController];
     });
 }
 
 - (void)hideMenuViewController
 {
+    __weak IRViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.sideMenuViewController hideMenuViewController];
+        [weakSelf.sideMenuViewController hideMenuViewController];
     });
 }
 - (void)setContentViewControllerWithScreenId:(NSString *)screenId animated:(BOOL)animated
@@ -608,13 +619,15 @@
     if ([currentScreenId isEqualToString:screenId] == NO) {
         // -- prepare and set new VC
         screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:screenId];
+        __weak IRViewController *weakSelf = self;
+        __weak IRViewController *weakCurrentContentViewController = currentContentViewController;
         if (screenDescriptor) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 IRViewController *contentViewController;
                 IRViewController *wrappedContentViewController;
 
                 // -- mark old VC for clean-up
-                currentContentViewController.shouldUnregisterVCStack = YES;
+                weakCurrentContentViewController.shouldUnregisterVCStack = YES;
 
                 // -- build new VC
                 contentViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor data:nil];
@@ -622,9 +635,9 @@
                 wrappedContentViewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerIfNeeded:contentViewController];
 
                 // -- set delegate to content VC
-                self.sideMenuViewController.delegate = contentViewController;
+                weakSelf.sideMenuViewController.delegate = contentViewController;
                 // -- set new wrapped content VC
-                [self.sideMenuViewController setContentViewController:wrappedContentViewController animated:animated];
+                [weakSelf.sideMenuViewController setContentViewController:wrappedContentViewController animated:animated];
             });
         }
     }
@@ -1256,7 +1269,7 @@
 - (void) dealloc
 {
     // IMPORTANT: key in 'dealloc' is with VC-id (prefix is 'VC__id__'), not SCREEN-id
-//    NSLog(@"IRViewController - dealloc - key:%@", self.key);
+    NSLog(@"IRViewController - dealloc - key:%@", self.key);
 
     // IMPORTANT: leave line below as commented
     // [super dealloc]; // (provided by the compiler)

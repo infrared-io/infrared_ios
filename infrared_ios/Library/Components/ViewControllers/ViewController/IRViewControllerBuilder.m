@@ -83,6 +83,13 @@
     jsContext = [IRDataController sharedInstance].globalJSContext;
     jsContext[irViewController.key] = irViewController;
 
+//    NSLog(@"before sleep");
+//
+//    // test pause for extending VC
+//    [NSThread sleepForTimeInterval:0.07];
+//
+//    NSLog(@"after sleep");
+
     // VC jsPlugin
     [self extendVCWithJSPlugin:irViewController descriptor:irViewControllerDescriptor jsContext:jsContext];
 
@@ -272,6 +279,7 @@
     jsPluginString = [[NSString alloc] initWithData:fileData encoding:NSUTF8StringEncoding];
     if ([jsPluginString length] > 0) {
         tempJSContext = [[IRDataController sharedInstance] vcPluginExtensionJSContext];
+        irViewController.pluginInjectionJsContext = tempJSContext;
         [tempJSContext evaluateScript:jsPluginString];
         tempGlobalObject = tempJSContext.globalObject;
         tempPluginsMapValue = tempGlobalObject[IR_JS_LIBRARY_KEY][@"pluginsMap"];

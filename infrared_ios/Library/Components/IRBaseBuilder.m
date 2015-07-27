@@ -316,6 +316,7 @@ withDataBindingItemName:(NSString *)name
 {
     NSString *imagePath = imageLoadingData[@"imagePath"];
     IRView *irView = imageLoadingData[@"irView"];
+    __weak IRView *weakView = irView;
     NSString *propertyName = imageLoadingData[@"propertyName"];
 //    NSLog(@"downloadAndSetImage: --imagePath=%@, --irView=%p, --propertyName=%@", imagePath, irView, propertyName);
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -332,7 +333,7 @@ withDataBindingItemName:(NSString *)name
             downloadedImage = [UIImage imageWithData:data];
 
             dispatch_async(dispatch_get_main_queue(), ^{
-                [irView setValue:downloadedImage forKey:propertyName];
+                [weakView setValue:downloadedImage forKey:propertyName];
             });
         }
     });

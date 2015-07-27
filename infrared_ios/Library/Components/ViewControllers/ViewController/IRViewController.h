@@ -157,6 +157,8 @@
 @property (nonatomic) BOOL shouldUnregisterVC;
 @property (nonatomic) BOOL shouldUnregisterVCStack;
 
+@property (nonatomic, strong) JSContext *pluginInjectionJsContext;
+
 - (void) keyPathUpdatedInReactiveCocoa:(NSString *)keyPath
                         newStringValue:(NSString *)newStringValue;
 

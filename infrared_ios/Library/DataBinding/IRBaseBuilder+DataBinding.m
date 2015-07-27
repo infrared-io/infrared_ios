@@ -77,11 +77,13 @@
         modelChannel = [[RACKVOChannel alloc] initWithTarget:target keyPath:keyPath nilValue:nil];
         subscriptingAssignmentTrampoline = [[RACSubscriptingAssignmentTrampoline alloc] initWithTarget:view nilValue:nil];
 //        subscriptingAssignmentTrampoline[dataBinding.property] = modelChannel.followingTerminal;
+        __weak IRDataBindingDescriptor *weakDataBinding = dataBinding;
+        __weak UIView *weakView = view;
         subscriptingAssignmentTrampoline[dataBinding.property] = [[modelChannel.followingTerminal
           map: ^id(id value)
           {
               id finalValue = value;
-              if ([IRBaseBuilder isPropertyWithName:dataBinding.property inObject:view
+              if ([IRBaseBuilder isPropertyWithName:weakDataBinding.property inObject:weakView
                                             ofClass:[UIImage class]])
               {
                   UIImage *image;
@@ -93,29 +95,29 @@
                   } else {
                       finalValue = nil;
                       // -- download and set image
-                      [IRBaseBuilder downloadAndSetImageWithPathInBackground:imagePath view:view
-                                                                propertyName:dataBinding.property];
+                      [IRBaseBuilder downloadAndSetImageWithPathInBackground:imagePath view:weakView
+                                                                propertyName:weakDataBinding.property];
                   }
-              } else if ([IRBaseBuilder isPropertyWithName:dataBinding.property inObject:view
+              } else if ([IRBaseBuilder isPropertyWithName:weakDataBinding.property inObject:weakView
                                                    ofClass:[UIColor class]])
               {
                   NSString *colorString = value;
                   UIColor *color = [IRUtil transformHexColorToUIColor:colorString];
                   finalValue = color;
-              } else if ([IRBaseBuilder isPropertyWithName:dataBinding.property inObject:view
+              } else if ([IRBaseBuilder isPropertyWithName:weakDataBinding.property inObject:weakView
                                                    ofClass:[UIFont class]])
               {
                   NSString *fontString = value;
                   UIFont *font = [IRBaseDescriptor fontFromString:fontString];
                   finalValue = font;
-              } else if ([IRBaseBuilder isPropertyWithName:dataBinding.property inObject:view
+              } else if ([IRBaseBuilder isPropertyWithName:weakDataBinding.property inObject:weakView
                                                    ofClass:[NSString class]])
               {
                   if ([value isKindOfClass:[NSNumber class]]) {
                       finalValue = [value stringValue];
                   }
-              } else if ([IRBaseBuilder isBoolPropertyWithName:dataBinding.property
-                                                      inObject:view])
+              } else if ([IRBaseBuilder isBoolPropertyWithName:weakDataBinding.property
+                                                      inObject:weakView])
               {
                   if (value == nil) {
                       finalValue = @(NO);
@@ -145,12 +147,13 @@
         keyPath = [IRBaseBuilder propertyPartOfDataPath:dataBinding.data];
         modelChannel = [[RACKVOChannel alloc] initWithTarget:target keyPath:keyPath nilValue:nil];
         if ([dataBinding.property isEqualToString:@"text"]) {
+            __weak IRViewController *weakViewController = viewController;
             if ([view isKindOfClass:[UITextField class]]) {
                 channelTerminal = ((UITextField *) view).rac_newTextChannel;
                 [channelTerminal subscribe:modelChannel.followingTerminal];
                 [channelTerminal subscribeNext:^(NSString *newValue) {
 //                    NSLog(@"********** keyPath=%@, newValue=%@", keyPath, newValue);
-                    [viewController keyPathUpdatedInReactiveCocoa:keyPath newStringValue:newValue];
+                    [weakViewController keyPathUpdatedInReactiveCocoa:keyPath newStringValue:newValue];
                 }];
 
                 /*
@@ -174,7 +177,7 @@
                 [racSignal subscribe:modelChannel.followingTerminal];
                 [racSignal subscribeNext:^(NSString *newValue) {
 //                    NSLog(@"********** keyPath=%@, newValue=%@", keyPath, newValue);
-                    [viewController keyPathUpdatedInReactiveCocoa:keyPath newStringValue:newValue];
+                    [weakViewController keyPathUpdatedInReactiveCocoa:keyPath newStringValue:newValue];
                 }];
             }
         }
