@@ -353,7 +353,7 @@
             "style": "UIBarButtonItemStylePlain",
             "title": "IR.i18n.ir_bar_button_1",
             "backgroundColor" : "#ff000080",
-            "action" : "this.barButtonItemAction(control);"
+            "actions" : "this.barButtonItemAction(control);"
           },
           {
             "id": "bar_button_2",
@@ -365,7 +365,7 @@
             "type": "barButtonItem",
             "style": "UIBarButtonItemStylePlain",
             "title": "IR.i18n.ir_bar_button_2",
-            "action" : "this.barButtonItemAction(control);"
+            "actions" : "this.barButtonItemAction(control);"
           }
         ]
       }

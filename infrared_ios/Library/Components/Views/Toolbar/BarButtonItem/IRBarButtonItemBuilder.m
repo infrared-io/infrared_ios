@@ -43,8 +43,7 @@
         irBarButtonItem = [[IRBarButtonItem alloc] init];
     }
 
-    __unsafe_unretained typeof(viewController) weakViewController = viewController;
-    irBarButtonItem.componentInfo = weakViewController;
+    irBarButtonItem.componentInfo = viewController.key;
     [IRBarButtonItemBuilder setUpComponent:irBarButtonItem componentDescriptor:descriptor viewController:viewController
                                      extra:extra];
 

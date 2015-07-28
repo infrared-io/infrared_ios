@@ -175,7 +175,7 @@
                 "style": "UIBarButtonItemStylePlain",
                 "title": "IR.i18n.ir_bar_button_1",
                 "backgroundColor" : "#ff000080",
-                "action" : "this.barButtonItemAction(control);"
+                "actions" : "this.barButtonItemAction(control);"
               },
               {
                 "id": "bar_button_2",
@@ -187,7 +187,7 @@
                 "id": "bar_button_3",
                 "type": "barButtonItem",
                 "identifier": "UIBarButtonSystemItemAdd",
-                "action" : "this.barButtonItemAction(control);"
+                "actions" : "this.barButtonItemAction(control);"
               },
               {
                 "id": "bar_button_4",
@@ -199,7 +199,7 @@
                 "type": "barButtonItem",
                 "style": "UIBarButtonItemStylePlain",
                 "title": "IR.i18n.ir_bar_button_3",
-                "action" : "this.barButtonItemAction(control);"
+                "actions" : "this.barButtonItemAction(control);"
               }
             ]
           }

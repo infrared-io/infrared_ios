@@ -369,12 +369,14 @@ withDataBindingItemName:(NSString *)name
             sourceView:(UIView *)sourceView
 {
     IRViewController *irViewController = nil;
+    NSString *vcKey;
     if ([action length] > 0) {
         if ([sourceView isKindOfClass:[IRBarButtonItem class]]
             || [sourceView isKindOfClass:[IRActionSheet class]]
             || [sourceView isKindOfClass:[IRAlertView class]])
         {
-            irViewController = ((id <IRComponentInfoProtocol>) sourceView).componentInfo;
+            vcKey = ((id <IRComponentInfoProtocol>) sourceView).componentInfo;
+            irViewController = [[IRDataController sharedInstance] controllerWithKey:vcKey];
         } else {
             irViewController = [IRBaseBuilder parentViewController:sourceView];
         }

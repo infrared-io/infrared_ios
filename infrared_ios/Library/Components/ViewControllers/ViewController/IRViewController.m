@@ -405,8 +405,7 @@
                                             otherButtonTitles:nil];
     alert.action = action;
     alert.data = data;
-    __unsafe_unretained typeof(self) weakSelf = self;
-    alert.componentInfo = weakSelf;
+    alert.componentInfo = self.key;
     for (NSString* otherButtonTitle in otherTitlesArray) {
         [alert addButtonWithTitle:otherButtonTitle];
     }
@@ -435,8 +434,7 @@
                                                     otherButtonTitles:nil];
     actionSheet.action = action;
     actionSheet.data = data;
-    __unsafe_unretained typeof(self) weakSelf = self;
-    actionSheet.componentInfo = weakSelf;
+    actionSheet.componentInfo = self.key;
     for (NSString* otherButtonTitle in otherTitlesArray) {
         [actionSheet addButtonWithTitle:otherButtonTitle];
     }
@@ -444,6 +442,7 @@
         [actionSheet addButtonWithTitle:cancelTitle];
         [actionSheet setCancelButtonIndex:[actionSheet numberOfButtons] - 1];
     }
+    __weak IRViewController *weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         [actionSheet showInView:weakSelf.view];
     });

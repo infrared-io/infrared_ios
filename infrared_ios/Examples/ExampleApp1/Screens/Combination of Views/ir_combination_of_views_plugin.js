@@ -19,6 +19,9 @@ IR.plugin({
         //},
         "color" : '#ffffff'
     },
+    "barButtonItemAction": function (control) {
+        NSLog('Combination of views - barButtonItemAction');
+    },
     "gestureRecognizer1" : function () {
         NSLog('gestureRecognizer1');
     },

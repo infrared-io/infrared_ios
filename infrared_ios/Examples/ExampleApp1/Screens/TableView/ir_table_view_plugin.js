@@ -10,6 +10,9 @@ IR.plugin({
             "text2" : "Header description +"
         };
     },
+    "barButtonItemAction": function (control) {
+        NSLog("TableView screen - barButtonItemAction");
+    },
     "tableHeader" : {
         "text1" : "Header title",
         "text2" : "Header description description description description description"

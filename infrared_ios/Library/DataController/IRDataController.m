@@ -373,6 +373,9 @@ static IRDataController *sharedDataController = nil;
 
     // 7) clean views with restricted orientations
     viewController.viewsArrayForOrientationRestriction = nil;
+
+    // 8) clean view with auto keyboard handling
+    viewController.viewsArrayForKeyboardResize = nil;
 }
 
 - (void) nilJSContextVCWithName:(NSString *)vcName
@@ -530,6 +533,20 @@ inSameScreenAsParentView:(id<IRComponentInfoProtocol>)parentView
         }
     }
     return controllersArray;
+}
+
+- (IRViewController *) controllerWithKey:(NSString *)vcKey
+{
+    IRViewController *irViewController = nil;
+    NSString *anVCKey;
+    for (IRViewController *anViewController in self.viewControllersArray) {
+        anVCKey = anViewController.key;
+        if ([anVCKey isEqualToString:vcKey]) {
+            irViewController = anViewController;
+            break;
+        }
+    }
+    return irViewController;
 }
 #endif
 

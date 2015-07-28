@@ -98,6 +98,8 @@ inSameScreenAsParentView:(id<IRComponentInfoProtocol>)parentView;
 
 #if TARGET_OS_IPHONE
 - (NSArray *) controllersWithId:(NSString *)controllerId;
+
+- (IRViewController *) controllerWithKey:(NSString *)vcKey;
 #endif
 
 #if TARGET_OS_IPHONE
