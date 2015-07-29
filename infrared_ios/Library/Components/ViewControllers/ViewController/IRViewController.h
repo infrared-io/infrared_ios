@@ -169,4 +169,6 @@
 
 - (void) cleanWatchJSObserversAndVC;
 
+void runOnMainQueueWithoutDeadlocking(void (^block)(void));
+
 @end

@@ -339,13 +339,20 @@ static IRDataController *sharedDataController = nil;
         NSLog(@"##### Memory Leak - unregisterViewControllerAndItsNavigationStack - IRSideMenu");
     }
 
+    // Next two steps must be is current order.
+    // Otherwise methods like "viewDidDisappear" would not be called in JSPlugin,
+    // because VC-JSContext-reference is deleted in "unregisterViewController" (step 2)
+    // -- step 1
+    //    (clean VCs and initiate "willMoveToParentViewController")
+    if (navigationController) {
+        navigationController.viewControllers = @[];
+    }
+    // -- step 2
+    //    (unregister VCs)
     if (viewControllers) {
         for (IRViewController *anVC in viewControllers) {
             [[IRDataController sharedInstance] unregisterViewController:anVC];
         }
-    }
-    if (navigationController) {
-        navigationController.viewControllers = @[];
     }
 }
 - (void) unregisterViewController:(IRViewController *)viewController
@@ -358,7 +365,7 @@ static IRDataController *sharedDataController = nil;
 
     vcAddress = viewController.key;
 
-    NSLog(@"IRDataController - unregisterViewController: %@", vcAddress);
+//    NSLog(@"IRDataController - unregisterViewController: %@", vcAddress);
 
     // 1) remove all views from viewController
     IRIdsAndComponentsForScreen *idsAndComponentsForScreen = nil;
@@ -402,6 +409,9 @@ static IRDataController *sharedDataController = nil;
 
     // 8) clean view with auto keyboard handling
     viewController.viewsArrayForKeyboardResize = nil;
+
+    // 9) clean temp data
+    viewController.data = nil;
 
 //    viewController.shouldUnregisterVC = NO;
 //    viewController.shouldUnregisterVCStack = NO;

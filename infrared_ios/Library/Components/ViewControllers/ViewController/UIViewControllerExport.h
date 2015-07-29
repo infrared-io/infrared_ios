@@ -205,8 +205,8 @@
   didMoveToParentViewController:. Similarly, subclasses will typically define a method that removes a child in
   the reverse manner by first calling [child willMoveToParentViewController:nil].
 */
-- (void)willMoveToParentViewController:(UIViewController *)parent NS_AVAILABLE_IOS(5_0);
-- (void)didMoveToParentViewController:(UIViewController *)parent NS_AVAILABLE_IOS(5_0);
+//- (void)willMoveToParentViewController:(UIViewController *)parent NS_AVAILABLE_IOS(5_0);
+//- (void)didMoveToParentViewController:(UIViewController *)parent NS_AVAILABLE_IOS(5_0);
 
 // -----------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------

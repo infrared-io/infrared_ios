@@ -255,7 +255,6 @@
 
     if (self.shouldUnregisterVCStack) {
 //        NSLog(@"viewDidDisappear - unregisterViewController ***STACK*** - key:%@", self.key);
-//        [self unregisterViewControllerAndItsNavigationStack:self];
         [[IRDataController sharedInstance] unregisterViewControllerAndItsNavigationStack:self];
     }
 }
@@ -285,6 +284,27 @@
     if (parent == nil) {
         self.shouldUnregisterVC = YES;
     }
+
+    NSArray *arguments;
+    if (parent) {
+        arguments = @[parent];
+    } else {
+//        arguments = @[[NSNull null]];
+        arguments = @[];
+    }
+    [self callJSEquivalentMethod:NSStringFromSelector(@selector(willMoveToParentViewController:)) arguments:arguments];
+}
+
+- (void)didMoveToParentViewController:(UIViewController *)parent
+{
+
+    NSArray *arguments;
+    if (parent) {
+        arguments = @[parent];
+    } else {
+        arguments = @[];
+    }
+    [self callJSEquivalentMethod:NSStringFromSelector(@selector(didMoveToParentViewController:)) arguments:arguments];
 }
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -304,13 +324,13 @@
 //    if ([[NSThread currentThread] isMainThread]) {
 //        NSLog(@"main 2");
 //    }
-    __weak IRViewController *weakSelf = self;
-//    __weak id weakData = data;
-    dispatch_async(dispatch_get_main_queue(), ^{
-//        NSLog(@"pushViewControllerWithScreenId=%@ [pre]---->", screenId);
-        [weakSelf pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
-//        NSLog(@"pushViewControllerWithScreenId=%@ [post]---->", screenId);
-    });
+    [self pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+//    __weak IRViewController *weakSelf = self;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+////        NSLog(@"pushViewControllerWithScreenId=%@ [pre]---->", screenId);
+//        [weakSelf pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+////        NSLog(@"pushViewControllerWithScreenId=%@ [post]---->", screenId);
+//    });
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) pushViewControllerWithId:(NSString *)viewControllerId animated:(BOOL)animated
@@ -321,10 +341,11 @@
 {
     IRScreenDescriptor *screenDescriptor;
     screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithControllerId:viewControllerId];
-    __weak IRViewController *weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [weakSelf pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
-    });
+    [self pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+//    __weak IRViewController *weakSelf = self;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [weakSelf pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+//    });
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) popViewControllerAnimated:(BOOL)animated
@@ -351,10 +372,10 @@
 {
     IRScreenDescriptor *screenDescriptor;
     screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:screenId];
-    __weak IRViewController *weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [weakSelf presentVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
-    });
+//    __weak IRViewController *weakSelf = self;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+//    });
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) presentViewControllerWithId:(NSString *)viewControllerId animated:(BOOL)animated
@@ -365,10 +386,10 @@
 {
     IRScreenDescriptor *screenDescriptor;
     screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithControllerId:viewControllerId];
-    __weak IRViewController *weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [weakSelf presentVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
-    });
+//    __weak IRViewController *weakSelf = self;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+//    });
 }
 - (void)dismissViewControllerAnimated:(BOOL)animated
 {
@@ -1179,7 +1200,11 @@
 
         viewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor
                                                                                      data:data];
-        [self.navigationController pushViewController:viewController animated:animated];
+        __weak IRViewController *weakSelf = self;
+        __weak IRViewController *weakViewController = viewController;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.navigationController pushViewController:weakViewController animated:animated];
+        });
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -1192,9 +1217,11 @@
                                                                                      data:data];
         // -- wrap if needed
         viewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerAndSideMenuIfNeeded:viewController];
-        [self presentViewController:viewController animated:animated completion:nil];
+        __weak IRViewController *weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf presentViewController:viewController animated:animated completion:nil];
+        });
     }
-
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) callJSEquivalentMethod:(NSString *)methodName
@@ -1243,22 +1270,6 @@
         NSLog(@"callJSEquivalentMethod:arguments: - ViewController not available in JSContext !!!");
     }
 }
-// --------------------------------------------------------------------------------------------------------------------
-//- (void) unregisterViewControllerAndItsNavigationStack:(IRViewController *)viewController
-//{
-//    if (viewController.navigationController) {
-//        UINavigationController *navigationController = viewController.navigationController;
-//        NSArray *viewControllers = navigationController.viewControllers;
-//        for (IRViewController *anVC in viewControllers) {
-////            NSLog(@"unregisterViewControllerAndItsNavigationStack - unregisterViewController - key:%@", anVC.key);
-//            [[IRDataController sharedInstance] unregisterViewController:anVC];
-//        }
-//        navigationController.viewControllers = @[];
-//    } else {
-////        NSLog(@"unregisterViewControllerAndItsNavigationStack - unregisterViewController - key:%@", viewController.key);
-//        [[IRDataController sharedInstance] unregisterViewController:viewController];
-//    }
-//}
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
@@ -1295,6 +1306,22 @@
 
     // IMPORTANT: leave line below as commented
     // [super dealloc]; // (provided by the compiler)
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
+
+void runOnMainQueueWithoutDeadlocking(void (^block)(void))
+{
+    if ([NSThread isMainThread])
+    {
+        block();
+    }
+    else
+    {
+        dispatch_async(dispatch_get_main_queue(), block);
+    }
 }
 
 @end

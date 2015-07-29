@@ -104,6 +104,7 @@
 		1572FA251A3C42700087D18A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1572FA241A3C42700087D18A /* MapKit.framework */; };
 		BB7368F0D072D98A7BEB9B7E /* libPods-infrared_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5898BCB4DDC8E23F97DC8411 /* libPods-infrared_ios.a */; };
 		F613A0062C4D9585FD46D778 /* IRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AF33EB3C7F2647FB65C7 /* IRNavigationBar.m */; };
+		F613A0274EADFEA9C0A4A812 /* UINavigationItem+Infrared.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ABECFB393FB0C2C74277 /* UINavigationItem+Infrared.m */; };
 		F613A04E3C854EC740006D17 /* IRTabBarItemDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A3EE6119B527969AB68A /* IRTabBarItemDescriptor.m */; };
 		F613A07EA8595650F59510F4 /* ir_collection_view.json in Resources */ = {isa = PBXBuildFile; fileRef = F613A3CE42788832E3CD595B /* ir_collection_view.json */; };
 		F613A0880D9720E35AE95500 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = F613A61D98F0DD9376A75B54 /* ioapi.c */; };
@@ -601,6 +602,7 @@
 		F613A88292D98E97CB0C942B /* NSDataExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataExport.h; sourceTree = "<group>"; };
 		F613A894C64399B19D6F651B /* infrared.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = infrared.js; sourceTree = "<group>"; };
 		F613A895D8EE36E99D203024 /* IRScrollViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRScrollViewBuilder.m; sourceTree = "<group>"; };
+		F613A8985A9B8FD84A05C68F /* UINavigationItem+Infrared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Infrared.h"; sourceTree = "<group>"; };
 		F613A8AB51F82C351D04945C /* IRPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPanGestureRecognizer.m; sourceTree = "<group>"; };
 		F613A8AC7EC93B47AF2B2F4E /* IRRotationGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRRotationGestureRecognizer.h; sourceTree = "<group>"; };
 		F613A8B556D9A561FC7AE601 /* IRGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRGlobal.h; sourceTree = "<group>"; };
@@ -710,6 +712,7 @@
 		F613ABE75CA984681F7640D2 /* IRLongPressGestureRecognizerDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLongPressGestureRecognizerDescriptor.m; sourceTree = "<group>"; };
 		F613ABE95DD96C8D5A5B570E /* IRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRViewController.h; sourceTree = "<group>"; };
 		F613ABECCA6AB3D29F4C6307 /* IRStepperBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRStepperBuilder.h; sourceTree = "<group>"; };
+		F613ABECFB393FB0C2C74277 /* UINavigationItem+Infrared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Infrared.m"; sourceTree = "<group>"; };
 		F613ABEF4CF2C3040CFB745E /* IRSwipeGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSwipeGestureRecognizer.h; sourceTree = "<group>"; };
 		F613ABF4F35EE5324F9A655A /* IRSwipeGestureRecognizerDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSwipeGestureRecognizerDescriptor.h; sourceTree = "<group>"; };
 		F613AC08B5C7EDE9ACBD10F9 /* CLLocationManagerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLocationManagerExport.h; sourceTree = "<group>"; };
@@ -1241,6 +1244,8 @@
 				F613A73237C5EC444161B833 /* UITextField+Infrared.h */,
 				F613A48CD0AE2D8A8CCB1302 /* UITextView+Infrared.m */,
 				F613A0DBE29DCD8E0168737F /* UITextView+Infrared.h */,
+				F613ABECFB393FB0C2C74277 /* UINavigationItem+Infrared.m */,
+				F613A8985A9B8FD84A05C68F /* UINavigationItem+Infrared.h */,
 			);
 			path = UIKitCategories;
 			sourceTree = "<group>";
@@ -2619,6 +2624,7 @@
 				F613A0985FA930D8D3DA9611 /* unzip.c in Sources */,
 				F613A5B41542B5F0F51A3C99 /* mztools.c in Sources */,
 				F613AB4CB74A3E127A82B321 /* Main.m in Sources */,
+				F613A0274EADFEA9C0A4A812 /* UINavigationItem+Infrared.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
