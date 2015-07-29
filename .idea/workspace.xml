@@ -4,18 +4,14 @@
     <list id="32bc60ea-428b-4574-bd73-560444221e61" name="Default" comment="" />
     <list id="8aa917bd-2999-41a9-b487-38fcdc2f0c67" name="THIOS-7 Implement UITapGestureRecognizer" comment="THIOS-3 UIViewController" />
     <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="RESideMenuExport - in progress">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios.xcworkspace/xcuserdata/urosmil.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/infrared_ios.xcworkspace/xcuserdata/urosmil.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItemBuilder.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItemBuilder.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/_Base/IRBaseAnnotationViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/_Base/IRBaseAnnotationViewDescriptor.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintDescriptor.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Infrared.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Infrared.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" afterPath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views.json" afterPath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js" afterPath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/TableView/ir_table_view.json" afterPath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/TableView/ir_table_view.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/TableView/ir_table_view_plugin.js" afterPath="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/TableView/ir_table_view_plugin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="therma_ios.iws" />
@@ -62,21 +58,33 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="IRViewController.m" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m">
+          <file leaf-file-name="Infrared.m" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Infrared.m">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="5830" max-vertical-offset="18810">
-                  <caret line="436" column="4" selection-start-line="436" selection-start-column="4" selection-end-line="436" selection-end-column="4" />
+                <state vertical-scroll-proportion="0.328125" vertical-offset="4350" max-vertical-offset="9210">
+                  <caret line="359" column="0" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="IRBarButtonItemBuilder.m" pinned="false" current-in-tab="true">
+          <file leaf-file-name="IRViewController.m" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="8445" max-vertical-offset="19440">
+                  <caret line="613" column="0" selection-start-line="613" selection-start-column="0" selection-end-line="613" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#59606#59643#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IRBarButtonItemBuilder.m" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItemBuilder.m">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.171875" vertical-offset="315" max-vertical-offset="1275">
-                  <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1275">
+                  <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
@@ -122,16 +130,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ir_table_view_plugin.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/TableView/ir_table_view_plugin.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2205">
-                  <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="IRBarButtonItem.m" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItem.m">
               <provider selected="true" editor-type-id="text-editor">
@@ -142,11 +140,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="IRBarItemBuilder.m" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItemBuilder.m">
+          <file leaf-file-name="IRViewControllerBuilder.m" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
-                  <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="5685">
+                  <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
                   <folding />
                 </state>
               </provider>
@@ -182,7 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Infrared.podspec" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/LongPressGestureRecognizer/UILongPressGestureRecognizerExport.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PanGestureRecognizer/UIPanGestureRecognizerExport.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PanGestureRecognizer/IRPanGestureRecognizer.h" />
@@ -226,13 +223,14 @@
         <option value="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.m" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItemBuilder.m" />
         <option value="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/TableView/ir_table_view_plugin.js" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItemDescriptor.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/TableView/ir_table_view.json" />
         <option value="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views.json" />
         <option value="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js" />
+        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" />
+        <option value="$PROJECT_DIR$/infrared_ios/Library/Infrared.m" />
       </list>
     </option>
   </component>
@@ -1507,12 +1505,6 @@
       <option name="number" value="Default" />
       <updated>1409401002811</updated>
     </task>
-    <task id="LOCAL-00147" summary="1) IRViewController - added method &quot;popViewControllerAnimated&quot; which always executes on main thread&#10;2) IRImageView - added temp fix for image binding with ReactiveCocoa&#10;3) IRTableViewCell - added support for dynamic cell height based on content size (param &quot;dynamicAutolayoutRowHeight&quot;)&#10;4) IRBaseBuilder - added clean-up for temporary JSContext data&#10;5) small refactoring across project&#10;">
-      <created>1434117269685</created>
-      <option name="number" value="00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1434117269690</updated>
-    </task>
     <task id="LOCAL-00148" summary="Added UIRotationGestureRecognizer, UIPanGestureRecognizer, UILongPressGestureRecognizer, UIScreenEdgePanGestureRecognizer">
       <created>1434636561207</created>
       <option name="number" value="00148" />
@@ -1801,7 +1793,13 @@
       <option name="project" value="LOCAL" />
       <updated>1438016852007</updated>
     </task>
-    <option name="localTasksCounter" value="196" />
+    <task id="LOCAL-00196" summary="Memory management improvements - 2&#10;Minor refactorings">
+      <created>1438081345391</created>
+      <option name="number" value="00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1438081345391</updated>
+    </task>
+    <option name="localTasksCounter" value="197" />
     <option name="createBranch" value="false" />
     <option name="markAsInProgress" value="true" />
     <servers>
@@ -1841,14 +1839,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="23" width="1751" height="1057" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.2532928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="130" y="1103" width="1104" height="836" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.28672746" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="13" y="1143" width="1409" height="699" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.28672746" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="13" y="1143" width="1409" height="699" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279703" sideWeight="0.50036794" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24120604" sideWeight="0.3631841" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371286" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1884,7 +1882,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHORT_DIFF_EXTRA_LINES" value="8" />
-    <MESSAGE value="Added param &quot;indicatorStyle&quot; to WebView" />
     <MESSAGE value="1) improved MBProgressHUD behaviour&#10;2) renamed methods for showing AlertView and ActionSheet" />
     <MESSAGE value="1) added JS support for NSUserDefaults&#10;2) added JS support for Keychain&#10;3) refactorings" />
     <MESSAGE value="1) JSPlugin concept improved to work WITHOUT name&#10;2) WebView and ScrollView - added JSExport to base objects (UIWebView and UIScrollView)&#10;3) added md5.min.js as part of base libraries" />
@@ -1909,7 +1906,8 @@
     <MESSAGE value="1) GestureRecognizers builder improvements&#10;2) &quot;isIdRequired&quot; behaviour improved" />
     <MESSAGE value="RESideMenuExport - in progress" />
     <MESSAGE value="Memory management improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Memory management improvements" />
+    <MESSAGE value="Memory management improvements - 2&#10;Minor refactorings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Memory management improvements - 2&#10;Minor refactorings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1938,7 +1936,7 @@
         </line-breakpoint>
         <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m</url>
-          <line>797</line>
+          <line>802</line>
           <option name="timeStamp" value="371" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -1983,7 +1981,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/infrared_ios/Library/Infrared.m</url>
-          <line>206</line>
+          <line>207</line>
           <option name="timeStamp" value="690" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -2003,17 +2001,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m</url>
-          <line>297</line>
+          <line>284</line>
           <option name="timeStamp" value="743" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/infrared_ios/Library/Infrared.m</url>
-          <line>125</line>
+          <line>126</line>
           <option name="timeStamp" value="778" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/infrared_ios/Library/Infrared.m</url>
-          <line>298</line>
+          <line>299</line>
           <option name="timeStamp" value="780" />
         </line-breakpoint>
       </breakpoints>
@@ -2174,14 +2172,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Infrared.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3445" max-vertical-offset="9090">
-          <caret line="298" column="16" selection-start-line="298" selection-start-column="16" selection-end-line="298" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/TextField/IRTextField.m">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="10" max-vertical-offset="3420">
@@ -2320,14 +2310,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="667" max-vertical-offset="5790">
-          <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/IRLibrary/IRUtilLibrary.m">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3180">
@@ -2357,24 +2339,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="1845">
           <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5830" max-vertical-offset="18810">
-          <caret line="436" column="4" selection-start-line="436" selection-start-column="4" selection-end-line="436" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="205" max-vertical-offset="6555">
-          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
-          <folding>
-            <element signature="e#18200#18253#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2436,8 +2400,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItemBuilder.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.171875" vertical-offset="315" max-vertical-offset="1275">
-          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1275">
+          <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="205" max-vertical-offset="6555">
+          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+          <folding>
+            <element signature="e#18200#18253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="5685">
+          <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="8445" max-vertical-offset="19440">
+          <caret line="613" column="0" selection-start-line="613" selection-start-column="0" selection-end-line="613" selection-end-column="0" />
+          <folding>
+            <element signature="e#59606#59643#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Infrared.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.328125" vertical-offset="4350" max-vertical-offset="9210">
+          <caret line="359" column="0" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
           <folding />
         </state>
       </provider>

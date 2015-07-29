@@ -71,6 +71,7 @@
 
 #if TARGET_OS_IPHONE
 - (void) registerViewController:(id <IRComponentInfoProtocol>)component;
+- (void) unregisterViewControllerAndItsNavigationStack:(IRViewController *)viewController;
 - (void) unregisterViewController:(IRViewController *)viewController;
 #endif
 

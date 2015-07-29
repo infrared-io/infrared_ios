@@ -25,6 +25,7 @@
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary
 {
+    self = [super initDescriptorWithDictionary:aDictionary];
     if (self) {
         NSNumber *number;
         NSString *string;
@@ -99,7 +100,6 @@
         string = aDictionary[NSStringFromSelector(@selector(deselectAnnotationAction))];
         self.deselectAnnotationAction = string;
     }
-    self = [super initDescriptorWithDictionary:aDictionary];
     return self;
 }
 

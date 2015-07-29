@@ -154,48 +154,52 @@
     NSString *anTrimmedOption;
     if ([string length] > 0) {
         optionsArray = [IRBaseDescriptor componentsArrayFromString:string];
-        for (NSUInteger i=0; i < [optionsArray count]; i++) {
-            anOption = optionsArray[i];
-            anTrimmedOption = [anOption stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            if ([@"NSLayoutFormatAlignAllLeft" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatAlignAllLeft;
-            } else if ([@"NSLayoutFormatAlignAllRight" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatAlignAllRight;
-            } else if ([@"NSLayoutFormatAlignAllTop" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatAlignAllTop;
-            } else if ([@"NSLayoutFormatAlignAllBottom" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatAlignAllBottom;
-            } else if ([@"NSLayoutFormatAlignAllLeading" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatAlignAllLeading;
-            } else if ([@"NSLayoutFormatAlignAllTrailing" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatAlignAllTrailing;
-            } else if ([@"NSLayoutFormatAlignAllCenterX" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatAlignAllCenterX;
-            } else if ([@"NSLayoutFormatAlignAllCenterY" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatAlignAllCenterY;
-            } else if ([@"NSLayoutFormatAlignAllBaseline" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatAlignAllBaseline;
-            } else if ([@"NSLayoutFormatAlignAllLastBaseline" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatAlignAllLastBaseline;
-            } else if ([@"NSLayoutFormatAlignmentMask" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatAlignmentMask;
-            } else if ([@"NSLayoutFormatDirectionLeadingToTrailing" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatDirectionLeadingToTrailing;
-            } else if ([@"NSLayoutFormatDirectionLeftToRight" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatDirectionLeftToRight;
-            } else if ([@"NSLayoutFormatDirectionRightToLeft" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatDirectionRightToLeft;
-            } else if ([@"NSLayoutFormatDirectionMask" isEqualToString:anTrimmedOption]) {
-                anLayoutFormatOptions = NSLayoutFormatDirectionMask;
-            } else {
-                anLayoutFormatOptions = NSLayoutFormatDirectionLeadingToTrailing;
-            }
+        if (optionsArray && [optionsArray count] > 0) {
+            for (NSUInteger i=0; i < [optionsArray count]; i++) {
+                anOption = optionsArray[i];
+                anTrimmedOption = [anOption stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                if ([@"NSLayoutFormatAlignAllLeft" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatAlignAllLeft;
+                } else if ([@"NSLayoutFormatAlignAllRight" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatAlignAllRight;
+                } else if ([@"NSLayoutFormatAlignAllTop" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatAlignAllTop;
+                } else if ([@"NSLayoutFormatAlignAllBottom" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatAlignAllBottom;
+                } else if ([@"NSLayoutFormatAlignAllLeading" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatAlignAllLeading;
+                } else if ([@"NSLayoutFormatAlignAllTrailing" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatAlignAllTrailing;
+                } else if ([@"NSLayoutFormatAlignAllCenterX" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatAlignAllCenterX;
+                } else if ([@"NSLayoutFormatAlignAllCenterY" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatAlignAllCenterY;
+                } else if ([@"NSLayoutFormatAlignAllBaseline" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatAlignAllBaseline;
+                } else if ([@"NSLayoutFormatAlignAllLastBaseline" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatAlignAllLastBaseline;
+                } else if ([@"NSLayoutFormatAlignmentMask" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatAlignmentMask;
+                } else if ([@"NSLayoutFormatDirectionLeadingToTrailing" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatDirectionLeadingToTrailing;
+                } else if ([@"NSLayoutFormatDirectionLeftToRight" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatDirectionLeftToRight;
+                } else if ([@"NSLayoutFormatDirectionRightToLeft" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatDirectionRightToLeft;
+                } else if ([@"NSLayoutFormatDirectionMask" isEqualToString:anTrimmedOption]) {
+                    anLayoutFormatOptions = NSLayoutFormatDirectionMask;
+                } else {
+                    anLayoutFormatOptions = NSLayoutFormatDirectionLeadingToTrailing;
+                }
 
-            if (i == 0) {
-                layoutFormatOptions = anLayoutFormatOptions;
-            } else {
-                layoutFormatOptions |= anLayoutFormatOptions;
+                if (i == 0) {
+                    layoutFormatOptions = anLayoutFormatOptions;
+                } else {
+                    layoutFormatOptions |= anLayoutFormatOptions;
+                }
             }
+        } else {
+            layoutFormatOptions = NSLayoutFormatDirectionLeadingToTrailing;
         }
     } else {
         layoutFormatOptions = NSLayoutFormatDirectionLeadingToTrailing;

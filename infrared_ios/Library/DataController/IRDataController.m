@@ -17,6 +17,9 @@
 #import "IRJSContextUtil.h"
 #import "IRView.h"
 #import "IRViewController.h"
+#import "IRNavigationController.h"
+#import "IRTabBarController.h"
+#import "IRSideMenu.h"
 #endif
 
 @interface IRDataController ()
@@ -227,22 +230,6 @@ static IRDataController *sharedDataController = nil;
     NSString *jsPluginNameFromPath;
     NSString *scriptTags = @"";
     for (NSString *anPluginPath in jsPluginPathsArray) {
-        /*if ([[IRDataController sharedInstance].appDescriptor.baseUrl length] > 0) {
-            if ([IRUtil hasFilePrefix:anPluginPath]) {
-                // TODO: fix for path "file://library.js"
-                scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", anPluginPath];
-            } else {
-                jsPluginNameFromPath = [IRUtil fileNameFromPath:anPluginPath];
-                scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
-            }
-        } else {
-            if ([IRUtil isLocalFile:anPluginPath]) {
-                scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", anPluginPath];
-            } else {
-                jsPluginNameFromPath = [IRUtil fileNameFromPath:anPluginPath];
-                scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
-            }
-        }*/
         anEscapedPluginPath = [anPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         jsPluginNameFromPath = [IRUtil fileNameFromPath:anEscapedPluginPath];
         scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
@@ -328,11 +315,50 @@ static IRDataController *sharedDataController = nil;
         [self.viewControllersArray addObject:component];
     }
 }
+- (void) unregisterViewControllerAndItsNavigationStack:(IRViewController *)viewController
+{
+    NSArray *viewControllers = nil;
+    UINavigationController *navigationController = nil;
+    if ([viewController isKindOfClass:[IRNavigationController class]]) {
+        viewControllers = ((IRNavigationController *)viewController).viewControllers;
+    } else if ([viewController isKindOfClass:[IRViewController class]]) {
+        if (viewController.navigationController) {
+            navigationController = viewController.navigationController;
+            viewControllers = navigationController.viewControllers;
+        } else {
+            viewControllers = @[viewController];
+        }
+    }
+    // TODO: improve to recognise SideMenu, TabBar, etc. (IRI - 231)
+    else if ([viewController isKindOfClass:[IRTabBarController class]])
+    {
+        NSLog(@"##### Memory Leak - unregisterViewControllerAndItsNavigationStack - IRTabBarController");
+    }
+    else if ([viewController isKindOfClass:[IRSideMenu class]])
+    {
+        NSLog(@"##### Memory Leak - unregisterViewControllerAndItsNavigationStack - IRSideMenu");
+    }
+
+    if (viewControllers) {
+        for (IRViewController *anVC in viewControllers) {
+            [[IRDataController sharedInstance] unregisterViewController:anVC];
+        }
+    }
+    if (navigationController) {
+        navigationController.viewControllers = @[];
+    }
+}
 - (void) unregisterViewController:(IRViewController *)viewController
 {
-    NSString *vcAddress = viewController.key;
+    NSString *vcAddress;
 
-//    NSLog(@"unregisterViewController: %@", vcAddress);
+    if ([viewController conformsToProtocol:@protocol(IRComponentInfoProtocol)] == NO) {
+        return;
+    }
+
+    vcAddress = viewController.key;
+
+    NSLog(@"IRDataController - unregisterViewController: %@", vcAddress);
 
     // 1) remove all views from viewController
     IRIdsAndComponentsForScreen *idsAndComponentsForScreen = nil;
@@ -366,7 +392,7 @@ static IRDataController *sharedDataController = nil;
 
     // 5) clean Watch.JS observers and VC
     [viewController cleanWatchJSObserversAndVC];
-    [self performSelector:@selector(nilJSContextVCWithName:) withObject:viewController.key afterDelay:0.5];
+    [self performSelector:@selector(nilJSContextVCWithName:) withObject:viewController.key afterDelay:5];
 
     // 6) nil pluginInjectionJsContext
     viewController.pluginInjectionJsContext = nil;
@@ -376,6 +402,9 @@ static IRDataController *sharedDataController = nil;
 
     // 8) clean view with auto keyboard handling
     viewController.viewsArrayForKeyboardResize = nil;
+
+//    viewController.shouldUnregisterVC = NO;
+//    viewController.shouldUnregisterVCStack = NO;
 }
 
 - (void) nilJSContextVCWithName:(NSString *)vcName

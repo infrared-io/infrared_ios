@@ -388,13 +388,6 @@
     sideMenu.bouncesHorizontally = descriptor.bouncesHorizontally;
     sideMenu.menuPreferredStatusBarStyle = descriptor.menuPreferredStatusBarStyle;
     sideMenu.menuPrefersStatusBarHidden = descriptor.menuPrefersStatusBarHidden;
-//    if ([contentVC isKindOfClass:[UINavigationController class]]) {
-//        if ([((UINavigationController *) contentVC).viewControllers count] > 0) {
-//            sideMenu.delegate = [((UINavigationController *) contentVC).viewControllers firstObject];
-//        }
-//    } else if ([contentVC isKindOfClass:[UIViewController class]]) {
-//        sideMenu.delegate = contentVC;
-//    }
     sideMenu.delegate = delegate;
     return sideMenu;
 }

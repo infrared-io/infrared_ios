@@ -50,6 +50,7 @@
 #import "IRCollectionReusableViewDescriptor.h"
 #import "IRWebViewDescriptor.h"
 #import "Main.h"
+#import "IRNavigationController.h"
 #import <CoreText/CoreText.h>
 
 @interface Infrared ()
@@ -543,8 +544,16 @@ static Infrared *sharedInfraRed = nil;
                                                                                                 data:data];
         appDelegate = [UIApplication sharedApplication].delegate;
         @try {
+            IRViewController *oldViewController = (IRViewController *) appDelegate.window.rootViewController;
+
+            // -- set new root view controller
             appDelegate.window.rootViewController = rootViewController;
             [appDelegate.window makeKeyAndVisible];
+
+            // -- clean previous (old) view controller
+            if (oldViewController) {
+                [[IRDataController sharedInstance] unregisterViewControllerAndItsNavigationStack:oldViewController];
+            }
         }
         @catch (NSException *exception) {
             NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);

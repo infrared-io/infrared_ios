@@ -1204,7 +1204,7 @@
         string = aDictionary[idKEY];
         if ([string length] > 0) {
             self.componentId = string;
-        } else {
+        } else if (aDictionary) {
             if ([self isIdRequired]) {
                 NSLog(@"Component must have \"id\" set in JSON description file! It may not work properly without it!");
             }

@@ -255,7 +255,8 @@
 
     if (self.shouldUnregisterVCStack) {
 //        NSLog(@"viewDidDisappear - unregisterViewController ***STACK*** - key:%@", self.key);
-        [self unregisterViewControllerAndItsNavigationStack:self];
+//        [self unregisterViewControllerAndItsNavigationStack:self];
+        [[IRDataController sharedInstance] unregisterViewControllerAndItsNavigationStack:self];
     }
 }
 
@@ -304,6 +305,7 @@
 //        NSLog(@"main 2");
 //    }
     __weak IRViewController *weakSelf = self;
+//    __weak id weakData = data;
     dispatch_async(dispatch_get_main_queue(), ^{
 //        NSLog(@"pushViewControllerWithScreenId=%@ [pre]---->", screenId);
         [weakSelf pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
@@ -374,7 +376,8 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [weakSelf dismissViewControllerAnimated:animated
                                  completion:^{
-                                     [weakSelf unregisterViewControllerAndItsNavigationStack:weakSelf];
+//                                     [weakSelf unregisterViewControllerAndItsNavigationStack:weakSelf];
+                                     [[IRDataController sharedInstance] unregisterViewControllerAndItsNavigationStack:weakSelf];
                                  }];
     });
 }
@@ -610,6 +613,7 @@
     IRScreenDescriptor *screenDescriptor;
 
     IRViewController *currentContentViewController = (IRViewController *) self.sideMenuViewController.contentViewController;
+    // TODO: improve to support TabBar and others
     if ([currentContentViewController isKindOfClass:[IRNavigationController class]]) {
         currentContentViewController = [((IRNavigationController *) currentContentViewController).viewControllers firstObject];
     }
@@ -619,22 +623,21 @@
         // -- prepare and set new VC
         screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:screenId];
         __weak IRViewController *weakSelf = self;
-        __weak IRViewController *weakCurrentContentViewController = currentContentViewController;
         if (screenDescriptor) {
+            // -- mark old VC for clean-up
+            currentContentViewController.shouldUnregisterVCStack = YES;
+            // -- build new VC
+            IRViewController *contentViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor data:nil];
+            __weak IRViewController *weakContentViewController = contentViewController;
             dispatch_async(dispatch_get_main_queue(), ^{
-                IRViewController *contentViewController;
                 IRViewController *wrappedContentViewController;
 
-                // -- mark old VC for clean-up
-                weakCurrentContentViewController.shouldUnregisterVCStack = YES;
-
-                // -- build new VC
-                contentViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor data:nil];
                 // -- navigation controller and tabBar controller
-                wrappedContentViewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerIfNeeded:contentViewController];
+                // TODO: multiple tabs will leak here (additional tabs are created in wrapInTabBar...)
+                wrappedContentViewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerIfNeeded:weakContentViewController];
 
                 // -- set delegate to content VC
-                weakSelf.sideMenuViewController.delegate = contentViewController;
+                weakSelf.sideMenuViewController.delegate = weakContentViewController;
                 // -- set new wrapped content VC
                 [weakSelf.sideMenuViewController setContentViewController:wrappedContentViewController animated:animated];
             });
@@ -782,26 +785,47 @@
 //    NSLog(@"cleanWatchJSObserversAndVC - %@", self.key);
     JSContext *jsContext = [IRDataController sharedInstance].globalJSContext;
     NSString *propertyName;
+    NSString *unwatchProperties = @"";
     for (uint i = 0; i<[self.jsValueNamesWatchForDataBindingArray count]; i++) {
         propertyName = self.jsValueNamesWatchForDataBindingArray[i];
-        @try {
-            NSString *method = [NSString stringWithFormat:@
+        unwatchProperties = [unwatchProperties stringByAppendingFormat:@"unwatch(%@, '%@'); ", self.key, propertyName];
+//        @try {
+//            NSString *method = [NSString stringWithFormat:@
+//#if ENABLE_SAFARI_DEBUGGING == 1
+//                                                            "setZeroTimeout( function() { "
+//#endif
+//                                                                "if (typeof %@ !== 'undefined') { "
+//                                                                    "unwatch(%@, '%@'); "
+//                                                                    "delete %@ ; "
+//                                                                "}"
+//#if ENABLE_SAFARI_DEBUGGING == 1
+//                                                            " } );"
+//#endif
+//                                                           , self.key, self.key, propertyName, self.key];
+//            [jsContext evaluateScript:method];
+//        }
+//        @catch (NSException *exception) {
+//            NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
+//        }
+    }
+    @try {
+        NSString *method = [NSString stringWithFormat:@
 #if ENABLE_SAFARI_DEBUGGING == 1
-                                                            "setZeroTimeout( function() { "
+                                                        "setZeroTimeout( function() { "
 #endif
-                                                                "if (typeof %@ !== 'undefined') { "
-                                                                    "unwatch(%@, '%@'); "
-                                                                    "delete %@ ; "
-                                                                "}"
+                                                        "if (typeof %@ !== 'undefined') { "
+//                                                            "unwatch(%@, '%@'); "
+                                                        "%@ "
+                                                        "delete %@ ; "
+                                                        "}"
 #if ENABLE_SAFARI_DEBUGGING == 1
-                                                            " } );"
+                                                        " } );"
 #endif
-                                                           , self.key, self.key, propertyName, self.key];
-            [jsContext evaluateScript:method];
-        }
-        @catch (NSException *exception) {
-            NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
-        }
+          , self.key, unwatchProperties, self.key];
+        [jsContext evaluateScript:method];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
     }
 }
 
@@ -1200,6 +1224,7 @@
     NSArray *methodNamePartsArray = [methodName componentsSeparatedByString:@":"];
     NSString *methodNameJSEquivalent = @"";
     NSString *methodNamePart;
+    JSValue *method;
     NSString *wrapperMethod;
     for (int i=0; i<[methodNamePartsArray count]; i++) {
         methodNamePart = methodNamePartsArray[i];
@@ -1212,40 +1237,47 @@
             methodNameJSEquivalent = [methodNameJSEquivalent stringByAppendingString:methodNamePart];
         }
     }
-    JSValue *method = irViewControllerJSValue[methodNameJSEquivalent];
-    if ([method isObject]
-        && [[method toObject] isKindOfClass:[NSDictionary class]]
-        && [[method toString] hasPrefix:@"function"])
-    {
-//        NSLog(@"implements VC-equivalent js-method: '%@'", methodName);
+
+    if (irViewControllerJSValue && [irViewControllerJSValue toObject]) {
+        method = irViewControllerJSValue[methodNameJSEquivalent];
+        if ([method isObject]
+          && [[method toObject] isKindOfClass:[NSDictionary class]]
+          && [[method toString] hasPrefix:@"function"])
+        {
+            //        NSLog(@"implements VC-equivalent js-method: '%@'", methodName);
 #if ENABLE_SAFARI_DEBUGGING == 1
-        wrapperMethod = [NSString stringWithFormat:@
-                                                     "%@_%@ = function() { "
-                                                     "    setZeroTimeout( %@.%@.bind(%@, arguments) ) "
-                                                     "}"
-                                                    , methodNameJSEquivalent, self.key,
-                                  self.key, methodNameJSEquivalent, self.key];
-        JSValue *wrapperMethodJSValue = [jsContext evaluateScript:wrapperMethod];
-        [wrapperMethodJSValue callWithArguments:arguments];
+            wrapperMethod = [NSString stringWithFormat:@
+                                                         "%@_%@ = function() { "
+                                                         "    setZeroTimeout( %@.%@.bind(%@, arguments) ) "
+                                                         "}"
+              , methodNameJSEquivalent, self.key,
+                                                       self.key, methodNameJSEquivalent, self.key];
+            JSValue *wrapperMethodJSValue = [jsContext evaluateScript:wrapperMethod];
+            [wrapperMethodJSValue callWithArguments:arguments];
 #else
-        [method callWithArguments:arguments];
-#endif
+            [method callWithArguments:arguments];
+    #endif
+        }
+    } else {
+        NSLog(@"callJSEquivalentMethod:arguments: - ViewController not available in JSContext !!!");
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
-- (void) unregisterViewControllerAndItsNavigationStack:(IRViewController *)viewController
-{
-    if (viewController.navigationController) {
-        NSArray *viewControllers = viewController.navigationController.viewControllers;
-        for (IRViewController *anVC in viewControllers) {
-//            NSLog(@"unregisterViewControllerAndItsNavigationStack - unregisterViewController - key:%@", anVC.key);
-            [[IRDataController sharedInstance] unregisterViewController:anVC];
-        }
-    } else {
-//        NSLog(@"unregisterViewControllerAndItsNavigationStack - unregisterViewController - key:%@", viewController.key);
-        [[IRDataController sharedInstance] unregisterViewController:viewController];
-    }
-}
+//- (void) unregisterViewControllerAndItsNavigationStack:(IRViewController *)viewController
+//{
+//    if (viewController.navigationController) {
+//        UINavigationController *navigationController = viewController.navigationController;
+//        NSArray *viewControllers = navigationController.viewControllers;
+//        for (IRViewController *anVC in viewControllers) {
+////            NSLog(@"unregisterViewControllerAndItsNavigationStack - unregisterViewController - key:%@", anVC.key);
+//            [[IRDataController sharedInstance] unregisterViewController:anVC];
+//        }
+//        navigationController.viewControllers = @[];
+//    } else {
+////        NSLog(@"unregisterViewControllerAndItsNavigationStack - unregisterViewController - key:%@", viewController.key);
+//        [[IRDataController sharedInstance] unregisterViewController:viewController];
+//    }
+//}
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
@@ -1255,6 +1287,16 @@
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
+
+//    if (self.shouldUnregisterVC) {
+////        NSLog(@"viewDidDisappear - unregisterViewController - key:%@", self.key);
+//        [[IRDataController sharedInstance] unregisterViewController:self];
+//    }
+//
+//    if (self.shouldUnregisterVCStack) {
+////        NSLog(@"viewDidDisappear - unregisterViewController ***STACK*** - key:%@", self.key);
+//        [self unregisterViewControllerAndItsNavigationStack:self];
+//    }
 
     // Release any cached data, images, etc. that aren't in use.
     NSLog(@"IRViewController - didReceiveMemoryWarning - key:%@", self.key);
