@@ -255,7 +255,7 @@ static Infrared *sharedInfraRed = nil;
     // 3) download and cache JS files
     jsonPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
     // 3.1)  internal JS libraries
-    pathsArray = @[@"infrared.js", @"infrared_md5.min.js", @"zeroTimeout.js", @"zeroTimeoutWorker.js", @"watch.js"];
+    pathsArray = @[@"infrared.js", @"infrared_md5.min.js", @"zeroTimeout.js", @"zeroTimeoutWorker.js", @"infrared_watch.js"];
     failedPathsArray = [NSMutableArray array];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
                                                  destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]

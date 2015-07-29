@@ -496,7 +496,7 @@
 		F613A439CE6B993DD37F061F /* IRLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRLayoutConstraint.h; sourceTree = "<group>"; };
 		F613A44224A08D5287C4C0AA /* IRPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPageControl.m; sourceTree = "<group>"; };
 		F613A4523B35FDDFC6FE24F4 /* IRCollectionReusableViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCollectionReusableViewBuilder.h; sourceTree = "<group>"; };
-		F613A457D3E0937EB707308B /* watch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = watch.js; sourceTree = "<group>"; };
+		F613A457D3E0937EB707308B /* infrared_watch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = infrared_watch.js; sourceTree = "<group>"; };
 		F613A475724E61DAE1FB37AD /* IRCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCollectionView.h; sourceTree = "<group>"; };
 		F613A48CD0AE2D8A8CCB1302 /* UITextView+Infrared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Infrared.m"; sourceTree = "<group>"; };
 		F613A495E7246AEA058D5001 /* IRUtilLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRUtilLibrary.h; sourceTree = "<group>"; };
@@ -1262,7 +1262,7 @@
 		F613A59D689D95DE71DACD9F /* WatchJS */ = {
 			isa = PBXGroup;
 			children = (
-				F613A457D3E0937EB707308B /* watch.js */,
+				F613A457D3E0937EB707308B /* infrared_watch.js */,
 			);
 			path = WatchJS;
 			sourceTree = "<group>";

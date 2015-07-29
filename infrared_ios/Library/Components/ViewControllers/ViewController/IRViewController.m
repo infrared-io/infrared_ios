@@ -788,25 +788,7 @@
     NSString *unwatchProperties = @"";
     for (uint i = 0; i<[self.jsValueNamesWatchForDataBindingArray count]; i++) {
         propertyName = self.jsValueNamesWatchForDataBindingArray[i];
-        unwatchProperties = [unwatchProperties stringByAppendingFormat:@"unwatch(%@, '%@'); ", self.key, propertyName];
-//        @try {
-//            NSString *method = [NSString stringWithFormat:@
-//#if ENABLE_SAFARI_DEBUGGING == 1
-//                                                            "setZeroTimeout( function() { "
-//#endif
-//                                                                "if (typeof %@ !== 'undefined') { "
-//                                                                    "unwatch(%@, '%@'); "
-//                                                                    "delete %@ ; "
-//                                                                "}"
-//#if ENABLE_SAFARI_DEBUGGING == 1
-//                                                            " } );"
-//#endif
-//                                                           , self.key, self.key, propertyName, self.key];
-//            [jsContext evaluateScript:method];
-//        }
-//        @catch (NSException *exception) {
-//            NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
-//        }
+        unwatchProperties = [unwatchProperties stringByAppendingFormat:@"IR.WatchJS.unwatch(%@, '%@'); ", self.key, propertyName];
     }
     @try {
         NSString *method = [NSString stringWithFormat:@
@@ -814,7 +796,6 @@
                                                         "setZeroTimeout( function() { "
 #endif
                                                         "if (typeof %@ !== 'undefined') { "
-//                                                            "unwatch(%@, '%@'); "
                                                         "%@ "
                                                         "delete %@ ; "
                                                         "}"
@@ -1172,8 +1153,8 @@
 #if ENABLE_SAFARI_DEBUGGING == 1
                                                         "setZeroTimeout( function() { "
 #endif
-                                                            "watch(%@, '%@', IR.watchJSCallback, 0); "
-                                                            "callWatchers(%@, '%@');"
+                                                            "IR.WatchJS.watch(%@, '%@', IR.watchJSCallback, 0); "
+                                                            "IR.WatchJS.callWatchers(%@, '%@');"
 #if ENABLE_SAFARI_DEBUGGING == 1
                                                         " } );"
 #endif

@@ -23,10 +23,10 @@
         define(factory);
     } else {
         // Browser globals
-        window.WatchJS = factory();
-        window.watch = window.WatchJS.watch;
-        window.unwatch = window.WatchJS.unwatch;
-        window.callWatchers = window.WatchJS.callWatchers;
+        /*window*/IR.WatchJS = factory();
+        ///*window*/IR.watch = /*window*/IR.WatchJS.watch;
+        ///*window*/IR.unwatch = /*window*/IR.WatchJS.unwatch;
+        ///*window*/IR.callWatchers = /*window*/IR.WatchJS.callWatchers;
     }
 }(function () {
 

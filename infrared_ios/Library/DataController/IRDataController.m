@@ -243,7 +243,7 @@ static IRDataController *sharedDataController = nil;
                                                            "<script src='zeroTimeout.js'></script>"
                                                            "<script src='zeroTimeoutWorker.js'></script>"
 #endif
-                                                           "<script src='watch.js'></script>"
+                                                           "<script src='infrared_watch.js'></script>"
                                                            "%@"
                                                            "</head><body>"
                                                            "</body></html>", scriptTags]
