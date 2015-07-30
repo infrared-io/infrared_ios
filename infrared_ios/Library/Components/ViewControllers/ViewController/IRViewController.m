@@ -297,14 +297,13 @@
 
 - (void)didMoveToParentViewController:(UIViewController *)parent
 {
-
-    NSArray *arguments;
-    if (parent) {
-        arguments = @[parent];
-    } else {
-        arguments = @[];
-    }
-    [self callJSEquivalentMethod:NSStringFromSelector(@selector(didMoveToParentViewController:)) arguments:arguments];
+//    NSArray *arguments;
+//    if (parent) {
+//        arguments = @[parent];
+//    } else {
+//        arguments = @[];
+//    }
+//    [self callJSEquivalentMethod:NSStringFromSelector(@selector(didMoveToParentViewController:)) arguments:arguments];
 }
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -1267,7 +1266,7 @@
     #endif
         }
     } else {
-        NSLog(@"callJSEquivalentMethod:arguments: - ViewController not available in JSContext !!!");
+        NSLog(@"callJSEquivalentMethod:arguments: - VC \"\" not available in JSContext !!!", self.key);
     }
 }
 

@@ -100,7 +100,6 @@
         if (error) {
             NSLog(@"IRFileLoadingUtil-crateNoSyncFolderIfNeeded: %@", [error localizedDescription]);
             successful = NO;
-
         }
     }
     return successful;

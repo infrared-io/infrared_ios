@@ -3,14 +3,11 @@
   <component name="ChangeListManager">
     <list id="32bc60ea-428b-4574-bd73-560444221e61" name="Default" comment="" />
     <list id="8aa917bd-2999-41a9-b487-38fcdc2f0c67" name="THIOS-7 Implement UITapGestureRecognizer" comment="THIOS-3 UIViewController" />
-    <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="Refactorings">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/UIKitCategories/UINavigationItem+Infrared.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/UIKitCategories/UINavigationItem+Infrared.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h" />
+    <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="1) UINavigationItem - setLeftBarButtonItem/setRightBarButtonItem on Main Thread&#10;2) Extended willMoveToParentViewController/didMoveToParentViewController to have JSPlugin equivalent&#10;3) Improved JSPlugin equivalent methods execution">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRFileLoadingUtil.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRFileLoadingUtil.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/UIViewControllerExport.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/UIViewControllerExport.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/infrared_ios.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Infrared.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Infrared.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Infrared.podspec" afterPath="$PROJECT_DIR$/Infrared.podspec" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="therma_ios.iws" />
@@ -39,16 +36,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IRDataController.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3370" max-vertical-offset="9660">
-              <caret line="265" column="43" selection-start-line="265" selection-start-column="43" selection-end-line="265" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="IRJSContextUtil.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Utils/IRJSContextUtil.m">
           <provider selected="true" editor-type-id="text-editor">
@@ -134,15 +121,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IRViewController.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IRViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4619507" vertical-offset="3439" max-vertical-offset="19620">
-              <caret line="282" column="1" selection-start-line="282" selection-start-column="1" selection-end-line="282" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3787" max-vertical-offset="19980">
+              <caret line="273" column="1" selection-start-line="273" selection-start-column="1" selection-end-line="273" selection-end-column="1" />
               <folding>
+                <element signature="e#106#134#0" expanded="true" />
                 <element signature="e#1917#1943#0" expanded="true" />
-                <element signature="e#59567#59604#0" expanded="true" />
+                <element signature="e#59580#59617#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Infrared.podspec" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Infrared.podspec">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.25" vertical-offset="510" max-vertical-offset="1815">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PinchGestureRecognizer/IRPinchGestureRecognizer.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/RotationGestureRecognizer/UIRotationGestureRecognizerExport.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/RotationGestureRecognizer/IRRotationGestureRecognizer.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/ScreenEdgePanGestureRecognizer/UIScreenEdgePanGestureRecognizerExport.h" />
@@ -214,6 +211,7 @@
         <option value="$PROJECT_DIR$/infrared_ios/Library/UIKitCategories/UINavigationItem+Infrared.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/UIKitCategories/UINavigationItem+Infrared.m" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" />
+        <option value="$PROJECT_DIR$/Infrared.podspec" />
       </list>
     </option>
   </component>
@@ -1536,12 +1534,6 @@
       <option name="number" value="Default" />
       <updated>1409401002811</updated>
     </task>
-    <task id="LOCAL-00150" summary="1) Improved Gesture Recognizers&#10;2) Improved Data Binding to auto-convert String to Image/Color/Font (if appropriate)">
-      <created>1434716372000</created>
-      <option name="number" value="00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1434716372000</updated>
-    </task>
     <task id="LOCAL-00151" summary="Adding UI example for all Gesture Recognizers">
       <created>1434722136728</created>
       <option name="number" value="00151" />
@@ -1830,7 +1822,13 @@
       <option name="project" value="LOCAL" />
       <updated>1438165505218</updated>
     </task>
-    <option name="localTasksCounter" value="199" />
+    <task id="LOCAL-00199" summary="1) UINavigationItem - setLeftBarButtonItem/setRightBarButtonItem on Main Thread&#10;2) Extended willMoveToParentViewController/didMoveToParentViewController to have JSPlugin equivalent&#10;3) Improved JSPlugin equivalent methods execution">
+      <created>1438185243951</created>
+      <option name="number" value="00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1438185243951</updated>
+    </task>
+    <option name="localTasksCounter" value="200" />
     <option name="createBranch" value="false" />
     <option name="markAsInProgress" value="true" />
     <servers>
@@ -1913,7 +1911,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHORT_DIFF_EXTRA_LINES" value="8" />
-    <MESSAGE value="1) JSPlugin concept improved to work WITHOUT name&#10;2) WebView and ScrollView - added JSExport to base objects (UIWebView and UIScrollView)&#10;3) added md5.min.js as part of base libraries" />
     <MESSAGE value="Added JSExport to UIKit base objects (number of views) - 1&#10;" />
     <MESSAGE value="Added JSExport to UIKit base objects (number of views) - 2&#10;" />
     <MESSAGE value="Removed property &quot;scrollIndicatorStyle&quot; from WebView" />
@@ -1938,7 +1935,8 @@
     <MESSAGE value="Memory management improvements - 2&#10;Minor refactorings" />
     <MESSAGE value="Memory management improvements - 3" />
     <MESSAGE value="Refactorings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactorings" />
+    <MESSAGE value="1) UINavigationItem - setLeftBarButtonItem/setRightBarButtonItem on Main Thread&#10;2) Extended willMoveToParentViewController/didMoveToParentViewController to have JSPlugin equivalent&#10;3) Improved JSPlugin equivalent methods execution" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) UINavigationItem - setLeftBarButtonItem/setRightBarButtonItem on Main Thread&#10;2) Extended willMoveToParentViewController/didMoveToParentViewController to have JSPlugin equivalent&#10;3) Improved JSPlugin equivalent methods execution" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2049,17 +2047,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="2010">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
-          <folding>
-            <element signature="e#106#130#0" expanded="true" />
-            <element signature="e#378#406#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_SideMenu/IRSideMenu.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
@@ -2472,12 +2459,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4619507" vertical-offset="3439" max-vertical-offset="19620">
-          <caret line="282" column="1" selection-start-line="282" selection-start-column="1" selection-end-line="282" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3787" max-vertical-offset="19980">
+          <caret line="273" column="1" selection-start-line="273" selection-start-column="1" selection-end-line="273" selection-end-column="1" />
           <folding>
+            <element signature="e#106#134#0" expanded="true" />
             <element signature="e#1917#1943#0" expanded="true" />
-            <element signature="e#59567#59604#0" expanded="true" />
+            <element signature="e#59580#59617#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Infrared.podspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.25" vertical-offset="510" max-vertical-offset="1815">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
