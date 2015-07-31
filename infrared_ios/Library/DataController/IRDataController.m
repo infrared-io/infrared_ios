@@ -231,7 +231,8 @@ static IRDataController *sharedDataController = nil;
     NSString *scriptTags = @"";
     for (NSString *anPluginPath in jsPluginPathsArray) {
         anEscapedPluginPath = [anPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        jsPluginNameFromPath = [IRUtil fileNameFromPath:anEscapedPluginPath];
+//        jsPluginNameFromPath = [IRUtil fileNameFromPath:anEscapedPluginPath];
+        jsPluginNameFromPath = [IRUtil fileNameFromPathForScriptTag:anEscapedPluginPath];
         scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
     }
     [self.webView loadHTMLString:[NSString stringWithFormat:@""

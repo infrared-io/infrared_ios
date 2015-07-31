@@ -38,6 +38,7 @@
 + (NSString *) basePathAppDescriptorApp:(NSString *)app;
 + (NSString *) documentsBasePathForInfrared;
 
++ (NSString *) fileNameFromPathForScriptTag:(NSString *)path;
 + (NSString *) fileNameFromPath:(NSString *)path;
 
 + (NSString *) prefixFilePathWithBaseUrlIfNeeded:(NSString *)filePath;

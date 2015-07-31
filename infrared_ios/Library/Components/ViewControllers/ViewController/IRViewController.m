@@ -317,19 +317,11 @@
 {
     IRScreenDescriptor *screenDescriptor;
     screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:screenId];
-//    if ([NSThread isMainThread]) { // [[NSThread currentThread] isMainThread]
-//        NSLog(@"main 1");
-//    }
-//    if ([[NSThread currentThread] isMainThread]) {
-//        NSLog(@"main 2");
-//    }
-    [self pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
-//    __weak IRViewController *weakSelf = self;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-////        NSLog(@"pushViewControllerWithScreenId=%@ [pre]---->", screenId);
-//        [weakSelf pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
-////        NSLog(@"pushViewControllerWithScreenId=%@ [post]---->", screenId);
-//    });
+//    [self pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+    __weak IRViewController *weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+    });
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) pushViewControllerWithId:(NSString *)viewControllerId animated:(BOOL)animated
@@ -340,11 +332,11 @@
 {
     IRScreenDescriptor *screenDescriptor;
     screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithControllerId:viewControllerId];
-    [self pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
-//    __weak IRViewController *weakSelf = self;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [weakSelf pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
-//    });
+//    [self pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+    __weak IRViewController *weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf pushVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
+    });
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) popViewControllerAnimated:(BOOL)animated
@@ -1199,11 +1191,12 @@
 
         viewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor
                                                                                      data:data];
-        __weak IRViewController *weakSelf = self;
-        __weak IRViewController *weakViewController = viewController;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf.navigationController pushViewController:weakViewController animated:animated];
-        });
+        [self.navigationController pushViewController:viewController animated:animated];
+//        __weak IRViewController *weakSelf = self;
+//        __weak IRViewController *weakViewController = viewController;
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [weakSelf.navigationController pushViewController:weakViewController animated:animated];
+//        });
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -1266,7 +1259,7 @@
     #endif
         }
     } else {
-        NSLog(@"callJSEquivalentMethod:arguments: - VC \"\" not available in JSContext !!!", self.key);
+        NSLog(@"callJSEquivalentMethod:arguments: - VC \"%@\" not available in JSContext !!!", self.key);
     }
 }
 

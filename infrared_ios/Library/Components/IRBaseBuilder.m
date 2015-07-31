@@ -112,13 +112,27 @@
 + (NSString *) textWithI18NCheck:(NSString *)originalText
 {
     NSString *finalText = nil;
-    NSString *i18nKey;
-    NSString *i18nJSPrefix;
+//    NSString *i18nKey;
+//    NSString *i18nJSPrefix;
+//    if ([originalText length] > 0) {
+//        i18nJSPrefix = [IRBaseBuilder i18nJSPrefix];
+//        if ([originalText hasPrefix:i18nJSPrefix]) {
+//            i18nKey = [originalText substringFromIndex:[i18nJSPrefix length]];
+//            finalText = [IRDataController sharedInstance].i18n[i18nKey];
+//        }
+//        if (finalText == nil) {
+//            finalText = originalText;
+//        }
+//    }
+    JSContext *jsContext;
+    JSValue *jsValue;
     if ([originalText length] > 0) {
-        i18nJSPrefix = [IRBaseBuilder i18nJSPrefix];
-        if ([originalText hasPrefix:i18nJSPrefix/*@"i18n."*/]) {
-            i18nKey = [originalText substringFromIndex:[i18nJSPrefix length]]; // [@"i18n." length] == 5
-            finalText = [IRDataController sharedInstance].i18n[i18nKey];
+        if ([originalText hasPrefix:[IRBaseBuilder i18nJSPrefix]]) {
+            jsContext = [IRDataController sharedInstance].globalJSContext;
+            jsValue = [jsContext evaluateScript:originalText];
+            if ([jsValue isString]) {
+                finalText = [jsValue toString];
+            }
         }
         if (finalText == nil) {
             finalText = originalText;
@@ -128,7 +142,8 @@
 }
 + (NSString *) i18nJSPrefix
 {
-    NSString *i18nJSPrefix = [NSString stringWithFormat:@"%@.%@.", IR_JS_LIBRARY_KEY, I18N_JS_DATA_KEY];
+//    NSString *i18nJSPrefix = [NSString stringWithFormat:@"%@.%@.", IR_JS_LIBRARY_KEY, I18N_JS_DATA_KEY];
+    NSString *i18nJSPrefix = [NSString stringWithFormat:@"%@.%@", IR_JS_LIBRARY_KEY, I18N_JS_DATA_KEY];
     return i18nJSPrefix;
 }
 

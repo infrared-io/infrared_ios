@@ -206,6 +206,20 @@
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
++ (NSString *) fileNameFromPathForScriptTag:(NSString *)path
+{
+    NSString *name = [IRUtil fileNameFromPath:path];
+    NSURL *candidateURL = [NSURL URLWithString:path];
+    if ([candidateURL.query length] > 0) {
+//        name = [name stringByAppendingFormat:@"_%@", candidateURL.query];
+        name = [name stringByAppendingFormat:@"?%@", candidateURL.query];
+    }
+    if ([candidateURL.fragment length] > 0) {
+//        name = [name stringByAppendingFormat:@"_%@", candidateURL.fragment];
+        name = [name stringByAppendingFormat:@"#%@", candidateURL.fragment];
+    }
+    return name;
+}
 + (NSString *) fileNameFromPath:(NSString *)path
 {
     NSString *name = @"";
