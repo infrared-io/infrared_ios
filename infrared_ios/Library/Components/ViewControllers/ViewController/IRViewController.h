@@ -169,6 +169,6 @@
 
 - (void) cleanWatchJSObserversAndVC;
 
-void runOnMainQueueWithoutDeadlocking(void (^block)(void));
+//void runOnMainQueueWithoutDeadlocking(void (^block)(void));
 
 @end

@@ -423,7 +423,26 @@ static IRDataController *sharedDataController = nil;
 //    NSLog(@"nilJSContextVCWithName: %@", vcName);
 
     JSContext *jsContext = [IRDataController sharedInstance].globalJSContext;
+    // -- nil to release object reference
     jsContext[vcName] = nil;
+    // -- delete variable in JS (to avoid leaving unused variables)
+    @try {
+        NSString *method = [NSString stringWithFormat:@
+//#if ENABLE_SAFARI_DEBUGGING == 1
+//                                                        "setZeroTimeout( function() { "
+//#endif
+//                                                        "if (%@ !== undefined) { "
+                                                        "delete %@;"
+//                                                        "}"
+//#if ENABLE_SAFARI_DEBUGGING == 1
+//                                                        " } );"
+//#endif
+          , vcName /*, vcName*/];
+        [jsContext evaluateScript:method];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"nilJSContextVCWithName - Exception occurred: %@, %@", exception, [exception userInfo]);
+    }
 }
 #endif
 

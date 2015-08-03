@@ -807,14 +807,14 @@
 #if ENABLE_SAFARI_DEBUGGING == 1
                                                         "setZeroTimeout( function() { "
 #endif
-                                                        "if (typeof %@ !== 'undefined') { "
+                                                        "if (%@ !== undefined) { "
                                                         "%@ "
                                                         "delete %@ ; "
                                                         "}"
 #if ENABLE_SAFARI_DEBUGGING == 1
                                                         " } );"
 #endif
-          , self.key, unwatchProperties, self.key];
+          , self.key, unwatchProperties , self.key];
         [jsContext evaluateScript:method];
     }
     @catch (NSException *exception) {
@@ -1304,16 +1304,16 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
-void runOnMainQueueWithoutDeadlocking(void (^block)(void))
-{
-    if ([NSThread isMainThread])
-    {
-        block();
-    }
-    else
-    {
-        dispatch_async(dispatch_get_main_queue(), block);
-    }
-}
+//void runOnMainQueueWithoutDeadlocking(void (^block)(void))
+//{
+//    if ([NSThread isMainThread])
+//    {
+//        block();
+//    }
+//    else
+//    {
+//        dispatch_async(dispatch_get_main_queue(), block);
+//    }
+//}
 
 @end

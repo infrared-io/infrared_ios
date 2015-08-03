@@ -17,6 +17,7 @@
 #import "IRViewController.h"
 #endif
 
+#define FILE_PREFIX     @"file://"
 
 @implementation IRUtil
 
@@ -335,13 +336,18 @@
 {
     NSURL *aURL = nil;
     NSRange range;
+    NSString *adaptedPath;
     if ([path length] > 0) {
-        range = [path rangeOfString:@"."]; // file.json
+        adaptedPath = path;
+        if ([adaptedPath hasPrefix:FILE_PREFIX]) {
+            adaptedPath = [adaptedPath substringFromIndex:[FILE_PREFIX length]];
+        }
+        range = [adaptedPath rangeOfString:@"."]; // file.json
         if (range.location != NSNotFound) {
-            aURL = [[NSBundle mainBundle] URLForResource:[path substringToIndex:range.location]
-                                           withExtension:[path substringFromIndex:range.location+range.length]];
+            aURL = [[NSBundle mainBundle] URLForResource:[adaptedPath substringToIndex:range.location]
+                                           withExtension:[adaptedPath substringFromIndex:range.location+range.length]];
         } else {
-            aURL = [[NSBundle mainBundle] URLForResource:path withExtension:nil];
+            aURL = [[NSBundle mainBundle] URLForResource:adaptedPath withExtension:nil];
         }
     }
     return aURL;
@@ -349,7 +355,7 @@
 + (BOOL) hasFilePrefix:(NSString *)path
 {
     BOOL hasFilePrefix = NO;
-    if ([path hasPrefix:@"file://"]) {
+    if ([path hasPrefix:FILE_PREFIX]) {
         hasFilePrefix = YES;
     }
     return hasFilePrefix;

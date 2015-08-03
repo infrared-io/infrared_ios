@@ -4,33 +4,12 @@
     <list id="32bc60ea-428b-4574-bd73-560444221e61" name="Default" comment="" />
     <list id="8aa917bd-2999-41a9-b487-38fcdc2f0c67" name="THIOS-7 Implement UITapGestureRecognizer" comment="THIOS-3 UIViewController" />
     <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="1) Podspec prepared for version 0.9.2&#10;2) Minor refactorings">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/SDKCategories/FoundationCategories/NSInvocation+IRJSContextSwizzle.h" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/SDKCategories/FoundationCategories/NSInvocation+IRJSContextSwizzle.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/UIKitCategories/UINavigationItem+Infrared.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/SDKCategories/UIKitCategories/UINavigationItem+Infrared.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/UIKitCategories/UINavigationItem+Infrared.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/SDKCategories/UIKitCategories/UINavigationItem+Infrared.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/UIKitCategories/UITextField+Infrared.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/SDKCategories/UIKitCategories/UITextField+Infrared.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/UIKitCategories/UITextField+Infrared.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/SDKCategories/UIKitCategories/UITextField+Infrared.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/UIKitCategories/UITextView+Infrared.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/SDKCategories/UIKitCategories/UITextView+Infrared.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/UIKitCategories/UITextView+Infrared.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/SDKCategories/UIKitCategories/UITextView+Infrared.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/ZipArchive/Main.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/Main.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/ZipArchive/Main.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/Main.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/ZipArchive/minizip/crypt.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/crypt.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/ZipArchive/minizip/ioapi.c" afterPath="$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/ioapi.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/ZipArchive/minizip/ioapi.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/ioapi.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/ZipArchive/minizip/mztools.c" afterPath="$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/mztools.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/ZipArchive/minizip/mztools.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/mztools.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/ZipArchive/minizip/unzip.c" afterPath="$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/unzip.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/ZipArchive/minizip/unzip.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/unzip.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/ZipArchive/minizip/zip.c" afterPath="$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/zip.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/infrared_ios/Library/ZipArchive/minizip/zip.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/zip.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/SDKCategories/FoundationCategories/NSInvocation+IRJSContextSwizzle.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" afterPath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/infrared_ios.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" />
     </list>
     <ignored path="therma_ios.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,7 +40,7 @@
       <file leaf-file-name="IRDataController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2965" max-vertical-offset="9675">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3435" max-vertical-offset="10170">
               <caret line="229" column="35" selection-start-line="229" selection-start-column="35" selection-end-line="229" selection-end-column="35" />
               <folding />
             </state>
@@ -71,7 +50,7 @@
       <file leaf-file-name="Infrared.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Infrared.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -81,7 +60,7 @@
       <file leaf-file-name="JRSwizzle.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/JRSwizzle/JRSwizzle.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+            <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="285">
               <caret line="10" column="59" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="59" />
               <folding />
             </state>
@@ -91,8 +70,8 @@
       <file leaf-file-name="IRViewController.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.098958336" vertical-offset="4705" max-vertical-offset="19875">
-              <caret line="319" column="7" selection-start-line="319" selection-start-column="7" selection-end-line="319" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.71875" vertical-offset="18915" max-vertical-offset="19875">
+              <caret line="1306" column="7" selection-start-line="1306" selection-start-column="7" selection-end-line="1306" selection-end-column="7" />
               <folding>
                 <element signature="e#106#134#0" expanded="true" />
                 <element signature="e#1917#1943#0" expanded="true" />
@@ -102,10 +81,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="IRViewController.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2565" max-vertical-offset="2685">
+              <caret line="171" column="7" selection-start-line="171" selection-start-column="7" selection-end-line="171" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="JRSwizzle.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Library/_ExternalLibraries/JRSwizzle/JRSwizzle.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1185">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1950" max-vertical-offset="2100">
               <caret line="130" column="67" selection-start-line="130" selection-start-column="57" selection-end-line="130" selection-end-column="67" />
               <folding />
             </state>
@@ -115,7 +104,7 @@
       <file leaf-file-name="NSInvocation+IRJSContextSwizzle.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Library/SDKCategories/FoundationCategories/NSInvocation+IRJSContextSwizzle.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1185">
+            <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1185">
               <caret line="51" column="107" selection-start-line="51" selection-start-column="107" selection-end-line="51" selection-end-column="107" />
               <folding />
             </state>
@@ -135,7 +124,7 @@
       <file leaf-file-name="IRUtil.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="1260">
+            <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1260">
               <caret line="40" column="43" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="43" />
               <folding />
             </state>
@@ -267,6 +256,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Cidr.FilesView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -705,7 +695,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Cidr.FilesView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -860,12 +849,6 @@
       <created>1408971816844</created>
       <option name="number" value="Default" />
       <updated>1409401002811</updated>
-    </task>
-    <task id="LOCAL-00152" summary="UICollectionView - work in progress - 1">
-      <created>1434973858584</created>
-      <option name="number" value="00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1434973858585</updated>
     </task>
     <task id="LOCAL-00153" summary="UICollectionView - work in progress - 2">
       <created>1434989025311</created>
@@ -1155,12 +1138,18 @@
       <option name="project" value="LOCAL" />
       <updated>1438273556597</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="1) Improved evaluation for IR.i18n&#10;2) Minor Refactoring">
+      <created>1438357858177</created>
+      <option name="number" value="00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1438357858177</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <option name="createBranch" value="false" />
     <option name="markAsInProgress" value="true" />
     <servers>
       <JIRA shared="false" url="https://appconveyor.atlassian.net">
-        <option name="apiType" value="REST_2_0" />
+        <option name="apiType" />
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
         <password>df92df9edfccdff5dfc2dfdddfe5dfc8df99dfc9df93dfd0df9fdf93dfc7dfc2df93dfcfdfd3</password>
         <option name="jiraVersion" value="6.5-OD-08-001" />
@@ -1195,27 +1184,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="23" width="1751" height="1057" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.2532928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="162" y="23" width="1104" height="836" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.28672746" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="3" y="1235" width="1409" height="683" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279703" sideWeight="0.50036794" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24120604" sideWeight="0.3631841" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371286" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28643724" sideWeight="0.4996321" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3384224" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924925" sideWeight="0.49807692" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2295831" sideWeight="0.6368159" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371286" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2295831" sideWeight="0.6368159" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24120604" sideWeight="0.3631841" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279703" sideWeight="0.50036794" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371286" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="149" y="122" width="1191" height="678" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.2532928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="162" y="23" width="1104" height="836" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.28672746" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="3" y="1235" width="1409" height="683" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28643724" sideWeight="0.4996321" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371286" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -1238,7 +1227,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHORT_DIFF_EXTRA_LINES" value="8" />
-    <MESSAGE value="Added JSExport to UIKit base objects (number of views) - 2&#10;" />
     <MESSAGE value="Removed property &quot;scrollIndicatorStyle&quot; from WebView" />
     <MESSAGE value="Change JS variable access from &quot;i18n&quot; to &quot;IR.i18n&quot;" />
     <MESSAGE value="1) Precaching - in progress&#10;2) Various improvements" />
@@ -1263,7 +1251,8 @@
     <MESSAGE value="Refactorings" />
     <MESSAGE value="1) UINavigationItem - setLeftBarButtonItem/setRightBarButtonItem on Main Thread&#10;2) Extended willMoveToParentViewController/didMoveToParentViewController to have JSPlugin equivalent&#10;3) Improved JSPlugin equivalent methods execution" />
     <MESSAGE value="1) Podspec prepared for version 0.9.2&#10;2) Minor refactorings" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) Podspec prepared for version 0.9.2&#10;2) Minor refactorings" />
+    <MESSAGE value="1) Improved evaluation for IR.i18n&#10;2) Minor Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) Improved evaluation for IR.i18n&#10;2) Minor Refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1388,7 +1377,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1396,7 +1384,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1412,7 +1399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
           <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1420,7 +1406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2955">
           <caret line="40" column="67" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1436,7 +1421,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
           <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1444,7 +1428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
           <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1452,7 +1435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
           <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1460,7 +1442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1468,7 +1449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
           <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1484,7 +1464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1335">
           <caret line="67" column="53" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1492,7 +1471,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3460" max-vertical-offset="4500">
           <caret line="265" column="60" selection-start-line="265" selection-start-column="60" selection-end-line="265" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1508,7 +1486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="12910" max-vertical-offset="20580">
           <caret line="875" column="30" selection-start-line="875" selection-start-column="30" selection-end-line="875" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1524,7 +1501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
           <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1532,7 +1508,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2205">
           <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1540,7 +1515,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1365">
           <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1548,7 +1522,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1556,7 +1529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.411765" vertical-offset="4956" max-vertical-offset="5865">
           <caret line="359" column="31" selection-start-line="359" selection-start-column="31" selection-end-line="359" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1564,7 +1536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.352941" vertical-offset="2382" max-vertical-offset="3855">
           <caret line="177" column="53" selection-start-line="177" selection-start-column="34" selection-end-line="177" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1572,7 +1543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
           <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1580,7 +1550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1275">
           <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1589,16 +1558,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="205" max-vertical-offset="6555">
           <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
           <folding>
-            <element signature="e#18780#18833#0" expanded="false" />
+            <element signature="e#18207#18260#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1620" max-vertical-offset="2580">
-          <caret line="131" column="24" selection-start-line="131" selection-start-column="24" selection-end-line="131" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1616,14 +1577,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.777778" vertical-offset="0" max-vertical-offset="11925">
           <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-          <folding>
-            <marker date="1438164795000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-            <marker date="1438164795000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-            <marker date="1438164795000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-            <marker date="1438164795000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-            <marker date="1438164795000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-            <marker date="1438164795000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1639,7 +1593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1890">
           <caret line="113" column="9" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1647,7 +1600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1655,7 +1607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
           <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="14" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1663,7 +1614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.80707395" vertical-offset="2292" max-vertical-offset="3225">
           <caret line="208" column="45" selection-start-line="208" selection-start-column="45" selection-end-line="208" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1671,7 +1621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1679,10 +1628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#168#246#0" expanded="false" />
-            <element signature="e#275#336#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1690,9 +1635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
           <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
-          <folding>
-            <element signature="e#106#143#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1700,7 +1642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28125" vertical-offset="510" max-vertical-offset="1815">
           <caret line="52" column="3" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1772,7 +1713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
           <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1788,7 +1728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4165" max-vertical-offset="15015">
           <caret line="300" column="0" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1800,10 +1739,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="2610">
+          <caret line="171" column="7" selection-start-line="171" selection-start-column="7" selection-end-line="171" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.098958336" vertical-offset="4705" max-vertical-offset="19875">
-          <caret line="319" column="7" selection-start-line="319" selection-start-column="7" selection-end-line="319" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.71875" vertical-offset="18915" max-vertical-offset="19875">
+          <caret line="1306" column="7" selection-start-line="1306" selection-start-column="7" selection-end-line="1306" selection-end-column="7" />
           <folding>
             <element signature="e#106#134#0" expanded="true" />
             <element signature="e#1917#1943#0" expanded="true" />
