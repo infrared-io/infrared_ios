@@ -65,6 +65,11 @@ withDataBindingItemName:(NSString *)name;
         withDictionary:(NSDictionary *)dictionary
         viewController:(IRViewController *)irViewController;
 
++ (void) executeAction:(NSString *)action
+        withDictionary:(NSDictionary *)dictionary
+        viewController:(IRViewController *)irViewController
+          functionName:(NSString *)functionName;
+
 + (IRViewController *)parentViewController:(UIView *)view;
 
 @end

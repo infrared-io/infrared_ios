@@ -121,7 +121,10 @@
         [IRViewControllerBuilder addRequireGestureRecognizerToFailForRootView:self];
     }
 
-    [self callJSEquivalentMethod:NSStringFromSelector(@selector(viewDidLoad)) arguments:@[]];
+    [IRBaseBuilder executeAction:@"this.viewDidLoad();"
+                  withDictionary:@{}
+                  viewController:self
+                    functionName:@"this.viewDidLoad"];
 }
 
 -(void)viewWillAppear:(BOOL)animated // Called when the view is about to made visible. Default does nothing
@@ -218,7 +221,10 @@
     [IQKeyboardManager sharedManager].shouldPlayInputClicks = descriptor.keyboardManager.shouldPlayInputClicks;
     [IQKeyboardManager sharedManager].shouldAdoptDefaultKeyboardAnimation = descriptor.keyboardManager.shouldAdoptDefaultKeyboardAnimation;
 
-    [self callJSEquivalentMethod:NSStringFromSelector(@selector(viewWillAppear:)) arguments:@[@(animated)]];
+    [IRBaseBuilder executeAction:@"this.viewWillAppear(animated);"
+                  withDictionary:@{@"animated": @(animated)}
+                  viewController:self
+                    functionName:@"this.viewWillAppear"];
 }
 
 -(void)viewDidAppear:(BOOL)animated // Called when the view has been fully transitioned onto the screen. Default does nothing
@@ -227,7 +233,10 @@
 
 //    NSLog(@"%@", [[UIWindow keyWindow] _autolayoutTrace]);
 
-    [self callJSEquivalentMethod:NSStringFromSelector(@selector(viewDidAppear:)) arguments:@[@(animated)]];
+    [IRBaseBuilder executeAction:@"this.viewDidAppear(animated);"
+                  withDictionary:@{@"animated": @(animated)}
+                  viewController:self
+                    functionName:@"this.viewDidAppear"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated // Called when the view is dismissed, covered or otherwise hidden. Default does nothing
@@ -239,14 +248,20 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification
                                                   object:nil];
 
-    [self callJSEquivalentMethod:NSStringFromSelector(@selector(viewWillDisappear:)) arguments:@[@(animated)]];
+    [IRBaseBuilder executeAction:@"this.viewWillDisappear(animated);"
+                  withDictionary:@{@"animated": @(animated)}
+                  viewController:self
+                    functionName:@"this.viewWillDisappear"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated  // Called after the view was dismissed, covered or otherwise hidden. Default does nothing
 {
     [super viewDidDisappear:animated];
 
-    [self callJSEquivalentMethod:NSStringFromSelector(@selector(viewDidDisappear:)) arguments:@[@(animated)]];
+    [IRBaseBuilder executeAction:@"this.viewDidDisappear(animated);"
+                  withDictionary:@{@"animated": @(animated)}
+                  viewController:self
+                    functionName:@"this.viewDidDisappear"];
 
     if (self.shouldUnregisterVC) {
 //        NSLog(@"viewDidDisappear - unregisterViewController - key:%@", self.key);
@@ -285,25 +300,31 @@
         self.shouldUnregisterVC = YES;
     }
 
-    NSArray *arguments;
+    NSDictionary *dictionary;
     if (parent) {
-        arguments = @[parent];
+        dictionary = @{@"parent": parent};
     } else {
-//        arguments = @[[NSNull null]];
-        arguments = @[];
+        dictionary = @{@"parent": [NSNull null]};
     }
-    [self callJSEquivalentMethod:NSStringFromSelector(@selector(willMoveToParentViewController:)) arguments:arguments];
+    [IRBaseBuilder executeAction:@"this.willMoveToParentViewController(parent);"
+                  withDictionary:dictionary
+                  viewController:self
+                    functionName:@"this.willMoveToParentViewController"];
 }
 
 - (void)didMoveToParentViewController:(UIViewController *)parent
 {
-//    NSArray *arguments;
-//    if (parent) {
-//        arguments = @[parent];
-//    } else {
-//        arguments = @[];
-//    }
-//    [self callJSEquivalentMethod:NSStringFromSelector(@selector(didMoveToParentViewController:)) arguments:arguments];
+    // TODO: method not available at the time of execution (JSContext reference cleaned before this is called)
+    NSDictionary *dictionary;
+    if (parent) {
+        dictionary = @{@"parent": parent};
+    } else {
+        dictionary = @{@"parent": [NSNull null]};
+    }
+    [IRBaseBuilder executeAction:@"this.didMoveToParentViewController(parent);"
+                  withDictionary:dictionary
+                  viewController:self
+                    functionName:@"this.didMoveToParentViewController"];
 }
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -1025,33 +1046,38 @@
 
 - (void)sideMenu:(RESideMenu *)sideMenu didRecognizePanGesture:(UIPanGestureRecognizer *)recognizer
 {
-
-    [self callJSEquivalentMethod:NSStringFromSelector(@selector(sideMenu:didRecognizePanGesture:))
-                       arguments:@[sideMenu, recognizer]];
+    [IRBaseBuilder executeAction:@"this.sideMenuDidRecognizePanGesture(sideMenu, recognizer);"
+                  withDictionary:@{@"sideMenu": sideMenu, @"recognizer": recognizer}
+                  viewController:self
+                  functionName:@"this.sideMenuDidRecognizePanGesture"];
 }
 - (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
 {
-
-    [self callJSEquivalentMethod:NSStringFromSelector(@selector(sideMenu:willShowMenuViewController:))
-                       arguments:@[sideMenu, menuViewController]];
+    [IRBaseBuilder executeAction:@"this.sideMenuWillShowMenuViewController(sideMenu, menuViewController);"
+                  withDictionary:@{@"sideMenu": sideMenu, @"menuViewController": menuViewController}
+                  viewController:self
+                    functionName:@"this.sideMenuWillShowMenuViewController"];
 }
 - (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController
 {
-
-    [self callJSEquivalentMethod:NSStringFromSelector(@selector(sideMenu:didShowMenuViewController:))
-                       arguments:@[sideMenu, menuViewController]];
+    [IRBaseBuilder executeAction:@"this.sideMenuDidShowMenuViewController(sideMenu, menuViewController);"
+                  withDictionary:@{@"sideMenu": sideMenu, @"menuViewController": menuViewController}
+                  viewController:self
+                    functionName:@"this.sideMenuDidShowMenuViewController"];
 }
 - (void)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(UIViewController *)menuViewController
 {
-
-    [self callJSEquivalentMethod:NSStringFromSelector(@selector(sideMenu:willHideMenuViewController:))
-                       arguments:@[sideMenu, menuViewController]];
+    [IRBaseBuilder executeAction:@"this.sideMenuWillHideMenuViewController(sideMenu, menuViewController);"
+                  withDictionary:@{@"sideMenu": sideMenu, @"menuViewController": menuViewController}
+                  viewController:self
+                    functionName:@"this.sideMenuWillHideMenuViewController"];
 }
 - (void)sideMenu:(RESideMenu *)sideMenu didHideMenuViewController:(UIViewController *)menuViewController
 {
-
-    [self callJSEquivalentMethod:NSStringFromSelector(@selector(sideMenu:didHideMenuViewController:))
-                       arguments:@[sideMenu, menuViewController]];
+    [IRBaseBuilder executeAction:@"this.sideMenuDidHideMenuViewController(sideMenu, menuViewController);"
+                  withDictionary:@{@"sideMenu": sideMenu, @"menuViewController": menuViewController}
+                  viewController:self
+                    functionName:@"this.sideMenuDidHideMenuViewController"];
 }
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -1230,61 +1256,6 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf presentViewController:viewController animated:animated completion:nil];
         });
-    }
-}
-// --------------------------------------------------------------------------------------------------------------------
-- (void) callJSEquivalentMethod:(NSString *)methodName
-                      arguments:(NSArray *)arguments
-{
-    JSContext *jsContext = [[IRDataController sharedInstance] globalJSContext];
-    JSValue *irViewControllerJSValue = jsContext[self.key];
-    NSArray *methodNamePartsArray = [methodName componentsSeparatedByString:@":"];
-    NSString *methodNameJSEquivalent = @"";
-    NSString *methodNamePart;
-    JSValue *method;
-    NSString *wrapperMethodName;
-    NSString *wrapperMethod;
-    for (int i=0; i<[methodNamePartsArray count]; i++) {
-        methodNamePart = methodNamePartsArray[i];
-        if ([methodNamePart length] > 0) {
-            if (i > 0) {
-                methodNamePart = [NSString stringWithFormat:@"%@%@",
-                                                            [[methodNamePart substringToIndex:1] capitalizedString],
-                                                            [methodNamePart substringFromIndex:1]];
-            }
-            methodNameJSEquivalent = [methodNameJSEquivalent stringByAppendingString:methodNamePart];
-        }
-    }
-
-    if (irViewControllerJSValue && [irViewControllerJSValue toObject]) {
-        method = irViewControllerJSValue[methodNameJSEquivalent];
-        if ([method isObject]
-          && [[method toObject] isKindOfClass:[NSDictionary class]]
-          && [[method toString] hasPrefix:@"function"])
-        {
-            //        NSLog(@"implements VC-equivalent js-method: '%@'", methodName);
-#if ENABLE_SAFARI_DEBUGGING == 1
-            wrapperMethodName = [NSString stringWithFormat:@"%@_%@", methodNameJSEquivalent, self.key];
-            wrapperMethod = [NSString stringWithFormat:@
-                                                         "if (%@ !== undefined) {"
-                                                         " delete  %@ ; "
-                                                         "} "
-                                                         "var %@ = function() { "
-                                                         "    setZeroTimeout( %@.%@.bind(%@, arguments) ) "
-                                                         "}",
-                                                       wrapperMethodName,
-                                                       wrapperMethodName,
-                                                       wrapperMethodName,
-                                                       self.key, methodNameJSEquivalent, self.key];
-            [jsContext evaluateScript:wrapperMethod];
-            JSValue *wrapperMethodJSValue = jsContext[wrapperMethodName];
-            [wrapperMethodJSValue callWithArguments:arguments];
-#else
-            [method callWithArguments:arguments];
-#endif
-        }
-    } else {
-        NSLog(@"callJSEquivalentMethod:arguments: - VC \"%@\" not available in JSContext for method \"%@\" !!!", self.key, methodNameJSEquivalent);
     }
 }
 

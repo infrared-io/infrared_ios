@@ -66,7 +66,6 @@
 #if TARGET_OS_IPHONE
 - (void) initJSContext;
 - (JSContext *) globalJSContext;
-//- (JSContext *) vcPluginExtensionJSContext;
 #endif
 
 #if TARGET_OS_IPHONE

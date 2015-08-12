@@ -266,52 +266,6 @@
     NSString *jsPluginNameFromPath;
     NSString *escapedPluginPath;
     JSValue *irViewControllerJSValue = jsContext[irViewController.key];
-//    NSString *jsPluginString;
-//    JSContext *tempJSContext;
-//    JSValue *tempGlobalObject;
-//    JSValue *tempPluginsMapValue;
-//    NSDictionary *tempPluginsMap;
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *documentsDirectory = [paths firstObject];
-//    NSString *jsonImagesPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
-//    NSString *jsPluginNameFromPath = [IRUtil fileNameFromPath:escapedPluginPath];
-//    NSData *fileData = [IRFileLoadingUtil dataForFileWithPath:jsPluginNameFromPath/*descriptor.jsPluginPath*/
-//                                              destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonImagesPathComponent]
-//                                                 preserveName:YES];
-//    jsPluginString = [[NSString alloc] initWithData:fileData encoding:NSUTF8StringEncoding];
-
-//    if (irViewControllerJSValue && [irViewControllerJSValue toObject]) {
-//        if ([jsPluginString length] > 0) {
-//            tempJSContext = [[IRDataController sharedInstance] vcPluginExtensionJSContext];
-//            irViewController.pluginInjectionJsContext = tempJSContext;
-//            [tempJSContext evaluateScript:jsPluginString];
-//            tempGlobalObject = tempJSContext.globalObject;
-//            tempPluginsMapValue = tempGlobalObject[IR_JS_LIBRARY_KEY][@"pluginsMap"];
-//            tempPluginsMap = [tempPluginsMapValue toDictionary];
-//            for (NSString *pluginName in tempPluginsMap) {
-//                // IMPORTANT: 'setZeroTimeout' can not be added here this way. Operation is done on separate thread
-//                //            and successive ObjC methods, which expect extended methods te be available,
-//                //            don't have guarantee for availability
-//                //            If 'setZeroTimeout' becomes necessary (for debugging) JS call-back methods has to be
-//                //            introduced so successive ObjC code can rely on extended methods availability
-//                stringToEvaluate = [NSString stringWithFormat:@
-////#if ENABLE_SAFARI_DEBUGGING == 1
-////                                                        "setZeroTimeout( function() { "
-////#endif
-//                                                                "if (%@ !== undefined && %@ != null) { "
-//                                                                "%@.extendVCWithPluginName(%@, '%@');"
-//                                                                " }"
-////#if ENABLE_SAFARI_DEBUGGING == 1
-////                                                        " } );"
-////#endif
-//                  , irViewController.key, irViewController.key, IR_JS_LIBRARY_KEY, irViewController.key, pluginName];
-//                [jsContext evaluateScript:stringToEvaluate];
-//            }
-//        }
-//    } else {
-//        NSLog(@"extendVCWithJSPlugin:descriptor:jsContext: - VC \"%@\" not available in JSContext !!!", irViewController.key);
-//    }
-
     if (irViewControllerJSValue && [irViewControllerJSValue toObject]) {
         escapedPluginPath = [descriptor.jsPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         jsPluginNameFromPath = [IRUtil scriptTagFileNameFromPath:escapedPluginPath];

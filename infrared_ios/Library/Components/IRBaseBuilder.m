@@ -396,16 +396,27 @@ withDataBindingItemName:(NSString *)name
         withDictionary:(NSDictionary *)dictionary
         viewController:(IRViewController *)irViewController
 {
+    [IRBaseBuilder executeAction:action
+                  withDictionary:dictionary
+                  viewController:irViewController
+                    functionName:nil];
+}
++ (void) executeAction:(NSString *)action
+        withDictionary:(NSDictionary *)dictionary
+        viewController:(IRViewController *)irViewController
+          functionName:(NSString *)functionName
+{
     NSString *internalVariables = @"";
     NSString *internalVariablesCall = @"";
-    NSString *jsInternalMethodParams = nil;
+    NSString *jsInternalMethodParams = @"";
+    NSString *finalAction;
     NSString *actionEnclosing;
     JSContext *jsContext;
     if ([action length] > 0 && irViewController) {
         for (NSString *anKey in dictionary) {
             // -- jsInternalMethodParams
-            if (jsInternalMethodParams == nil) {
-                jsInternalMethodParams = [NSString stringWithFormat:@"%@", anKey];
+            if ([jsInternalMethodParams length] == 0) {
+                jsInternalMethodParams = [jsInternalMethodParams stringByAppendingFormat:@"%@", anKey];
             } else {
                 jsInternalMethodParams = [jsInternalMethodParams stringByAppendingFormat:@", %@", anKey];
             }
@@ -413,6 +424,21 @@ withDataBindingItemName:(NSString *)name
             internalVariables = [internalVariables stringByAppendingFormat:@"    this.%@ = null; \n", anKey];
             // -- internalVariablesCall
             internalVariablesCall = [internalVariablesCall stringByAppendingFormat:@", this.%@", anKey];
+        }
+
+        if ([functionName length] > 0) {
+//            finalAction = [NSString stringWithFormat:@"if (%@ !== undefined && %@ != null) { "
+//                                                       " %@; "
+//                                                       "} else {"
+//                                                       " NSLog('executeAction - method \"%@\" not available in \"%@\"'); "
+//                                                       "} ",
+//                                                       functionName, functionName,
+//                                                       action,
+//                                                       functionName, irViewController.key];
+            finalAction = [NSString stringWithFormat:@"if (%@ !== undefined && %@ != null) {  %@; }",
+                                                     functionName, functionName, action];
+        } else {
+            finalAction = [NSString stringWithFormat:@"%@; ", action];;
         }
 
         jsContext = [[IRDataController sharedInstance] globalJSContext];
@@ -431,7 +457,7 @@ withDataBindingItemName:(NSString *)name
 #endif
                                                        "    }; \n"
                                                        "    this.actionFunctionTimeout = function (%@) {         \n"
-                                                       "        %@; \n"
+                                                       "        %@ \n"
                                                        "        delete ActionEnclosing_%@; \n"
                                                        "        delete actionEnclosing_%@; \n"
                                                        "    }; \n"
@@ -439,7 +465,7 @@ withDataBindingItemName:(NSString *)name
                                                        "var actionEnclosing_%@ = new ActionEnclosing_%@();",
                                                      [IRUtil createKeyFromObjectAddress:action],
                                                      internalVariables, irViewController.key, internalVariablesCall,
-                                                     jsInternalMethodParams, action,
+                                                     jsInternalMethodParams, finalAction/*action*/,
                                                      [IRUtil createKeyFromObjectAddress:action], [IRUtil createKeyFromObjectAddress:action],
                                                      [IRUtil createKeyFromObjectAddress:action], [IRUtil createKeyFromObjectAddress:action]];
         [jsContext evaluateScript:actionEnclosing];

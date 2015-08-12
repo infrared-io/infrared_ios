@@ -267,16 +267,6 @@ static IRDataController *sharedDataController = nil;
 {
     return self.jsContext;
 }
-
-//- (JSContext *) vcPluginExtensionJSContext
-//{
-////    JSContext *temporaryJSContext = [[JSContext alloc] initWithVirtualMachine:self.jsVirtualMachine];
-//    JSContext *temporaryJSContext = [[JSContext alloc] init];
-////    [IRJSContextUtil addConsoleNSLogToJSContext:temporaryJSContext];
-//    [IRJSContextUtil addInfraredJSExtensionToJSContext:temporaryJSContext];
-//    [IRJSContextUtil addMD5JSExtensionToJSContext:temporaryJSContext];
-//    return temporaryJSContext;
-//}
 #endif
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -411,20 +401,14 @@ static IRDataController *sharedDataController = nil;
     [viewController cleanWatchJSObserversAndVC];
     [self performSelector:@selector(nilJSContextVCWithName:) withObject:viewController.key afterDelay:5];
 
-    // 6) nil pluginInjectionJsContext
-//    viewController.pluginInjectionJsContext = nil;
-
-    // 7) clean views with restricted orientations
+    // 6) clean views with restricted orientations
     viewController.viewsArrayForOrientationRestriction = nil;
 
-    // 8) clean view with auto keyboard handling
+    // 7) clean view with auto keyboard handling
     viewController.viewsArrayForKeyboardResize = nil;
 
-    // 9) clean temp data
+    // 8) clean temp data
     viewController.data = nil;
-
-//    viewController.shouldUnregisterVC = NO;
-//    viewController.shouldUnregisterVCStack = NO;
 }
 
 - (void) nilJSContextVCWithName:(NSString *)vcName

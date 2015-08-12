@@ -111,24 +111,4 @@
     };
 }
 
-+ (void) addInfraredJSExtensionToJSContext:(JSContext *)jsContext
-{
-    NSString *jsExtension = [IRUtil stringFromPath:@"infrared.js"];
-    if (jsExtension) {
-        [jsContext evaluateScript:jsExtension];
-    } else {
-        NSLog(@"infrared.js MISSING");
-    }
-}
-
-+ (void) addMD5JSExtensionToJSContext:(JSContext *)jsContext;
-{
-    NSString *jsExtension = [IRUtil stringFromPath:@"infrared_md5.min.js"];
-    if (jsExtension) {
-        [jsContext evaluateScript:jsExtension];
-    } else {
-        NSLog(@"infrared_md5.min.js MISSING");
-    }
-}
-
 @end

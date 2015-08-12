@@ -6,18 +6,16 @@
     <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="1) Podspec prepared for version 0.9.2&#10;2) Minor refactorings">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/SDKCategories/FoundationCategories/NSInvocation+IRJSContextSwizzle.h" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/infrared_ios/Library/SDKCategories/FoundationCategories/NSInvocation+IRJSContextSwizzle.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseBuilder.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/IRLibrary/IRUtilLibrary.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/IRLibrary/IRUtilLibrary.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/IRLibrary/IRUtilLibrary.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/IRLibrary/IRUtilLibrary.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRJSContextUtil.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRJSContextUtil.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRJSContextUtil.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRJSContextUtil.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/JSExtensions/infrared/infrared.js" afterPath="$PROJECT_DIR$/infrared_ios/Library/JSExtensions/infrared/infrared.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/UpdateScreen/update_screen.json" afterPath="$PROJECT_DIR$/infrared_ios/Library/UpdateScreen/update_screen.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" afterPath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="therma_ios.iws" />
@@ -49,8 +47,8 @@
       <file leaf-file-name="IRViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="19485" max-vertical-offset="20235">
-              <caret line="1299" column="22" selection-start-line="1299" selection-start-column="22" selection-end-line="1299" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="19050" max-vertical-offset="19800">
+              <caret line="1270" column="22" selection-start-line="1270" selection-start-column="22" selection-end-line="1270" selection-end-column="22" />
               <folding>
                 <element signature="e#106#134#0" expanded="true" />
                 <element signature="e#1917#1943#0" expanded="true" />
@@ -64,6 +62,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="660">
               <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IRDataController.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.47395834" vertical-offset="3655" max-vertical-offset="9855">
+              <caret line="288" column="26" selection-start-line="288" selection-start-column="26" selection-end-line="288" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -99,10 +107,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IRGlobal.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IRGlobal.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Library/IRGlobal.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.03125" vertical-offset="0" max-vertical-offset="960">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
               <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
               <folding>
                 <element signature="e#97#163#0" expanded="true" />
@@ -124,18 +132,8 @@
       <file leaf-file-name="IRViewController.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2565" max-vertical-offset="2700">
-              <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NSInvocation+IRJSContextSwizzle.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/infrared_ios/Library/SDKCategories/FoundationCategories/NSInvocation+IRJSContextSwizzle.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1185">
-              <caret line="51" column="107" selection-start-line="51" selection-start-column="107" selection-end-line="51" selection-end-column="107" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2535" max-vertical-offset="2670">
+              <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -436,6 +434,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FoundationCategories" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Library" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataController" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -964,12 +984,6 @@
       <option name="number" value="Default" />
       <updated>1409401002811</updated>
     </task>
-    <task id="LOCAL-00154" summary="UICollectionView - work in progress - 3">
-      <created>1435063977184</created>
-      <option name="number" value="00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1435063977184</updated>
-    </task>
     <task id="LOCAL-00155" summary="UICollectionView - work in progress - 4 (section header and footer)">
       <created>1435083136869</created>
       <option name="number" value="00155" />
@@ -1258,12 +1272,18 @@
       <option name="project" value="LOCAL" />
       <updated>1438610863272</updated>
     </task>
-    <option name="localTasksCounter" value="203" />
+    <task id="LOCAL-00203" summary="1) stability improvements&#10;2) delete temporary JS variables&#10;3) renamed showComponentWithId/hideComponentWithId to showViewWithId/hideViewWithId&#10;4) removed need for temporary JSContext (when injecting plugin)">
+      <created>1439374383297</created>
+      <option name="number" value="00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1439374383297</updated>
+    </task>
+    <option name="localTasksCounter" value="204" />
     <option name="createBranch" value="false" />
     <option name="markAsInProgress" value="true" />
     <servers>
       <JIRA shared="false" url="https://appconveyor.atlassian.net">
-        <option name="apiType" />
+        <option name="apiType" value="REST_2_0" />
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
         <password>df92df9edfccdff5dfc2dfdddfe5dfc8df99dfc9df93dfd0df9fdf93dfc7dfc2df93dfcfdfd3</password>
         <option name="jiraVersion" value="6.5-OD-08-001" />
@@ -1301,24 +1321,24 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.28672746" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="148" y="561" width="1409" height="683" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279703" sideWeight="0.50036794" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24120604" sideWeight="0.3631841" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371286" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28643724" sideWeight="0.4996321" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3384224" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924925" sideWeight="0.49807692" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2295831" sideWeight="0.6368159" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24120604" sideWeight="0.3631841" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279703" sideWeight="0.50036794" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371286" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371286" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="149" y="122" width="1191" height="678" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.2532928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="162" y="23" width="1104" height="836" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.28672746" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="3" y="1235" width="1409" height="683" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28643724" sideWeight="0.4996321" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25371286" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -1341,7 +1361,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHORT_DIFF_EXTRA_LINES" value="8" />
-    <MESSAGE value="Change JS variable access from &quot;i18n&quot; to &quot;IR.i18n&quot;" />
     <MESSAGE value="1) Precaching - in progress&#10;2) Various improvements" />
     <MESSAGE value="Small improvements" />
     <MESSAGE value="Precaching improvements" />
@@ -1366,7 +1385,8 @@
     <MESSAGE value="1) Podspec prepared for version 0.9.2&#10;2) Minor refactorings" />
     <MESSAGE value="1) Improved evaluation for IR.i18n&#10;2) Minor Refactoring" />
     <MESSAGE value="1) improved path processing with prefix &quot;file://&quot;&#10;2) JS: unused VC references cleaned" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) improved path processing with prefix &quot;file://&quot;&#10;2) JS: unused VC references cleaned" />
+    <MESSAGE value="1) stability improvements&#10;2) delete temporary JS variables&#10;3) renamed showComponentWithId/hideComponentWithId to showViewWithId/hideViewWithId&#10;4) removed need for temporary JSContext (when injecting plugin)" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) stability improvements&#10;2) delete temporary JS variables&#10;3) renamed showComponentWithId/hideComponentWithId to showViewWithId/hideViewWithId&#10;4) removed need for temporary JSContext (when injecting plugin)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1452,11 +1472,6 @@
           <url>file://$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.m</url>
           <line>63</line>
           <option name="timeStamp" value="708" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m</url>
-          <line>285</line>
-          <option name="timeStamp" value="743" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/infrared_ios/Library/Infrared.m</url>
@@ -1570,6 +1585,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3180">
           <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1731,18 +1747,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2965" max-vertical-offset="9675">
-          <caret line="229" column="35" selection-start-line="229" selection-start-column="35" selection-end-line="229" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Infrared.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1750,6 +1759,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1791,16 +1801,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2565" max-vertical-offset="2700">
-          <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2535" max-vertical-offset="2670">
+          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="19485" max-vertical-offset="20205">
-          <caret line="1299" column="22" selection-start-line="1299" selection-start-column="22" selection-end-line="1299" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="19050" max-vertical-offset="19800">
+          <caret line="1270" column="22" selection-start-line="1270" selection-start-column="22" selection-end-line="1270" selection-end-column="22" />
           <folding>
             <element signature="e#106#134#0" expanded="true" />
             <element signature="e#1917#1943#0" expanded="true" />
@@ -1858,11 +1868,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/IRGlobal.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03125" vertical-offset="0" max-vertical-offset="960">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
           <folding>
             <element signature="e#97#163#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47395834" vertical-offset="3655" max-vertical-offset="9855">
+          <caret line="288" column="26" selection-start-line="288" selection-start-column="26" selection-end-line="288" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
