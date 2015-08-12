@@ -44,6 +44,7 @@
 // -----------------------------------------------------------------------------------
 
 - (void) buildAndSetRootViewControllerWithScreenId:(NSString *)screenId andData:(id)data;
+- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path withUpdateJSONPath:(NSString *)updateUIPath;
 
 // -----------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------
@@ -82,8 +83,8 @@
 // -----------------------------------------------------------------------------------
 
 - (IRView *) viewWithId:(NSString *)viewId;
-- (void)showComponentWithId:(NSString *)componentId;
-- (void)hideComponentWithId:(NSString *)componentId;
+- (void) showViewWithId:(NSString *)componentId;
+- (void) hideViewWithId:(NSString *)componentId;
 
 // -----------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------
@@ -157,7 +158,7 @@
 @property (nonatomic) BOOL shouldUnregisterVC;
 @property (nonatomic) BOOL shouldUnregisterVCStack;
 
-@property (nonatomic, strong) JSContext *pluginInjectionJsContext;
+//@property (nonatomic, strong) JSContext *pluginInjectionJsContext;
 
 - (void) keyPathUpdatedInReactiveCocoa:(NSString *)keyPath
                         newStringValue:(NSString *)newStringValue;

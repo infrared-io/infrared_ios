@@ -404,6 +404,13 @@
                                                                                           data:data];
     });
 }
+- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path
+                       withUpdateJSONPath:(NSString *)updateUIPath
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[Infrared sharedInstance] cleanAndBuildInfraredAppFromPath:path withUpdateJSONPath:updateUIPath];
+    });
+}
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 - (void) showAlertView:(NSString *)title
@@ -494,13 +501,13 @@
 {
     return [[IRUtilLibrary sharedInstance] viewWithId:viewId viewController:self];
 }
-- (void) showComponentWithId:(NSString *)componentId
+- (void) showViewWithId:(NSString *)componentId
 {
-    [[IRUtilLibrary sharedInstance] showComponentWithId:componentId viewController:self];
+    [[IRUtilLibrary sharedInstance] showViewWithId:componentId viewController:self];
 }
-- (void) hideComponentWithId:(NSString *)componentId
+- (void) hideViewWithId:(NSString *)componentId
 {
-    [[IRUtilLibrary sharedInstance] hideComponentWithId:componentId viewController:self];
+    [[IRUtilLibrary sharedInstance] hideViewWithId:componentId viewController:self];
 }
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -639,17 +646,19 @@
             // -- mark old VC for clean-up
             currentContentViewController.shouldUnregisterVCStack = YES;
             // -- build new VC
-            IRViewController *contentViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor data:nil];
-            __weak IRViewController *weakContentViewController = contentViewController;
+//            IRViewController *contentViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor data:nil];
+//            __weak IRViewController *weakContentViewController = contentViewController;
             dispatch_async(dispatch_get_main_queue(), ^{
                 IRViewController *wrappedContentViewController;
 
+                IRViewController *contentViewController = [IRViewControllerBuilder buildViewControllerFromScreenDescriptor:screenDescriptor data:nil];
+
                 // -- navigation controller and tabBar controller
                 // TODO: multiple tabs will leak here (additional tabs are created in wrapInTabBar...)
-                wrappedContentViewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerIfNeeded:weakContentViewController];
+                wrappedContentViewController = [IRViewControllerBuilder wrapInTabBarControllerAndNavigationControllerIfNeeded:contentViewController/*weakContentViewController*/];
 
                 // -- set delegate to content VC
-                weakSelf.sideMenuViewController.delegate = weakContentViewController;
+                weakSelf.sideMenuViewController.delegate = contentViewController/*weakContentViewController*/;
                 // -- set new wrapped content VC
                 [weakSelf.sideMenuViewController setContentViewController:wrappedContentViewController animated:animated];
             });
@@ -666,19 +675,27 @@
 {
     BOOL valueChange = YES;
     if ([newValue isKindOfClass:[NSArray class]]) {
-        if ([newValue isEqualToArray:oldValue]) {
+        if ([oldValue isKindOfClass:[NSArray class]]
+            && [newValue isEqualToArray:oldValue])
+        {
             valueChange = NO;
         }
     } else if ([newValue isKindOfClass:[NSDictionary class]]) {
-        if ([newValue isEqualToDictionary:oldValue]) {
+        if ([oldValue isKindOfClass:[NSDictionary class]]
+            && [newValue isEqualToDictionary:oldValue])
+        {
             valueChange = NO;
         }
     } else if ([newValue isKindOfClass:[NSString class]]) {
-        if ([newValue isEqualToString:oldValue]) {
+        if ([oldValue isKindOfClass:[NSString class]]
+            && [newValue isEqualToString:oldValue])
+        {
             valueChange = NO;
         }
     } else if ([newValue isKindOfClass:[NSNumber class]]) {
-        if ([newValue isEqualToNumber:oldValue]) {
+        if ([oldValue isKindOfClass:[NSNumber class]]
+            && [newValue isEqualToNumber:oldValue])
+        {
             valueChange = NO;
         }
     }
@@ -1225,6 +1242,7 @@
     NSString *methodNameJSEquivalent = @"";
     NSString *methodNamePart;
     JSValue *method;
+    NSString *wrapperMethodName;
     NSString *wrapperMethod;
     for (int i=0; i<[methodNamePartsArray count]; i++) {
         methodNamePart = methodNamePartsArray[i];
@@ -1246,20 +1264,27 @@
         {
             //        NSLog(@"implements VC-equivalent js-method: '%@'", methodName);
 #if ENABLE_SAFARI_DEBUGGING == 1
+            wrapperMethodName = [NSString stringWithFormat:@"%@_%@", methodNameJSEquivalent, self.key];
             wrapperMethod = [NSString stringWithFormat:@
-                                                         "%@_%@ = function() { "
+                                                         "if (%@ !== undefined) {"
+                                                         " delete  %@ ; "
+                                                         "} "
+                                                         "var %@ = function() { "
                                                          "    setZeroTimeout( %@.%@.bind(%@, arguments) ) "
-                                                         "}"
-              , methodNameJSEquivalent, self.key,
+                                                         "}",
+                                                       wrapperMethodName,
+                                                       wrapperMethodName,
+                                                       wrapperMethodName,
                                                        self.key, methodNameJSEquivalent, self.key];
-            JSValue *wrapperMethodJSValue = [jsContext evaluateScript:wrapperMethod];
+            [jsContext evaluateScript:wrapperMethod];
+            JSValue *wrapperMethodJSValue = jsContext[wrapperMethodName];
             [wrapperMethodJSValue callWithArguments:arguments];
 #else
             [method callWithArguments:arguments];
-    #endif
+#endif
         }
     } else {
-        NSLog(@"callJSEquivalentMethod:arguments: - VC \"%@\" not available in JSContext !!!", self.key);
+        NSLog(@"callJSEquivalentMethod:arguments: - VC \"%@\" not available in JSContext for method \"%@\" !!!", self.key, methodNameJSEquivalent);
     }
 }
 

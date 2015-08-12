@@ -223,20 +223,29 @@ static IRDataController *sharedDataController = nil;
     NSString *jsonImagesPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
     NSString *fullBaseUrlPath = [documentsDirectory stringByAppendingPathComponent:jsonImagesPathComponent];
 
-    NSMutableArray *jsPluginPathsArray = [NSMutableArray array];
-    [jsPluginPathsArray addObjectsFromArray:[IRDataController sharedInstance].appDescriptor.jsLibrariesArray];
-    [jsPluginPathsArray addObjectsFromArray:[IRBaseDescriptor allJSFilesPaths]];
+    NSArray *jsPluginPathsArray;
     NSString *anEscapedPluginPath;
     NSString *jsPluginNameFromPath;
     NSString *scriptTags = @"";
+//    jsPluginPathsArray = [NSMutableArray array];
+//    [jsPluginPathsArray addObjectsFromArray:[IRDataController sharedInstance].appDescriptor.jsLibrariesArray];
+    jsPluginPathsArray = [IRDataController sharedInstance].appDescriptor.jsLibrariesArray;
     for (NSString *anPluginPath in jsPluginPathsArray) {
         anEscapedPluginPath = [anPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//        jsPluginNameFromPath = [IRUtil fileNameFromPath:anEscapedPluginPath];
-        jsPluginNameFromPath = [IRUtil fileNameFromPathForScriptTag:anEscapedPluginPath];
+        jsPluginNameFromPath = [IRUtil scriptTagFileNameFromPath:anEscapedPluginPath];
+        scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
+    }
+//    jsPluginPathsArray = [NSMutableArray array];
+//    [jsPluginPathsArray addObjectsFromArray:[IRBaseDescriptor allJSFilesPaths]];
+    jsPluginPathsArray = [IRBaseDescriptor allJSFilesPaths];
+    for (NSString *anPluginPath in jsPluginPathsArray) {
+        anEscapedPluginPath = [anPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        jsPluginNameFromPath = [IRUtil scriptTagFileNameFromPath:anEscapedPluginPath];
+        scriptTags = [scriptTags stringByAppendingFormat:@"<script>IR.nameForFollowingPlugin('%@');</script>", jsPluginNameFromPath];
         scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
     }
     [self.webView loadHTMLString:[NSString stringWithFormat:@""
-                                                           "<html><head>"
+                                                           "<html><title>App</title><head>"
 //                                                           "<script src='http://jsconsole.com/remote.js?'></script>"
                                                            "<script src='infrared.js'></script>"
                                                            "<script src='infrared_md5.min.js'></script>"
@@ -259,15 +268,15 @@ static IRDataController *sharedDataController = nil;
     return self.jsContext;
 }
 
-- (JSContext *) vcPluginExtensionJSContext
-{
-//    JSContext *temporaryJSContext = [[JSContext alloc] initWithVirtualMachine:self.jsVirtualMachine];
-    JSContext *temporaryJSContext = [[JSContext alloc] init];
-//    [IRJSContextUtil addConsoleNSLogToJSContext:temporaryJSContext];
-    [IRJSContextUtil addInfraredJSExtensionToJSContext:temporaryJSContext];
-    [IRJSContextUtil addMD5JSExtensionToJSContext:temporaryJSContext];
-    return temporaryJSContext;
-}
+//- (JSContext *) vcPluginExtensionJSContext
+//{
+////    JSContext *temporaryJSContext = [[JSContext alloc] initWithVirtualMachine:self.jsVirtualMachine];
+//    JSContext *temporaryJSContext = [[JSContext alloc] init];
+////    [IRJSContextUtil addConsoleNSLogToJSContext:temporaryJSContext];
+//    [IRJSContextUtil addInfraredJSExtensionToJSContext:temporaryJSContext];
+//    [IRJSContextUtil addMD5JSExtensionToJSContext:temporaryJSContext];
+//    return temporaryJSContext;
+//}
 #endif
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -381,7 +390,7 @@ static IRDataController *sharedDataController = nil;
     }
 
     // 2) unbind ReactiveCocoa DataBinding
-
+    // NO need for it - the way it's setup things are de-allocated automatically
 
     // 3) remove all gesture recognizers from viewController
     IRIdsAndComponentsForScreen *idsAndGestureRecognizersForScreen = nil;
@@ -403,7 +412,7 @@ static IRDataController *sharedDataController = nil;
     [self performSelector:@selector(nilJSContextVCWithName:) withObject:viewController.key afterDelay:5];
 
     // 6) nil pluginInjectionJsContext
-    viewController.pluginInjectionJsContext = nil;
+//    viewController.pluginInjectionJsContext = nil;
 
     // 7) clean views with restricted orientations
     viewController.viewsArrayForOrientationRestriction = nil;

@@ -17,11 +17,13 @@
 - (NSArray *) controllersWithId:(NSString *)controllerId;
 - (NSArray *) controllersWithScreenId:(NSString *)screenId;
 
-- (void) showComponentWithId:(NSString *)componentId
-              viewController:(IRViewController *)viewController;
+- (void) showViewWithId:(NSString *)componentId
+         viewController:(IRViewController *)viewController;
 
-- (void) hideComponentWithId:(NSString *)componentId
-              viewController:(IRViewController *)viewController;
+- (void) hideViewWithId:(NSString *)componentId
+         viewController:(IRViewController *)viewController;
+
+- (NSString *) prefixFilePathWithBaseUrlIfNeeded:(NSString *)filePath;
 
 - (void) setUserDefaultsValue:(NSString *)value forKey:(NSString *)key;
 - (NSString *) userDefaultsValueForKey:(NSString *)key;

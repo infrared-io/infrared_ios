@@ -28,6 +28,33 @@ var UITableViewStyleGrouped = 1;
 // --------------------------------------------------------------------------------------------------------------------
 
 // --------------------------------------------------------------------------------------------------------------------
+// UITableViewScrollPosition
+var UITableViewScrollPositionNone = 0;
+var UITableViewScrollPositionTop = 1;
+var UITableViewScrollPositionMiddle = 2;
+var UITableViewScrollPositionBottom = 3;
+// --------------------------------------------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------------------------------------------
+// UITableViewRowAnimation
+var UITableViewRowAnimationFade = 0;
+var UITableViewRowAnimationRight = 1;
+var UITableViewRowAnimationLeft = 2;
+var UITableViewRowAnimationTop = 3;
+var UITableViewRowAnimationBottom = 4;
+var UITableViewRowAnimationNone = 5;
+var UITableViewRowAnimationMiddle = 6;
+var UITableViewRowAnimationAutomatic = 100;
+// --------------------------------------------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------------------------------------------
+//
+var UIScrollViewIndicatorStyleDefault = 0;
+var UIScrollViewIndicatorStyleBlack = 1;
+var UIScrollViewIndicatorStyleWhite = 2;
+// --------------------------------------------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------------------------------------------
 // UIGestureRecognizerState
 var UIGestureRecognizerStatePossible = 0;
 var UIGestureRecognizerStateBegan = 1;
@@ -67,13 +94,23 @@ var infraredClass = function () {
 
     this.pluginsMap = {};
 
+    this.pluginName = null;
+    this.nameForFollowingPlugin = function (pluginName) {
+        this.pluginName = pluginName;
+    };
     this.plugin = function (/*name, */dictionary) {
         //this.pluginsMap[name] = dictionary;
-        var dictAsString = JSON.stringify(dictionary, function(key, value) {
-            return (typeof value === 'function') ? '' + value : value;
-        });
-        dictAsString = IR.md5(dictAsString);
-        this.pluginsMap[dictAsString] = dictionary;
+
+        //var dictAsString = JSON.stringify(dictionary, function(key, value) {
+        //    return (typeof value === 'function') ? '' + value : value;
+        //});
+        //dictAsString = IR.md5(dictAsString);
+        //this.pluginsMap[dictAsString] = dictionary;
+
+        if (this.pluginName && this.pluginName.length>0) {
+            this.pluginsMap[this.pluginName] = dictionary;
+            this.pluginName = null;
+        }
     };
 
     //this.addWatch = function (viewController, propertyName, numberOfLevels) {
@@ -97,22 +134,31 @@ var infraredClass = function () {
         this.watchJSCallbackToObjC(prop, action, newValue, oldValue);
     };
 
-    this.extendVCWithPluginName = function (viewController, pluginName) {
-        var plugin = null;
-        for (var anPluginName in this.pluginsMap) {
-            if (this.pluginsMap.hasOwnProperty(anPluginName)) {
-                if (anPluginName == pluginName) {
-                    plugin = this.pluginsMap[anPluginName];
-                    break;
+    this.extendVCWithPluginName = function (viewController, pluginNameList) {
+        //var plugin = null;
+        //for (var anPluginName in this.pluginsMap) {
+        //    if (this.pluginsMap.hasOwnProperty(anPluginName)) {
+        //        if (anPluginName == pluginName) {
+        //            plugin = this.pluginsMap[anPluginName];
+        //            break;
+        //        }
+        //    }
+        //}
+        var pluginName;
+        var plugin;
+        if (pluginNameList && viewController) {
+            for (var i = 0; i < pluginNameList.length; i++) {
+                pluginName = pluginNameList[i];
+                plugin = this.pluginsMap[pluginName];
+                if (plugin != null) {
+                    extend(viewController, plugin, true);
                 }
             }
         }
-
-        if (typeof viewController !== "undefined") {
-            if (plugin != null) {
-                extend(viewController, plugin, true);
-            }
-        }
+        //var plugin = this.pluginsMap[pluginName];
+        //if (plugin != null && viewController != null) {
+        //    extend(viewController, plugin, true);
+        //}
     };
 
     this.extendVCWithPlugin = function (viewController, plugin) {

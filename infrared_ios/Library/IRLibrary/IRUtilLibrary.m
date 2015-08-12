@@ -9,6 +9,7 @@
 #import "IRDataController.h"
 #import "IRScreenDescriptor.h"
 #import "SSKeychain.h"
+#import "IRUtil.h"
 
 
 @implementation IRUtilLibrary
@@ -88,8 +89,8 @@ static IRUtilLibrary *sharedIRLibrary = nil;
 }
 
 // --------------------------------------------------------------------------------------------------------------------
-- (void) showComponentWithId:(NSString *)componentId
-              viewController:(IRViewController *)viewController
+- (void) showViewWithId:(NSString *)componentId
+         viewController:(IRViewController *)viewController
 {
     IRView *view = [[IRDataController sharedInstance] viewWithId:componentId
                                                   viewController:viewController];
@@ -97,12 +98,20 @@ static IRUtilLibrary *sharedIRLibrary = nil;
 }
 
 // --------------------------------------------------------------------------------------------------------------------
-- (void) hideComponentWithId:(NSString *)componentId
-              viewController:(IRViewController *)viewController
+- (void) hideViewWithId:(NSString *)componentId
+         viewController:(IRViewController *)viewController
 {
     IRView *view = [[IRDataController sharedInstance] viewWithId:componentId
                                                   viewController:viewController];
     view.hidden = YES;
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
+- (NSString *) prefixFilePathWithBaseUrlIfNeeded:(NSString *)filePath
+{
+    return [IRUtil prefixFilePathWithBaseUrlIfNeeded:filePath];
 }
 
 // --------------------------------------------------------------------------------------------------------------------

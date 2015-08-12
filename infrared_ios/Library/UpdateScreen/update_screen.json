@@ -2,7 +2,6 @@
   "id": "update_screen",
   "controller": {
     "id": "update_screen_vc",
-    "controllerType": "viewController",
     "supportedInterfaceOrientations": "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
     "preferredStatusBarStyle": "UIStatusBarStyleLightContent",
     "navigationController": {
