@@ -409,6 +409,7 @@ withDataBindingItemName:(NSString *)name
     NSString *internalVariables = @"";
     NSString *internalVariablesCall = @"";
     NSString *jsInternalMethodParams = @"";
+    NSString *actionKey;
     NSString *finalAction;
     NSString *actionEnclosing;
     JSContext *jsContext;
@@ -442,6 +443,7 @@ withDataBindingItemName:(NSString *)name
         }
 
         jsContext = [[IRDataController sharedInstance] globalJSContext];
+        actionKey = [IRUtil createKeyFromObjectAddress:action];
         actionEnclosing = [NSString stringWithFormat:@
                                                        "var ActionEnclosing_%@ = function () { \n"
                                                        "%@ \n"
@@ -463,11 +465,8 @@ withDataBindingItemName:(NSString *)name
                                                        "    }; \n"
                                                        "}; \n"
                                                        "var actionEnclosing_%@ = new ActionEnclosing_%@();",
-                                                     [IRUtil createKeyFromObjectAddress:action],
-                                                     internalVariables, irViewController.key, internalVariablesCall,
-                                                     jsInternalMethodParams, finalAction/*action*/,
-                                                     [IRUtil createKeyFromObjectAddress:action], [IRUtil createKeyFromObjectAddress:action],
-                                                     [IRUtil createKeyFromObjectAddress:action], [IRUtil createKeyFromObjectAddress:action]];
+                                    actionKey, internalVariables, irViewController.key, internalVariablesCall,
+                                    jsInternalMethodParams, finalAction, actionKey, actionKey, actionKey, actionKey];
         [jsContext evaluateScript:actionEnclosing];
 
         @try {

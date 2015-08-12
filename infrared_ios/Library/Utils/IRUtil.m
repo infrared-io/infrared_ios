@@ -264,7 +264,7 @@
                                          baseUrl:(NSString *)baseUrl
 {
     NSString *processFilePath = filePath;
-    if ([baseUrl length] > 0) {
+    if ([baseUrl length] > 0 && [filePath length] > 0) {
         if ([baseUrl hasSuffix:@"/"] == NO) {
             baseUrl = [baseUrl stringByAppendingString:@"/"];
         }
