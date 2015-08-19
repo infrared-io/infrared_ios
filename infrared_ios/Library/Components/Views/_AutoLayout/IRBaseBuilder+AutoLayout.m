@@ -39,13 +39,24 @@
                               descriptor:(IRViewDescriptor *)descriptor
                           viewController:(IRViewController *)viewController
 {
+    NSMutableArray *constrainsArray = [NSMutableArray array];
     // -- layoutConstraintsArray
-    [IRBaseBuilder setLayoutConstraintsForView:irView
-                          fromDescriptorsArray:descriptor.layoutConstraintsArray
-                                viewController:viewController];
+    if ([descriptor.layoutConstraintsArray count] > 0) {
+        [constrainsArray addObjectsFromArray:descriptor.layoutConstraintsArray];
+    }
+//    [IRBaseBuilder setLayoutConstraintsForView:irView
+//                          fromDescriptorsArray:descriptor.layoutConstraintsArray
+//                                viewController:viewController];
     // -- intrinsicContentSizePriorityArray
+    if ([descriptor.intrinsicContentSizePriorityArray count] > 0) {
+        [constrainsArray addObjectsFromArray:descriptor.intrinsicContentSizePriorityArray];
+    }
+//    [IRBaseBuilder setLayoutConstraintsForView:irView
+//                          fromDescriptorsArray:descriptor.intrinsicContentSizePriorityArray
+//                                viewController:viewController];
+
     [IRBaseBuilder setLayoutConstraintsForView:irView
-                          fromDescriptorsArray:descriptor.intrinsicContentSizePriorityArray
+                          fromDescriptorsArray:constrainsArray
                                 viewController:viewController];
 }
 

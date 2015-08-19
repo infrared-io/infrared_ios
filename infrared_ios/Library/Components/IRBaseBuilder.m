@@ -39,6 +39,7 @@
 #import "IRActionSheet.h"
 #import "IRAlertView.h"
 #import "IRBaseLibrary.h"
+#import "IRNavigationController.h"
 #import <objc/runtime.h>
 
 
@@ -373,8 +374,8 @@ withDataBindingItemName:(NSString *)name
     IRViewController *irViewController = nil;
     NSString *vcKey;
     if ([action length] > 0) {
-        if ([sourceView isKindOfClass:[IRBarButtonItem class]]
-            || [sourceView isKindOfClass:[IRActionSheet class]]
+        if (/*[sourceView isKindOfClass:[IRBarButtonItem class]]
+            || */[sourceView isKindOfClass:[IRActionSheet class]]
             || [sourceView isKindOfClass:[IRAlertView class]])
         {
             vcKey = ((id <IRComponentInfoProtocol>) sourceView).componentInfo;
@@ -413,7 +414,17 @@ withDataBindingItemName:(NSString *)name
     NSString *finalAction;
     NSString *actionEnclosing;
     JSContext *jsContext;
-    if ([action length] > 0 && irViewController) {
+    NSString *irViewControllerKey;
+    JSValue *vcJSValue;
+    NSString *actionEnclosingClassName;
+    NSString *actionEnclosingObjectName;
+    irViewControllerKey = irViewController.key;
+    jsContext = [[IRDataController sharedInstance] globalJSContext];
+    vcJSValue = jsContext[irViewControllerKey];
+    if ([action length] > 0 && irViewController && vcJSValue && [vcJSValue toObject]) {
+        actionKey = [IRUtil createKeyFromObjectAddress:action];
+        actionEnclosingClassName = [@"ActionEnclosing" stringByAppendingFormat:@"_%@", actionKey];
+        actionEnclosingObjectName = [@"actionEnclosing" stringByAppendingFormat:@"_%@", actionKey];
         for (NSString *anKey in dictionary) {
             // -- jsInternalMethodParams
             if ([jsInternalMethodParams length] == 0) {
@@ -424,35 +435,26 @@ withDataBindingItemName:(NSString *)name
             // -- internalVariables
             internalVariables = [internalVariables stringByAppendingFormat:@"    this.%@ = null; \n", anKey];
             // -- internalVariablesCall
+//            internalVariablesCall = [internalVariablesCall stringByAppendingFormat:@", %@.%@", actionEnclosingObjectName, anKey];
             internalVariablesCall = [internalVariablesCall stringByAppendingFormat:@", this.%@", anKey];
         }
 
         if ([functionName length] > 0) {
-//            finalAction = [NSString stringWithFormat:@"if (%@ !== undefined && %@ != null) { "
-//                                                       " %@; "
-//                                                       "} else {"
-//                                                       " NSLog('executeAction - method \"%@\" not available in \"%@\"'); "
-//                                                       "} ",
-//                                                       functionName, functionName,
-//                                                       action,
-//                                                       functionName, irViewController.key];
-            finalAction = [NSString stringWithFormat:@"if (%@ !== undefined && %@ != null) {  %@; }",
+            finalAction = [NSString stringWithFormat:@"if (typeof %@ !== 'undefined' && %@ != null) {  %@; }",
                                                      functionName, functionName, action];
         } else {
-            finalAction = [NSString stringWithFormat:@"%@; ", action];;
+            finalAction = [NSString stringWithFormat:@"%@; ", action];
         }
 
-        jsContext = [[IRDataController sharedInstance] globalJSContext];
-        actionKey = [IRUtil createKeyFromObjectAddress:action];
         actionEnclosing = [NSString stringWithFormat:@
-                                                       "var ActionEnclosing_%@ = function () { \n"
+                                                       "var %@ = function () { \n"
                                                        "%@ \n"
                                                        "    this.actionFunction = function () { \n"
 #if ENABLE_SAFARI_DEBUGGING == 1
                                                        "        setZeroTimeout(  \n"
                                                        "        (this.actionFunctionTimeout).bind(%@%@) "
 #else
-                                                       "        (this.actionFunctionTimeout).call(%@%@); \n"
+                                                       "        (this.actionFunctionTimeout).call(%@%@) \n"
 #endif
 #if ENABLE_SAFARI_DEBUGGING == 1
                                                        "        ); \n"
@@ -460,25 +462,50 @@ withDataBindingItemName:(NSString *)name
                                                        "    }; \n"
                                                        "    this.actionFunctionTimeout = function (%@) {         \n"
                                                        "        %@ \n"
-                                                       "        delete ActionEnclosing_%@; \n"
-                                                       "        delete actionEnclosing_%@; \n"
+                                                       "        delete %@; \n"
+                                                       "        delete %@; \n"
                                                        "    }; \n"
                                                        "}; \n"
-                                                       "var actionEnclosing_%@ = new ActionEnclosing_%@();",
-                                    actionKey, internalVariables, irViewController.key, internalVariablesCall,
-                                    jsInternalMethodParams, finalAction, actionKey, actionKey, actionKey, actionKey];
+//                                                       "var actionEnclosing_%@ = new ActionEnclosing_%@();",
+                                                       "var %@ = new %@();",
+                                    actionEnclosingClassName/*actionKey*/, internalVariables,  /*actionEnclosingObjectName,*/
+                                    irViewControllerKey, internalVariablesCall,
+                                    jsInternalMethodParams, finalAction,
+                                    actionEnclosingObjectName, actionEnclosingClassName/*actionKey, actionKey*/,
+                                    actionEnclosingObjectName, actionEnclosingClassName /*actionKey, actionKey*/];
+//        NSLog(@"executeAction:withDictionary:viewController:functionName: - actionEnclosing=%@", actionEnclosing);
         [jsContext evaluateScript:actionEnclosing];
 
         @try {
-            for (NSString *anKey in dictionary) {
-                jsContext[[@"actionEnclosing" stringByAppendingFormat:@"_%@", [IRUtil createKeyFromObjectAddress:action]]][anKey] = dictionary[anKey];
+            JSValue *actionEnclosingJSValue = jsContext[actionEnclosingObjectName];
+            if (actionEnclosingJSValue && [actionEnclosingJSValue toObject]) {
+                for (NSString *anKey in dictionary) {
+                    actionEnclosingJSValue[anKey] = dictionary[anKey];
+                }
+//                NSLog(@"executeAction:withDictionary:viewController:=%@ (vc=%@) [pre]---->", action, irViewControllerKey);
+//                NSString *actionEnclosingFunctionCallString = [NSString stringWithFormat:@"actionEnclosing_%@.actionFunction();", actionKey];
+                NSString *actionEnclosingFunctionCallString = [NSString stringWithFormat:@"%@.actionFunction();", actionEnclosingObjectName];
+                [jsContext evaluateScript:actionEnclosingFunctionCallString];
+
+//                NSString *actionEnclosingFunctionName = [NSString stringWithFormat:@"actionEnclosing_%@.actionFunction", actionKey];
+//                JSValue *function = [jsContext evaluateScript:actionEnclosingFunctionName];
+
+//                JSValue *function = actionEnclosingJSValue[@"actionFunction"];
+//                if (function && [function toObject]) {
+//                    [function callWithArguments:@[]];
+//                }
+
+//                NSLog(@"executeAction:withDictionary:viewController:=%@ (vc=%@) [post]---->", action, irViewControllerKey);
+            } else {
+                NSLog(@"########## Action \"%@\" from VC \"%@\" will NOT be executed!", action, irViewControllerKey);
             }
-//            NSLog(@"executeAction:withDictionary:viewController:=%@ [pre]---->", action);
-            [jsContext evaluateScript:[NSString stringWithFormat:@"actionEnclosing_%@.actionFunction();", [IRUtil createKeyFromObjectAddress:action]]];
-//            NSLog(@"executeAction:withDictionary:viewController:=%@ [post]---->", action);
         }
         @catch (NSException *exception) {
             NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
+        }
+    } else {
+        if (vcJSValue == nil || [vcJSValue toObject] == nil) {
+            NSLog(@"########## VC \"%@\" is NOT available in JSContext for method \"%@\"!", irViewControllerKey, action);
         }
     }
 }
@@ -486,8 +513,14 @@ withDataBindingItemName:(NSString *)name
 + (IRViewController *) parentViewController:(UIView *)view
 {
     UIResponder *responder = view;
-    while ([responder isKindOfClass:[UIView class]]) {
+    while ([responder isKindOfClass:[IRNavigationController class]] == NO
+           && [responder isKindOfClass:[IRViewController class]] == NO
+           && responder != nil)
+    {
         responder = [responder nextResponder];
+    }
+    if ([responder respondsToSelector:@selector(visibleViewController)]) {
+        responder = [responder performSelector:@selector(visibleViewController)];
     }
     return responder;
 }

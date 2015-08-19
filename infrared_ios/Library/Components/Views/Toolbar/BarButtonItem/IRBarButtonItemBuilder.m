@@ -43,7 +43,7 @@
         irBarButtonItem = [[IRBarButtonItem alloc] init];
     }
 
-    irBarButtonItem.componentInfo = viewController.key;
+//    irBarButtonItem.componentInfo = viewController.key;
     [IRBarButtonItemBuilder setUpComponent:irBarButtonItem componentDescriptor:descriptor viewController:viewController
                                      extra:extra];
 

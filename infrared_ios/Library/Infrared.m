@@ -205,7 +205,7 @@ static Infrared *sharedInfraRed = nil;
         // -- do update if needed
         BOOL offerAppUpdate = [self shouldOfferAppUpdate:path baseAppDescriptor:appDescriptor];
         if (offerAppUpdate) {
-            NSLog(@"#@#@#@#@#@ Silent Updata #@#@#@#@#@");
+            NSLog(@"#@#@#@#@#@ Silent Update #@#@#@#@#@");
             [self cleanCacheAndRebuildAppWithPath:path];
             return;
         }

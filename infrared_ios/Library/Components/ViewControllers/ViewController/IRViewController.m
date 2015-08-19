@@ -315,16 +315,16 @@
 - (void)didMoveToParentViewController:(UIViewController *)parent
 {
     // TODO: method not available at the time of execution (JSContext reference cleaned before this is called)
-    NSDictionary *dictionary;
-    if (parent) {
-        dictionary = @{@"parent": parent};
-    } else {
-        dictionary = @{@"parent": [NSNull null]};
-    }
-    [IRBaseBuilder executeAction:@"this.didMoveToParentViewController(parent);"
-                  withDictionary:dictionary
-                  viewController:self
-                    functionName:@"this.didMoveToParentViewController"];
+//    NSDictionary *dictionary;
+//    if (parent) {
+//        dictionary = @{@"parent": parent};
+//    } else {
+//        dictionary = @{@"parent": [NSNull null]};
+//    }
+//    [IRBaseBuilder executeAction:@"this.didMoveToParentViewController(parent);"
+//                  withDictionary:dictionary
+//                  viewController:self
+//                    functionName:@"this.didMoveToParentViewController"];
 }
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -817,7 +817,14 @@
         self.viewsArrayForKeyboardResize = [NSMutableArray array];
     }
 
-    if ([self.viewsArrayForKeyboardResize containsObject:aView] == NO) {
+    BOOL alreadyAdded = NO;
+    for (IRKeyboardAutoResizeData *autoResizeData in self.viewsArrayForKeyboardResize) {
+        if (autoResizeData.view == aView) {
+            alreadyAdded = YES;
+            break;
+        }
+    }
+    if (alreadyAdded == NO) {
         IRKeyboardAutoResizeData *keyboardAutoResizeData = [[IRKeyboardAutoResizeData alloc] init];
         keyboardAutoResizeData.view = aView;
         keyboardAutoResizeData.constraint = constraint;
@@ -845,7 +852,7 @@
 #if ENABLE_SAFARI_DEBUGGING == 1
                                                         "setZeroTimeout( function() { "
 #endif
-                                                        "if (%@ !== undefined) { "
+                                                        "if (typeof %@ !== 'undefined') { "
                                                         "%@ "
                                                         "delete %@ ; "
                                                         "}"
@@ -943,33 +950,54 @@
     if ([self.viewsArrayForKeyboardResize count] > 0) {
         IRView *anView;
         IRScrollView *anScrollView;
+        UIEdgeInsets originalEdgeInsets;
         UIEdgeInsets contentInsets;
-        CGRect frameRelativeToRoot;
+        CGRect frameRelativeToRoot = CGRectZero;
         CGFloat bottomPosition;
         CGFloat resizeHeight;
         NSLayoutConstraint *anConstraint;
         for (IRKeyboardAutoResizeData *keyboardAutoResizeData in self.viewsArrayForKeyboardResize) {
             anView = keyboardAutoResizeData.view;
-            frameRelativeToRoot = [anView convertRect:anView.bounds toView:nil];
-            bottomPosition = frameRelativeToRoot.origin.y + frameRelativeToRoot.size.height;
-            if (bottomPosition < self.view.frame.size.height) {
+            if (keyboardAutoResizeData.originalBottomPosition == CGFLOAT_UNDEFINED) {
+                frameRelativeToRoot = [anView convertRect:anView.bounds toView:nil];
+                bottomPosition = frameRelativeToRoot.origin.y + frameRelativeToRoot.size.height;
+
+                keyboardAutoResizeData.originalBottomPosition = bottomPosition;
+            } else  {
+                bottomPosition = keyboardAutoResizeData.originalBottomPosition;
+            }
+            if (bottomPosition < self.view.frame.size.height)
+            // this branch is needed if ui start with negative coordinate
+            // e.g. whole UI is slided below navigationBar (starts with y = -64)
+            {
                 resizeHeight = height - (self.view.frame.size.height - bottomPosition);
             } else {
                 resizeHeight = height;
             }
-//            NSLog(@"vc-key:%@ ,view:%p, frame:%@, resizeHeight:%f", self.key,
-//              anView, NSStringFromCGRect(frameRelativeToRoot), resizeHeight);
-            if ([anView isKindOfClass:[UIScrollView class]]) {
-                anScrollView = anView;
-                contentInsets = UIEdgeInsetsMake(0.0, 0.0, resizeHeight, 0.0);
-                anScrollView.contentInset = contentInsets;
-                anScrollView.scrollIndicatorInsets = contentInsets;
-            } else {
-                anConstraint = keyboardAutoResizeData.constraint;
-                anConstraint.constant = -resizeHeight;
+//            NSLog(@"**** show-keyboard - vc-key:%@ ,view-id:%@, frame:%@, resizeHeight:%f", self.key,
+//              anView.descriptor.componentId, NSStringFromCGRect(frameRelativeToRoot), resizeHeight);
+            if (resizeHeight > 0) {
+                if ([anView isKindOfClass:[UIScrollView class]]) {
+                    anScrollView = anView;
+                    originalEdgeInsets = keyboardAutoResizeData.scrollViewOriginalEdgeInsets;
+                    contentInsets = UIEdgeInsetsMake(originalEdgeInsets.top, originalEdgeInsets.left,
+                                                     resizeHeight, originalEdgeInsets.right);
+//                    contentInsets = UIEdgeInsetsMake(0.0, 0.0, resizeHeight, 0.0);
+                    anScrollView.contentInset = contentInsets;
+                    anScrollView.scrollIndicatorInsets = contentInsets;
+                } else {
+                    anConstraint = keyboardAutoResizeData.constraint;
+//                    NSLog(@"original constraint constant: %f", anConstraint.constant);
+                    anConstraint.constant = resizeHeight;
+                }
             }
         }
     }
+
+    [IRBaseBuilder executeAction:@"this.keyboardWillShow(notification);"
+                  withDictionary:@{@"notification": notification}
+                  viewController:self
+                    functionName:@"this.keyboardWillShow"];
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
@@ -979,7 +1007,7 @@
         NSLayoutConstraint *anConstraint;
         for (IRKeyboardAutoResizeData *keyboardAutoResizeData in self.viewsArrayForKeyboardResize) {
             anView = keyboardAutoResizeData.view;
-//            NSLog(@"vc-key:%@ ,view:%p", self.key, anView);
+//            NSLog(@"**** hide-keyboard - vc-key:%@ ,view:%@", self.key, anView.descriptor.componentId);
             if ([anView isKindOfClass:[UIScrollView class]]) {
                 anScrollView = anView;
 //                NSLog(@"   - contentInset:%@", NSStringFromUIEdgeInsets(keyboardAutoResizeData.scrollViewOriginalEdgeInsets));
@@ -988,9 +1016,16 @@
             } else {
                 anConstraint = keyboardAutoResizeData.constraint;
                 anConstraint.constant = keyboardAutoResizeData.constraintOriginalConstant;
+                [anView setNeedsUpdateConstraints];
             }
+            keyboardAutoResizeData.originalBottomPosition = CGFLOAT_UNDEFINED;
         }
     }
+
+    [IRBaseBuilder executeAction:@"this.keyboardWillHide(notification);"
+                  withDictionary:@{@"notification": notification}
+                  viewController:self
+                    functionName:@"this.keyboardWillHide"];
 }
 
 // --------------------------------------------------------------------------------------------------------------------

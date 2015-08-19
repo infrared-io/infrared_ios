@@ -227,16 +227,12 @@ static IRDataController *sharedDataController = nil;
     NSString *anEscapedPluginPath;
     NSString *jsPluginNameFromPath;
     NSString *scriptTags = @"";
-//    jsPluginPathsArray = [NSMutableArray array];
-//    [jsPluginPathsArray addObjectsFromArray:[IRDataController sharedInstance].appDescriptor.jsLibrariesArray];
     jsPluginPathsArray = [IRDataController sharedInstance].appDescriptor.jsLibrariesArray;
     for (NSString *anPluginPath in jsPluginPathsArray) {
         anEscapedPluginPath = [anPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         jsPluginNameFromPath = [IRUtil scriptTagFileNameFromPath:anEscapedPluginPath];
         scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
     }
-//    jsPluginPathsArray = [NSMutableArray array];
-//    [jsPluginPathsArray addObjectsFromArray:[IRBaseDescriptor allJSFilesPaths]];
     jsPluginPathsArray = [IRBaseDescriptor allJSFilesPaths];
     for (NSString *anPluginPath in jsPluginPathsArray) {
         anEscapedPluginPath = [anPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -424,7 +420,7 @@ static IRDataController *sharedDataController = nil;
 //#if ENABLE_SAFARI_DEBUGGING == 1
 //                                                        "setZeroTimeout( function() { "
 //#endif
-//                                                        "if (%@ !== undefined) { "
+//                                                        "if (typeof %@ !== 'undefined') { "
                                                         "delete %@;"
 //                                                        "}"
 //#if ENABLE_SAFARI_DEBUGGING == 1

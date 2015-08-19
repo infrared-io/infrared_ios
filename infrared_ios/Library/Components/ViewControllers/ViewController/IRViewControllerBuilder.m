@@ -279,7 +279,7 @@
 //#if ENABLE_SAFARI_DEBUGGING == 1
 //                                                        "setZeroTimeout( function() { "
 //#endif
-                                                            "if (%@ !== undefined && %@ != null) { "
+                                                            "if (typeof %@ !== 'undefined' && %@ != null) { "
                                                             "%@.extendVCWithPluginName(%@, ['%@']);"
                                                             " }"
 //#if ENABLE_SAFARI_DEBUGGING == 1
@@ -301,8 +301,8 @@
                                         descriptor:irViewController.rootView.descriptor
                                     viewController:irViewController];
     // -- add constraints to root view's subviews
-    [IRBaseBuilder addAutoLayoutConstraintsForViewsArray:irViewController.view.subviews
-                                          viewController:irViewController];
+//    [IRBaseBuilder addAutoLayoutConstraintsForViewsArray:irViewController.view.subviews
+//                                          viewController:irViewController];
 }
 + (void) addDataBindingsForRootView:(IRViewController *)irViewController
 {

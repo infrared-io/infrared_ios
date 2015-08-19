@@ -23,14 +23,25 @@
 
 + (void) addAutoLayoutConstraintsForTableViewCell:(IRTableViewCell *)irTableViewCell
 {
+    NSMutableArray *constrainsArray = [NSMutableArray array];
     // -- layoutConstraintsArray
-    [IRTableViewBuilder setLayoutConstraintsForView:irTableViewCell.contentView
-                               fromDescriptorsArray:((IRViewDescriptor *) irTableViewCell.descriptor).layoutConstraintsArray
-                                        inRootViews:irTableViewCell.contentView.subviews];
+    if ([((IRViewDescriptor *) irTableViewCell.descriptor).layoutConstraintsArray count] > 0) {
+        [constrainsArray addObjectsFromArray:((IRViewDescriptor *) irTableViewCell.descriptor).layoutConstraintsArray];
+    }
+//    [IRTableViewBuilder setLayoutConstraintsForView:irTableViewCell.contentView
+//                               fromDescriptorsArray:((IRViewDescriptor *) irTableViewCell.descriptor).layoutConstraintsArray
+//                                        inRootViews:irTableViewCell.contentView.subviews];
     // -- intrinsicContentSizePriorityArray
+    if ([((IRViewDescriptor *) irTableViewCell.descriptor).intrinsicContentSizePriorityArray count] > 0) {
+        [constrainsArray addObjectsFromArray:((IRViewDescriptor *) irTableViewCell.descriptor).intrinsicContentSizePriorityArray];
+    }
+//    [IRTableViewBuilder setLayoutConstraintsForView:irTableViewCell.contentView
+//                               fromDescriptorsArray:((IRViewDescriptor *) irTableViewCell.descriptor).intrinsicContentSizePriorityArray
+//                                        inRootViews:irTableViewCell.contentView.subviews];
     [IRTableViewBuilder setLayoutConstraintsForView:irTableViewCell.contentView
-                               fromDescriptorsArray:((IRViewDescriptor *) irTableViewCell.descriptor).intrinsicContentSizePriorityArray
+                               fromDescriptorsArray:constrainsArray
                                         inRootViews:irTableViewCell.contentView.subviews];
+
     [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.backgroundView
                                             inRootViews:@[irTableViewCell]];
     [IRTableViewBuilder addAutoLayoutConstraintsForView:(IRView *) irTableViewCell.selectedBackgroundView
@@ -57,11 +68,21 @@
                              inRootViews:(NSArray *)rootViewsArray
 {
     if ([irView conformsToProtocol:@protocol(IRComponentInfoProtocol)]) {
+        NSMutableArray *constrainsArray = [NSMutableArray array];
+        if ([((IRViewDescriptor *) irView.descriptor).layoutConstraintsArray count] > 0) {
+            [constrainsArray addObjectsFromArray:((IRViewDescriptor *) irView.descriptor).layoutConstraintsArray];
+        }
+//        [IRTableViewBuilder setLayoutConstraintsForView:irView
+//                                   fromDescriptorsArray:((IRViewDescriptor *) irView.descriptor).layoutConstraintsArray
+//                                            inRootViews:rootViewsArray];
+        if ([((IRViewDescriptor *) irView.descriptor).intrinsicContentSizePriorityArray count] > 0) {
+            [constrainsArray addObjectsFromArray:((IRViewDescriptor *) irView.descriptor).intrinsicContentSizePriorityArray];
+        }
+//        [IRTableViewBuilder setLayoutConstraintsForView:irView
+//                                   fromDescriptorsArray:((IRViewDescriptor *) irView.descriptor).intrinsicContentSizePriorityArray
+//                                            inRootViews:rootViewsArray];
         [IRTableViewBuilder setLayoutConstraintsForView:irView
-                                   fromDescriptorsArray:((IRViewDescriptor *) irView.descriptor).layoutConstraintsArray
-                                            inRootViews:rootViewsArray];
-        [IRTableViewBuilder setLayoutConstraintsForView:irView
-                                   fromDescriptorsArray:((IRViewDescriptor *) irView.descriptor).intrinsicContentSizePriorityArray
+                                   fromDescriptorsArray:constrainsArray
                                             inRootViews:rootViewsArray];
     }
 }
@@ -105,7 +126,7 @@
     }
 
     if ([uiView.subviews count] > 0) {
-        [IRTableViewBuilder addAutoLayoutConstraintsForViewsArray:uiView.subviews inRootViews:nil];
+        [IRTableViewBuilder addAutoLayoutConstraintsForViewsArray:uiView.subviews inRootViews:rootViewsArray];
     }
 }
 

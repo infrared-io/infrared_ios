@@ -574,6 +574,7 @@
 		F613A71E1BDF602971AA1C47 /* IRSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSideMenu.m; sourceTree = "<group>"; };
 		F613A734096120307AE8B092 /* IRPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPageControl.h; sourceTree = "<group>"; };
 		F613A742E0FCACDC5F821B4C /* IRStepperDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRStepperDescriptor.h; sourceTree = "<group>"; };
+		F613A745F4E5DB9521B8F777 /* NSObjectExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObjectExport.h; sourceTree = "<group>"; };
 		F613A747C1418597A91E5D0F /* UICollectionViewCellExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewCellExport.h; sourceTree = "<group>"; };
 		F613A7532BD82A9B8DEB19F0 /* IRNavigationControllerSubDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRNavigationControllerSubDescriptor.h; sourceTree = "<group>"; };
 		F613A769D8CBCE11914A21F8 /* IRDatePickerBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRDatePickerBuilder.m; sourceTree = "<group>"; };
@@ -1155,6 +1156,7 @@
 				F613AC08B5C7EDE9ACBD10F9 /* CLLocationManagerExport.h */,
 				F613AE5A163F235C61D6F6C1 /* NSIndexPathExport.h */,
 				F613A88292D98E97CB0C942B /* NSDataExport.h */,
+				F613A745F4E5DB9521B8F777 /* NSObjectExport.h */,
 			);
 			path = JSExports;
 			sourceTree = "<group>";

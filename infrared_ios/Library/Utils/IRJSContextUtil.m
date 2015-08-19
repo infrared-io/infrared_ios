@@ -48,13 +48,13 @@
 //    jsContext[@"UIEdgeInsetsZero"] = UIEdgeInsetsZero;
 }
 
-+ (void) exposeNSData:(JSContext *)jsContext;
++ (void) exposeNSData:(JSContext *)jsContext
 {
     class_addProtocol([NSData class], @protocol(NSDataExport));
     jsContext[@"NSData"] = [NSData class];
 }
 
-+ (void) exposeNSDate:(JSContext *)jsContext;
++ (void) exposeNSDate:(JSContext *)jsContext
 {
     class_addProtocol([NSDate class], @protocol(NSDateExport));
     jsContext[@"NSDate"] = [NSDate class];

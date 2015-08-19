@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSLayoutConstraint *constraint;
 @property (nonatomic) UIEdgeInsets scrollViewOriginalEdgeInsets;
 @property (nonatomic) CGFloat constraintOriginalConstant;
+@property (nonatomic) CGFloat originalBottomPosition;
 
 @end
