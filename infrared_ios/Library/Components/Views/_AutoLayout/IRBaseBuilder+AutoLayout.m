@@ -201,7 +201,7 @@
     NSLayoutConstraint *constraint = nil;
     UIView *withItem = [[IRDataController sharedInstance] viewWithId:descriptor.withItem viewController:viewController];
     UIView *toItem = [[IRDataController sharedInstance] viewWithId:descriptor.toItem viewController:viewController];
-    if (withItem /*&& toItem*/) {
+    if (withItem && toItem) {
         withItem.translatesAutoresizingMaskIntoConstraints = NO;
         toItem.translatesAutoresizingMaskIntoConstraints = NO;
         constraint = [NSLayoutConstraint constraintWithItem:withItem
@@ -214,6 +214,8 @@
         if (descriptor.priority) {
             constraint.priority = [descriptor.priority floatValue];
         }
+    } else {
+        NSLog(@"###### - buildLayoutConstraintsWithItem:viewController: - withItem ('%@') and/or toItem ('%@') are not available (check ids)!", descriptor.withItem, descriptor.toItem);
     }
     return constraint;
 }

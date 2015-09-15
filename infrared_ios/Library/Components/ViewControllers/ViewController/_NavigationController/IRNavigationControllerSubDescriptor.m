@@ -7,6 +7,7 @@
 #import "IRUtil.h"
 #import "IRBaseDescriptor.h"
 #import "IRBarButtonItemDescriptor.h"
+#import "IRViewDescriptor.h"
 
 
 @implementation IRNavigationControllerSubDescriptor
@@ -68,6 +69,10 @@
         // backIndicatorNoText
         number = aDictionary[NSStringFromSelector(@selector(backIndicatorNoText))];
         self.backIndicatorNoText = [number boolValue];
+
+        // titleView
+        dictionary = aDictionary[NSStringFromSelector(@selector(titleView))];
+        self.titleView = (IRViewDescriptor *) [IRBaseDescriptor newViewDescriptorWithDictionary:dictionary];
 
         // leftBarButtonItem
         dictionary = aDictionary[NSStringFromSelector(@selector(leftBarButtonItem))];

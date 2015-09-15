@@ -51,6 +51,7 @@
 #import "IRWebViewDescriptor.h"
 #import "Main.h"
 #import "IRNavigationController.h"
+#import "IRRefreshControlDescriptor.h"
 #import <CoreText/CoreText.h>
 
 @interface Infrared ()
@@ -88,6 +89,7 @@ static Infrared *sharedInfraRed = nil;
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRPageControlDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRPickerViewDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRProgressViewDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRRefreshControlDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRScrollViewDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRSearchBarDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRSegmentedControlDescriptor class]];

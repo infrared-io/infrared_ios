@@ -43,7 +43,7 @@
         [IRBaseBuilder setDataBinding:anDataBindingDescriptor forView:uiView viewController:viewController];
     }
 
-    if ([uiView.subviews count] > 0) {
+    if ([uiView respondsToSelector:@selector(subviews)] && [uiView.subviews count] > 0) {
         [IRBaseBuilder addDataBindingsForViewsArray:uiView.subviews viewController:viewController];
     }
 }
@@ -54,10 +54,10 @@
 {
     DataBindingMode mode = dataBinding.mode;
     if (mode == DataBindingModeTwoWay) {
-        [IRBaseBuilder setDataBindingModeFromData:dataBinding toView:view];
+        [IRBaseBuilder setDataBindingModeFromData:dataBinding toView:view viewController:viewController];
         [IRBaseBuilder setDataBindingModeToData:dataBinding fromView:view viewController:viewController];
     } else if (mode == DataBindingModeOneWayFromData) {
-        [IRBaseBuilder setDataBindingModeFromData:dataBinding toView:view];
+        [IRBaseBuilder setDataBindingModeFromData:dataBinding toView:view viewController:viewController];
     } else if (mode == DataBindingModeOneWayToData) {
         [IRBaseBuilder setDataBindingModeToData:dataBinding fromView:view viewController:viewController];
     }
@@ -65,6 +65,7 @@
 
 + (void) setDataBindingModeFromData:(IRDataBindingDescriptor *)dataBinding
                              toView:(UIView *)view
+                     viewController:(IRViewController *)viewController
 {
     id target;
     NSString *keyPath;
@@ -72,7 +73,7 @@
     RACSubscriptingAssignmentTrampoline *subscriptingAssignmentTrampoline;
 
     if (dataBinding.property) {
-        target = [IRBaseBuilder targetOfDataPath:dataBinding.data sourceView:view];
+        target = [IRBaseBuilder targetOfDataPath:dataBinding.data sourceView:view viewController:viewController];
         keyPath = [IRBaseBuilder propertyPartOfDataPath:dataBinding.data];
         modelChannel = [[RACKVOChannel alloc] initWithTarget:target keyPath:keyPath nilValue:nil];
         subscriptingAssignmentTrampoline = [[RACSubscriptingAssignmentTrampoline alloc] initWithTarget:view nilValue:nil];
@@ -143,7 +144,7 @@
     RACChannelTerminal *channelTerminal;
 
     if (dataBinding.property) {
-        target = [IRBaseBuilder targetOfDataPath:dataBinding.data sourceView:view];
+        target = [IRBaseBuilder targetOfDataPath:dataBinding.data sourceView:view viewController:viewController];
         keyPath = [IRBaseBuilder propertyPartOfDataPath:dataBinding.data];
         modelChannel = [[RACKVOChannel alloc] initWithTarget:target keyPath:keyPath nilValue:nil];
         if ([dataBinding.property isEqualToString:@"text"]) {
@@ -186,6 +187,7 @@
 
 + (id) targetOfDataPath:(NSString *)dataPath
              sourceView:(UIView *)sourceView
+         viewController:(IRViewController *)viewController
 {
     id target = nil;
     NSString *targetString = nil;
@@ -196,6 +198,9 @@
         targetString = [dataPath substringToIndex:range.location];
         if ([targetString isEqualToString:@"this"]) {
             target = [IRBaseBuilder parentViewController:sourceView];
+            if (target == nil) {
+                target = viewController;
+            }
         } else if ([targetString length] > 0) {
             jsContext = [IRDataController sharedInstance].globalJSContext;
             target = [jsContext[targetString] toObject];

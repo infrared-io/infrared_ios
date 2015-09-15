@@ -10,6 +10,8 @@
 #if TARGET_OS_IPHONE
 #import "IRBarButtonItemBuilder.h"
 #import "IRBarButtonItem.h"
+#import "IRDataBindingDescriptor.h"
+
 #endif
 
 
@@ -45,6 +47,7 @@
         NSString *string;
         NSArray *array;
         NSDictionary *dictionary;
+        IRBaseDescriptor *descriptor;
 
 #if TARGET_OS_IPHONE
         // identifier
@@ -71,6 +74,18 @@
         // customView
         dictionary = aDictionary[NSStringFromSelector(@selector(customView))];
         self.customView = (IRViewDescriptor *) [IRBaseDescriptor newViewDescriptorWithDictionary:dictionary];
+
+        // dataBindingsArray
+        array = aDictionary[dataBindingKEY];
+        if (array && [array count]) {
+            self.dataBindingsArray = [[NSMutableArray alloc] init];
+            for (NSDictionary *anDictionary in array) {
+                descriptor = [IRDataBindingDescriptor newDataBindingDescriptorWithDictionary:anDictionary];
+                if (descriptor) {
+                    [self.dataBindingsArray addObject:descriptor];
+                }
+            }
+        }
 
         // action
         string = aDictionary[NSStringFromSelector(@selector(actions))];

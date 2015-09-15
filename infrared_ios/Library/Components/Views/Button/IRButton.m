@@ -266,6 +266,36 @@
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
+- (CGSize) titleShadowOffset
+{
+    return self.titleLabel.shadowOffset;
+}
+- (void) setTitleShadowOffset:(CGSize)titleShadowOffset
+{
+    self.titleLabel.shadowOffset = titleShadowOffset;
+}
+// --------------------------------------------------------------------------------------------------------------------
+- (NSLineBreakMode) lineBreakMode
+{
+    return self.titleLabel.lineBreakMode;
+}
+- (void) setLineBreakMode:(NSLineBreakMode)lineBreakMode
+{
+    self.titleLabel.lineBreakMode = lineBreakMode;
+}
+// --------------------------------------------------------------------------------------------------------------------
+- (UIFont *) font
+{
+    return self.titleLabel.font;
+}
+- (void) setFont:(UIFont *)font
+{
+    self.titleLabel.font = font;
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
 #pragma mark - UIControlIRExtension
 
 - (NSString *) touchDownActions

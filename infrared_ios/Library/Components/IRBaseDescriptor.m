@@ -1162,9 +1162,18 @@
     NSMutableArray *allJSFilesPaths = [NSMutableArray array];
     IRAppDescriptor *appDescriptor = [IRDataController sharedInstance].appDescriptor;
     NSArray *screenArrays = appDescriptor.screensArray;
+    NSString *jsPluginPath;
+    NSString *trimmedJsPluginPath;
+    NSArray *jsPluginPathsArray;
     for (IRScreenDescriptor *anScreenDescriptor in screenArrays) {
-        if ([anScreenDescriptor.viewControllerDescriptor.jsPluginPath length] > 0) {
-            [allJSFilesPaths addObject:anScreenDescriptor.viewControllerDescriptor.jsPluginPath];
+        jsPluginPath = anScreenDescriptor.viewControllerDescriptor.jsPluginPath;
+        if ([jsPluginPath length] > 0) {
+            jsPluginPathsArray = [IRBaseDescriptor componentsArrayFromString:jsPluginPath];
+            for (NSString *anJsPluginPath in jsPluginPathsArray) {
+                trimmedJsPluginPath = [anJsPluginPath stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                [allJSFilesPaths addObject:trimmedJsPluginPath];
+            }
+//            [allJSFilesPaths addObject:anScreenDescriptor.viewControllerDescriptor.jsPluginPath];
         }
     }
     return allJSFilesPaths;

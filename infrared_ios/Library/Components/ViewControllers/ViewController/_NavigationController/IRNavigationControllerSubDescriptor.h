@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 
 @class IRBarButtonItemDescriptor;
+@class IRViewDescriptor;
 
 
 @interface IRNavigationControllerSubDescriptor : NSObject
@@ -21,6 +22,7 @@
 #endif
 @property (nonatomic, strong) NSString* backIndicatorImage;
 @property (nonatomic) BOOL backIndicatorNoText;
+@property (nonatomic, strong) IRViewDescriptor *titleView;
 @property (nonatomic, strong) IRBarButtonItemDescriptor *leftBarButtonItem;
 @property (nonatomic, strong) IRBarButtonItemDescriptor *rightBarButtonItem;
 

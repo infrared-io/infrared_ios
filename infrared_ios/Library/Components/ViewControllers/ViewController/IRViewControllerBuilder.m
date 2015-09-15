@@ -25,6 +25,7 @@
 #import "IRTabBarController.h"
 #import "IRTabBarControllerSubDescriptor.h"
 #import "IRTabBarItemDescriptor.h"
+#import "IRBarButtonItem.h"
 
 
 @implementation IRViewControllerBuilder
@@ -262,14 +263,32 @@
                    descriptor:(IRViewControllerDescriptor *)descriptor
                     jsContext:(JSContext *)jsContext
 {
+    NSArray *jsPluginPathsArray;
+    NSString *anJsPluginPath;
     NSString *stringToEvaluate;
     NSString *jsPluginNameFromPath;
+    NSString *allJsPluginNames;
     NSString *escapedPluginPath;
     JSValue *irViewControllerJSValue = jsContext[irViewController.key];
     if (irViewControllerJSValue && [irViewControllerJSValue toObject]) {
-        escapedPluginPath = [descriptor.jsPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        jsPluginNameFromPath = [IRUtil scriptTagFileNameFromPath:escapedPluginPath];
-        if ([jsPluginNameFromPath length] > 0) {
+        jsPluginPathsArray = [IRBaseDescriptor componentsArrayFromString:descriptor.jsPluginPath];
+        allJsPluginNames = @"[ ";
+        for (NSUInteger i=0; i< [jsPluginPathsArray count]; i++) {
+            anJsPluginPath = jsPluginPathsArray[i];
+            anJsPluginPath = [anJsPluginPath stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            escapedPluginPath = [anJsPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            jsPluginNameFromPath = [IRUtil scriptTagFileNameFromPath:escapedPluginPath];
+            allJsPluginNames = [allJsPluginNames stringByAppendingFormat:@" '%@'", jsPluginNameFromPath];
+            if (i < [jsPluginPathsArray count]-1) {
+                allJsPluginNames = [allJsPluginNames stringByAppendingString:@","];
+            }
+        }
+        allJsPluginNames = [allJsPluginNames stringByAppendingString:@" ]"];
+
+
+//        escapedPluginPath = [descriptor.jsPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//        jsPluginNameFromPath = [IRUtil scriptTagFileNameFromPath:escapedPluginPath];
+        if ([allJsPluginNames/*jsPluginNameFromPath*/ length] > 0) {
             // IMPORTANT: 'setZeroTimeout' can not be added here this way. Operation is done on separate thread
             //            and successive ObjC methods, which expect extended methods te be available,
             //            don't have guarantee for availability
@@ -280,12 +299,12 @@
 //                                                        "setZeroTimeout( function() { "
 //#endif
                                                             "if (typeof %@ !== 'undefined' && %@ != null) { "
-                                                            "%@.extendVCWithPluginName(%@, ['%@']);"
+                                                            "%@.extendVCWithPluginName(%@, %@);"
                                                             " }"
 //#if ENABLE_SAFARI_DEBUGGING == 1
 //                                                        " } );"
 //#endif
-              , irViewController.key, irViewController.key, IR_JS_LIBRARY_KEY, irViewController.key, jsPluginNameFromPath];
+              , irViewController.key, irViewController.key, IR_JS_LIBRARY_KEY, irViewController.key, allJsPluginNames/*jsPluginNameFromPath*/];
             [jsContext evaluateScript:stringToEvaluate];
         }
     } else {

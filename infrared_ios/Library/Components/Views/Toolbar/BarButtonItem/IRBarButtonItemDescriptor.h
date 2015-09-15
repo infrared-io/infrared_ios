@@ -19,6 +19,8 @@
 @property(nonatomic,copy)    NSSet                 *possibleTitles;   // default is nil
 @property(nonatomic,retain)  IRViewDescriptor      *customView;       // default is nil
 
+@property (nonatomic, strong) NSMutableArray *dataBindingsArray;
+
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *image;
 @property (nonatomic, strong) NSString *actions;

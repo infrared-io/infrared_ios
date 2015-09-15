@@ -44,6 +44,7 @@
 #define typeTextViewKEY                 @"textView"
 #define typeScrollViewKEY               @"scrollView"
 #define typeSegmentedControlKEY         @"segmentedControl"
+#define typeRefreshControlKEY           @"refreshControl"
 #define typeSliderKEY                   @"slider"
 #define typeSwitchKEY                   @"switch"
 #define typeStepperKEY                  @"stepper"

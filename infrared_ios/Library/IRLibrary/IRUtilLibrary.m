@@ -183,9 +183,16 @@ static IRUtilLibrary *sharedIRLibrary = nil;
 
 - (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title
 {
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    [MBProgressHUD hideAllHUDsForView:window animated:YES];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+//    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIWindow *aWindow = nil;
+    NSArray *windows = [[UIApplication sharedApplication] windows];
+    for (UIWindow *anWindow in windows) {
+        if ([NSStringFromClass([anWindow class]) isEqualToString:@"UIWindow"]) {
+            aWindow = anWindow;
+        }
+    }
+    [MBProgressHUD hideAllHUDsForView:aWindow/*window*/ animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:aWindow/*window*/ animated:YES];
     hud.labelText = title;
     return hud;
 }

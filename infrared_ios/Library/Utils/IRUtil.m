@@ -305,7 +305,7 @@
                                timeoutInterval:20];
         fileData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         if (error) {
-            NSLog(@"IRUtil-dataFromPath :%@", [error localizedDescription]);
+            NSLog(@"IRUtil-dataFromPath: path=\"%@\" error=%@", path, [error localizedDescription]);
             fileData = nil;
         }
     }

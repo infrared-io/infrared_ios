@@ -24,9 +24,9 @@
     } else {
         // Browser globals
         /*window*/IR.WatchJS = factory();
-        ///*window*/IR.watch = /*window*/IR.WatchJS.watch;
-        ///*window*/IR.unwatch = /*window*/IR.WatchJS.unwatch;
-        ///*window*/IR.callWatchers = /*window*/IR.WatchJS.callWatchers;
+        /*window*/IR.watch = /*window*/IR.WatchJS.watch;
+        /*window*/IR.unwatch = /*window*/IR.WatchJS.unwatch;
+        /*window*/IR.callWatchers = /*window*/IR.WatchJS.callWatchers;
     }
 }(function () {
 

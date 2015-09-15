@@ -160,6 +160,7 @@
 		F613A4A48F6D2CCD77B47F32 /* IRBaseAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ACE38C5AD7ED8CFBD7D6 /* IRBaseAnnotation.m */; };
 		F613A4AF4CABAC42CA0F3987 /* IRTableViewObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AA41F54AA7606564EADE /* IRTableViewObserver.m */; };
 		F613A4B0CAF6562FACB19D85 /* IRPickerViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A113218E908BD6E3453E /* IRPickerViewBuilder.m */; };
+		F613A4BB9B91D4D9A2276CC8 /* IRRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7B92EED795AD7488BF1 /* IRRefreshControl.m */; };
 		F613A4BD542F5A75CEA9E7EE /* IRPanGestureRecognizerDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A0BB58F57964621B747D /* IRPanGestureRecognizerDescriptor.m */; };
 		F613A4E1B7164CCCB7D597E0 /* example1_en.json in Resources */ = {isa = PBXBuildFile; fileRef = F613AE254C6E8DBF323F067F /* example1_en.json */; };
 		F613A4E2FF399D3FEB56CBF2 /* update_fr.json in Resources */ = {isa = PBXBuildFile; fileRef = F613A49BD077D4E57D2FAE06 /* update_fr.json */; };
@@ -189,6 +190,7 @@
 		F613A67694E87B5A5BBBD31F /* IRMapViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AF34288615AD5A8427DF /* IRMapViewBuilder.m */; };
 		F613A6B408BA575ECC4334EE /* IRScrollViewDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A079C12F8082BBB5EC5D /* IRScrollViewDescriptor.m */; };
 		F613A6BBC2E94E716DA6557D /* UINavigationItem+Infrared.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A90982B680F102CCE3ED /* UINavigationItem+Infrared.m */; };
+		F613A6BFCB17D44505786A27 /* IRRefreshControlBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A0EA468484767C3B9F2E /* IRRefreshControlBuilder.m */; };
 		F613A6F8BE8294A00FAC42D1 /* IRCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AE7FEAEB3D5685F67137 /* IRCollectionReusableView.m */; };
 		F613A6FC494B1C87A3839266 /* IRTableViewCellBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6D237F75FA2294FC271 /* IRTableViewCellBuilder.m */; };
 		F613A718B8267D784D6D49D6 /* IRPinAnnotationViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A383E05B2F6E5CE960C1 /* IRPinAnnotationViewBuilder.m */; };
@@ -221,6 +223,7 @@
 		F613A96E3B08AB8521164329 /* IRScreenEdgePanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A367282D44F920356D33 /* IRScreenEdgePanGestureRecognizer.m */; };
 		F613A980784D77F71B22C43A /* IRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F613ACFA527ECFE3CC9F6368 /* IRTextView.m */; };
 		F613A9ACF95CC53BC5EC9C3A /* IRSliderBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7AFA1D8D6420749699A /* IRSliderBuilder.m */; };
+		F613A9B75F8853252AA9622C /* IRRefreshControlDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A631BEBF394FA64A6AB5 /* IRRefreshControlDescriptor.m */; };
 		F613A9B8A898F203FE6E3112 /* IRWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A26D3ECD41D0678D3F05 /* IRWebView.m */; };
 		F613A9C2745312B6CC8D2C54 /* IRNavigationItemDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A6CDC85EDB46B156FB98 /* IRNavigationItemDescriptor.m */; };
 		F613A9C9938A03228A3CC83B /* IRScreenDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AABCF51293A2EBCD6D3A /* IRScreenDescriptor.m */; };
@@ -397,8 +400,10 @@
 		F613A0BB58F57964621B747D /* IRPanGestureRecognizerDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPanGestureRecognizerDescriptor.m; sourceTree = "<group>"; };
 		F613A0D50B2B5CA9FD75AE59 /* IRTextFieldObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTextFieldObserver.h; sourceTree = "<group>"; };
 		F613A0D6BBD2D618DF1FC838 /* IRKeyboardManagerSubDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRKeyboardManagerSubDescriptor.m; sourceTree = "<group>"; };
+		F613A0EA468484767C3B9F2E /* IRRefreshControlBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRRefreshControlBuilder.m; sourceTree = "<group>"; };
 		F613A100B9EB630FC2E17D19 /* IRButtonDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRButtonDescriptor.h; sourceTree = "<group>"; };
 		F613A100F342D960802C1B4D /* IRBaseBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBaseBuilder.m; sourceTree = "<group>"; };
+		F613A102ABDF3CD1A65A4833 /* IRRefreshControlDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRRefreshControlDescriptor.h; sourceTree = "<group>"; };
 		F613A113218E908BD6E3453E /* IRPickerViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPickerViewBuilder.m; sourceTree = "<group>"; };
 		F613A1137FC709819D7E3EFE /* IRNavigationBarDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRNavigationBarDescriptor.m; sourceTree = "<group>"; };
 		F613A121BCB1730235E79C37 /* UIImageViewExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageViewExport.h; sourceTree = "<group>"; };
@@ -543,6 +548,7 @@
 		F613A60E508A295564597DD4 /* IRScrollViewDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRScrollViewDescriptor.h; sourceTree = "<group>"; };
 		F613A6117D016D51DD6277AC /* IRProgressViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRProgressViewBuilder.h; sourceTree = "<group>"; };
 		F613A62D657DE7FA66BED909 /* IRScreenDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRScreenDescriptor.h; sourceTree = "<group>"; };
+		F613A631BEBF394FA64A6AB5 /* IRRefreshControlDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRRefreshControlDescriptor.m; sourceTree = "<group>"; };
 		F613A632AB8714B5ECE7B17E /* IRBarItemBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBarItemBuilder.m; sourceTree = "<group>"; };
 		F613A633B2906B9009AA8E5C /* IRDesctiptorDefaultKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRDesctiptorDefaultKeys.h; sourceTree = "<group>"; };
 		F613A63986399D3244DF757D /* IRCollectionReusableViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCollectionReusableViewBuilder.m; sourceTree = "<group>"; };
@@ -586,6 +592,7 @@
 		F613A7AC1821E7E96E92350D /* IRBaseDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBaseDescriptor.h; sourceTree = "<group>"; };
 		F613A7AE21A710C3E9F2979D /* IRPinchGestureRecognizerDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPinchGestureRecognizerDescriptor.m; sourceTree = "<group>"; };
 		F613A7AFA1D8D6420749699A /* IRSliderBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSliderBuilder.m; sourceTree = "<group>"; };
+		F613A7B92EED795AD7488BF1 /* IRRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRRefreshControl.m; sourceTree = "<group>"; };
 		F613A7C5B7B6E01F97B3AD16 /* IRMapViewDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRMapViewDescriptor.m; sourceTree = "<group>"; };
 		F613A7D04E3F9F4CB5A9F714 /* IRScreenEdgePanGestureRecognizerDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRScreenEdgePanGestureRecognizerDescriptor.m; sourceTree = "<group>"; };
 		F613A7D27E745F350A9CEC3B /* IRImageViewDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRImageViewDescriptor.m; sourceTree = "<group>"; };
@@ -602,6 +609,7 @@
 		F613A88292D98E97CB0C942B /* NSDataExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataExport.h; sourceTree = "<group>"; };
 		F613A894C64399B19D6F651B /* infrared.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = infrared.js; sourceTree = "<group>"; };
 		F613A895D8EE36E99D203024 /* IRScrollViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRScrollViewBuilder.m; sourceTree = "<group>"; };
+		F613A89EBE165D39B479080A /* IRRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRRefreshControl.h; sourceTree = "<group>"; };
 		F613A8AB51F82C351D04945C /* IRPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPanGestureRecognizer.m; sourceTree = "<group>"; };
 		F613A8AC7EC93B47AF2B2F4E /* IRRotationGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRRotationGestureRecognizer.h; sourceTree = "<group>"; };
 		F613A8B556D9A561FC7AE601 /* IRGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRGlobal.h; sourceTree = "<group>"; };
@@ -792,6 +800,7 @@
 		F613AEC19EB787E611A5EEAA /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
 		F613AEC5CC6027421DA305C5 /* IRDatePickerDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRDatePickerDescriptor.m; sourceTree = "<group>"; };
 		F613AEDEB949AFC28989CA8F /* Main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
+		F613AEE19EA058C485DC3148 /* UIRefreshControlExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRefreshControlExport.h; sourceTree = "<group>"; };
 		F613AEE2F30A4365AB768CFB /* IRActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRActionSheet.h; sourceTree = "<group>"; };
 		F613AEEA05105B6767943665 /* IRActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRActivityIndicatorView.h; sourceTree = "<group>"; };
 		F613AEFEF66B6629495BFA37 /* IRSliderDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSliderDescriptor.m; sourceTree = "<group>"; };
@@ -799,6 +808,7 @@
 		F613AF04F8B313AB04D26E9E /* IRDataBindingDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRDataBindingDescriptor.h; sourceTree = "<group>"; };
 		F613AF09D902A8509356AE72 /* IRBaseDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBaseDescriptor.m; sourceTree = "<group>"; };
 		F613AF164FF55B50AE414AFC /* IRBaseBuilder+UIControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IRBaseBuilder+UIControl.m"; sourceTree = "<group>"; };
+		F613AF2A7732C45B1C70CAB3 /* IRRefreshControlBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRRefreshControlBuilder.h; sourceTree = "<group>"; };
 		F613AF30485345EA7083B45D /* IRActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRActionSheet.m; sourceTree = "<group>"; };
 		F613AF33EB3C7F2647FB65C7 /* IRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRNavigationBar.m; sourceTree = "<group>"; };
 		F613AF34288615AD5A8427DF /* IRMapViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRMapViewBuilder.m; sourceTree = "<group>"; };
@@ -1199,6 +1209,20 @@
 			path = I18N;
 			sourceTree = "<group>";
 		};
+		F613A4323CFC8151678546EA /* RefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				F613A7B92EED795AD7488BF1 /* IRRefreshControl.m */,
+				F613A89EBE165D39B479080A /* IRRefreshControl.h */,
+				F613A631BEBF394FA64A6AB5 /* IRRefreshControlDescriptor.m */,
+				F613A102ABDF3CD1A65A4833 /* IRRefreshControlDescriptor.h */,
+				F613A0EA468484767C3B9F2E /* IRRefreshControlBuilder.m */,
+				F613AF2A7732C45B1C70CAB3 /* IRRefreshControlBuilder.h */,
+				F613AEE19EA058C485DC3148 /* UIRefreshControlExport.h */,
+			);
+			path = RefreshControl;
+			sourceTree = "<group>";
+		};
 		F613A4444C565D6F1A2F3687 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1336,6 +1360,7 @@
 				F613A8B0A70BC3E39A9D7250 /* AlertView */,
 				F613AD2444E0B6DB12B8F411 /* CollectionView */,
 				F613AA52ACD329066DD6844C /* WebView */,
+				F613A4323CFC8151678546EA /* RefreshControl */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2671,6 +2696,9 @@
 				F613A7EC40C8F9261B2639D2 /* UITextView+Infrared.m in Sources */,
 				F613A6BBC2E94E716DA6557D /* UINavigationItem+Infrared.m in Sources */,
 				F613A4372B45BC4B487D8B1C /* NSInvocation+IRJSContextSwizzle.m in Sources */,
+				F613A4BB9B91D4D9A2276CC8 /* IRRefreshControl.m in Sources */,
+				F613A9B75F8853252AA9622C /* IRRefreshControlDescriptor.m in Sources */,
+				F613A6BFCB17D44505786A27 /* IRRefreshControlBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

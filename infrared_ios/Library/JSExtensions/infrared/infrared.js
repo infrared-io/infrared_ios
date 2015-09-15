@@ -169,13 +169,13 @@ var infraredClass = function () {
     //      - Method taken from Class.js
     //      - extended by me to support function wrapping
     // helper for merging two object with each other
-    function extend(oldObj, newObj, preserve) {
+    function extend(oldObj, originalNewObj, preserve) {
         // failsave if something goes wrong
-        if(!oldObj || !newObj) return oldObj || newObj || {};
+        if(!oldObj || !originalNewObj) return oldObj || originalNewObj || {};
 
         // make sure we work with copies
         //oldObj = copy(oldObj);
-        newObj = copy(newObj);
+        var newObj = copy(originalNewObj);
 
         for(var key in newObj) {
             if(Object.prototype.toString.call(newObj[key]) === '[object Object]') {
@@ -204,7 +204,27 @@ var infraredClass = function () {
                         //oldObj[key] = oldObj[key];
                     } else {
                         //console.log('extend - key='+key+', value-set');
-                        oldObj[key] = newObj[key];
+
+                        //oldObj[key] = newObj[key];
+
+                        var descriptor = Object.getOwnPropertyDescriptor(originalNewObj/*newObj*/, key);
+                        var aGetter;
+                        var aSetter;
+                        if (typeof descriptor !== "undefined") {
+                            aGetter = descriptor.get;
+                            aSetter = descriptor.set;
+                        }
+                        if ((typeof aGetter !== "undefined" && aGetter != null)
+                            || (typeof aSetter !== "undefined" && aSetter != null))
+                        {
+                            Object.defineProperty(oldObj, key, {
+                                enumerable: true,
+                                get: aGetter,
+                                set: aSetter
+                            }); // value: 8675309, writable: false, enumerable: false
+                        } else {
+                            oldObj[key] = newObj[key];
+                        }
                     }
                 }
             }

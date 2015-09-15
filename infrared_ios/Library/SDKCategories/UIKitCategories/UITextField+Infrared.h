@@ -8,5 +8,6 @@
 @interface UITextField (Infrared)
 
 - (BOOL) resignFirstResponder;
+//- (BOOL)becomeFirstResponder;
 
 @end

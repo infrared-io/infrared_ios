@@ -50,6 +50,11 @@
 @property(nonatomic, strong) UIImage *disabledImage;
 @property(nonatomic, strong) UIImage *disabledBackgroundImage;
 
+// Label related properties
+@property(nonatomic, retain) UIFont *font;
+@property(nonatomic) CGSize titleShadowOffset;
+@property(nonatomic) NSLineBreakMode lineBreakMode;
+
 @end
 
 // --------------------------------------------------------------------------------------------------------------------

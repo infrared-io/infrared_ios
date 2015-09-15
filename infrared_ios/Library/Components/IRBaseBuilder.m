@@ -422,7 +422,7 @@ withDataBindingItemName:(NSString *)name
     jsContext = [[IRDataController sharedInstance] globalJSContext];
     vcJSValue = jsContext[irViewControllerKey];
     if ([action length] > 0 && irViewController && vcJSValue && [vcJSValue toObject]) {
-        actionKey = [IRUtil createKeyFromObjectAddress:action];
+        actionKey = [IRUtil createKeyFromObjectAddress:[action copy]];
         actionEnclosingClassName = [@"ActionEnclosing" stringByAppendingFormat:@"_%@", actionKey];
         actionEnclosingObjectName = [@"actionEnclosing" stringByAppendingFormat:@"_%@", actionKey];
         for (NSString *anKey in dictionary) {
@@ -447,7 +447,7 @@ withDataBindingItemName:(NSString *)name
         }
 
         actionEnclosing = [NSString stringWithFormat:@
-                                                       "var %@ = function () { \n"
+                                                       "window.%@ = function () { \n" // var
                                                        "%@ \n"
                                                        "    this.actionFunction = function () { \n"
 #if ENABLE_SAFARI_DEBUGGING == 1
@@ -462,12 +462,12 @@ withDataBindingItemName:(NSString *)name
                                                        "    }; \n"
                                                        "    this.actionFunctionTimeout = function (%@) {         \n"
                                                        "        %@ \n"
-                                                       "        delete %@; \n"
-                                                       "        delete %@; \n"
+                                                       "        delete window.%@; \n"
+                                                       "        delete window.%@; \n"
                                                        "    }; \n"
                                                        "}; \n"
 //                                                       "var actionEnclosing_%@ = new ActionEnclosing_%@();",
-                                                       "var %@ = new %@();",
+                                                       "window.%@ = new %@();", // var
                                     actionEnclosingClassName/*actionKey*/, internalVariables,  /*actionEnclosingObjectName,*/
                                     irViewControllerKey, internalVariablesCall,
                                     jsInternalMethodParams, finalAction,

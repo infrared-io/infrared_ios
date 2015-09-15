@@ -28,6 +28,9 @@
 #import "IRAlertView.h"
 #import "IRKeyboardManagerSubDescriptor.h"
 #import "MBProgressHUD.h"
+#import "IRBarButtonItem.h"
+#import "IRBaseBuilder+DataBinding.h"
+#import "IRBaseBuilder+GestureRecognizer.h"
 #import <MapKit/MapKit.h>
 
 @interface UIWindow (AutoLayoutDebug)
@@ -146,17 +149,76 @@
     [self updateViewWithOrientation:orientation animated:NO duration:0];
 
     IRViewControllerDescriptor *descriptor = ((IRViewControllerDescriptor *)self.descriptor);
+    IRView *titleView;
+    IRBarButtonItem *barButtonItem;
+    // -- titleView
+    if (descriptor.navigationController.titleView
+        && (self.navigationItem.titleView == nil
+            || [self.navigationItem.titleView conformsToProtocol:@protocol(IRComponentInfoProtocol)] == NO))
+    {
+        titleView = (id) [IRBaseBuilder buildComponentFromDescriptor:descriptor.navigationController.titleView
+                                                      viewController:self
+                                                               extra:nil];
+        [self.navigationItem setTitleView:titleView];
+        // -- add constraints
+        [IRBaseBuilder addAutoLayoutConstraintsForView:titleView
+                                            descriptor:titleView.descriptor
+                                        viewController:self];
+        // -- set data-binding
+        [IRBaseBuilder addDataBindingsForView:titleView
+                               viewController:self
+                                 dataBindings:((IRViewDescriptor *) titleView.descriptor).dataBindingsArray];
+        // -- add gesture-recognizers
+        [IRBaseBuilder setRequireGestureRecognizerToFailForView:titleView
+                                                 viewController:self];
+    }
     // -- leftBarButtonItem
-    if (descriptor.navigationController.leftBarButtonItem) {
-        self.navigationItem.leftBarButtonItem = [IRBaseBuilder buildComponentFromDescriptor:descriptor.navigationController.leftBarButtonItem
-                                                                             viewController:self
-                                                                                      extra:nil];
+    if (descriptor.navigationController.leftBarButtonItem
+        && (self.navigationItem.leftBarButtonItem == nil
+            || [self.navigationItem.leftBarButtonItem conformsToProtocol:@protocol(IRComponentInfoProtocol)] == NO))
+    {
+        barButtonItem = (id) [IRBaseBuilder buildComponentFromDescriptor:descriptor.navigationController.leftBarButtonItem
+                                                          viewController:self
+                                                                   extra:nil];
+        [self.navigationItem setLeftBarButtonItem:barButtonItem animated:NO];
+        // -- add constraints
+        [IRBaseBuilder addAutoLayoutConstraintsForView:barButtonItem.customView
+                                            descriptor:((IRView *) barButtonItem.customView).descriptor
+                                        viewController:self];
+        // -- set data-binding
+        [IRBaseBuilder addDataBindingsForView:barButtonItem
+                               viewController:self
+                                 dataBindings:((IRViewDescriptor *) barButtonItem.descriptor).dataBindingsArray];
+        [IRBaseBuilder addDataBindingsForView:barButtonItem.customView
+                               viewController:self
+                                 dataBindings:((IRViewDescriptor *) ((IRView *) barButtonItem.customView).descriptor).dataBindingsArray];
+        // -- add gesture-recognizers
+        [IRBaseBuilder setRequireGestureRecognizerToFailForView:barButtonItem.customView
+                                                 viewController:self];
     }
     // -- rightBarButtonItem
-    if (descriptor.navigationController.rightBarButtonItem) {
-        self.navigationItem.rightBarButtonItem = [IRBaseBuilder buildComponentFromDescriptor:descriptor.navigationController.rightBarButtonItem
-                                                                             viewController:self
-                                                                                      extra:nil];
+    if (descriptor.navigationController.rightBarButtonItem
+        && (self.navigationItem.rightBarButtonItem == nil
+            || [self.navigationItem.rightBarButtonItem conformsToProtocol:@protocol(IRComponentInfoProtocol)] == NO))
+    {
+        barButtonItem = (id) [IRBaseBuilder buildComponentFromDescriptor:descriptor.navigationController.rightBarButtonItem
+                                                          viewController:self
+                                                                   extra:nil];
+        [self.navigationItem setRightBarButtonItem:barButtonItem animated:NO];
+        // -- add constraints
+        [IRBaseBuilder addAutoLayoutConstraintsForView:barButtonItem.customView
+                                            descriptor:((IRView *) barButtonItem.customView).descriptor
+                                        viewController:self];
+        // -- set data-binding
+        [IRBaseBuilder addDataBindingsForView:barButtonItem
+                               viewController:self
+                                 dataBindings:((IRViewDescriptor *) barButtonItem.descriptor).dataBindingsArray];
+        [IRBaseBuilder addDataBindingsForView:barButtonItem.customView
+                               viewController:self
+                                 dataBindings:((IRViewDescriptor *) ((IRView *) barButtonItem.customView).descriptor).dataBindingsArray];
+        // -- add gesture-recognizers
+        [IRBaseBuilder setRequireGestureRecognizerToFailForView:barButtonItem.customView
+                                                 viewController:self];
     }
     // -- hideNavigationBar
     if (descriptor.navigationController.hideNavigationBar) {
@@ -724,8 +786,14 @@
 //        NSLog(@"watch-ObjC-callback (value DID change): VCkey=%@, property=%@, action=%@, newValue=%@",
 //          self.key, prop, action, newValue);
 //        [self setJsMapUsedInDataBindingForKey:prop currentValue:newValue];
-        [self willChangeValueForKey:prop];
-        [self didChangeValueForKey:prop];
+
+//        [self willChangeValueForKey:prop];
+//        [self didChangeValueForKey:prop];
+        __weak IRViewController *weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf willChangeValueForKey:prop];
+            [weakSelf didChangeValueForKey:prop];
+        });
     } else {
 //        NSLog(@"watch-ObjC-callback (value DID NOT change): VCkey=%@, property=%@, action=%@", self.key, prop, action);
     }
