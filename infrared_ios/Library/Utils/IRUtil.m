@@ -112,7 +112,7 @@
 
 + (NSDictionary *) screenDictionaryFromPath:(NSString *)path
                                         app:(NSString *)app
-                                    version:(NSInteger)version
+                                    version:(long long)version
 {
     NSDictionary *dictionary = nil;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -163,7 +163,7 @@
 }
 
 + (NSString *) resourcesPathForAppDescriptorApp:(NSString *)app
-                                        version:(NSInteger)version
+                                        version:(long long)version
 {
     NSString *jsonPathComponent = [NSString stringWithFormat:@"%@/resources",
                                             [IRUtil basePathAppDescriptorApp:app version:version]];
@@ -176,7 +176,7 @@
 }
 
 + (NSString *) jsonAndJsPathForAppDescriptorApp:(NSString *)app
-                                        version:(NSInteger)version
+                                        version:(long long)version
 {
     NSString *jsonPathComponent = [NSString stringWithFormat:@"%@/App",
                                             [IRUtil basePathAppDescriptorApp:app version:version]];
@@ -185,9 +185,9 @@
 
 // --------------------------------------------------------------------------------------------------------------------
 + (NSString *) basePathAppDescriptorApp:(NSString *)app
-                                version:(NSInteger)version
+                                version:(long long)version
 {
-    NSString *basePathComponent = [NSString stringWithFormat:@"%@/%@/%d",
+    NSString *basePathComponent = [NSString stringWithFormat:@"%@/%@/%lld",
                                                              [IRUtil documentsBasePathForInfrared],
                                                              app,
                                                              version];

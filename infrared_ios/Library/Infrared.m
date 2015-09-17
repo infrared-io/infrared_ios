@@ -474,12 +474,30 @@ static Infrared *sharedInfraRed = nil;
 }
 - (void) cleanOlderVersionsCacheFolderForApp:(NSDictionary *)dictionary
 {
-    IRAppDescriptor *appDescriptor;
-    NSInteger version;
-    appDescriptor = [[IRAppDescriptor alloc] initDescriptorForVersionWithDictionary:dictionary];
-    version = appDescriptor.version-1;
-    for (; version >= 0; version--) {
-        [self deleteCacheFolderForAppWithApp:appDescriptor.app version:version];
+    IRAppDescriptor *appDescriptor = [[IRAppDescriptor alloc] initDescriptorForVersionWithDictionary:dictionary];
+//    NSInteger version;
+//    version = appDescriptor.version-1;
+//    for (; version >= 0; version--) {
+//        [self deleteCacheFolderForAppWithApp:appDescriptor.app version:version];
+//    }
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *basePathComponent = [IRUtil basePathAppDescriptorApp:appDescriptor.app];
+    NSString *finalPath = [documentsDirectory stringByAppendingPathComponent:basePathComponent];
+    NSError *error;
+    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:finalPath error:&error];
+    NSString *fileToDeletePath;
+    if (!error) {
+        for (NSString * filename in directoryContent) {
+            if ([filename isEqualToString:[@(appDescriptor.version) stringValue]] == NO) {
+                error = nil;
+                fileToDeletePath = [finalPath stringByAppendingPathComponent:filename];
+                [[NSFileManager defaultManager] removeItemAtPath:fileToDeletePath error:&error];
+                if (error) {
+                    NSLog(@"Infrared-deleteCacheFolderForAppWithLabel --File:%@   --Error: %@", filename, [error localizedDescription]);
+                }
+            }
+        }
     }
 }
 - (void) cleanCacheFolderForApp:(NSDictionary *)dictionary

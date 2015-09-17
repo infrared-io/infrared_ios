@@ -26,8 +26,8 @@
 
         // version
         number = aDictionary[appVersionKEY];
-        if ([number integerValue] >= 0) {
-            self.version = [number integerValue];
+        if ([number longLongValue] >= 0) {
+            self.version = [number longLongValue];
         } else {
             self.version = 0;
         }
@@ -86,8 +86,8 @@
 
         // version
         number = aDictionary[appVersionKEY];
-        if ([number integerValue] >= 0) {
-            self.version = [number integerValue];
+        if ([number longLongValue] >= 0) {
+            self.version = [number longLongValue];
         } else {
             self.version = 0;
         }
@@ -118,8 +118,8 @@
 
         // version
         number = aDictionary[appVersionKEY];
-        if ([number integerValue] >= 0) {
-            self.version = [number integerValue];
+        if ([number longLongValue] >= 0) {
+            self.version = [number longLongValue];
         } else {
             self.version = 0;
         }

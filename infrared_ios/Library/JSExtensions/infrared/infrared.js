@@ -175,6 +175,7 @@ var infraredClass = function () {
 
         // make sure we work with copies
         //oldObj = copy(oldObj);
+
         var newObj = copy(originalNewObj);
 
         for(var key in newObj) {
@@ -196,7 +197,7 @@ var infraredClass = function () {
                 {
                     //console.log('extend - key='+key+', [object Function]');
                     //console.log('-- function "' + key + '" wrapped --');
-                    oldObj[key] = (preserve && oldObj[key]) ? oldObj[key] : wrap(newObj[key], oldObj);
+                    oldObj[key] = (preserve && oldObj[key]) ? oldObj[key] : wrap(/*newObj*/originalNewObj[key], oldObj);
                 } else {
                     // if preserve is set to true oldObj will not be overwritten by newObj if
                     // oldObj has already a method key

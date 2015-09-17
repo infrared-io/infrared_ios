@@ -19,22 +19,22 @@
 
 + (NSDictionary *) screenDictionaryFromPath:(NSString *)path
                                         app:(NSString *)app
-                                    version:(NSInteger)version;
+                                    version:(long long)version;
 
 + (NSDictionary *) dictionaryFromPath:(NSString *)path;
 
 + (NSString *) resourcesPathForAppDescriptor:(IRAppDescriptor *)appDescriptor;
 
 + (NSString *) resourcesPathForAppDescriptorApp:(NSString *)app
-                                        version:(NSInteger)version;
+                                        version:(long long)version;
 + (NSString *) jsonAndJsPathForAppDescriptor:(IRAppDescriptor *)appDescriptor;
 
 + (NSString *) jsonAndJsPathForAppDescriptorApp:(NSString *)app
-                                        version:(NSInteger)version;
+                                        version:(long long)version;
 
 
 + (NSString *) basePathAppDescriptorApp:(NSString *)app
-                                version:(NSInteger)version;
+                                version:(long long)version;
 + (NSString *) basePathAppDescriptorApp:(NSString *)app;
 + (NSString *) documentsBasePathForInfrared;
 

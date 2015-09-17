@@ -13,7 +13,7 @@
 @interface IRAppDescriptor : IRBaseDescriptor
 
 @property (nonatomic, readonly) NSString *app;
-@property (nonatomic) NSInteger version;
+@property (nonatomic) long long version;
 @property (nonatomic) BOOL silentUpdate;
 @property (nonatomic, strong) NSString *baseUrl;
 @property (nonatomic, strong) NSArray *screensArray;

@@ -219,7 +219,7 @@
             "withItemAttribute": "NSLayoutAttributeLeading",
             "relatedBy": "NSLayoutRelationEqual",
             "toItem": "whole_ui",
-            "toItemAttribute": "NSLayoutAttributeLeft",
+            "toItemAttribute": "NSLayoutAttributeLeading",
             "multiplier": "1",
             "constant": "5"
           },
@@ -228,7 +228,7 @@
             "withItemAttribute": "NSLayoutAttributeTrailing",
             "relatedBy": "NSLayoutRelationEqual",
             "toItem": "whole_ui",
-            "toItemAttribute": "NSLayoutAttributeRight",
+            "toItemAttribute": "NSLayoutAttributeTrailing",
             "multiplier": "1",
             "constant": "-5"
           },

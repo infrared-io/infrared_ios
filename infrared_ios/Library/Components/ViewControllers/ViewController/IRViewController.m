@@ -527,12 +527,16 @@
          :(NSArray *)otherTitlesArray
          :(id)data
 {
+    NSString *titleWithCheck = nil;
     NSString *destructiveTitleWithCheck = nil;
     // This is necessary - for some reason JSContext transforms null into "null" (NSString) instead of nil
+    if (title && [title length] > 0 && [title isEqualToString:@"null"] == NO) {
+        titleWithCheck = title;
+    }
     if (destructiveTitle && [destructiveTitle length] > 0 && [destructiveTitle isEqualToString:@"null"] == NO) {
         destructiveTitleWithCheck = destructiveTitle;
     }
-    IRActionSheet *actionSheet = [[IRActionSheet alloc] initWithTitle:title
+    IRActionSheet *actionSheet = [[IRActionSheet alloc] initWithTitle:titleWithCheck
                                                              delegate:self
                                                     cancelButtonTitle:nil
                                                destructiveButtonTitle:destructiveTitleWithCheck
@@ -586,11 +590,15 @@
 }
 - (void) showViewWithId:(NSString *)componentId
 {
-    [[IRUtilLibrary sharedInstance] showViewWithId:componentId viewController:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[IRUtilLibrary sharedInstance] showViewWithId:componentId viewController:self];
+    });
 }
 - (void) hideViewWithId:(NSString *)componentId
 {
-    [[IRUtilLibrary sharedInstance] hideViewWithId:componentId viewController:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[IRUtilLibrary sharedInstance] hideViewWithId:componentId viewController:self];
+    });
 }
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -1045,7 +1053,7 @@
 //            NSLog(@"**** show-keyboard - vc-key:%@ ,view-id:%@, frame:%@, resizeHeight:%f", self.key,
 //              anView.descriptor.componentId, NSStringFromCGRect(frameRelativeToRoot), resizeHeight);
             if (resizeHeight > 0) {
-                if ([anView isKindOfClass:[UIScrollView class]]) {
+                if ([anView isKindOfClass:[UIScrollView class]] && [anView isKindOfClass:[UITextView class]] == NO) {
                     anScrollView = anView;
                     originalEdgeInsets = keyboardAutoResizeData.scrollViewOriginalEdgeInsets;
                     contentInsets = UIEdgeInsetsMake(originalEdgeInsets.top, originalEdgeInsets.left,
@@ -1076,7 +1084,7 @@
         for (IRKeyboardAutoResizeData *keyboardAutoResizeData in self.viewsArrayForKeyboardResize) {
             anView = keyboardAutoResizeData.view;
 //            NSLog(@"**** hide-keyboard - vc-key:%@ ,view:%@", self.key, anView.descriptor.componentId);
-            if ([anView isKindOfClass:[UIScrollView class]]) {
+            if ([anView isKindOfClass:[UIScrollView class]] && [anView isKindOfClass:[UITextView class]] == NO) {
                 anScrollView = anView;
 //                NSLog(@"   - contentInset:%@", NSStringFromUIEdgeInsets(keyboardAutoResizeData.scrollViewOriginalEdgeInsets));
                 anScrollView.contentInset = keyboardAutoResizeData.scrollViewOriginalEdgeInsets;
