@@ -25,7 +25,7 @@
 {
     NSDictionary *dictionary = nil;
     NSString *app;
-    NSInteger version;
+    long long version;
     NSArray *paths;
     NSString *documentsDirectory;
     NSString *jsonImagesPathComponent;
@@ -40,7 +40,8 @@
     [IRUtil cleanAppAndVersionInUserDefaults];
 #endif
     app = [defaults stringForKey:appKEY];
-    version = [defaults integerForKey:appVersionKEY];
+    double versionDouble = [defaults doubleForKey:appVersionKEY];
+    version = [NSNumber numberWithDouble:versionDouble].longLongValue;
 
     paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     documentsDirectory = [paths firstObject];
@@ -95,7 +96,8 @@
 
         // -- save user-defaults
         [defaults setObject:app forKey:appKEY];
-        [defaults setInteger:version forKey:appVersionKEY];
+//        [defaults setInteger:version forKey:appVersionKEY];
+        [defaults setDouble:[NSNumber numberWithLongLong:version].doubleValue forKey:appVersionKEY];
         [defaults synchronize];
     }
 

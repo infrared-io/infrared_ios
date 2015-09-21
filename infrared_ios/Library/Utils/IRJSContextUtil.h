@@ -12,6 +12,7 @@
 + (void) exposeObjCStructureCreators:(JSContext *)jsContext;
 + (void) exposeNSData:(JSContext *)jsContext;
 + (void) exposeNSDate:(JSContext *)jsContext;
++ (void) exposeUIFont:(JSContext *)jsContext;
 + (void) exposeUIColor:(JSContext *)jsContext;
 + (void) exposeUIImage:(JSContext *)jsContext;
 + (void) exposeUIApplication:(JSContext *)jsContext;

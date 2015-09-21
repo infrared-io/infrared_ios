@@ -40,7 +40,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 + (NSArray *) newScreenDescriptorsArrayFromDictionariesArray:(NSArray *)aArray
                                                          app:(NSString *)app
-                                                     version:(NSInteger)version
+                                                     version:(long long)version
                                                      baseUrl:(NSString *)baseUrl
 {
     NSMutableArray *screenDescriptorsArray = [[NSMutableArray alloc] init];

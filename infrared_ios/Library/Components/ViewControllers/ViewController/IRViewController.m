@@ -446,10 +446,7 @@
 {
     IRScreenDescriptor *screenDescriptor;
     screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithId:screenId];
-//    __weak IRViewController *weakSelf = self;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-        [self presentVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
-//    });
+    [self presentVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) presentViewControllerWithId:(NSString *)viewControllerId animated:(BOOL)animated
@@ -460,10 +457,7 @@
 {
     IRScreenDescriptor *screenDescriptor;
     screenDescriptor = [[IRDataController sharedInstance] screenDescriptorWithControllerId:viewControllerId];
-//    __weak IRViewController *weakSelf = self;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-        [self presentVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
-//    });
+    [self presentVCFromScreenDescriptor:screenDescriptor animated:animated withData:data];
 }
 - (void)dismissViewControllerAnimated:(BOOL)animated
 {

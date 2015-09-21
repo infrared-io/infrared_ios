@@ -37,7 +37,7 @@ typedef enum {
 
 + (NSArray *) newScreenDescriptorsArrayFromDictionariesArray:(NSArray *)aArray
                                                          app:(NSString *)app
-                                                     version:(NSInteger)version
+                                                     version:(long long)version
                                                      baseUrl:(NSString *)baseUrl;
 #if TARGET_OS_IPHONE
 + (BOOL) isDeviceTypeMatchingDevice:(NSString *)deviceType;

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="CIDR_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libz.dylib">
-      <sourceFolder url="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libz.dylib" isTestSource="false" />
-    </content>
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperation.h" isTestSource="false" />
@@ -707,6 +704,7 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/NSURLExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/UIApplicationExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/UIColorExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/UIFontExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/UIImageExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExtensions/MD5/infrared_md5.min.js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExtensions/WatchJS/infrared_watch.js" isTestSource="false" />

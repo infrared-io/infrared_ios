@@ -34,7 +34,7 @@
 - (void) cleanAndBuildInfraredAppFromPath:(NSString *)path withUpdateJSONPath:(NSString *)updateUIPath;
 
 - (void) deleteCacheFolderForAppWithApp:(NSString *)app
-                                version:(NSInteger)version;
+                                version:(long long)version;
 
 - (void) buildViewControllerAndSetRootViewControllerScreenDescriptor:(IRScreenDescriptor *)screenDescriptor
                                                                 data:(id)data;

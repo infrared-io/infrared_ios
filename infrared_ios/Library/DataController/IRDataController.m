@@ -283,6 +283,7 @@ static IRDataController *sharedDataController = nil;
     [IRJSContextUtil exposeObjCStructureCreators:self.jsContext];
     [IRJSContextUtil exposeNSData:self.jsContext];
     [IRJSContextUtil exposeNSDate:self.jsContext];
+    [IRJSContextUtil exposeUIFont:self.jsContext];
     [IRJSContextUtil exposeUIColor:self.jsContext];
     [IRJSContextUtil exposeUIImage:self.jsContext];
     [IRJSContextUtil exposeUIApplication:self.jsContext];

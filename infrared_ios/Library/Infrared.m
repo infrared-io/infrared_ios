@@ -143,7 +143,8 @@ static Infrared *sharedInfraRed = nil;
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:APP_AND_VERSION_SUITED_NAME];
     BOOL copyPrecacheFiles = YES;
     NSString *app = [defaults objectForKey:appKEY];
-    NSInteger version = [defaults integerForKey:appVersionKEY];
+    double versionDouble = [defaults doubleForKey:appVersionKEY];
+    long long version = [NSNumber numberWithDouble:versionDouble].longLongValue;
     if ([app length] > 0
          && [app isEqualToString:appDescriptor.app]
          && version >= appDescriptor.version)
@@ -153,7 +154,7 @@ static Infrared *sharedInfraRed = nil;
     if (copyPrecacheFiles) {
         // -- set app/value in user-defaults
         [defaults setObject:appDescriptor.app forKey:appKEY];
-        [defaults setInteger:appDescriptor.version forKey:appVersionKEY];
+        [defaults setDouble:[NSNumber numberWithLongLong:appDescriptor.version].doubleValue forKey:appVersionKEY];
         [defaults synchronize];
 
         // -- unzip IRPrecacheData and copy to Documents dictionary
@@ -539,7 +540,7 @@ static Infrared *sharedInfraRed = nil;
 
 // --------------------------------------------------------------------------------------------------------------------
 - (void) deleteCacheFolderForAppWithApp:(NSString *)app
-                                version:(NSInteger)version
+                                version:(long long)version
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];

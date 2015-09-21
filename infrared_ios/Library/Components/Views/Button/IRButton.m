@@ -85,8 +85,7 @@
 
 + (id) createWithComponentId:(NSString *)componentId
 {
-    NSLog(@"For creating Button use 'createWithTypeComponentId' instead of 'createWithComponentId:'");
-    return nil;
+    return [IRButton createWithType:UIButtonTypeCustom componentId:componentId];
 }
 
 - (NSString *) componentId

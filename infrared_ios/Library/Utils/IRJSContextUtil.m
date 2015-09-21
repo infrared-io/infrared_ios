@@ -15,6 +15,7 @@
 #import "NSIndexPathExport.h"
 #import "NSDataExport.h"
 #import "UINavigationItemExport.h"
+#import "UIFontExport.h"
 #import <objc/runtime.h>
 #import <MapKit/MapKit.h>
 
@@ -58,6 +59,12 @@
 {
     class_addProtocol([NSDate class], @protocol(NSDateExport));
     jsContext[@"NSDate"] = [NSDate class];
+}
+
++ (void) exposeUIFont:(JSContext *)jsContext
+{
+    class_addProtocol([UIFont class], @protocol(UIFontExport));
+    jsContext[@"UIFont"] = [UIFont class];
 }
 
 + (void) exposeUIColor:(JSContext *)jsContext

@@ -481,6 +481,7 @@
 		F613A38FB80229C683E49475 /* IRLayoutConstraintDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLayoutConstraintDescriptor.m; sourceTree = "<group>"; };
 		F613A390671FA25CDDBE9A01 /* UIScreenEdgePanGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScreenEdgePanGestureRecognizerExport.h; sourceTree = "<group>"; };
 		F613A39615050D7CC3C41AD1 /* IRTabBarControllerSubDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTabBarControllerSubDescriptor.h; sourceTree = "<group>"; };
+		F613A396C337380D2D5580A6 /* UIFontExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFontExport.h; sourceTree = "<group>"; };
 		F613A3A902C609254756C325 /* 245-paperairplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "245-paperairplane@2x.png"; sourceTree = "<group>"; };
 		F613A3AD28AEF308FAAD0EA0 /* IRLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLayoutConstraint.m; sourceTree = "<group>"; };
 		F613A3B857F2834EF021156E /* Main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Main.m; sourceTree = "<group>"; };
@@ -1167,6 +1168,7 @@
 				F613AE5A163F235C61D6F6C1 /* NSIndexPathExport.h */,
 				F613A88292D98E97CB0C942B /* NSDataExport.h */,
 				F613A745F4E5DB9521B8F777 /* NSObjectExport.h */,
+				F613A396C337380D2D5580A6 /* UIFontExport.h */,
 			);
 			path = JSExports;
 			sourceTree = "<group>";
