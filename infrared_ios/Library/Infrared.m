@@ -364,10 +364,14 @@ static Infrared *sharedInfraRed = nil;
     // 9) init I18N
     [self initI18NData];
 
-    // 10) dispatch JS Event that IR app is ready
+    // 10) Setting current app's name and version number
+    [[[IRDataController sharedInstance] globalJSContext] evaluateScript:[NSString stringWithFormat:@"IR.appName='%@'", [IRDataController sharedInstance].appDescriptor.app]];
+    [[[IRDataController sharedInstance] globalJSContext] evaluateScript:[NSString stringWithFormat:@"IR.appVersion=%lld", [IRDataController sharedInstance].appDescriptor.version]];
+
+    // 11) dispatch JS Event that IR app is ready
     [[[IRDataController sharedInstance] globalJSContext] evaluateScript:@"window.dispatchEvent(new Event('ir_load'));"];
 
-    // 11) build main view-controller
+    // 12) build main view-controller
     IRScreenDescriptor *mainScreenDescriptor = [[IRDataController sharedInstance].appDescriptor mainScreenDescriptor];
     [self buildViewControllerAndSetRootViewControllerScreenDescriptor:mainScreenDescriptor
                                                                  data:nil];

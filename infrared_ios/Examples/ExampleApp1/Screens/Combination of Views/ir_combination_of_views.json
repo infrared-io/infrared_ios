@@ -3,7 +3,7 @@
   "controller" : {
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
     "title" : "IR.i18n.ir_main_vc_title",
-    "jsPluginPath" : "ir_combination_of_views_plugin.js",
+    "jsPluginPath_" : "ir_combination_of_views_plugin.js",
     "navigationController" : {
       "autoAddIfNeeded" : true,
       "hideNavigationBar" : false

@@ -43,7 +43,9 @@
         &&*/ [self.internalHtmlString isEqualToString:htmlString] == NO)
     {
         self.internalHtmlString = htmlString;
-        [self loadHTMLString:htmlString baseURL:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self loadHTMLString:htmlString baseURL:nil];
+        });
     }
 }
 

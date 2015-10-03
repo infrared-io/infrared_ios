@@ -47,19 +47,29 @@
     NSDictionary *dictionary;
     NSString *anDeviceType;
     NSString *anScreenPath;
+    NSString *jsPluginPath;
+    IRScreenDescriptor *anScreenDescriptor;
     for (NSDictionary *anScreenDictionary in aArray) {
         anDeviceType = anScreenDictionary[deviceTypeKEY];
 #if TARGET_OS_IPHONE
         if ([IRBaseDescriptor isDeviceTypeMatchingDevice:anDeviceType])
-#else
+#else // for precaching (download every screen json)
         if (YES)
 #endif
         {
+            // -- screen path
             anScreenPath = anScreenDictionary[pathKEY];
             anScreenPath = [IRUtil prefixFilePathWithBaseUrlIfNeeded:anScreenPath baseUrl:baseUrl];
+            // -- js-plugin path
+            jsPluginPath = anScreenDictionary[NSStringFromSelector(@selector(jsPluginPath))];
+            jsPluginPath = [IRUtil prefixFilePathWithBaseUrlIfNeeded:jsPluginPath baseUrl:baseUrl];
             dictionary = [IRUtil screenDictionaryFromPath:anScreenPath app:app version:version];
             if (dictionary) {
-                [screenDescriptorsArray addObject:[[IRScreenDescriptor alloc] initDescriptorWithDictionary:dictionary]];
+                anScreenDescriptor = [[IRScreenDescriptor alloc] initDescriptorWithDictionary:dictionary];
+                if (anScreenDescriptor) {
+                    anScreenDescriptor.viewControllerDescriptor.jsPluginPath = jsPluginPath;
+                    [screenDescriptorsArray addObject:anScreenDescriptor];
+                }
             } else {
                 NSLog(@" ########## newScreenDescriptorsArrayFromDictionariesArray:app:version:baseUrl: - MISSING or INVALID json with path '%@'", anScreenPath);
             }

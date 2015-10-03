@@ -7,10 +7,4 @@
 
 @interface UINavigationItem (Infrared)
 
-//@property(nonatomic,retain) UIBarButtonItem *leftBarButtonItem;
-//@property(nonatomic,retain) UIBarButtonItem *rightBarButtonItem;
-
-- (void) setLeftBarButtonItem:(UIBarButtonItem *)barButtonItem;
-- (void) setRightBarButtonItem:(UIBarButtonItem *)barButtonItem;
-
 @end

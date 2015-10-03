@@ -3,7 +3,7 @@
   "controller" : {
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
     "title" : "WebView",
-    "jsPluginPath" : "ir_web_view_plugin.js",
+    "jsPluginPath_" : "ir_web_view_plugin.js",
     "navigationController" : {
       "autoAddIfNeeded" : true,
       "hideNavigationBar" : false

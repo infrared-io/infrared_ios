@@ -284,10 +284,6 @@
             }
         }
         allJsPluginNames = [allJsPluginNames stringByAppendingString:@" ]"];
-
-
-//        escapedPluginPath = [descriptor.jsPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//        jsPluginNameFromPath = [IRUtil scriptTagFileNameFromPath:escapedPluginPath];
         if ([allJsPluginNames/*jsPluginNameFromPath*/ length] > 0) {
             // IMPORTANT: 'setZeroTimeout' can not be added here this way. Operation is done on separate thread
             //            and successive ObjC methods, which expect extended methods te be available,

@@ -7,7 +7,4 @@
 
 @interface UITextView (Infrared)
 
-- (BOOL) resignFirstResponder;
-//- (BOOL)becomeFirstResponder;
-
 @end

@@ -32,6 +32,7 @@
 - (void) pushViewControllerWithId:(NSString *)viewControllerId animated:(BOOL)animated;
 - (void) pushViewControllerWithId:(NSString *)viewControllerId animated:(BOOL)animated withData:(id)data;
 - (void) popViewControllerAnimated:(BOOL)animated;
+- (void) popToViewController:(IRViewController *)irViewController animated:(BOOL)animated;
 - (void) popToRootViewControllerAnimated:(BOOL)animated;
 
 - (void) presentViewControllerWithScreenId:(NSString *)screenId animated:(BOOL)animated;

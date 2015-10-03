@@ -3,7 +3,7 @@
   "controller" : {
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
     "title" : "AlertView and ActionSheet",
-    "jsPluginPath" : "ir_alert_view_and_action_sheet_plugin.js",
+    "jsPluginPath_" : "ir_alert_view_and_action_sheet_plugin.js",
     "navigationController" : {
       "autoAddIfNeeded" : true,
       "hideNavigationBar" : false

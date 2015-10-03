@@ -430,6 +430,15 @@
     });
 }
 // --------------------------------------------------------------------------------------------------------------------
+- (void) popToViewController:(IRViewController *)irViewController animated:(BOOL)animated
+{
+    __weak IRViewController *weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf.navigationController popToViewController:irViewController
+                                                  animated:animated];
+    });
+}
+// --------------------------------------------------------------------------------------------------------------------
 - (void) popToRootViewControllerAnimated:(BOOL)animated
 {
     __weak IRViewController *weakSelf = self;

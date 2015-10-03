@@ -3,7 +3,7 @@
   "controller" : {
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
     "title" : "Label, Button, Image",
-    "jsPluginPath" : "ir_label_button_image_plugin.js",
+    "jsPluginPath_" : "ir_label_button_image_plugin.js",
     "navigationController" : {
       "autoAddIfNeeded" : true,
       "hideNavigationBar" : false

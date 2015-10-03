@@ -3,39 +3,48 @@
   "screens": [
     {
       "deviceType": "phone",
-      "path": "ir_starting_screen.json"
+      "path": "ir_starting_screen.json",
+      "jsPluginPath" : "ir_starting_screen_plugin.js"
     },
     {
       "deviceType": "phone",
-      "path": "ir_combination_of_views.json"
+      "path": "ir_combination_of_views.json",
+      "jsPluginPath" : "ir_combination_of_views_plugin.js"
     },
     {
       "deviceType": "phone",
-      "path": "ir_table_view.json"
+      "path": "ir_table_view.json",
+      "jsPluginPath" : "ir_table_view_plugin.js"
     },
     {
       "deviceType": "phone",
-      "path": "ir_collection_view.json"
+      "path": "ir_collection_view.json",
+      "jsPluginPath" : "ir_collection_view_plugin.js"
     },
     {
       "deviceType": "phone",
-      "path": "ir_picker_view.json"
+      "path": "ir_picker_view.json",
+      "jsPluginPath" : "ir_picker_view_plugin.js"
     },
     {
       "deviceType": "phone",
-      "path": "ir_gesture_recognizers.json"
+      "path": "ir_gesture_recognizers.json",
+      "jsPluginPath" : "ir_gesture_recognizers_plugin.js"
     },
     {
       "deviceType": "phone",
-      "path": "ir_alert_view_and_action_sheet.json"
+      "path": "ir_alert_view_and_action_sheet.json",
+      "jsPluginPath" : "ir_alert_view_and_action_sheet_plugin.js"
     },
     {
       "deviceType": "phone",
-      "path": "ir_label_button_image.json"
+      "path": "ir_label_button_image.json",
+      "jsPluginPath" : "ir_label_button_image_plugin.js"
     },
     {
       "deviceType": "phone",
-      "path": "ir_web_view.json"
+      "path": "ir_web_view.json",
+      "jsPluginPath" : "ir_web_view_plugin.js"
     }
   ],
   "jsLibraries": [ "globalData.js" ],

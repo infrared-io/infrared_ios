@@ -14,20 +14,33 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSError *error;
-        BOOL result = [[self class] jr_swizzleMethod:@selector(becomeFirstResponder)
-                                          withMethod:@selector(becomeFirstResponder_swizzled)
-                                               error:&error];
+        BOOL result;
+        result = [[self class] jr_swizzleMethod:@selector(becomeFirstResponder)
+                                     withMethod:@selector(becomeFirstResponder_swizzled)
+                                          error:&error];
+        if (!result || error) {
+            NSLog(@"Can't swizzle methods - %@", [error description]);
+        }
+        error = nil;
+        result = [[self class] jr_swizzleMethod:@selector(resignFirstResponder)
+                                     withMethod:@selector(resignFirstResponder_swizzled)
+                                          error:&error];
         if (!result || error) {
             NSLog(@"Can't swizzle methods - %@", [error description]);
         }
     });
 }
 
-- (BOOL) resignFirstResponder
+- (BOOL)resignFirstResponder_swizzled
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [super resignFirstResponder];
-    });
+    if ([NSThread isMainThread]) {
+        [self resignFirstResponder_swizzled];
+    } else {
+        __weak UITextField *weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf resignFirstResponder_swizzled];
+        });
+    }
     return YES;
 }
 
@@ -36,8 +49,9 @@
     if ([NSThread isMainThread]) {
         [self becomeFirstResponder_swizzled];
     } else {
+        __weak UITextField *weakSelf = self;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self becomeFirstResponder_swizzled];
+            [weakSelf becomeFirstResponder_swizzled];
         });
     }
     return YES;
