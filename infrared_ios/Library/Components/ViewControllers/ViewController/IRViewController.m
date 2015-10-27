@@ -351,6 +351,7 @@
 {
     [super viewDidLayoutSubviews];
 
+    [self dynamicAutolayoutHeightUpdate:self.view];
 }
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -1372,6 +1373,18 @@
         });
     }
 }
+// --------------------------------------------------------------------------------------------------------------------
+- (void) dynamicAutolayoutHeightUpdate:(IRView *)irView
+{
+    if ([irView conformsToProtocol:@protocol(IRComponentInfoProtocol)]
+      && [irView respondsToSelector:@selector(dynamicAutolayoutHeightUpdate)])
+    {
+        [irView performSelector:@selector(dynamicAutolayoutHeightUpdate)];
+    }
+    for (IRView *anSubview in irView.subviews) {
+        [self dynamicAutolayoutHeightUpdate:anSubview];
+    }
+}
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
@@ -1409,21 +1422,5 @@
     // IMPORTANT: leave line below as commented
     // [super dealloc]; // (provided by the compiler)
 }
-
-// --------------------------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------
-
-
-//void runOnMainQueueWithoutDeadlocking(void (^block)(void))
-//{
-//    if ([NSThread isMainThread])
-//    {
-//        block();
-//    }
-//    else
-//    {
-//        dispatch_async(dispatch_get_main_queue(), block);
-//    }
-//}
 
 @end

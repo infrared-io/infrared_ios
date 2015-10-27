@@ -4,12 +4,15 @@
 //
 
 #import <CoreGraphics/CoreGraphics.h>
+#import <Foundation/Foundation.h>
 #import "IRTableView.h"
 #import "IRTableViewObserver.h"
 #import "IRBaseBuilder.h"
 #import "IRBaseDescriptor.h"
 #import "IRDataController.h"
 #import "IRTableViewDescriptor.h"
+#import "IRTableViewHeaderOrFooter.h"
+#import "IRTableViewHeaderOrFooterDescriptor.h"
 
 
 @implementation IRTableView
@@ -105,6 +108,65 @@
 - (NSString *) componentId
 {
     return self.descriptor.componentId;
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
+- (void) dynamicAutolayoutHeightUpdate
+{
+    IRTableViewHeaderOrFooter *header;
+    IRTableViewHeaderOrFooter *footer;
+    IRTableViewHeaderOrFooterDescriptor *headerOrFooterDescriptor;
+    CGSize size;
+    CGFloat height;
+    CGRect frame;
+
+    header = (IRTableViewHeaderOrFooter *)self.tableHeaderView;
+    headerOrFooterDescriptor = (IRTableViewHeaderOrFooterDescriptor *) header.descriptor;
+    if (header
+        && [headerOrFooterDescriptor isKindOfClass:[IRTableViewHeaderOrFooterDescriptor class]]
+        && headerOrFooterDescriptor.dynamicAutolayoutHeight)
+    {
+        [header setNeedsLayout];
+        [header layoutIfNeeded];
+
+        size = [header systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        height = size.height;
+        if (headerOrFooterDescriptor.dynamicAutolayoutHeightMinimum != CGFLOAT_UNDEFINED
+            && height < headerOrFooterDescriptor.dynamicAutolayoutHeightMinimum)
+        {
+            height = headerOrFooterDescriptor.dynamicAutolayoutHeightMinimum;
+        }
+        frame = header.frame;
+        frame.size.height = height;
+        header.frame = frame;
+
+        self.tableHeaderView = header;
+    }
+
+    footer = (IRTableViewHeaderOrFooter *)self.tableFooterView;
+    headerOrFooterDescriptor = (IRTableViewHeaderOrFooterDescriptor *) footer.descriptor;
+    if (footer
+        && [headerOrFooterDescriptor isKindOfClass:[IRTableViewHeaderOrFooterDescriptor class]]
+        && headerOrFooterDescriptor.dynamicAutolayoutHeight)
+    {
+        [footer setNeedsLayout];
+        [footer layoutIfNeeded];
+
+        size = [footer systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        height = size.height;
+        if (headerOrFooterDescriptor.dynamicAutolayoutHeightMinimum != CGFLOAT_UNDEFINED
+            && height < headerOrFooterDescriptor.dynamicAutolayoutHeightMinimum)
+        {
+            height = headerOrFooterDescriptor.dynamicAutolayoutHeightMinimum;
+        }
+        frame = footer.frame;
+        frame.size.height = height;
+        footer.frame = frame;
+
+        self.tableFooterView = footer;
+    }
 }
 
 // --------------------------------------------------------------------------------------------------------------------

@@ -24,6 +24,7 @@
 #define deviceTypePhoneKEY              @"phone"
 #define deviceTypeTabletKEY             @"tablet"
 #define pathKEY                         @"path"
+#define urlKEY                          @"url"
 
 #define supportedInterfaceOrientationsKEY @"supportedInterfaceOrientations"
 
@@ -52,6 +53,7 @@
 #define typeActivityIndicatorViewKEY    @"activityIndicatorView"
 #define typeTableViewKEY                @"tableView"
 #define typeTableViewCellKEY            @"tableViewCell"
+#define typeTableViewHeaderOrFooterKEY  @"tableViewHeaderOrFooter"
 #define typeCollectionViewKEY           @"collectionView"
 #define typeCollectionViewCellKEY       @"collectionViewCell"
 #define typeCollectionReusableViewKEY   @"collectionReusableView"

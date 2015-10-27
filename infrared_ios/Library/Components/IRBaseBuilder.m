@@ -466,13 +466,12 @@ withDataBindingItemName:(NSString *)name
                                                        "        delete window.%@; \n"
                                                        "    }; \n"
                                                        "}; \n"
-//                                                       "var actionEnclosing_%@ = new ActionEnclosing_%@();",
-                                                       "window.%@ = new %@();", // var
-                                    actionEnclosingClassName/*actionKey*/, internalVariables,  /*actionEnclosingObjectName,*/
+                                                       "window.%@ = new %@();",
+                                    actionEnclosingClassName, internalVariables,
                                     irViewControllerKey, internalVariablesCall,
                                     jsInternalMethodParams, finalAction,
-                                    actionEnclosingObjectName, actionEnclosingClassName/*actionKey, actionKey*/,
-                                    actionEnclosingObjectName, actionEnclosingClassName /*actionKey, actionKey*/];
+                                    actionEnclosingObjectName, actionEnclosingClassName,
+                                    actionEnclosingObjectName, actionEnclosingClassName];
 //        NSLog(@"executeAction:withDictionary:viewController:functionName: - actionEnclosing=%@", actionEnclosing);
         [jsContext evaluateScript:actionEnclosing];
 
@@ -482,20 +481,8 @@ withDataBindingItemName:(NSString *)name
                 for (NSString *anKey in dictionary) {
                     actionEnclosingJSValue[anKey] = dictionary[anKey];
                 }
-//                NSLog(@"executeAction:withDictionary:viewController:=%@ (vc=%@) [pre]---->", action, irViewControllerKey);
-//                NSString *actionEnclosingFunctionCallString = [NSString stringWithFormat:@"actionEnclosing_%@.actionFunction();", actionKey];
                 NSString *actionEnclosingFunctionCallString = [NSString stringWithFormat:@"%@.actionFunction();", actionEnclosingObjectName];
                 [jsContext evaluateScript:actionEnclosingFunctionCallString];
-
-//                NSString *actionEnclosingFunctionName = [NSString stringWithFormat:@"actionEnclosing_%@.actionFunction", actionKey];
-//                JSValue *function = [jsContext evaluateScript:actionEnclosingFunctionName];
-
-//                JSValue *function = actionEnclosingJSValue[@"actionFunction"];
-//                if (function && [function toObject]) {
-//                    [function callWithArguments:@[]];
-//                }
-
-//                NSLog(@"executeAction:withDictionary:viewController:=%@ (vc=%@) [post]---->", action, irViewControllerKey);
             } else {
                 NSLog(@"########## Action \"%@\" from VC \"%@\" will NOT be executed!", action, irViewControllerKey);
             }

@@ -94,7 +94,13 @@
             // Make sure the constraints have been added to this cell, since it may have just been created from scratch
             [cell setNeedsUpdateConstraints];
             [cell updateConstraintsIfNeeded];
+        } else {
+            [cell setNeedsLayout];
+            [cell layoutIfNeeded];
+//            [cell setNeedsUpdateConstraints];
+//            [cell updateConstraintsIfNeeded];
         }
+
     } else {
         NSLog(@"Incomplete data for cell at indexPath={%d, %d}", indexPath.section, indexPath.row);
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"incomplete-data"];

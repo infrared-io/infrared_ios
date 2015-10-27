@@ -240,6 +240,9 @@ static IRDataController *sharedDataController = nil;
         scriptTags = [scriptTags stringByAppendingFormat:@"<script>IR.nameForFollowingPlugin('%@');</script>", jsPluginNameFromPath];
         scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
     }
+    NSString *baseUrlString = [NSString stringWithFormat:@"%@/", fullBaseUrlPath];
+    NSLog(@"web-view baseUrl=%@", baseUrlString);
+    NSString *baseUrl = [NSURL URLWithString:baseUrlString];
     [self.webView loadHTMLString:[NSString stringWithFormat:@""
                                                            "<html><title>App</title><head>"
 //                                                           "<script src='http://jsconsole.com/remote.js?'></script>"
@@ -253,7 +256,7 @@ static IRDataController *sharedDataController = nil;
                                                            "%@"
                                                            "</head><body>"
                                                            "</body></html>", scriptTags]
-                         baseURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/", fullBaseUrlPath]]];
+                         baseURL:baseUrl];
 
     // NEXT STEP
     // - method "webViewDidFinishLoad:" will be called after UIWebView is loaded
@@ -362,7 +365,7 @@ static IRDataController *sharedDataController = nil;
 
     vcAddress = viewController.key;
 
-//    NSLog(@"IRDataController - unregisterViewController: %@", vcAddress);
+    NSLog(@"IRDataController - unregisterViewController: %@", vcAddress);
 
     // 1) remove all views from viewController
     IRIdsAndComponentsForScreen *idsAndComponentsForScreen = nil;

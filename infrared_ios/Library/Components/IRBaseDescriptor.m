@@ -44,7 +44,7 @@
                                                      baseUrl:(NSString *)baseUrl
 {
     NSMutableArray *screenDescriptorsArray = [[NSMutableArray alloc] init];
-    NSDictionary *dictionary;
+    NSDictionary *dictionary = nil;
     NSString *anDeviceType;
     NSString *anScreenPath;
     NSString *jsPluginPath;
@@ -59,14 +59,20 @@
         {
             // -- screen path
             anScreenPath = anScreenDictionary[pathKEY];
+            if ([anScreenPath isKindOfClass:[NSDictionary class]]) {
+                anScreenPath = ((NSDictionary *) anScreenPath)[urlKEY];
+            }
             anScreenPath = [IRUtil prefixFilePathWithBaseUrlIfNeeded:anScreenPath baseUrl:baseUrl];
-            // -- js-plugin path
-            jsPluginPath = anScreenDictionary[NSStringFromSelector(@selector(jsPluginPath))];
-            jsPluginPath = [IRUtil prefixFilePathWithBaseUrlIfNeeded:jsPluginPath baseUrl:baseUrl];
             dictionary = [IRUtil screenDictionaryFromPath:anScreenPath app:app version:version];
             if (dictionary) {
                 anScreenDescriptor = [[IRScreenDescriptor alloc] initDescriptorWithDictionary:dictionary];
                 if (anScreenDescriptor) {
+                    // -- js-plugin path
+                    jsPluginPath = anScreenDictionary[NSStringFromSelector(@selector(jsPluginPath))];
+                    if ([jsPluginPath isKindOfClass:[NSDictionary class]]) {
+                        jsPluginPath = ((NSDictionary *) jsPluginPath)[urlKEY];
+                    }
+                    jsPluginPath = [IRUtil prefixFilePathWithBaseUrlIfNeeded:jsPluginPath baseUrl:baseUrl];
                     anScreenDescriptor.viewControllerDescriptor.jsPluginPath = jsPluginPath;
                     [screenDescriptorsArray addObject:anScreenDescriptor];
                 }

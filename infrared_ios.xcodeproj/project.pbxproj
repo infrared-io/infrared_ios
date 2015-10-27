@@ -234,6 +234,7 @@
 		F613AA2E2C6A1C8254C69F95 /* IRCollectionViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A9F99320238441809B0B /* IRCollectionViewBuilder.m */; };
 		F613AA3115D2D23BDDA33DB8 /* IRKeyboardAutoResizeData.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A5656CF98782F017089E /* IRKeyboardAutoResizeData.m */; };
 		F613AA349A416A8294A00E4D /* IRJSContextUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AA3B2A936FD1F8DF5F9D /* IRJSContextUtil.m */; };
+		F613AA48DFC84FB3B1700A06 /* IRTableViewHeaderOrFooterDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A567648E3C56C9A72D43 /* IRTableViewHeaderOrFooterDescriptor.m */; };
 		F613AA5EDBACD8D92B441A00 /* IRSwipeGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7AA0809221D81025BE5 /* IRSwipeGestureRecognizer.m */; };
 		F613AA75F11AE3CCBB450E34 /* IRTextViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AC11460046313BF0B1A7 /* IRTextViewBuilder.m */; };
 		F613AA89CD4DFB35E002FA51 /* DSCF4010.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F613A9D052A472718B415BD6 /* DSCF4010.JPG */; };
@@ -286,6 +287,7 @@
 		F613AD9BED5E972BCB46B63E /* 249-piechart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F613A9BB2F3340D3BDD8253B /* 249-piechart@2x.png */; };
 		F613ADA3A79C5641D9D08D1D /* IRSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A71E1BDF602971AA1C47 /* IRSideMenu.m */; };
 		F613ADC364C89E064B21BDE3 /* IRSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A0842AFCA79150295CDC /* IRSegmentedControl.m */; };
+		F613ADEF55F1BB7ECF069A17 /* IRTableViewHeaderOrFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AFF0ADBDEF4F5FE16BC1 /* IRTableViewHeaderOrFooter.m */; };
 		F613ADFC6AC9F298B2845E41 /* IRBaseBuilder+UIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AF164FF55B50AE414AFC /* IRBaseBuilder+UIControl.m */; };
 		F613AE0A77D9E9F45057641E /* Infrared.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A8D5E1AB8F87E6C0BE7F /* Infrared.m */; };
 		F613AE0FAC2F1765EFA73AB8 /* IRCalloutAnnotationViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A7FB7127299AE0134FB7 /* IRCalloutAnnotationViewBuilder.m */; };
@@ -398,6 +400,7 @@
 		F613A0842AFCA79150295CDC /* IRSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSegmentedControl.m; sourceTree = "<group>"; };
 		F613A0A7F3A8387AF3B20768 /* IRBaseBuilder+DataBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IRBaseBuilder+DataBinding.h"; sourceTree = "<group>"; };
 		F613A0BB58F57964621B747D /* IRPanGestureRecognizerDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPanGestureRecognizerDescriptor.m; sourceTree = "<group>"; };
+		F613A0CACDEB35D1F9FF2914 /* IRTableViewHeaderOrFooterDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTableViewHeaderOrFooterDescriptor.h; sourceTree = "<group>"; };
 		F613A0D50B2B5CA9FD75AE59 /* IRTextFieldObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTextFieldObserver.h; sourceTree = "<group>"; };
 		F613A0D6BBD2D618DF1FC838 /* IRKeyboardManagerSubDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRKeyboardManagerSubDescriptor.m; sourceTree = "<group>"; };
 		F613A0EA468484767C3B9F2E /* IRRefreshControlBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRRefreshControlBuilder.m; sourceTree = "<group>"; };
@@ -527,6 +530,7 @@
 		F613A56550DD59034D865D20 /* IRDatePickerDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRDatePickerDescriptor.h; sourceTree = "<group>"; };
 		F613A5656CF98782F017089E /* IRKeyboardAutoResizeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRKeyboardAutoResizeData.m; sourceTree = "<group>"; };
 		F613A5675EEC6FBB5C369D56 /* IRLabelBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLabelBuilder.m; sourceTree = "<group>"; };
+		F613A567648E3C56C9A72D43 /* IRTableViewHeaderOrFooterDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTableViewHeaderOrFooterDescriptor.m; sourceTree = "<group>"; };
 		F613A578F69BD496D19ABA13 /* IRSegmentedControlBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSegmentedControlBuilder.m; sourceTree = "<group>"; };
 		F613A57D1B0F60FEE4639289 /* IRTapGestureRecognizerDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTapGestureRecognizerDescriptor.h; sourceTree = "<group>"; };
 		F613A58491CCC185DA571A73 /* UIPanGestureRecognizerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPanGestureRecognizerExport.h; sourceTree = "<group>"; };
@@ -654,6 +658,7 @@
 		F613A9D2A8A4E80C53B03039 /* IRSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRSlider.m; sourceTree = "<group>"; };
 		F613A9D7E4708452BBDCD88E /* IRView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRView.h; sourceTree = "<group>"; };
 		F613A9D9371996CAF1F2951E /* IRView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRView.m; sourceTree = "<group>"; };
+		F613A9DDB8760C5066DF972C /* IRTableViewHeaderOrFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTableViewHeaderOrFooter.h; sourceTree = "<group>"; };
 		F613A9DE75ED87ED938D9F21 /* UITabBarControllerExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITabBarControllerExport.h; sourceTree = "<group>"; };
 		F613A9F5540C672C67B70558 /* UITableViewExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewExport.h; sourceTree = "<group>"; };
 		F613A9F94DBADB7A4D7756FB /* IRMapViewDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRMapViewDescriptor.h; sourceTree = "<group>"; };
@@ -832,6 +837,7 @@
 		F613AFDA7BD6CBDD7C44DCEF /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		F613AFE77605FAE5609E3686 /* UIPageControlExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPageControlExport.h; sourceTree = "<group>"; };
 		F613AFEE17579C8CC918DD53 /* IRTableViewCellBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTableViewCellBuilder.h; sourceTree = "<group>"; };
+		F613AFF0ADBDEF4F5FE16BC1 /* IRTableViewHeaderOrFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRTableViewHeaderOrFooter.m; sourceTree = "<group>"; };
 		F613AFF43106DEEC7DEC2880 /* UITextField+Infrared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Infrared.m"; sourceTree = "<group>"; };
 		F855B0AD37B9E277D7FD1341 /* Pods-infrared_ios_lib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-infrared_ios_lib.debug.xcconfig"; path = "Pods/Target Support Files/Pods-infrared_ios_lib/Pods-infrared_ios_lib.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1401,6 +1407,7 @@
 				F613A8F993B699EE5FDD1A47 /* IRTableViewDescriptor.h */,
 				F613AAF4043168BB7AABFCF2 /* _Observer */,
 				F613A9F5540C672C67B70558 /* UITableViewExport.h */,
+				F613AA3789AAF5E44CCE70BF /* TableViewHeaderOrFooter */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -1742,6 +1749,17 @@
 				F613A6FF9A9D0AF55F45E909 /* UIPinchGestureRecognizerExport.h */,
 			);
 			path = PinchGestureRecognizer;
+			sourceTree = "<group>";
+		};
+		F613AA3789AAF5E44CCE70BF /* TableViewHeaderOrFooter */ = {
+			isa = PBXGroup;
+			children = (
+				F613AFF0ADBDEF4F5FE16BC1 /* IRTableViewHeaderOrFooter.m */,
+				F613A9DDB8760C5066DF972C /* IRTableViewHeaderOrFooter.h */,
+				F613A567648E3C56C9A72D43 /* IRTableViewHeaderOrFooterDescriptor.m */,
+				F613A0CACDEB35D1F9FF2914 /* IRTableViewHeaderOrFooterDescriptor.h */,
+			);
+			path = TableViewHeaderOrFooter;
 			sourceTree = "<group>";
 		};
 		F613AA52561EFC8AAC8C82F8 /* Annotation */ = {
@@ -2701,6 +2719,8 @@
 				F613A4BB9B91D4D9A2276CC8 /* IRRefreshControl.m in Sources */,
 				F613A9B75F8853252AA9622C /* IRRefreshControlDescriptor.m in Sources */,
 				F613A6BFCB17D44505786A27 /* IRRefreshControlBuilder.m in Sources */,
+				F613ADEF55F1BB7ECF069A17 /* IRTableViewHeaderOrFooter.m in Sources */,
+				F613AA48DFC84FB3B1700A06 /* IRTableViewHeaderOrFooterDescriptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

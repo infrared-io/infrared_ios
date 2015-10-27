@@ -20,6 +20,8 @@
 
 // -----------------------------------------------------------------------------------
 
+- (void) dynamicAutolayoutHeightUpdate;
+
 - (void) setTableData:(NSArray *)tableData;
 
 @end

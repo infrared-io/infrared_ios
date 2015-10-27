@@ -98,35 +98,12 @@ var infraredClass = function () {
     this.nameForFollowingPlugin = function (pluginName) {
         this.pluginName = pluginName;
     };
-    this.plugin = function (/*name, */dictionary) {
-        //this.pluginsMap[name] = dictionary;
-
-        //var dictAsString = JSON.stringify(dictionary, function(key, value) {
-        //    return (typeof value === 'function') ? '' + value : value;
-        //});
-        //dictAsString = IR.md5(dictAsString);
-        //this.pluginsMap[dictAsString] = dictionary;
-
+    this.plugin = function (dictionary) {
         if (this.pluginName && this.pluginName.length>0) {
             this.pluginsMap[this.pluginName] = dictionary;
             this.pluginName = null;
         }
     };
-
-    //this.addWatch = function (viewController, propertyName, numberOfLevels) {
-    //    if (viewController) {
-    //        setTimeout((function(viewController, propertyName, numberOfLevels) {
-    //            watch(viewController, propertyName, infrared.watchJSCallback, numberOfLevels);
-    //        })(viewController, propertyName, numberOfLevels), 1);
-    //        //watch(viewController, propertyName, infrared.watchJSCallback, numberOfLevels);
-    //    } else {
-    //        NSLog("ERROR: infrared.addWatch - viewController is NULL !!!!!!");
-    //    }
-    //};
-    //
-    //this.removeWatch = function (viewController, propertyName) {
-    //    unwatch(viewController, propertyName, infrared.watchJSCallback);
-    //};
 
     this.watchJSCallback = function (prop, action, newValue, oldValue) {
         //console.log("this=" + this + ", prop=" + prop + ", action=" + action);
@@ -135,15 +112,6 @@ var infraredClass = function () {
     };
 
     this.extendVCWithPluginName = function (viewController, pluginNameList) {
-        //var plugin = null;
-        //for (var anPluginName in this.pluginsMap) {
-        //    if (this.pluginsMap.hasOwnProperty(anPluginName)) {
-        //        if (anPluginName == pluginName) {
-        //            plugin = this.pluginsMap[anPluginName];
-        //            break;
-        //        }
-        //    }
-        //}
         var pluginName;
         var plugin;
         if (pluginNameList && viewController) {
@@ -155,10 +123,6 @@ var infraredClass = function () {
                 }
             }
         }
-        //var plugin = this.pluginsMap[pluginName];
-        //if (plugin != null && viewController != null) {
-        //    extend(viewController, plugin, true);
-        //}
     };
 
     this.extendVCWithPlugin = function (viewController, plugin) {
@@ -170,42 +134,50 @@ var infraredClass = function () {
     //      - extended by me to support function wrapping
     // helper for merging two object with each other
     function extend(oldObj, originalNewObj, preserve) {
-        // failsave if something goes wrong
+        // fail-save if something goes wrong
         if(!oldObj || !originalNewObj) return oldObj || originalNewObj || {};
 
         // make sure we work with copies
         //oldObj = copy(oldObj);
 
-        var newObj = copy(originalNewObj);
+        //var newObj = copy(originalNewObj);
 
-        for(var key in newObj) {
-            if(Object.prototype.toString.call(newObj[key]) === '[object Object]') {
-                //console.log('extend - key='+key+', [object Object]');
+        var toStringValue;
+        var newObjectProperty;
+
+        for(var key in originalNewObj) {
+            toStringValue = Object.prototype.toString.call(originalNewObj[key]);
+            //console.log('ir.extend '+toStringValue+' - key='+key);
+            if(toStringValue === '[object Object]') {
                 if (oldObj[key] === undefined) {
                     oldObj[key] = {};
                 }
-                extend(oldObj[key], newObj[key]);
-            } else if(Object.prototype.toString.call(newObj[key]) === '[object Array]') {
-                //console.log('extend - key='+key+', [object Array]');
+                //extend(oldObj[key], newObj[key]);
+                newObjectProperty = copy(originalNewObj[key]);
+                extend(oldObj[key], newObjectProperty);
+            } else if(toStringValue === '[object Array]') {
                 if (oldObj[key] === undefined) {
                     oldObj[key] = [];
                 }
-                extend(oldObj[key], newObj[key]);
+                //extend(oldObj[key], newObj[key]);
+                newObjectProperty = copy(originalNewObj[key]);
+                extend(oldObj[key], newObjectProperty);
             } else {
-                if (Object.prototype.toString.call(newObj[key]) === '[object Function]'
+                if (toStringValue === '[object Function]'
                     && typeof oldObj.key !== "undefined")
                 {
-                    //console.log('extend - key='+key+', [object Function]');
-                    //console.log('-- function "' + key + '" wrapped --');
-                    oldObj[key] = (preserve && oldObj[key]) ? oldObj[key] : wrap(/*newObj*/originalNewObj[key], oldObj);
-                } else {
+                    //oldObj[key] = (preserve && oldObj[key]) ? oldObj[key] : wrap(/*newObj*/originalNewObj[key], oldObj);
+                    if (preserve && oldObj[key]) {
+                        //oldObj[key] = oldObj[key];
+                    } else {
+                        oldObj[key] = wrap(originalNewObj[key], oldObj);
+                    }
+                } else { // [object Number], [object Boolean], [object String], [object Undefined], [object Null], [object Date], [object RegExp]
                     // if preserve is set to true oldObj will not be overwritten by newObj if
                     // oldObj has already a method key
                     if (preserve && oldObj[key]) {
                         //oldObj[key] = oldObj[key];
                     } else {
-                        //console.log('extend - key='+key+', value-set');
-
                         //oldObj[key] = newObj[key];
 
                         var descriptor = Object.getOwnPropertyDescriptor(originalNewObj/*newObj*/, key);
@@ -224,7 +196,8 @@ var infraredClass = function () {
                                 set: aSetter
                             }); // value: 8675309, writable: false, enumerable: false
                         } else {
-                            oldObj[key] = newObj[key];
+                            //oldObj[key] = newObj[key];
+                            oldObj[key] = originalNewObj[key];
                         }
                     }
                 }

@@ -118,7 +118,9 @@
     } else if ([irView isKindOfClass:[IRCollectionViewCell class]]) {
         subviewsArray = ((IRCollectionViewCell *) irView).contentView.subviews;
     } else {
-        subviewsArray = irView.subviews;
+        if ([irView respondsToSelector:@selector(subviews)]) {
+            subviewsArray = irView.subviews;
+        }
     }
     for (IRView *subview in subviewsArray) {
         if ([subview conformsToProtocol:@protocol(IRComponentInfoProtocol)]) {
@@ -126,9 +128,11 @@
         }
     }
 
-    for (UIGestureRecognizer *recognizer in irView.gestureRecognizers) {
-        if ([recognizer conformsToProtocol:@protocol(IRComponentInfoProtocol)]) {
-            [IRViewBuilder updateComponent:(id)recognizer extra:extra];
+    if ([irView respondsToSelector:@selector(gestureRecognizers)]) {
+        for (UIGestureRecognizer *recognizer in irView.gestureRecognizers) {
+            if ([recognizer conformsToProtocol:@protocol(IRComponentInfoProtocol)]) {
+                [IRViewBuilder updateComponent:(id)recognizer extra:extra];
+            }
         }
     }
 }

@@ -52,6 +52,7 @@
 #import "Main.h"
 #import "IRNavigationController.h"
 #import "IRRefreshControlDescriptor.h"
+#import "IRTableViewHeaderOrFooterDescriptor.h"
 #import <CoreText/CoreText.h>
 
 @interface Infrared ()
@@ -98,6 +99,7 @@ static Infrared *sharedInfraRed = nil;
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRSwitchDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRTableViewDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRTableViewCellDescriptor class]];
+        [[IRDataController sharedInstance] registerComponentDescriptor:[IRTableViewHeaderOrFooterDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRTextFieldDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRTextViewDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRToolbarDescriptor class]];

@@ -64,7 +64,7 @@
         // jsLibrariesArray
         array = aDictionary[jsLibrariesKEY];
         if (array) {
-            self.jsLibrariesArray = array;
+            self.jsLibrariesArray = [self processedJSLibrariesArray:array];
         }
 
         // i18n
@@ -163,6 +163,25 @@
 
 - (NSString *) app {
     return self.componentId;
+}
+
+- (NSArray *) processedJSLibrariesArray:(NSArray *)jsLibrariesArray
+{
+    NSMutableArray *processedJSLibrariesArray = [NSMutableArray array];
+    NSString *jsLibraryPath;
+    if (jsLibrariesArray.count > 0) {
+        for (NSString *anJSLibrary in jsLibrariesArray) {
+            if ([anJSLibrary isKindOfClass:[NSDictionary class]]) {
+                jsLibraryPath = ((NSDictionary *) anJSLibrary)[pathKEY][urlKEY];
+            } else {
+                jsLibraryPath = anJSLibrary;
+            }
+            if (jsLibraryPath.length > 0) {
+                [processedJSLibrariesArray addObject:jsLibraryPath];
+            }
+        }
+    }
+    return processedJSLibrariesArray;
 }
 
 @end
