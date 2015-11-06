@@ -22,9 +22,13 @@
 #import "IRSideMenu.h"
 #endif
 
+#define LOCAL_STORAGE_DICTIONARY @"LOCAL_STORAGE_DICTIONARY"
+
 @interface IRDataController ()
 
 @property(nonatomic, strong) NSMutableDictionary *componentsDictionary;
+
+@property(nonatomic, strong) NSMutableDictionary *localStorageDictionary;
 
 //@property(nonatomic, strong) JSVirtualMachine *jsVirtualMachine;
 @property(nonatomic, strong) JSContext *jsContext;
@@ -49,6 +53,9 @@ static IRDataController *sharedDataController = nil;
     if (self) {
         self.componentsDictionary = [NSMutableDictionary dictionary];
         self.librariesArray = [NSMutableArray array];
+
+        self.localStorageDictionary = [NSMutableDictionary dictionary];
+        [self readLocalStorageDictionaryFromUserDefaults];
 
         self.defaultUpdateJSONPath = UPDATE_JSON_PATH;
         self.updateJSONPath = [self defaultUpdateJSONPath];
@@ -267,6 +274,97 @@ static IRDataController *sharedDataController = nil;
     return self.jsContext;
 }
 #endif
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
+#pragma mark - HTML5 sessionStorage
+
+- (NSString *) getLocalStorageItemsAsJsonStringForAppName:(NSString *)appName
+{
+    NSString *localStorageDataJSON;
+    NSDictionary *localStorageData = [self getLocalStorageItemsForAppName:appName];
+    NSData *jsonData;
+    NSError *error;
+    if (localStorageData) {
+        jsonData = [NSJSONSerialization dataWithJSONObject:localStorageData
+                                                           options:0 // 0 for compact form, otherwise use NSJSONWritingPrettyPrinted
+                                                             error:&error];
+        if (! jsonData) {
+            NSLog(@"getLocalStorageItemsAsJsonStringForAppName -appName:%@ -error:%@", appName, error.localizedDescription);
+            localStorageDataJSON = @"{}";
+        } else {
+            localStorageDataJSON = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        }
+    } else {
+        localStorageDataJSON = @"{}";
+    }
+    return localStorageDataJSON;
+}
+
+- (NSDictionary *) getLocalStorageItemsForAppName:(NSString *)appName
+{
+    NSDictionary *localStorageData;
+    localStorageData = self.localStorageDictionary[appName];
+    if (localStorageData == nil) {
+        localStorageData = @{};
+    }
+    return localStorageData;
+}
+
+- (void) setLocalStorageItems:(NSDictionary *)localStorageData forAppName:(NSString *)appName
+{
+    self.localStorageDictionary[appName] = localStorageData;
+    [self storeLocalStorageDictionaryInUserDefaults];
+}
+
+- (void) setLocalStorageValue:(NSString *)value key:(NSString *)key appName:(NSString *)appName
+{
+    NSMutableDictionary *localStorageData;
+    localStorageData = self.localStorageDictionary[appName];
+    if (localStorageData == nil) {
+        localStorageData = [NSMutableDictionary dictionary];
+        self.localStorageDictionary[appName] = localStorageData;
+    }
+    localStorageData[key] = value;
+    [self storeLocalStorageDictionaryInUserDefaults];
+}
+- (void) removeLocalStorageValueForKey:(NSString *)key appName:(NSString *)appName
+{
+    NSMutableDictionary *localStorageData;
+    localStorageData = self.localStorageDictionary[appName];
+    if (localStorageData == nil) {
+        localStorageData = [NSMutableDictionary dictionary];
+        self.localStorageDictionary[appName] = localStorageData;
+    }
+    [localStorageData removeObjectForKey:key];
+    [self storeLocalStorageDictionaryInUserDefaults];
+}
+- (void) clearLocalStorageValueForAppName:(NSString *)appName
+{
+    self.localStorageDictionary[appName] = [NSMutableDictionary dictionary];
+    [self storeLocalStorageDictionaryInUserDefaults];
+}
+
+- (void) readLocalStorageDictionaryFromUserDefaults
+{
+    NSUUID *identifierForVendor = [[UIDevice currentDevice] identifierForVendor];
+//    NSLog(@"read---LocalStorageDictionaryInUserDefaults, identifierForVendor:%@", [identifierForVendor UUIDString]);
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:[identifierForVendor UUIDString]];
+    self.localStorageDictionary = [NSMutableDictionary dictionary];
+    NSDictionary *dictionary = [defaults objectForKey:LOCAL_STORAGE_DICTIONARY];
+    for (NSDictionary *anLocalStorageKey in dictionary) {
+        self.localStorageDictionary[anLocalStorageKey] = [dictionary[anLocalStorageKey] mutableCopy];
+    }
+}
+- (void) storeLocalStorageDictionaryInUserDefaults
+{
+    NSUUID *identifierForVendor = [[UIDevice currentDevice] identifierForVendor];
+//    NSLog(@"store---LocalStorageDictionaryInUserDefaults, identifierForVendor:%@", [identifierForVendor UUIDString]);
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:[identifierForVendor UUIDString]];
+    [defaults setObject:self.localStorageDictionary forKey:LOCAL_STORAGE_DICTIONARY];
+    [defaults synchronize];
+}
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------

@@ -44,6 +44,10 @@
 - (MBProgressHUD *)showGlobalProgressHUDWithTitle:(NSString *)title mode:(MBProgressHUDMode)mode;
 - (void)dismissGlobalHUD;
 
+- (void) localStorageItemSet:(NSString *)key :(NSString *)value;
+- (void) localStorageItemRemove:(NSString *)key;
+- (void) localStorageClear;
+
 @end
 
 @interface IRUtilLibrary : IRBaseLibrary <IRInternalLibraryExport>

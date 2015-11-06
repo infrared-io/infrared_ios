@@ -59,6 +59,8 @@
 
 @property (nonatomic, strong) NSString *appJsonPath;
 
+@property (nonatomic, strong) NSString *previousAppName;
+
 @end
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -291,6 +293,9 @@ static Infrared *sharedInfraRed = nil;
                                                     preserveName:YES
                                               failedLoadingPaths:failedPathsArray];
 
+    self.previousAppName = [[[[IRDataController sharedInstance] globalJSContext] evaluateScript:@"IR.appName"] toString];
+    NSLog(@"buildInfraredAppFromPath -previousAppName:%@", self.previousAppName);
+
       // 4) create JSContext from UIWebView
     [[IRDataController sharedInstance] initJSContext];
 
@@ -357,7 +362,7 @@ static Infrared *sharedInfraRed = nil;
 
     // 7) add JSExport protocols for all component
     // This step has to go before "8" (addComponentConstructorsToJSContext), otherwise protocols will not be registered properly
-    // At time of writing this I was able to figure out why is this happening
+    // At time of writing this I was not able to figure out why is this happening
     [[IRDataController sharedInstance] addAllJSExportProtocols];
 
     // 8) add component constructors ("create" method) to globalJSContext
@@ -370,10 +375,22 @@ static Infrared *sharedInfraRed = nil;
     [[[IRDataController sharedInstance] globalJSContext] evaluateScript:[NSString stringWithFormat:@"IR.appName='%@'", [IRDataController sharedInstance].appDescriptor.app]];
     [[[IRDataController sharedInstance] globalJSContext] evaluateScript:[NSString stringWithFormat:@"IR.appVersion=%lld", [IRDataController sharedInstance].appDescriptor.version]];
 
-    // 11) dispatch JS Event that IR app is ready
+    // 11) update HTML "sessionStorage" and "localStorage"
+    // ### sessionStorage
+    // -- clean session storage
+    [[[IRDataController sharedInstance] globalJSContext] evaluateScript:@"window.sessionStorage.clear();"];
+    // ### localStorage
+    // -- clean local storage
+    [[[IRDataController sharedInstance] globalJSContext] evaluateScript:@"IR.localStorageOriginalClear.call(localStorage)"];
+    // -- restore local storage for appName
+    NSString *localStorageDataJsonString = [[IRDataController sharedInstance] getLocalStorageItemsAsJsonStringForAppName:[IRDataController sharedInstance].appDescriptor.app];
+    NSString *methodCall = [NSString stringWithFormat:@"IR.setLocalStorageItems(%@);", localStorageDataJsonString];
+    [[[IRDataController sharedInstance] globalJSContext] evaluateScript:methodCall];
+
+    // 12) dispatch JS Event that IR app is ready
     [[[IRDataController sharedInstance] globalJSContext] evaluateScript:@"window.dispatchEvent(new Event('ir_load'));"];
 
-    // 12) build main view-controller
+    // 13) build main view-controller
     IRScreenDescriptor *mainScreenDescriptor = [[IRDataController sharedInstance].appDescriptor mainScreenDescriptor];
     [self buildViewControllerAndSetRootViewControllerScreenDescriptor:mainScreenDescriptor
                                                                  data:nil];

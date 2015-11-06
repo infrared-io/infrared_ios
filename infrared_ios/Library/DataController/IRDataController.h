@@ -68,6 +68,13 @@
 - (JSContext *) globalJSContext;
 #endif
 
+- (NSString *) getLocalStorageItemsAsJsonStringForAppName:(NSString *)appName;
+- (NSDictionary *) getLocalStorageItemsForAppName:(NSString *)appName;
+- (void) setLocalStorageItems:(NSDictionary *)localStorageData forAppName:(NSString *)appName;
+- (void) setLocalStorageValue:(NSString *)value key:(NSString *)key appName:(NSString *)appName;
+- (void) removeLocalStorageValueForKey:(NSString *)key appName:(NSString *)appName;
+- (void) clearLocalStorageValueForAppName:(NSString *)appName;
+
 #if TARGET_OS_IPHONE
 - (void) registerViewController:(id <IRComponentInfoProtocol>)component;
 - (void) unregisterViewControllerAndItsNavigationStack:(IRViewController *)viewController;

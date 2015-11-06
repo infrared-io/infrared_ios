@@ -10,6 +10,7 @@
 #import "IRScreenDescriptor.h"
 #import "SSKeychain.h"
 #import "IRUtil.h"
+#import "IRAppDescriptor.h"
 
 
 @implementation IRUtilLibrary
@@ -217,6 +218,25 @@ static IRUtilLibrary *sharedIRLibrary = nil;
         UIWindow *window = [[UIApplication sharedApplication] keyWindow];
         [MBProgressHUD hideAllHUDsForView:window animated:YES];
     });
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
+- (void) localStorageItemSet:(NSString *)key :(NSString *)value
+{
+    [[IRDataController sharedInstance] setLocalStorageValue:value
+                                                        key:key
+                                                    appName:[IRDataController sharedInstance].appDescriptor.app];
+}
+- (void) localStorageItemRemove:(NSString *)key
+{
+    [[IRDataController sharedInstance] removeLocalStorageValueForKey:key
+                                                             appName:[IRDataController sharedInstance].appDescriptor.app];
+}
+- (void) localStorageClear
+{
+    [[IRDataController sharedInstance] clearLocalStorageValueForAppName:[IRDataController sharedInstance].appDescriptor.app];
 }
 
 // --------------------------------------------------------------------------------------------------------------------

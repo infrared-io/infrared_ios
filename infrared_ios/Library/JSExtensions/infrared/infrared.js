@@ -105,6 +105,28 @@ var infraredClass = function () {
         }
     };
 
+    this.getLocalStorageItems = function () {
+        var data = {};
+        var key;
+        var value;
+        for (var i = 0; i < localStorage.length; i++){
+            key = localStorage.key(i);
+            value = localStorage.getItem(key);
+            data[key] = value;
+        }
+        return data;
+    };
+
+    this.setLocalStorageItems = function (data) {
+        var value;
+        for (var key in data){
+            if (data.hasOwnProperty(key)) {
+                value = data[key];
+                IR.localStorageOriginalSetItem.call(localStorage, key, value);
+            }
+        }
+    };
+
     this.watchJSCallback = function (prop, action, newValue, oldValue) {
         //console.log("this=" + this + ", prop=" + prop + ", action=" + action);
         //NSLog("this=" + this + ", prop=" + prop + ", action=" + action);
@@ -225,3 +247,21 @@ var infraredClass = function () {
 };
 
 var IR = new infraredClass();
+
+IR.localStorageOriginalSetItem = localStorage.setItem;
+localStorage.setItem = function(a_key, a_value) {
+    IR.Util.localStorageItemSet(a_key, a_value);
+    IR.localStorageOriginalSetItem.call(localStorage, a_key, a_value);
+};
+
+IR.localStorageOriginalRemoveItem = localStorage.removeItem;
+localStorage.removeItem = function(a_key) {
+    IR.Util.localStorageItemRemove(a_key);
+    IR.localStorageOriginalRemoveItem.call(localStorage, a_key);
+};
+
+IR.localStorageOriginalClear = localStorage.clear;
+localStorage.clear = function() {
+    IR.Util.localStorageClear();
+    IR.localStorageOriginalClear.call(localStorage);
+};
