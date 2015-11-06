@@ -18,6 +18,7 @@ all resources used by app can be updated at any time. This includes localization
 
 ### JSON UI example
 
+Label component:
 ```json
 {
   "id" : "label_id",
