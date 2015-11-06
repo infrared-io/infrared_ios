@@ -57,11 +57,13 @@ Entry point for Infrared based app is App.json where files for defining UI, Inte
   "screens": [
     {
       "deviceType": "phone",
-      "path": "lending_screen.json"
+      "path": "lending_screen.json",
+      "jsPluginPath" : "lending_screen_plugin.js"
     },
     {
       "deviceType": "phone",
-      "path": "signin_and_singup_screen.json"
+      "path": "signin_and_singup_screen.json",
+      "jsPluginPath" : "signin_and_singup_screen_plugin.js"
     }
   ],
   "jsLibraries" : [
