@@ -26,6 +26,10 @@
 #endif
 @property(nonatomic, strong) /*UIImage*/ NSString *normalImage;
 @property(nonatomic, strong) /*UIImage*/ NSString *normalBackgroundImage;
+#if TARGET_OS_IPHONE
+@property(nonatomic) UIEdgeInsets normalImageCapInsets;
+@property(nonatomic) UIEdgeInsets normalBackgroundImageCapInsets;
+#endif
 
 // UIControlStateHighlighted
 @property(nonatomic, strong) NSString *highlightedTitle;
@@ -35,6 +39,10 @@
 #endif
 @property(nonatomic, strong) /*UIImage*/ NSString *highlightedImage;
 @property(nonatomic, strong) /*UIImage*/ NSString *highlightedBackgroundImage;
+#if TARGET_OS_IPHONE
+@property(nonatomic) UIEdgeInsets highlightedImageCapInsets;
+@property(nonatomic) UIEdgeInsets highlightedBackgroundImageCapInsets;
+#endif
 
 // UIControlStateSelected
 @property(nonatomic, strong) NSString *selectedTitle;
@@ -44,6 +52,10 @@
 #endif
 @property(nonatomic, strong) /*UIImage*/ NSString *selectedImage;
 @property(nonatomic, strong) /*UIImage*/ NSString *selectedBackgroundImage;
+#if TARGET_OS_IPHONE
+@property(nonatomic) UIEdgeInsets selectedImageCapInsets;
+@property(nonatomic) UIEdgeInsets selectedBackgroundImageCapInsets;
+#endif
 
 // UIControlStateDisabled
 @property(nonatomic, strong) NSString *disabledTitle;
@@ -53,6 +65,10 @@
 #endif
 @property(nonatomic, strong) /*UIImage*/ NSString *disabledImage;
 @property(nonatomic, strong) /*UIImage*/ NSString *disabledBackgroundImage;
+#if TARGET_OS_IPHONE
+@property(nonatomic) UIEdgeInsets disabledImageCapInsets;
+@property(nonatomic) UIEdgeInsets disabledBackgroundImageCapInsets;
+#endif
 
 #if TARGET_OS_IPHONE
 @property(nonatomic, retain) UIFont *font;

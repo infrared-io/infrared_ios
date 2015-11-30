@@ -76,6 +76,16 @@
         string = aDictionary[NSStringFromSelector(@selector(normalBackgroundImage))];
         self.normalBackgroundImage = string;
 
+#if TARGET_OS_IPHONE
+        // normalImageCapInsets
+        dictionary = aDictionary[NSStringFromSelector(@selector(normalImageCapInsets))];
+        self.normalImageCapInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+
+        // normalBackgroundImageCapInsets
+        dictionary = aDictionary[NSStringFromSelector(@selector(normalBackgroundImageCapInsets))];
+        self.normalBackgroundImageCapInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+#endif
+
         // -----------------------------------------------------------------------------------
 
         // highlightedTitle
@@ -99,6 +109,16 @@
         // highlightedBackgroundImage
         string = aDictionary[NSStringFromSelector(@selector(highlightedBackgroundImage))];
         self.highlightedBackgroundImage = string;
+
+#if TARGET_OS_IPHONE
+        // highlightedImageCapInsets
+        dictionary = aDictionary[NSStringFromSelector(@selector(highlightedImageCapInsets))];
+        self.highlightedImageCapInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+
+        // highlightedBackgroundImageCapInsets
+        dictionary = aDictionary[NSStringFromSelector(@selector(highlightedBackgroundImageCapInsets))];
+        self.highlightedBackgroundImageCapInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+#endif
 
         // -----------------------------------------------------------------------------------
 
@@ -124,6 +144,16 @@
         string = aDictionary[NSStringFromSelector(@selector(selectedBackgroundImage))];
         self.selectedBackgroundImage = string;
 
+#if TARGET_OS_IPHONE
+        // selectedImageCapInsets
+        dictionary = aDictionary[NSStringFromSelector(@selector(selectedImageCapInsets))];
+        self.selectedImageCapInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+
+        // selectedBackgroundImageCapInsets
+        dictionary = aDictionary[NSStringFromSelector(@selector(selectedBackgroundImageCapInsets))];
+        self.selectedBackgroundImageCapInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+#endif
+
         // -----------------------------------------------------------------------------------
 
         // disabledTitle
@@ -147,6 +177,16 @@
         // disabledBackgroundImage
         string = aDictionary[NSStringFromSelector(@selector(disabledBackgroundImage))];
         self.disabledBackgroundImage = string;
+
+#if TARGET_OS_IPHONE
+        // disabledImageCapInsets
+        dictionary = aDictionary[NSStringFromSelector(@selector(disabledImageCapInsets))];
+        self.disabledImageCapInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+
+        // disabledBackgroundImageCapInsets
+        dictionary = aDictionary[NSStringFromSelector(@selector(disabledBackgroundImageCapInsets))];
+        self.disabledBackgroundImageCapInsets = [IRBaseDescriptor edgeInsetsFromDictionary:dictionary];
+#endif
 
         // -----------------------------------------------------------------------------------
 

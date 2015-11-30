@@ -34,6 +34,7 @@
 		15136E6119AB60A700124BCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15136E4019AB60A600124BCE /* UIKit.framework */; };
 		15136E6919AB60A700124BCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15136E6719AB60A700124BCE /* InfoPlist.strings */; };
 		15136E6B19AB60A700124BCE /* Infrared_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15136E6A19AB60A700124BCE /* Infrared_iosTests.m */; };
+		15369A371C0CA26A00C5CA98 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15369A351C0CA26900C5CA98 /* Launch Screen.storyboard */; };
 		155B439D1B5FD1E8006E88D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 155B439C1B5FD1E8006E88D8 /* main.m */; };
 		155B43A41B5FD61E006E88D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155B43A31B5FD61E006E88D8 /* Foundation.framework */; };
 		155B43AD1B5FE1D3006E88D8 /* IRPrecache.m in Sources */ = {isa = PBXBuildFile; fileRef = 155B43AC1B5FE1D3006E88D8 /* IRPrecache.m */; };
@@ -363,6 +364,7 @@
 		15136E6619AB60A700124BCE /* infrared_iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "infrared_iosTests-Info.plist"; sourceTree = "<group>"; };
 		15136E6819AB60A700124BCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15136E6A19AB60A700124BCE /* Infrared_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Infrared_iosTests.m; sourceTree = "<group>"; };
+		15369A361C0CA26900C5CA98 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		155B439A1B5FD1E8006E88D8 /* precaching */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = precaching; sourceTree = BUILT_PRODUCTS_DIR; };
 		155B439C1B5FD1E8006E88D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		155B43A31B5FD61E006E88D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -944,6 +946,7 @@
 				15136E4B19AB60A600124BCE /* IRAppDelegate.h */,
 				15136E4C19AB60A600124BCE /* IRAppDelegate.m */,
 				15136E5719AB60A600124BCE /* Images.xcassets */,
+				15369A351C0CA26900C5CA98 /* Launch Screen.storyboard */,
 				15136E4319AB60A600124BCE /* Supporting Files */,
 				F613A0750B8E47D032FB4F57 /* Library */,
 				F613A092F551D66DF844A3A8 /* Examples */,
@@ -2403,6 +2406,7 @@
 				15136E4719AB60A600124BCE /* InfoPlist.strings in Resources */,
 				F613A5E9BE665CA1F3EBEBDF /* ir_app.json in Resources */,
 				F613A4E1B7164CCCB7D597E0 /* example1_en.json in Resources */,
+				15369A371C0CA26A00C5CA98 /* Launch Screen.storyboard in Resources */,
 				F613A2925423E9F1F5E15254 /* example1_fr.json in Resources */,
 				F613A0EE0C09B10D33B26709 /* update.json in Resources */,
 				F613A5C2EB11DBBBFC33C7F9 /* update_screen.json in Resources */,
@@ -2833,6 +2837,14 @@
 				15136E6819AB60A700124BCE /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		15369A351C0CA26900C5CA98 /* Launch Screen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15369A361C0CA26900C5CA98 /* en */,
+			);
+			name = "Launch Screen.storyboard";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

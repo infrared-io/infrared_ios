@@ -37,6 +37,8 @@
          viewController:(IRViewController *)viewController
                   extra:(id)extra
 {
+    UIImage *image;
+
     [IRViewBuilder setUpComponent:irButton componentDescriptor:descriptor viewController:viewController extra:extra];
     [IRBaseBuilder setUpUIControlInterfaceForComponent:irButton fromDescriptor:descriptor];
 
@@ -47,10 +49,16 @@
     if (descriptor.normalTitleShadowColor) {
         [irButton setTitleShadowColor:descriptor.normalTitleShadowColor forState:UIControlStateNormal];
     }
-    [irButton setImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.normalImage]
-              forState:UIControlStateNormal];
-    [irButton setBackgroundImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.normalBackgroundImage]
-                        forState:UIControlStateNormal];
+    image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.normalImage];
+    if (UIEdgeInsetsEqualToEdgeInsets(descriptor.normalImageCapInsets, UIEdgeInsetsNull) == NO) {
+        image = [image resizableImageWithCapInsets:descriptor.normalImageCapInsets];
+    }
+    [irButton setImage:image forState:UIControlStateNormal];
+    image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.normalBackgroundImage];
+    if (UIEdgeInsetsEqualToEdgeInsets(descriptor.normalBackgroundImageCapInsets, UIEdgeInsetsNull) == NO) {
+        image = [image resizableImageWithCapInsets:descriptor.normalBackgroundImageCapInsets];
+    }
+    [irButton setBackgroundImage:image forState:UIControlStateNormal];
 
     [irButton setTitle:[IRBaseBuilder textWithI18NCheck:descriptor.highlightedTitle] forState:UIControlStateHighlighted];
     if (descriptor.highlightedTitleColor) {
@@ -59,10 +67,16 @@
     if (descriptor.highlightedTitleShadowColor) {
         [irButton setTitleShadowColor:descriptor.highlightedTitleShadowColor forState:UIControlStateHighlighted];
     }
-    [irButton setImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.highlightedImage]
-              forState:UIControlStateHighlighted];
-    [irButton setBackgroundImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.highlightedBackgroundImage]
-                        forState:UIControlStateHighlighted];
+    image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.highlightedImage];
+    if (UIEdgeInsetsEqualToEdgeInsets(descriptor.highlightedImageCapInsets, UIEdgeInsetsNull) == NO) {
+        image = [image resizableImageWithCapInsets:descriptor.highlightedImageCapInsets];
+    }
+    [irButton setImage:image forState:UIControlStateHighlighted];
+    image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.highlightedBackgroundImage];
+    if (UIEdgeInsetsEqualToEdgeInsets(descriptor.highlightedBackgroundImageCapInsets, UIEdgeInsetsNull) == NO) {
+        image = [image resizableImageWithCapInsets:descriptor.highlightedBackgroundImageCapInsets];
+    }
+    [irButton setBackgroundImage:image forState:UIControlStateHighlighted];
 
     [irButton setTitle:[IRBaseBuilder textWithI18NCheck:descriptor.selectedTitle] forState:UIControlStateSelected];
     if (descriptor.selectedTitleColor) {
@@ -71,10 +85,16 @@
     if (descriptor.selectedTitleShadowColor) {
         [irButton setTitleShadowColor:descriptor.selectedTitleShadowColor forState:UIControlStateSelected];
     }
-    [irButton setImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.selectedImage]
-              forState:UIControlStateSelected];
-    [irButton setBackgroundImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.selectedBackgroundImage]
-                        forState:UIControlStateSelected];
+    image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.selectedImage];
+    if (UIEdgeInsetsEqualToEdgeInsets(descriptor.selectedImageCapInsets, UIEdgeInsetsNull) == NO) {
+        image = [image resizableImageWithCapInsets:descriptor.selectedImageCapInsets];
+    }
+    [irButton setImage:image forState:UIControlStateSelected];
+    image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.selectedBackgroundImage];
+    if (UIEdgeInsetsEqualToEdgeInsets(descriptor.selectedBackgroundImageCapInsets, UIEdgeInsetsNull) == NO) {
+        image = [image resizableImageWithCapInsets:descriptor.selectedBackgroundImageCapInsets];
+    }
+    [irButton setBackgroundImage:image forState:UIControlStateSelected];
 
     [irButton setTitle:[IRBaseBuilder textWithI18NCheck:descriptor.disabledTitle] forState:UIControlStateDisabled];
     if (descriptor.disabledTitleColor) {
@@ -83,10 +103,16 @@
     if (descriptor.disabledTitleShadowColor) {
         [irButton setTitleShadowColor:descriptor.disabledTitleShadowColor forState:UIControlStateDisabled];
     }
-    [irButton setImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.disabledImage]
-              forState:UIControlStateDisabled];
-    [irButton setBackgroundImage:[IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.disabledBackgroundImage]
-                        forState:UIControlStateDisabled];
+    image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.disabledImage];
+    if (UIEdgeInsetsEqualToEdgeInsets(descriptor.disabledImageCapInsets, UIEdgeInsetsNull) == NO) {
+        image = [image resizableImageWithCapInsets:descriptor.disabledImageCapInsets];
+    }
+    [irButton setImage:image forState:UIControlStateDisabled];
+    image = [IRUtil imagePrefixedWithBaseUrlIfNeeded:descriptor.disabledBackgroundImage];
+    if (UIEdgeInsetsEqualToEdgeInsets(descriptor.disabledBackgroundImageCapInsets, UIEdgeInsetsNull) == NO) {
+        image = [image resizableImageWithCapInsets:descriptor.disabledBackgroundImageCapInsets];
+    }
+    [irButton setBackgroundImage:image forState:UIControlStateDisabled];
 
     irButton.titleLabel.font = descriptor.font;
     irButton.titleLabel.shadowOffset = descriptor.titleShadowOffset;
