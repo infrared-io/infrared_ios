@@ -58,6 +58,7 @@
 @interface Infrared ()
 
 @property (nonatomic, strong) NSString *appJsonPath;
+@property (nonatomic) BOOL setRootViewController;
 
 @property (nonatomic, strong) NSString *previousAppName;
 
@@ -176,10 +177,23 @@ static Infrared *sharedInfraRed = nil;
 - (void) buildInfraredAppFromPath:(NSString *)path
         extraComponentDescriptors:(NSArray *)descriptorClassedArray
 {
-    [self registerExtraComponentDescriptors:descriptorClassedArray];
-    [self buildInfraredAppFromPath:path];
+    [self buildInfraredAppFromPath:path
+         extraComponentDescriptors:descriptorClassedArray
+             setRootViewController:YES];
 }
 - (void) buildInfraredAppFromPath:(NSString *)path
+        extraComponentDescriptors:(NSArray *)descriptorClassedArray
+            setRootViewController:(BOOL)setRootViewController
+{
+    [self registerExtraComponentDescriptors:descriptorClassedArray];
+    [self buildInfraredAppFromPath:path setRootViewController:setRootViewController];
+}
+- (void) buildInfraredAppFromPath:(NSString *)path
+{
+    [self buildInfraredAppFromPath:path setRootViewController:YES];
+}
+- (void) buildInfraredAppFromPath:(NSString *)path
+            setRootViewController:(BOOL)setRootViewController
 {
     NSDictionary *dictionary;
     IRAppDescriptor *appDescriptor;
@@ -189,6 +203,7 @@ static Infrared *sharedInfraRed = nil;
     NSString *jsonPathComponent;
 
     self.appJsonPath = path;
+    self.setRootViewController = setRootViewController;
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
@@ -222,6 +237,7 @@ static Infrared *sharedInfraRed = nil;
     appDescriptor = [[IRAppDescriptor alloc] initDescriptorForFontsAndScreensWithDictionary:dictionary];
     // -- cache and load Fonts
     // ---- copy Fonts
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_LOADING_TITLE_NOTIFICATION object:@"Fonts"];
     resourcesPathComponent = [IRUtil resourcesPathForAppDescriptor:appDescriptor];
 #if DEBUG == 1
     NSLog(@"resources-path: %@", [documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]);
@@ -229,29 +245,42 @@ static Infrared *sharedInfraRed = nil;
     pathsArray = appDescriptor.fontsArray;
     pathsArray = [self processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_FILES_TO_PROCESS_NOTIFICATION
+                                                        object:@{IR_FILES_TO_PROCESS_COUNT:@([pathsArray count]),
+                                                                 IR_FILES_TO_PROCESS_PERCENTAGE:@(10)}];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
                                                  destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
                                                     preserveName:YES
                                               failedLoadingPaths:failedPathsArray];
     // ---- load Fonts
     [self loadFonts:appDescriptor];
-//    // -- download all screen files
-//    pathsArray = [self screenPathsArray:appDescriptor.screensArray];
-//    pathsArray = [self processFilePathsArray:pathsArray appDescriptor:appDescriptor];
-//    failedPathsArray = [NSMutableArray array];
-//    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
-//                                                 destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
-//                                                    preserveName:YES
-//                                              failedLoadingPaths:failedPathsArray];
-    // -- build global App descriptor
+
+    // -- download all screen files
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_LOADING_TITLE_NOTIFICATION object:@"Screens"];
+    jsonPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:appDescriptor];
+    pathsArray = [self screenPathsArray:appDescriptor.screensArray];
+    pathsArray = [self processFilePathsArray:pathsArray appDescriptor:appDescriptor];
+    failedPathsArray = [NSMutableArray array];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_FILES_TO_PROCESS_NOTIFICATION
+                                                        object:@{IR_FILES_TO_PROCESS_COUNT:@([pathsArray count]),
+                                                                 IR_FILES_TO_PROCESS_PERCENTAGE:@(20)}];
+    [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
+                                                 destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
+                                                    preserveName:YES
+                                              failedLoadingPaths:failedPathsArray];
+    // -- build complete global App descriptor
     appDescriptor = (IRAppDescriptor *) [IRBaseDescriptor newAppDescriptorWithDictionary:dictionary];
-    [IRDataController sharedInstance].appDescriptor = appDescriptor;
+//    [IRDataController sharedInstance].appDescriptor = appDescriptor;
 
     // 2) download and cache all images
-    resourcesPathComponent = [IRUtil resourcesPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
-    NSArray *imagePathsArray = [IRBaseDescriptor allImagePaths];
-    imagePathsArray = [self processFilePathsArray:imagePathsArray];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_LOADING_TITLE_NOTIFICATION object:@"Images"];
+    resourcesPathComponent = [IRUtil resourcesPathForAppDescriptor:/*[IRDataController sharedInstance].*/appDescriptor];
+    NSArray *imagePathsArray = [IRBaseDescriptor allImagePaths:appDescriptor];
+    imagePathsArray = [self processFilePathsArray:imagePathsArray appDescriptor:appDescriptor];
     NSMutableArray *failedImagePathsArray = [NSMutableArray array];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_FILES_TO_PROCESS_NOTIFICATION
+                                                        object:@{IR_FILES_TO_PROCESS_COUNT:@([imagePathsArray count]),
+                                                                 IR_FILES_TO_PROCESS_PERCENTAGE:@(30)}];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:imagePathsArray
                                                  destinationPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]
                                                     preserveName:NO
@@ -260,34 +289,47 @@ static Infrared *sharedInfraRed = nil;
     [[IRSimpleCache sharedInstance] setAdditionalCacheFolderPath:[documentsDirectory stringByAppendingPathComponent:resourcesPathComponent]];
 
     // 3) download and cache JS files
-    jsonPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_LOADING_TITLE_NOTIFICATION object:@"Controllers"];
     // 3.1)  internal JS libraries
     pathsArray = @[@"infrared.js", @"infrared_md5.min.js", @"zeroTimeout.js", @"zeroTimeoutWorker.js", @"infrared_watch.js"];
     failedPathsArray = [NSMutableArray array];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_FILES_TO_PROCESS_NOTIFICATION
+                                                        object:@{IR_FILES_TO_PROCESS_COUNT:@([pathsArray count]),
+                                                                 IR_FILES_TO_PROCESS_PERCENTAGE:@(5)}];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
                                                  destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
                                                     preserveName:YES
                                               failedLoadingPaths:failedPathsArray];
     // 3.2) all JSPlugin files
-    pathsArray = [IRBaseDescriptor allJSFilesPaths];
-    pathsArray = [self processFilePathsArray:pathsArray];
+    pathsArray = [IRBaseDescriptor allJSFilesPaths:appDescriptor];
+    pathsArray = [self processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_FILES_TO_PROCESS_NOTIFICATION
+                                                        object:@{IR_FILES_TO_PROCESS_COUNT:@([pathsArray count]),
+                                                                 IR_FILES_TO_PROCESS_PERCENTAGE:@(15)}];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
                                                  destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
                                                     preserveName:YES
                                               failedLoadingPaths:failedPathsArray];
     // 3.3) all JSLibrary files
-    pathsArray = [IRDataController sharedInstance].appDescriptor.jsLibrariesArray;
-    pathsArray = [self processFilePathsArray:pathsArray];
+    pathsArray = /*[IRDataController sharedInstance].*/appDescriptor.jsLibrariesArray;
+    pathsArray = [self processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_FILES_TO_PROCESS_NOTIFICATION
+                                                        object:@{IR_FILES_TO_PROCESS_COUNT:@([pathsArray count]),
+                                                                 IR_FILES_TO_PROCESS_PERCENTAGE:@(15)}];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
                                                  destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
                                                     preserveName:YES
                                               failedLoadingPaths:failedPathsArray];
     // 3.4) all I18N files
-    pathsArray = [[IRDataController sharedInstance].appDescriptor.i18n.languagesArray allValues];
-    pathsArray = [self processFilePathsArray:pathsArray];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_LOADING_TITLE_NOTIFICATION object:@"Localisation"];
+    pathsArray = [/*[IRDataController sharedInstance].*/appDescriptor.i18n.languagesArray allValues];
+    pathsArray = [self processFilePathsArray:pathsArray appDescriptor:appDescriptor];
     failedPathsArray = [NSMutableArray array];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_FILES_TO_PROCESS_NOTIFICATION
+                                                        object:@{IR_FILES_TO_PROCESS_COUNT:@([pathsArray count]),
+                                                                 IR_FILES_TO_PROCESS_PERCENTAGE:@(5)}];
     [IRFileLoadingUtil downloadOrCopyFilesFromPathsArrayIfNeeded:pathsArray
                                                  destinationPath:[documentsDirectory stringByAppendingPathComponent:jsonPathComponent]
                                                     preserveName:YES
@@ -296,8 +338,13 @@ static Infrared *sharedInfraRed = nil;
     self.previousAppName = [[[[IRDataController sharedInstance] globalJSContext] evaluateScript:@"IR.appName"] toString];
     NSLog(@"buildInfraredAppFromPath -previousAppName:%@", self.previousAppName);
 
-      // 4) create JSContext from UIWebView
-    [[IRDataController sharedInstance] initJSContext];
+    // -- clear cached data
+    [[IRDataController sharedInstance] cleanData];
+
+    [IRDataController sharedInstance].appDescriptor = appDescriptor;
+
+    // 4) create JSContext from UIWebView
+    [[IRDataController sharedInstance] initJSContext:appDescriptor];
 
     // 5) check for updated app json
     if ([IRDataController sharedInstance].checkForNewAppDescriptorSource) {
@@ -391,9 +438,11 @@ static Infrared *sharedInfraRed = nil;
     [[[IRDataController sharedInstance] globalJSContext] evaluateScript:@"window.dispatchEvent(new Event('ir_load'));"];
 
     // 13) build main view-controller
-    IRScreenDescriptor *mainScreenDescriptor = [[IRDataController sharedInstance].appDescriptor mainScreenDescriptor];
-    [self buildViewControllerAndSetRootViewControllerScreenDescriptor:mainScreenDescriptor
-                                                                 data:nil];
+    if (self.setRootViewController) {
+        IRScreenDescriptor *mainScreenDescriptor = [[IRDataController sharedInstance].appDescriptor mainScreenDescriptor];
+        [self buildViewControllerAndSetRootViewControllerScreenDescriptor:mainScreenDescriptor
+                                                                     data:nil];
+    }
 }
 - (void) initI18NData
 {
@@ -552,6 +601,8 @@ static Infrared *sharedInfraRed = nil;
 
         [self showAppUpdateUI];
 
+        NSLog(@"cleanCacheAndRebuildAppWithPath - pre-delay");
+//        [self cleanCacheAndRebuildAppWithPath:path];
         [self performSelector:@selector(cleanCacheAndRebuildAppWithPath:)
                    withObject:path
                    afterDelay:0.5/*0.02*/];
@@ -593,6 +644,7 @@ static Infrared *sharedInfraRed = nil;
             // -- set new root view controller
             appDelegate.window.rootViewController = rootViewController;
             [appDelegate.window makeKeyAndVisible];
+            [[NSNotificationCenter defaultCenter] postNotificationName:IR_ROOT_VC_UPDATED_NOTIFICATION object:nil];
 
             // -- clean previous (old) view controller
             if (oldViewController) {
@@ -673,8 +725,8 @@ static Infrared *sharedInfraRed = nil;
 - (void) cleanCacheAndRebuildAppWithPath:(NSString *)path
                            appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    // -- clear cached data
-    [[IRDataController sharedInstance] cleanData];
+//    // -- clear cached data
+//    [[IRDataController sharedInstance] cleanData];
     // -- clear user-defaults
     [IRUtil cleanAppAndVersionInUserDefaults];
     // -- clean cacheFolder

@@ -63,13 +63,13 @@
         string = aDictionary[NSStringFromSelector(@selector(title))];
         self.title = string;
 
-        // useExistingClass
-        string = aDictionary[NSStringFromSelector(@selector(useExistingClass))];
-        self.useExistingClass = string;
+//        // nativeController
+//        string = aDictionary[NSStringFromSelector(@selector(nativeController))];
+//        self.nativeController = string;
 
-        // jsPluginPath
-        string = aDictionary[NSStringFromSelector(@selector(jsPluginPath))];
-        self.jsPluginPath = string;
+//        // controller
+//        string = aDictionary[NSStringFromSelector(@selector(controller))];
+//        self.controller = string;
 
 #if TARGET_OS_IPHONE
         // preferredStatusBarStyle

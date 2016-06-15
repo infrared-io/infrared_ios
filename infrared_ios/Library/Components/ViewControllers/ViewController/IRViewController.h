@@ -45,6 +45,7 @@
 // -----------------------------------------------------------------------------------
 
 - (void) buildAndSetRootViewControllerWithScreenId:(NSString *)screenId andData:(id)data;
+- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path;
 - (void) cleanAndBuildInfraredAppFromPath:(NSString *)path withUpdateJSONPath:(NSString *)updateUIPath;
 
 // -----------------------------------------------------------------------------------
@@ -167,6 +168,7 @@
 - (void) addViewForKeyboardResize:(IRView *)aView
                  bottomConstraint:(NSLayoutConstraint *)constraint;
 
+- (void) callControllerUnregisteredInJSController;
 - (void) cleanWatchJSObserversAndVC;
 
 //void runOnMainQueueWithoutDeadlocking(void (^block)(void));

@@ -6,6 +6,7 @@
 #import "IRFileLoadingUtil.h"
 #import "IRSimpleCache.h"
 #import "IRUtil.h"
+#import "IRGlobal.h"
 
 
 @implementation IRFileLoadingUtil
@@ -30,7 +31,7 @@
                             destinationPath:(NSString *)destinationPath
                                preserveName:(BOOL)preserverName
 {
-    BOOL failedLoadingPaths = NO;
+    BOOL failedLoadingPath = NO;
     BOOL folderAvailable = NO;
     NSString *fileSourcePath;
     NSString *fileDestinationPath;
@@ -38,8 +39,8 @@
     NSError *error;
     folderAvailable = [IRFileLoadingUtil crateNoSyncFolderIfNeeded:destinationPath];
     if (folderAvailable == NO) {
-        failedLoadingPaths = YES;
-        return failedLoadingPaths;
+        failedLoadingPath = YES;
+        return failedLoadingPath;
     }
     if ([IRUtil isLocalFile:filePath]) { // [IRUtil isValidURLWithHostAndPath:filePath]
 //        fileDestinationPath = [destinationPath stringByAppendingFormat:@"/%@", filePath];
@@ -60,7 +61,7 @@
         }
         if (error) {
             NSLog(@"IRFileLoadingUtil-downloadOrCopyFilesFromPathsArray - copyItemAtURL '%@': %@", filePath, [error localizedDescription]);
-            failedLoadingPaths = YES;
+            failedLoadingPath = YES;
         }
     } else {
         if (preserverName) {
@@ -80,11 +81,12 @@
             if (fileData) {
                 [fileData writeToFile:fileDestinationPath atomically:YES];
             } else {
-                failedLoadingPaths = YES;
+                failedLoadingPath = YES;
             }
         }
     }
-    return failedLoadingPaths;
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_FILE_READY_NOTIFICATION object:nil];
+    return failedLoadingPath;
 }
 
 + (BOOL) crateNoSyncFolderIfNeeded:(NSString *)folderPath

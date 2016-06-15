@@ -47,7 +47,8 @@
     NSDictionary *dictionary = nil;
     NSString *anDeviceType;
     NSString *anScreenPath;
-    NSString *jsPluginPath;
+    NSString *nativeControllerName;
+    NSString *jsControllerPath;
     IRScreenDescriptor *anScreenDescriptor;
     for (NSDictionary *anScreenDictionary in aArray) {
         anDeviceType = anScreenDictionary[deviceTypeKEY];
@@ -67,13 +68,18 @@
             if (dictionary) {
                 anScreenDescriptor = [[IRScreenDescriptor alloc] initDescriptorWithDictionary:dictionary];
                 if (anScreenDescriptor) {
-                    // -- js-plugin path
-                    jsPluginPath = anScreenDictionary[NSStringFromSelector(@selector(jsPluginPath))];
-                    if ([jsPluginPath isKindOfClass:[NSDictionary class]]) {
-                        jsPluginPath = ((NSDictionary *) jsPluginPath)[urlKEY];
+                    // -- native-controller path
+                    nativeControllerName = anScreenDictionary[NSStringFromSelector(@selector(nativeController))];
+                    anScreenDescriptor.viewControllerDescriptor.nativeController = nativeControllerName;
+
+                    // -- js-controller path
+                    jsControllerPath = anScreenDictionary[NSStringFromSelector(@selector(controller))];
+                    if ([jsControllerPath isKindOfClass:[NSDictionary class]]) {
+                        jsControllerPath = ((NSDictionary *) jsControllerPath)[urlKEY];
                     }
-                    jsPluginPath = [IRUtil prefixFilePathWithBaseUrlIfNeeded:jsPluginPath baseUrl:baseUrl];
-                    anScreenDescriptor.viewControllerDescriptor.jsPluginPath = jsPluginPath;
+                    jsControllerPath = [IRUtil prefixFilePathWithBaseUrlIfNeeded:jsControllerPath baseUrl:baseUrl];
+                    anScreenDescriptor.viewControllerDescriptor.controller = jsControllerPath;
+
                     [screenDescriptorsArray addObject:anScreenDescriptor];
                 }
             } else {
@@ -1154,10 +1160,20 @@
 #endif
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
-+ (NSArray *) allImagePaths
+//+ (NSArray *) allImagePaths
+//{
+////    NSMutableArray *allImagePaths = [NSMutableArray array];
+////    IRAppDescriptor *appDescriptor = [IRDataController sharedInstance].appDescriptor;
+////    NSArray *screenArrays = appDescriptor.screensArray;
+////    for (IRScreenDescriptor *anScreenDescriptor in screenArrays) {
+////        [IRBaseDescriptor extendImagePathsArray:allImagePaths withPathsFromScreenDescriptor:anScreenDescriptor];
+////    }
+//    return [IRBaseDescriptor allImagePaths:[IRDataController sharedInstance].appDescriptor];
+//}
++ (NSArray *) allImagePaths:(IRAppDescriptor *)appDescriptor
 {
     NSMutableArray *allImagePaths = [NSMutableArray array];
-    IRAppDescriptor *appDescriptor = [IRDataController sharedInstance].appDescriptor;
+//    IRAppDescriptor *appDescriptor = [IRDataController sharedInstance].appDescriptor;
     NSArray *screenArrays = appDescriptor.screensArray;
     for (IRScreenDescriptor *anScreenDescriptor in screenArrays) {
         [IRBaseDescriptor extendImagePathsArray:allImagePaths withPathsFromScreenDescriptor:anScreenDescriptor];
@@ -1173,23 +1189,42 @@
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
-+ (NSArray *) allJSFilesPaths
+//+ (NSArray *) allJSFilesPaths
+//{
+////    NSMutableArray *allJSFilesPaths = [NSMutableArray array];
+////    IRAppDescriptor *appDescriptor = [IRDataController sharedInstance].appDescriptor;
+////    NSArray *screenArrays = appDescriptor.screensArray;
+////    NSString *jsControllerPath;
+////    NSString *trimmedJsControllerPath;
+////    NSArray *jsControllerPathsArray;
+////    for (IRScreenDescriptor *anScreenDescriptor in screenArrays) {
+////        jsControllerPath = anScreenDescriptor.viewControllerDescriptor.controller;
+////        if ([jsControllerPath length] > 0) {
+////            jsControllerPathsArray = [IRBaseDescriptor componentsArrayFromString:jsControllerPath];
+////            for (NSString *anJsPluginPath in jsControllerPathsArray) {
+////                trimmedJsControllerPath = [anJsPluginPath stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+////                [allJSFilesPaths addObject:trimmedJsControllerPath];
+////            }
+////        }
+////    }
+//    return [IRBaseDescriptor allJSFilesPaths:[IRDataController sharedInstance].appDescriptor];
+//}
++ (NSArray *) allJSFilesPaths:(IRAppDescriptor *)appDescriptor
 {
     NSMutableArray *allJSFilesPaths = [NSMutableArray array];
-    IRAppDescriptor *appDescriptor = [IRDataController sharedInstance].appDescriptor;
+//    IRAppDescriptor *appDescriptor = [IRDataController sharedInstance].appDescriptor;
     NSArray *screenArrays = appDescriptor.screensArray;
-    NSString *jsPluginPath;
-    NSString *trimmedJsPluginPath;
-    NSArray *jsPluginPathsArray;
+    NSString *jsControllerPath;
+    NSString *trimmedJsControllerPath;
+    NSArray *jsControllerPathsArray;
     for (IRScreenDescriptor *anScreenDescriptor in screenArrays) {
-        jsPluginPath = anScreenDescriptor.viewControllerDescriptor.jsPluginPath;
-        if ([jsPluginPath length] > 0) {
-            jsPluginPathsArray = [IRBaseDescriptor componentsArrayFromString:jsPluginPath];
-            for (NSString *anJsPluginPath in jsPluginPathsArray) {
-                trimmedJsPluginPath = [anJsPluginPath stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-                [allJSFilesPaths addObject:trimmedJsPluginPath];
+        jsControllerPath = anScreenDescriptor.viewControllerDescriptor.controller;
+        if ([jsControllerPath length] > 0) {
+            jsControllerPathsArray = [IRBaseDescriptor componentsArrayFromString:jsControllerPath];
+            for (NSString *anJsPluginPath in jsControllerPathsArray) {
+                trimmedJsControllerPath = [anJsPluginPath stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                [allJSFilesPaths addObject:trimmedJsControllerPath];
             }
-//            [allJSFilesPaths addObject:anScreenDescriptor.viewControllerDescriptor.jsPluginPath];
         }
     }
     return allJSFilesPaths;

@@ -15,8 +15,8 @@
 @interface IRViewControllerDescriptor : IRBaseDescriptor
 
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *useExistingClass;
-@property (nonatomic, strong) NSString *jsPluginPath;
+@property (nonatomic, strong) NSString *nativeController;
+@property (nonatomic, strong) NSString *controller;
 #if TARGET_OS_IPHONE
 @property (nonatomic) UIStatusBarStyle preferredStatusBarStyle;
 #endif

@@ -3,7 +3,6 @@
   "controller" : {
     "supportedInterfaceOrientations" : "UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight",
     "title" : "Picker view",
-    "jsPluginPath_" : "ir_picker_view_plugin.js",
     "navigationController" : {
       "autoAddIfNeeded" : true,
       "hideNavigationBar" : false

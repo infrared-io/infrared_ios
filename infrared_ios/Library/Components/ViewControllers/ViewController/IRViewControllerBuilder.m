@@ -50,11 +50,11 @@
     IRViewController *irViewController = nil;
 
     IRViewControllerDescriptor *controllerDescriptor = descriptor.viewControllerDescriptor;
-    if ([controllerDescriptor.useExistingClass length] > 0) {
-        irViewController = (IRViewController *) [[NSClassFromString(controllerDescriptor.useExistingClass) alloc] init];
+    if ([controllerDescriptor.nativeController length] > 0) {
+        irViewController = (IRViewController *) [[NSClassFromString(controllerDescriptor.nativeController) alloc] init];
         if (irViewController == nil) {
             NSLog(@" ########## buildViewControllerFromScreenDescriptor:data: - ViewController with class name '%@' can NOT be created",
-              controllerDescriptor.useExistingClass);
+              controllerDescriptor.nativeController);
             irViewController = [[IRViewController alloc] init];
         }
     } else {
@@ -263,23 +263,24 @@
                    descriptor:(IRViewControllerDescriptor *)descriptor
                     jsContext:(JSContext *)jsContext
 {
-    NSArray *jsPluginPathsArray;
-    NSString *anJsPluginPath;
+    NSArray *jsControllerPathsArray;
+    NSString *anJsControllerPath;
     NSString *stringToEvaluate;
     NSString *jsPluginNameFromPath;
     NSString *allJsPluginNames;
     NSString *escapedPluginPath;
     JSValue *irViewControllerJSValue = jsContext[irViewController.key];
+    NSLog(@"VC-key: %@", irViewController.key);
     if (irViewControllerJSValue && [irViewControllerJSValue toObject]) {
-        jsPluginPathsArray = [IRBaseDescriptor componentsArrayFromString:descriptor.jsPluginPath];
+        jsControllerPathsArray = [IRBaseDescriptor componentsArrayFromString:descriptor.controller];
         allJsPluginNames = @"[ ";
-        for (NSUInteger i=0; i< [jsPluginPathsArray count]; i++) {
-            anJsPluginPath = jsPluginPathsArray[i];
-            anJsPluginPath = [anJsPluginPath stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            escapedPluginPath = [anJsPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        for (NSUInteger i=0; i< [jsControllerPathsArray count]; i++) {
+            anJsControllerPath = jsControllerPathsArray[i];
+            anJsControllerPath = [anJsControllerPath stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            escapedPluginPath = [anJsControllerPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             jsPluginNameFromPath = [IRUtil scriptTagFileNameFromPath:escapedPluginPath];
             allJsPluginNames = [allJsPluginNames stringByAppendingFormat:@" '%@'", jsPluginNameFromPath];
-            if (i < [jsPluginPathsArray count]-1) {
+            if (i < [jsControllerPathsArray count]-1) {
                 allJsPluginNames = [allJsPluginNames stringByAppendingString:@","];
             }
         }

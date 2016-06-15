@@ -64,7 +64,7 @@
 - (NSString *) controllerIdForScreenId:(NSString *)screenId;
 
 #if TARGET_OS_IPHONE
-- (void) initJSContext;
+- (void) initJSContext:(IRAppDescriptor *)appDescriptor;
 - (JSContext *) globalJSContext;
 #endif
 

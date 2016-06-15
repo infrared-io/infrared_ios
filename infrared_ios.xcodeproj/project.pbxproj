@@ -106,6 +106,7 @@
 		BB7368F0D072D98A7BEB9B7E /* libPods-infrared_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5898BCB4DDC8E23F97DC8411 /* libPods-infrared_ios.a */; };
 		F613A0062C4D9585FD46D778 /* IRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F613AF33EB3C7F2647FB65C7 /* IRNavigationBar.m */; };
 		F613A0082ACB9E53647C2B17 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = F613A21AF84EF825E86947A1 /* unzip.c */; };
+		F613A0355A2D354EEC168581 /* IRUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A767C9DE0D92BF5319D4 /* IRUpdateVC.m */; };
 		F613A04E3C854EC740006D17 /* IRTabBarItemDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A3EE6119B527969AB68A /* IRTabBarItemDescriptor.m */; };
 		F613A07EA8595650F59510F4 /* ir_collection_view.json in Resources */ = {isa = PBXBuildFile; fileRef = F613A3CE42788832E3CD595B /* ir_collection_view.json */; };
 		F613A0927D7022737D2ED545 /* Main.m in Sources */ = {isa = PBXBuildFile; fileRef = F613A3B857F2834EF021156E /* Main.m */; };
@@ -590,6 +591,7 @@
 		F613A745F4E5DB9521B8F777 /* NSObjectExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObjectExport.h; sourceTree = "<group>"; };
 		F613A747C1418597A91E5D0F /* UICollectionViewCellExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewCellExport.h; sourceTree = "<group>"; };
 		F613A7532BD82A9B8DEB19F0 /* IRNavigationControllerSubDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRNavigationControllerSubDescriptor.h; sourceTree = "<group>"; };
+		F613A767C9DE0D92BF5319D4 /* IRUpdateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRUpdateVC.m; sourceTree = "<group>"; };
 		F613A769D8CBCE11914A21F8 /* IRDatePickerBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRDatePickerBuilder.m; sourceTree = "<group>"; };
 		F613A76D2E7821A9C137BBBA /* UIProgressViewExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIProgressViewExport.h; sourceTree = "<group>"; };
 		F613A782E01184F0AE173099 /* Infrared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Infrared.h; sourceTree = "<group>"; };
@@ -721,6 +723,7 @@
 		F613AB800C7749EA4DC8127B /* IRLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLongPressGestureRecognizer.m; sourceTree = "<group>"; };
 		F613AB8761700DEB7C3F6E48 /* IRProgressViewDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRProgressViewDescriptor.h; sourceTree = "<group>"; };
 		F613AB9CA38C6707201C02F0 /* IRLayoutConstraintDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRLayoutConstraintDescriptor.h; sourceTree = "<group>"; };
+		F613ABA0AF2371FB464C9AE8 /* IRUpdateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRUpdateVC.h; sourceTree = "<group>"; };
 		F613ABAB08FB7D3A63B4EDF9 /* UILabelExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelExport.h; sourceTree = "<group>"; };
 		F613ABC8C8F305968BDAE25A /* IRSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSideMenu.h; sourceTree = "<group>"; };
 		F613ABDF1ACC130545AE029F /* IRProgressViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRProgressViewBuilder.m; sourceTree = "<group>"; };
@@ -1830,6 +1833,15 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		F613AACDFE99811F151EB8C2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F613A767C9DE0D92BF5319D4 /* IRUpdateVC.m */,
+				F613ABA0AF2371FB464C9AE8 /* IRUpdateVC.h */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		F613AAF4043168BB7AABFCF2 /* _Observer */ = {
 			isa = PBXGroup;
 			children = (
@@ -2059,6 +2071,7 @@
 				F613A98C53FB7289CD76B210 /* update.json */,
 				F613AA8C330A514ABDA3A72C /* update_screen.json */,
 				F613AEB77C49C5EBF7D22911 /* i18n */,
+				F613AACDFE99811F151EB8C2 /* ViewController */,
 			);
 			path = UpdateScreen;
 			sourceTree = "<group>";
@@ -2725,6 +2738,7 @@
 				F613A6BFCB17D44505786A27 /* IRRefreshControlBuilder.m in Sources */,
 				F613ADEF55F1BB7ECF069A17 /* IRTableViewHeaderOrFooter.m in Sources */,
 				F613AA48DFC84FB3B1700A06 /* IRTableViewHeaderOrFooterDescriptor.m in Sources */,
+				F613A0355A2D354EEC168581 /* IRUpdateVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2943,7 +2957,7 @@
 				INFOPLIST_FILE = "infrared_ios/infrared_ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = infrared_ios;
-				PROVISIONING_PROFILE = "41b474f4-f350-4387-bd13-e650f67fb857";
+				PROVISIONING_PROFILE = "279c2fbf-01a9-45da-bfdb-7b581a0d8d9c";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/** \"${PROJECT_DIR}/Pods\"/**";
@@ -2968,7 +2982,7 @@
 				INFOPLIST_FILE = "infrared_ios/infrared_ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = infrared_ios;
-				PROVISIONING_PROFILE = "41b474f4-f350-4387-bd13-e650f67fb857";
+				PROVISIONING_PROFILE = "279c2fbf-01a9-45da-bfdb-7b581a0d8d9c";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/** \"${PROJECT_DIR}/Pods\"/**";

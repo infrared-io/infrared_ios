@@ -3,7 +3,8 @@
   "screens": [
     {
       "deviceType": "phone",
-      "path": "update_screen.json"
+      "path": "update_screen.json",
+      "nativeController": "IRUpdateVC"
     }
   ],
   "mainScreenId": "update_screen",

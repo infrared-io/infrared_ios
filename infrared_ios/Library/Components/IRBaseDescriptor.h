@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "IRDesctiptorDefaultKeys.h"
 
+@class IRAppDescriptor;
+
 #if TARGET_OS_IPHONE
     #define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
     #define IS_IPHONE ( [ [ [ UIDevice currentDevice ] model ] isEqualToString: @"iPhone" ] )
@@ -156,9 +158,11 @@ typedef enum {
 + (UIRectEdge) rectEdgeForString:(NSString *)string;
 #endif
 
-+ (NSArray *) allImagePaths;
+//+ (NSArray *) allImagePaths;
++ (NSArray *) allImagePaths:(IRAppDescriptor *)appDescriptor;
 
-+ (NSArray *) allJSFilesPaths;
+//+ (NSArray *) allJSFilesPaths;
++ (NSArray *) allJSFilesPaths:(IRAppDescriptor *)appDescriptor;
 
 // --------------------------------------------------------------------------------------------------------------------
 

@@ -492,6 +492,12 @@
     });
 }
 - (void) cleanAndBuildInfraredAppFromPath:(NSString *)path
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[Infrared sharedInstance] cleanAndBuildInfraredAppFromPath:path];
+    });
+}
+- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path
                        withUpdateJSONPath:(NSString *)updateUIPath
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -917,6 +923,14 @@
     }
 }
 
+- (void) callControllerUnregisteredInJSController
+{
+    NSLog(@"controllerUnregistered - %@", self.key);
+    [IRBaseBuilder executeAction:@"this.controllerUnregistered();"
+                  withDictionary:@{}
+                  viewController:self
+                    functionName:@"this.controllerUnregistered"];
+}
 - (void) cleanWatchJSObserversAndVC
 {
 //    NSLog(@"cleanWatchJSObserversAndVC - %@", self.key);

@@ -130,9 +130,9 @@
 #endif
 
     // -- download or copy JSON files ot cache folder (if needed)
-    [IRFileLoadingUtil downloadOrCopyFileWithPathIfNeeded:path
-                                          destinationPath:destinationPath
-                                             preserveName:YES];
+//    [IRFileLoadingUtil downloadOrCopyFileWithPathIfNeeded:path
+//                                          destinationPath:destinationPath
+//                                             preserveName:YES];
 
     // -- load json and build dictionary from it
     NSData *fileData = [IRFileLoadingUtil dataForFileWithPath:path

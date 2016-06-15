@@ -70,6 +70,8 @@ static IRDataController *sharedDataController = nil;
 
 - (void) cleanData
 {
+    NSLog(@"IRDataController - cleanData");
+
     self.i18n = nil;
 
     self.librariesArray = [NSMutableArray array];
@@ -212,7 +214,7 @@ static IRDataController *sharedDataController = nil;
 // --------------------------------------------------------------------------------------------------------------------
 
 #if TARGET_OS_IPHONE
-- (void) initJSContext
+- (void) initJSContext:(IRAppDescriptor *)appDescriptor
 {
     // -- create WebView
     if (self.webView == nil) {
@@ -227,21 +229,21 @@ static IRDataController *sharedDataController = nil;
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
-    NSString *jsonImagesPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:[IRDataController sharedInstance].appDescriptor];
+    NSString *jsonImagesPathComponent = [IRUtil jsonAndJsPathForAppDescriptor:/*[IRDataController sharedInstance].*/appDescriptor];
     NSString *fullBaseUrlPath = [documentsDirectory stringByAppendingPathComponent:jsonImagesPathComponent];
 
-    NSArray *jsPluginPathsArray;
+    NSArray *jsControllerPathsArray;
     NSString *anEscapedPluginPath;
     NSString *jsPluginNameFromPath;
     NSString *scriptTags = @"";
-    jsPluginPathsArray = [IRDataController sharedInstance].appDescriptor.jsLibrariesArray;
-    for (NSString *anPluginPath in jsPluginPathsArray) {
+    jsControllerPathsArray = /*[IRDataController sharedInstance].*/appDescriptor.jsLibrariesArray;
+    for (NSString *anPluginPath in jsControllerPathsArray) {
         anEscapedPluginPath = [anPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         jsPluginNameFromPath = [IRUtil scriptTagFileNameFromPath:anEscapedPluginPath];
         scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
     }
-    jsPluginPathsArray = [IRBaseDescriptor allJSFilesPaths];
-    for (NSString *anPluginPath in jsPluginPathsArray) {
+    jsControllerPathsArray = [IRBaseDescriptor allJSFilesPaths:/*[IRDataController sharedInstance].*/appDescriptor];
+    for (NSString *anPluginPath in jsControllerPathsArray) {
         anEscapedPluginPath = [anPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         jsPluginNameFromPath = [IRUtil scriptTagFileNameFromPath:anEscapedPluginPath];
         scriptTags = [scriptTags stringByAppendingFormat:@"<script>IR.nameForFollowingPlugin('%@');</script>", jsPluginNameFromPath];
@@ -417,9 +419,13 @@ static IRDataController *sharedDataController = nil;
 {
     NSArray *viewControllers = nil;
     UINavigationController *navigationController = nil;
-    if ([viewController isKindOfClass:[IRNavigationController class]]) {
+    IRSideMenu *irSideMenu;
+    if ([viewController isKindOfClass:[IRNavigationController class]])
+    {
         viewControllers = ((IRNavigationController *)viewController).viewControllers;
-    } else if ([viewController isKindOfClass:[IRViewController class]]) {
+    }
+    else if ([viewController isKindOfClass:[IRViewController class]])
+    {
         if (viewController.navigationController) {
             navigationController = viewController.navigationController;
             viewControllers = navigationController.viewControllers;
@@ -434,7 +440,10 @@ static IRDataController *sharedDataController = nil;
     }
     else if ([viewController isKindOfClass:[IRSideMenu class]])
     {
-        NSLog(@"##### Memory Leak - unregisterViewControllerAndItsNavigationStack - IRSideMenu");
+        irSideMenu = (IRSideMenu *)viewController;
+        [[IRDataController sharedInstance] unregisterViewController:irSideMenu.leftMenuViewController];
+        [[IRDataController sharedInstance] unregisterViewController:irSideMenu.rightMenuViewController];
+        [[IRDataController sharedInstance] unregisterViewControllerAndItsNavigationStack:irSideMenu.contentViewController];
     }
 
     // Next two steps must be is current order.
@@ -495,7 +504,9 @@ static IRDataController *sharedDataController = nil;
     // 4) remove from viewControllersArray
     [self.viewControllersArray removeObject:viewController];
 
-    // 5) clean Watch.JS observers and VC
+    // 5) clean Watch.JS observers and clean/unregister VC
+    [viewController callControllerUnregisteredInJSController];
+//    [viewController performSelector:@selector(callControllerUnregisteredInJSController) withObject:nil afterDelay:3];
     [viewController cleanWatchJSObserversAndVC];
     [self performSelector:@selector(nilJSContextVCWithName:) withObject:viewController.key afterDelay:5];
 
