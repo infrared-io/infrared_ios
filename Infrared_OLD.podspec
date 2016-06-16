@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   
   s.dependency 'ReactiveCocoa', '2.1.8'
-  # s.dependency "Antenna", "2.0.0"
+  s.dependency "Antenna", "2.0.0"
   s.dependency 'RESideMenu', '~> 4.0.7'
   s.dependency 'IQKeyboardManager'
   s.dependency 'MBProgressHUD', '~> 0.9.1'
