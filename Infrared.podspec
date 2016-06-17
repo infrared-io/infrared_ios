@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Infrared"
-  s.version      = "0.9.2.1"
+  s.version      = "0.9.2.2"
   s.summary      = "Building native iOS apps with JavaScript."
 
   s.homepage     = "http://infrared.io"
@@ -61,7 +61,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/infrared-io/infrared_ios.git", :tag => "0.9.2.1" }
+  s.source       = { :git => "https://github.com/infrared-io/infrared_ios.git", :tag => "0.9.2.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
