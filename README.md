@@ -34,7 +34,7 @@ Label component:
 ### JavaScript example
 
 ```javascript
-IR.plugin({
+IR.controller({
     "data" : {
         "text_1" : 'value 1',
         "text_2" : 'value 2',
