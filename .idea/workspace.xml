@@ -7,8 +7,9 @@
   <component name="ChangeListManager">
     <list id="32bc60ea-428b-4574-bd73-560444221e61" name="Default" comment="" />
     <list id="8aa917bd-2999-41a9-b487-38fcdc2f0c67" name="THIOS-7 Implement UITapGestureRecognizer" comment="THIOS-3 UIViewController" />
-    <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="Improved image loading">
+    <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="&quot;IR.plugin&quot; renamed to &quot;IR.controller&quot;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" afterPath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" />
     </list>
     <ignored path="therma_ios.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,51 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IRViewControllerBuilder.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m">
+      <file leaf-file-name="ir_alert_view_and_action_sheet_plugin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/AlertViewAndActionSheet/ir_alert_view_and_action_sheet_plugin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="272" column="41" selection-start-line="272" selection-start-column="41" selection-end-line="272" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IRTableViewObserver.m" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/_Observer/IRTableViewObserver.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="97" column="34" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ir_app.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/ir_app.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="50" column="37" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IRNavigationItemDescriptor.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItemDescriptor.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IRNavigationItemDescriptor.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItemDescriptor.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="15" column="64" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="64" />
+            <state relative-caret-position="14">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -86,6 +47,26 @@
       <file leaf-file-name="ir_starting_screen_plugin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen_plugin.js">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="28">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ir_table_view_plugin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/TableView/ir_table_view_plugin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ir_web_view_plugin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/WebView/ir_web_view_plugin.js">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
@@ -93,41 +74,61 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IRNavigationBarDescriptor.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarDescriptor.h">
+      <file leaf-file-name="ir_collection_view_plugin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/CollectionView/ir_collection_view_plugin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="462">
+              <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ir_starting_screen.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen.json">
+      <file leaf-file-name="IRTableViewObserver.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/_Observer/IRTableViewObserver.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+            <state relative-caret-position="365">
+              <caret line="109" column="16" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IRNavigationBarDescriptor.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarDescriptor.m">
+      <file leaf-file-name="ir_combination_of_views_plugin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+            <state relative-caret-position="14">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IRNavigationControllerSubDescriptor.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_NavigationController/IRNavigationControllerSubDescriptor.m">
+      <file leaf-file-name="ir_gesture_recognizers_plugin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/GestureRecognizers/ir_gesture_recognizers_plugin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+            <state relative-caret-position="28">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ir_label_button_image_plugin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/LabelButtonImage/ir_label_button_image_plugin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ir_picker_view_plugin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/PickerView/ir_picker_view_plugin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -149,16 +150,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarItemDescriptor.h" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarItemDescriptor.m" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItemDescriptor.h" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItemDescriptor.m" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewDescriptor.h" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewDescriptor.m" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.h" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.m" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerDescriptor.h" />
-        <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerDescriptor.m" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.m" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/IRLabelDescriptor.h" />
@@ -199,7 +190,17 @@
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardManager/IRKeyboardManagerSubDescriptor.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItemDescriptor.h" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItemDescriptor.m" />
+        <option value="$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m" />
         <option value="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m" />
+        <option value="$PROJECT_DIR$/infrared_ios/Library/JSExtensions/infrared/infrared.js" />
+        <option value="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/AlertViewAndActionSheet/ir_alert_view_and_action_sheet_plugin.js" />
+        <option value="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/CollectionView/ir_collection_view_plugin.js" />
+        <option value="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js" />
+        <option value="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/GestureRecognizers/ir_gesture_recognizers_plugin.js" />
+        <option value="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/LabelButtonImage/ir_label_button_image_plugin.js" />
+        <option value="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/PickerView/ir_picker_view_plugin.js" />
+        <option value="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen_plugin.js" />
+        <option value="$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/TableView/ir_table_view_plugin.js" />
       </list>
     </option>
   </component>
@@ -271,6 +272,10 @@
               <option name="myItemId" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pods" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -333,6 +338,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Utils" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Library" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSExtensions" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Library" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSExtensions" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -701,6 +754,40 @@
               <option name="myItemId" value="Screens" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebView" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Examples" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExampleApp1" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Screens" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TableView" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -729,6 +816,186 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Starting" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Examples" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExampleApp1" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Screens" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PickerView" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Examples" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExampleApp1" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Screens" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LabelButtonImage" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Examples" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExampleApp1" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Screens" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GestureRecognizers" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Examples" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExampleApp1" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Screens" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Combination of Views" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Examples" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExampleApp1" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Screens" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CollectionView" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infrared_ios" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Examples" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExampleApp1" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Screens" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlertViewAndActionSheet" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -912,13 +1179,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1409401002811</updated>
-    </task>
-    <task id="LOCAL-00167" summary="1) WebView extended with &quot;htmlString&quot; property (could be set in JSON, JS, DataBinding)&#10;2) Improved property handling for BOOL in DataBinding">
-      <created>1437063859220</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1437063859220</updated>
     </task>
     <task id="LOCAL-00168" summary="Improved property handling for BOOL in DataBinding - 2">
       <created>1437080103092</created>
@@ -1256,7 +1516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466167283331</updated>
     </task>
-    <option name="localTasksCounter" value="216" />
+    <task id="LOCAL-00216" summary="&quot;IR.plugin&quot; renamed to &quot;IR.controller&quot;">
+      <created>1466174957338</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1466174957338</updated>
+    </task>
+    <option name="localTasksCounter" value="217" />
     <option name="createBranch" value="false" />
     <servers>
       <JIRA shared="false" url="https://appconveyor.atlassian.net">
@@ -1283,7 +1550,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28643724" sideWeight="0.4996321" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279703" sideWeight="0.50036794" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25371286" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25303644" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25371286" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1291,7 +1558,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27935222" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="162" y="23" width="1104" height="836" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24924925" sideWeight="0.49807692" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1954023" sideWeight="0.37012112" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37246963" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="467" y="361" width="1409" height="683" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37246963" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="467" y="361" width="1409" height="683" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1317,7 +1584,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHORT_DIFF_EXTRA_LINES" value="8" />
-    <MESSAGE value="1) Improved JSExport to UIKit base objects&#10;2) Improved DataBinding for UITextField&#10;" />
     <MESSAGE value="1) Added JSExport for UIKit GestureRecognizers&#10;2) Console log when component ID is forgotten &#10;3) code clean up" />
     <MESSAGE value="1) GestureRecognizers builder improvements&#10;2) &quot;isIdRequired&quot; behaviour improved" />
     <MESSAGE value="RESideMenuExport - in progress" />
@@ -1342,7 +1608,8 @@
     <MESSAGE value="Fixed #14: Extent Button: resizableImageWithCapInsets for &quot;normalImage&quot;, &quot;normalBackgroundImage&quot;, &quot;highlightedImage&quot;, ..." />
     <MESSAGE value="1) #5: App update - improve &quot;Update&quot; screen with progress info (in progress)&#10;2) Moved js-controller from screen-json to app-json&#10;3) &quot;useExistingClass&quot; renamed &quot;nativeController&quot;&#10;4) all screen-files downloaded before processing/building" />
     <MESSAGE value="Improved image loading" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved image loading" />
+    <MESSAGE value="&quot;IR.plugin&quot; renamed to &quot;IR.controller&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;IR.plugin&quot; renamed to &quot;IR.controller&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1468,98 +1735,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/IRPageControlDescriptor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewDescriptor.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewDescriptor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/IRCalloutAnnotationViewDescriptor.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="e#227#252#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/IRCalloutAnnotationViewDescriptor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/_Base/IRBaseAnnotationViewDescriptor.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/_Base/IRBaseAnnotationViewDescriptor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/IRAnnotationViewDescriptor.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/IRAnnotationViewDescriptor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/IRMapViewDescriptor.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="161" column="0" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-          <folding>
-            <element signature="e#214#242#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/IRMapViewDescriptor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/IRLabelDescriptor.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
@@ -1780,14 +1955,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Infrared.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -1852,14 +2019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen_plugin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1868,18 +2027,139 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Podfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/DataController/IRDataController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="248" column="96" selection-start-line="248" selection-start-column="96" selection-end-line="248" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="272" column="41" selection-start-line="272" selection-start-column="41" selection-end-line="272" selection-end-column="41" />
+        <state relative-caret-position="228">
+          <caret line="298" column="90" selection-start-line="298" selection-start-column="90" selection-end-line="298" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Library/JSExtensions/infrared/infrared.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="100" column="19" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#2#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/AlertViewAndActionSheet/ir_alert_view_and_action_sheet_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/GestureRecognizers/ir_gesture_recognizers_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/LabelButtonImage/ir_label_button_image_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/PickerView/ir_picker_view_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/TableView/ir_table_view_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/WebView/ir_web_view_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="219">
+            <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <folding>
+              <marker date="1466175264000" expanded="true" signature="684:888" ph="{&quot;id&quot;: &quot;label_id&quot;...}" />
+              <marker date="1466175264000" expanded="true" signature="942:1149" ph="{...}" />
+              <marker date="1466175264000" expanded="true" signature="957:1053" ph="{&quot;text_1&quot;: 'value 1'...}" />
+              <marker date="1466175264000" expanded="true" signature="1088:1147" ph="{...}" />
+              <marker date="1466175264000" expanded="true" signature="1320:1900" ph="{&quot;id&quot;: &quot;app_name&quot;...}" />
+              <marker date="1466175264000" expanded="true" signature="1355:1633" ph="[...]" />
+              <marker date="1466175264000" expanded="true" signature="1361:1482" ph="{&quot;deviceType&quot;: &quot;phone&quot;...}" />
+              <marker date="1466175264000" expanded="true" signature="1488:1629" ph="{&quot;deviceType&quot;: &quot;phone&quot;...}" />
+              <marker date="1466175264000" expanded="true" signature="1653:1730" ph="[...]" />
+              <marker date="1466175264000" expanded="true" signature="1782:1882" ph="{&quot;default&quot;: &quot;en&quot;...}" />
+              <marker date="1466175264000" expanded="true" signature="1824:1878" ph="{&quot;en&quot;: &quot;en.json&quot;...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infrared_ios/Examples/ExampleApp1/Screens/CollectionView/ir_collection_view_plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/_Observer/IRTableViewObserver.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="97" column="34" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
+        <state relative-caret-position="365">
+          <caret line="109" column="16" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
           <folding />
         </state>
       </provider>
