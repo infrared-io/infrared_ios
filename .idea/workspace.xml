@@ -7,93 +7,8 @@
   <component name="ChangeListManager">
     <list id="32bc60ea-428b-4574-bd73-560444221e61" name="Default" comment="" />
     <list id="8aa917bd-2999-41a9-b487-38fcdc2f0c67" name="THIOS-7 Implement UITapGestureRecognizer" comment="THIOS-3 UIViewController" />
-    <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="1) #5: App update - improve &quot;Update&quot; screen with progress info (in progress)&#10;2) Moved js-controller from screen-json to app-json&#10;3) &quot;useExistingClass&quot; renamed &quot;nativeController&quot;&#10;4) all screen-files downloaded before processing/building">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios.xcworkspace/xcuserdata/urosmil.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/infrared_ios.xcworkspace/xcuserdata/urosmil.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/therma_ios.iml" afterPath="$PROJECT_DIR$/.idea/therma_ios.iml" />
+    <list default="true" id="af9fe7c5-f5e3-43b3-88ee-8a53bdb94aea" name="THIOS-1 Build protocol at runtime for exposing method of View classes " comment="Improved image loading">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/infrared_ios.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios.xcworkspace/xcuserdata/urosmil.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterPath="$PROJECT_DIR$/infrared_ios.xcworkspace/xcuserdata/urosmil.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardManager/IRKeyboardManagerSubDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardManager/IRKeyboardManagerSubDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardManager/IRKeyboardManagerSubDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardManager/IRKeyboardManagerSubDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_NavigationController/IRNavigationControllerSubDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_NavigationController/IRNavigationControllerSubDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_NavigationController/IRNavigationControllerSubDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_NavigationController/IRNavigationControllerSubDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_SideMenu/IRSideMenuDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_SideMenu/IRSideMenuDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_SideMenu/IRSideMenuDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_SideMenu/IRSideMenuDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarControllerSubDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarControllerSubDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarControllerSubDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarControllerSubDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarItemDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarItemDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarItemDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarItemDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/IRLabelDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/IRLabelDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/IRLabelDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Label/IRLabelDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/IRCalloutAnnotationViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/IRCalloutAnnotationViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/IRCalloutAnnotationViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/IRCalloutAnnotationViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/IRAnnotationViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/IRAnnotationViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/IRAnnotationViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/IRAnnotationViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/_Base/IRBaseAnnotationViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/_Base/IRBaseAnnotationViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/_Base/IRBaseAnnotationViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/_Base/IRBaseAnnotationViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/IRMapViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/IRMapViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/IRMapViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/MapView/IRMapViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItemDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItemDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItemDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItemDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/IRPageControlDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/IRPageControlDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/IRPageControlDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PageControl/IRPageControlDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ScrollView/IRScrollViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ScrollView/IRScrollViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ScrollView/IRScrollViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/ScrollView/IRScrollViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/SearchBar/IRSearchBarDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/SearchBar/IRSearchBarDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/SearchBar/IRSearchBarDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/SearchBar/IRSearchBarDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegmentedControlDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegmentedControlDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegmentedControlDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegmentedControlDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Slider/IRSliderDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Slider/IRSliderDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Slider/IRSliderDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Slider/IRSliderDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepperDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepperDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepperDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepperDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Switch/IRSwitchDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Switch/IRSwitchDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Switch/IRSwitchDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Switch/IRSwitchDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCellDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCellDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCellDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCellDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TextField/IRTextFieldDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TextField/IRTextFieldDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TextField/IRTextFieldDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TextField/IRTextFieldDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItemDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItemDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItemDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItemDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/IRToolbarDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/IRToolbarDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/IRToolbarDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/Toolbar/IRToolbarDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/View/IRViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/View/IRViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/View/IRViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/View/IRViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItemDescriptor.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItemDescriptor.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItemDescriptor.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItemDescriptor.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Infrared.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Infrared.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.h" afterPath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.m" afterPath="$PROJECT_DIR$/infrared_ios/Library/Utils/IRUtil.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" afterPath="$PROJECT_DIR$/infrared_ios/infrared_ios-Info.plist" />
     </list>
     <ignored path="therma_ios.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -998,13 +913,6 @@
       <option name="presentableId" value="Default" />
       <updated>1409401002811</updated>
     </task>
-    <task id="LOCAL-00166" summary="1) Button extended with Descriptor methods&#10;2) Added support for Pasteboard (copy &amp; paste)">
-      <created>1436994901118</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1436994901137</updated>
-    </task>
     <task id="LOCAL-00167" summary="1) WebView extended with &quot;htmlString&quot; property (could be set in JSON, JS, DataBinding)&#10;2) Improved property handling for BOOL in DataBinding">
       <created>1437063859220</created>
       <option name="number" value="00167" />
@@ -1341,7 +1249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466001825773</updated>
     </task>
-    <option name="localTasksCounter" value="215" />
+    <task id="LOCAL-00215" summary="Improved image loading">
+      <created>1466167283331</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1466167283331</updated>
+    </task>
+    <option name="localTasksCounter" value="216" />
     <option name="createBranch" value="false" />
     <servers>
       <JIRA shared="false" url="https://appconveyor.atlassian.net">
@@ -1402,7 +1317,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHORT_DIFF_EXTRA_LINES" value="8" />
-    <MESSAGE value="Podspec update" />
     <MESSAGE value="1) Improved JSExport to UIKit base objects&#10;2) Improved DataBinding for UITextField&#10;" />
     <MESSAGE value="1) Added JSExport for UIKit GestureRecognizers&#10;2) Console log when component ID is forgotten &#10;3) code clean up" />
     <MESSAGE value="1) GestureRecognizers builder improvements&#10;2) &quot;isIdRequired&quot; behaviour improved" />
@@ -1427,7 +1341,8 @@
     <MESSAGE value="Improved app isolation for HTML5 localStorage and sessionStorage" />
     <MESSAGE value="Fixed #14: Extent Button: resizableImageWithCapInsets for &quot;normalImage&quot;, &quot;normalBackgroundImage&quot;, &quot;highlightedImage&quot;, ..." />
     <MESSAGE value="1) #5: App update - improve &quot;Update&quot; screen with progress info (in progress)&#10;2) Moved js-controller from screen-json to app-json&#10;3) &quot;useExistingClass&quot; renamed &quot;nativeController&quot;&#10;4) all screen-files downloaded before processing/building" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) #5: App update - improve &quot;Update&quot; screen with progress info (in progress)&#10;2) Moved js-controller from screen-json to app-json&#10;3) &quot;useExistingClass&quot; renamed &quot;nativeController&quot;&#10;4) all screen-files downloaded before processing/building" />
+    <MESSAGE value="Improved image loading" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved image loading" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
