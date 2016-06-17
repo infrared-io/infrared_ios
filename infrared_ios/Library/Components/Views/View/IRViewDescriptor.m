@@ -298,9 +298,10 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
     for (IRBaseDescriptor *anDescriptor in self.subviewsArray) {
-        [anDescriptor extendImagePathsArray:imagePaths];
+        [anDescriptor extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
     }
 }
 

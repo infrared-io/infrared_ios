@@ -87,14 +87,15 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    if (self.shadowImage && [IRUtil isFileForDownload:self.shadowImage]) {
+    if (self.shadowImage && [IRUtil isFileForDownload:self.shadowImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.shadowImage];
     }
-    if (self.backIndicatorImage && [IRUtil isFileForDownload:self.backIndicatorImage]) {
+    if (self.backIndicatorImage && [IRUtil isFileForDownload:self.backIndicatorImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.backIndicatorImage];
     }
-    if (self.backIndicatorTransitionMaskImage && [IRUtil isFileForDownload:self.backIndicatorTransitionMaskImage]) {
+    if (self.backIndicatorTransitionMaskImage && [IRUtil isFileForDownload:self.backIndicatorTransitionMaskImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.backIndicatorTransitionMaskImage];
     }
 }

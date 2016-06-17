@@ -260,8 +260,9 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    if ([self.backgroundImage length] > 0 && [IRUtil isFileForDownload:self.backgroundImage]) {
+    if ([self.backgroundImage length] > 0 && [IRUtil isFileForDownload:self.backgroundImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.backgroundImage];
     }
 }

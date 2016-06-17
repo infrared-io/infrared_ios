@@ -5,6 +5,7 @@
 
 #import "IRKeyboardManagerSubDescriptor.h"
 #import "IRBaseDescriptor.h"
+#import "IRAppDescriptor.h"
 
 
 @implementation IRKeyboardManagerSubDescriptor
@@ -147,6 +148,7 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
 
 }

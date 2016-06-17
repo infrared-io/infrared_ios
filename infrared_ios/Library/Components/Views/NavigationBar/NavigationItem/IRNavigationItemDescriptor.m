@@ -97,8 +97,24 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
+    [self.backBarButtonItem extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.titleView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
 
+    if (self.leftBarButtonItems) {
+        for (IRBaseDescriptor *anBatButtonItem in self.leftBarButtonItems) {
+            [anBatButtonItem extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+        }
+    }
+    [self.leftBarButtonItem extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+
+    if (self.rightBarButtonItems) {
+        for (IRBaseDescriptor *anBatButtonItem in self.rightBarButtonItems) {
+            [anBatButtonItem extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+        }
+    }
+    [self.rightBarButtonItem extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
 }
 
 @end

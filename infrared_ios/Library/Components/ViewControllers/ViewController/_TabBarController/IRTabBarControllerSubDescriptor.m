@@ -40,10 +40,11 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
     if (self.viewControllers) {
         for (IRTabBarItemDescriptor *descriptor in self.viewControllers) {
-            [descriptor extendImagePathsArray:imagePaths];
+            [descriptor extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
         }
     }
 }

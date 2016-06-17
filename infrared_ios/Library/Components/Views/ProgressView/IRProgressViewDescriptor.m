@@ -78,11 +78,12 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    if (self.progressImage && [IRUtil isFileForDownload:self.progressImage]) {
+    if (self.progressImage && [IRUtil isFileForDownload:self.progressImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.progressImage];
     }
-    if (self.trackImage && [IRUtil isFileForDownload:self.trackImage]) {
+    if (self.trackImage && [IRUtil isFileForDownload:self.trackImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.trackImage];
     }
 }

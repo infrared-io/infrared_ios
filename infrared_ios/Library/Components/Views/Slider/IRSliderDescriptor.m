@@ -100,11 +100,12 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    if (self.minimumValueImage && [IRUtil isFileForDownload:self.minimumValueImage]) {
+    if (self.minimumValueImage && [IRUtil isFileForDownload:self.minimumValueImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.minimumValueImage];
     }
-    if (self.maximumValueImage && [IRUtil isFileForDownload:self.maximumValueImage]) {
+    if (self.maximumValueImage && [IRUtil isFileForDownload:self.maximumValueImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.maximumValueImage];
     }
 }

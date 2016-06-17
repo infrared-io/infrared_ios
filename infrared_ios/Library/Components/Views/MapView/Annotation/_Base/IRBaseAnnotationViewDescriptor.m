@@ -4,7 +4,6 @@
 //
 
 #import "IRBaseAnnotationViewDescriptor.h"
-#import "IRViewDescriptor.h"
 
 
 @implementation IRBaseAnnotationViewDescriptor
@@ -104,9 +103,10 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    [self.leftCalloutAccessoryView extendImagePathsArray:imagePaths];
-    [self.rightCalloutAccessoryView extendImagePathsArray:imagePaths];
+    [self.leftCalloutAccessoryView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.rightCalloutAccessoryView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
 }
 
 @end

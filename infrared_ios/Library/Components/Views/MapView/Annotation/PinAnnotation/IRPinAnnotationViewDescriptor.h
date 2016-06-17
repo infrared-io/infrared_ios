@@ -18,6 +18,7 @@
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 
-- (void) extendImagePathsArray:(NSMutableArray *)imagePaths;
+- (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:appDescriptor;
 
 @end

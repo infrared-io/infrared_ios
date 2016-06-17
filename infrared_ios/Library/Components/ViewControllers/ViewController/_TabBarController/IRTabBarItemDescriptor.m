@@ -36,8 +36,9 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    if ([self.image length] > 0 && [IRUtil isFileForDownload:self.image]) {
+    if ([self.image length] > 0 && [IRUtil isFileForDownload:self.image appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.image];
     }
 }

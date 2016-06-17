@@ -59,7 +59,9 @@
 + (BOOL) hasFilePrefix:(NSString *)path;
 + (BOOL) hasHTTPPrefix:(NSString *)path;
 
-+ (BOOL) isFileForDownload:(NSString *)path;
+//+ (BOOL) isFileForDownload:(NSString *)path;
++ (BOOL) isFileForDownload:(NSString *)path
+             appDescriptor:(IRAppDescriptor *)appDescriptor;
 
 + (BOOL) isLocalFile:(NSString *)path;
 + (NSData *) localFileData:(NSString *)path;

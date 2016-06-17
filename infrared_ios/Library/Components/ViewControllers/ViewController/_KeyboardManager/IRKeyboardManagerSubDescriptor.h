@@ -6,6 +6,8 @@
 #import <Foundation/Foundation.h>
 #if TARGET_OS_IPHONE
 #import <IQKeyboardManager/IQKeyboardManagerConstants.h>
+
+@class IRAppDescriptor;
 #endif
 
 
@@ -165,6 +167,7 @@
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 
-- (void) extendImagePathsArray:(NSMutableArray *)imagePaths;
+- (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor;
 
 @end

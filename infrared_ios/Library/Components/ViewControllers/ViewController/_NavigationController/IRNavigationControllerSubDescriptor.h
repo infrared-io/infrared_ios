@@ -7,6 +7,7 @@
 
 @class IRBarButtonItemDescriptor;
 @class IRViewDescriptor;
+@class IRAppDescriptor;
 
 
 @interface IRNavigationControllerSubDescriptor : NSObject
@@ -28,6 +29,7 @@
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 
-- (void) extendImagePathsArray:(NSMutableArray *)imagePaths;
+- (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor;
 
 @end

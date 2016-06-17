@@ -51,7 +51,8 @@
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 
-- (void) extendImagePathsArray:(NSMutableArray *)imagePaths;
+- (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor;
 
 + (CLLocationCoordinate2D) CLLocationCoordinate2DFromDictionary:(NSDictionary *)dictionary;
 

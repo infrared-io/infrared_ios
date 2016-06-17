@@ -5,6 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class IRAppDescriptor;
+
 
 @interface IRSideMenuDescriptor : NSObject
 
@@ -48,6 +50,7 @@
 
 - (id) initDescriptorWithDictionary:(NSDictionary *)aDictionary;
 
-- (void) extendImagePathsArray:(NSMutableArray *)imagePaths;
+- (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor;
 
 @end

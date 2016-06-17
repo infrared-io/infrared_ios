@@ -254,32 +254,33 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    if (self.normalImage && [IRUtil isFileForDownload:self.normalImage]) {
+    if (self.normalImage && [IRUtil isFileForDownload:self.normalImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.normalImage];
     }
-    if (self.normalBackgroundImage && [IRUtil isFileForDownload:self.normalBackgroundImage]) {
+    if (self.normalBackgroundImage && [IRUtil isFileForDownload:self.normalBackgroundImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.normalBackgroundImage];
     }
 
-    if (self.highlightedImage && [IRUtil isFileForDownload:self.highlightedImage]) {
+    if (self.highlightedImage && [IRUtil isFileForDownload:self.highlightedImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.highlightedImage];
     }
-    if (self.highlightedBackgroundImage && [IRUtil isFileForDownload:self.highlightedBackgroundImage]) {
+    if (self.highlightedBackgroundImage && [IRUtil isFileForDownload:self.highlightedBackgroundImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.highlightedBackgroundImage];
     }
 
-    if (self.selectedImage && [IRUtil isFileForDownload:self.selectedImage]) {
+    if (self.selectedImage && [IRUtil isFileForDownload:self.selectedImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.selectedImage];
     }
-    if (self.selectedBackgroundImage && [IRUtil isFileForDownload:self.selectedBackgroundImage]) {
+    if (self.selectedBackgroundImage && [IRUtil isFileForDownload:self.selectedBackgroundImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.selectedBackgroundImage];
     }
 
-    if (self.disabledImage && [IRUtil isFileForDownload:self.disabledImage]) {
+    if (self.disabledImage && [IRUtil isFileForDownload:self.disabledImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.disabledImage];
     }
-    if (self.disabledBackgroundImage && [IRUtil isFileForDownload:self.disabledBackgroundImage]) {
+    if (self.disabledBackgroundImage && [IRUtil isFileForDownload:self.disabledBackgroundImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.disabledBackgroundImage];
     }
 }

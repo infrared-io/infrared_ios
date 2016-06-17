@@ -69,6 +69,7 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:appDescriptor
 {
 
 }

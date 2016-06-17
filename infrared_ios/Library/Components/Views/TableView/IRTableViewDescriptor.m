@@ -250,18 +250,19 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
     // TODO: check should 'backgroundView' be added
-    [self.tableHeaderView extendImagePathsArray:imagePaths];
-    [self.tableFooterView extendImagePathsArray:imagePaths];
+    [self.tableHeaderView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.tableFooterView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
     for (IRBaseDescriptor *anDescriptor in self.sectionHeadersArray) {
-        [anDescriptor extendImagePathsArray:imagePaths];
+        [anDescriptor extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
     }
     for (IRBaseDescriptor *anDescriptor in self.sectionFootersArray) {
-        [anDescriptor extendImagePathsArray:imagePaths];
+        [anDescriptor extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
     }
     for (IRBaseDescriptor *anDescriptor in self.cellsArray) {
-        [anDescriptor extendImagePathsArray:imagePaths];
+        [anDescriptor extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
     }
 }
 

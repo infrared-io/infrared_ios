@@ -203,4 +203,14 @@
     return self;
 }
 
+- (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
+{
+    [self.backgroundView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.selectedBackgroundView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.multipleSelectionBackgroundView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.accessoryView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.editingAccessoryView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+}
+
 @end

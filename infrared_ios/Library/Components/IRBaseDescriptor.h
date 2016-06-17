@@ -161,7 +161,6 @@ typedef enum {
 //+ (NSArray *) allImagePaths;
 + (NSArray *) allImagePaths:(IRAppDescriptor *)appDescriptor;
 
-//+ (NSArray *) allJSFilesPaths;
 + (NSArray *) allJSFilesPaths:(IRAppDescriptor *)appDescriptor;
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -181,6 +180,7 @@ typedef enum {
 
 - (NSDictionary *) viewDefaults;
 
-- (void) extendImagePathsArray:(NSMutableArray *)imagePaths;
+- (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor;
 
 @end

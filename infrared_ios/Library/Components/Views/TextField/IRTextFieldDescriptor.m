@@ -189,13 +189,14 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    [self.leftView extendImagePathsArray:imagePaths];
-    [self.rightView extendImagePathsArray:imagePaths];
-    if (self.background && [IRUtil isFileForDownload:self.background]) {
+    [self.leftView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.rightView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    if (self.background && [IRUtil isFileForDownload:self.background appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.background];
     }
-    if (self.disabledBackground && [IRUtil isFileForDownload:self.disabledBackground]) {
+    if (self.disabledBackground && [IRUtil isFileForDownload:self.disabledBackground appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.disabledBackground];
     }
 }

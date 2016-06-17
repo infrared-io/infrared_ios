@@ -54,11 +54,12 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    if (self.image && [IRUtil isFileForDownload:self.image]) {
+    if (self.image && [IRUtil isFileForDownload:self.image appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.image];
     }
-    if (self.landscapeImagePhone && [IRUtil isFileForDownload:self.landscapeImagePhone]) {
+    if (self.landscapeImagePhone && [IRUtil isFileForDownload:self.landscapeImagePhone appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.landscapeImagePhone];
     }
 }

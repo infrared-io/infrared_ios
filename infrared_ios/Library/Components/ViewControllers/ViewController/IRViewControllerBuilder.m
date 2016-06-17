@@ -270,7 +270,7 @@
     NSString *allJsPluginNames;
     NSString *escapedPluginPath;
     JSValue *irViewControllerJSValue = jsContext[irViewController.key];
-    NSLog(@"VC-key: %@", irViewController.key);
+    NSLog(@"Extend with JSPlugin VC with key: %@", irViewController.key);
     if (irViewControllerJSValue && [irViewControllerJSValue toObject]) {
         jsControllerPathsArray = [IRBaseDescriptor componentsArrayFromString:descriptor.controller];
         allJsPluginNames = @"[ ";

@@ -149,11 +149,12 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    if (self.backgroundImage && [IRUtil isFileForDownload:self.backgroundImage]) {
+    if (self.backgroundImage && [IRUtil isFileForDownload:self.backgroundImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.backgroundImage];
     }
-    if (self.scopeBarBackgroundImage && [IRUtil isFileForDownload:self.scopeBarBackgroundImage]) {
+    if (self.scopeBarBackgroundImage && [IRUtil isFileForDownload:self.scopeBarBackgroundImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.scopeBarBackgroundImage];
     }
 }

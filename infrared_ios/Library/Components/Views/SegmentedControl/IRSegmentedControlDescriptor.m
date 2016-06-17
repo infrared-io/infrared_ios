@@ -104,9 +104,10 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
     for (IRSegment *anSegment in self.segmentsArray) {
-        if ([anSegment.image length] > 0 && [IRUtil isFileForDownload:anSegment.image]) {
+        if ([anSegment.image length] > 0 && [IRUtil isFileForDownload:anSegment.image appDescriptor:appDescriptor]) {
             [imagePaths addObject:anSegment.image];
         }
     }

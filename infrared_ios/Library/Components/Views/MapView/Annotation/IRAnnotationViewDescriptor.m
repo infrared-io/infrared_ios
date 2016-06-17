@@ -34,9 +34,10 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    [self.pinAnnotationViewDescriptor extendImagePathsArray:imagePaths];
-    [self.calloutAnnotationViewDescriptor extendImagePathsArray:imagePaths];
+    [self.pinAnnotationViewDescriptor extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.calloutAnnotationViewDescriptor extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
 }
 
 @end

@@ -23,7 +23,12 @@
                  precacheFileName:(NSString *)precacheFileName;
 - (void) buildInfraredAppFromPath:(NSString *)path
         extraComponentDescriptors:(NSArray *)descriptorClassedArray;
+- (void) buildInfraredAppFromPath:(NSString *)path
+        extraComponentDescriptors:(NSArray *)descriptorClassedArray
+            setRootViewController:(BOOL)setRootViewController;
 - (void) buildInfraredAppFromPath:(NSString *)path;
+- (void) buildInfraredAppFromPath:(NSString *)path
+            setRootViewController:(BOOL)setRootViewController;
 
 - (void) buildInfraredAppFromPath2ndPhase;
 

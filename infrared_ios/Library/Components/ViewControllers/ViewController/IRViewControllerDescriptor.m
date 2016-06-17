@@ -119,10 +119,11 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    [self.navigationController extendImagePathsArray:imagePaths];
-    [self.tabBarController extendImagePathsArray:imagePaths];
-    [self.sideMenu extendImagePathsArray:imagePaths];
+    [self.navigationController extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.tabBarController extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.sideMenu extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
 }
 
 

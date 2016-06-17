@@ -409,11 +409,16 @@
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
+//+ (BOOL) isFileForDownload:(NSString *)path
+//{
+//    return [self isFileForDownload:path appDescriptor:[IRDataController sharedInstance].appDescriptor];
+//}
 + (BOOL) isFileForDownload:(NSString *)path
+             appDescriptor:(IRAppDescriptor *)appDescriptor
 {
     BOOL isFileForDownload = NO;
     BOOL hasFilePrefix = [IRUtil hasFilePrefix:path];
-    NSString *baseUrl = [IRDataController sharedInstance].appDescriptor.baseUrl;
+    NSString *baseUrl = appDescriptor.baseUrl;
     BOOL isValidURLWithHostAndPath = [IRUtil isValidURLWithHostAndPath:path];
     if (hasFilePrefix == NO &&
         (([baseUrl length] > 0 && [path length] > 0) || isValidURLWithHostAndPath))

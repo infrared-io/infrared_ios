@@ -60,4 +60,7 @@
 @property (nonatomic) BOOL dynamicAutolayoutRowHeight;
 @property (nonatomic) CGFloat dynamicAutolayoutRowHeightMinimum;
 
+- (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor;
+
 @end

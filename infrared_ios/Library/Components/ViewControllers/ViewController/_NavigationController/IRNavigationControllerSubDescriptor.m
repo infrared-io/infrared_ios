@@ -8,6 +8,7 @@
 #import "IRBaseDescriptor.h"
 #import "IRBarButtonItemDescriptor.h"
 #import "IRViewDescriptor.h"
+#import "IRAppDescriptor.h"
 
 
 @implementation IRNavigationControllerSubDescriptor
@@ -86,8 +87,12 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    if (self.backIndicatorImage && [IRUtil isFileForDownload:self.backIndicatorImage]) {
+    [self.titleView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.leftBarButtonItem extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    [self.rightBarButtonItem extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
+    if (self.backIndicatorImage && [IRUtil isFileForDownload:self.backIndicatorImage appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.backIndicatorImage];
     }
 }

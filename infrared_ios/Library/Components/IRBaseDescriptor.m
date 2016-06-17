@@ -1160,55 +1160,29 @@
 #endif
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
-//+ (NSArray *) allImagePaths
-//{
-////    NSMutableArray *allImagePaths = [NSMutableArray array];
-////    IRAppDescriptor *appDescriptor = [IRDataController sharedInstance].appDescriptor;
-////    NSArray *screenArrays = appDescriptor.screensArray;
-////    for (IRScreenDescriptor *anScreenDescriptor in screenArrays) {
-////        [IRBaseDescriptor extendImagePathsArray:allImagePaths withPathsFromScreenDescriptor:anScreenDescriptor];
-////    }
-//    return [IRBaseDescriptor allImagePaths:[IRDataController sharedInstance].appDescriptor];
-//}
 + (NSArray *) allImagePaths:(IRAppDescriptor *)appDescriptor
 {
     NSMutableArray *allImagePaths = [NSMutableArray array];
 //    IRAppDescriptor *appDescriptor = [IRDataController sharedInstance].appDescriptor;
     NSArray *screenArrays = appDescriptor.screensArray;
     for (IRScreenDescriptor *anScreenDescriptor in screenArrays) {
-        [IRBaseDescriptor extendImagePathsArray:allImagePaths withPathsFromScreenDescriptor:anScreenDescriptor];
+        [IRBaseDescriptor extendImagePathsArray:allImagePaths
+                  withPathsFromScreenDescriptor:anScreenDescriptor
+                  appDescriptor:appDescriptor];
     }
     return allImagePaths;
 }
-+ (void) extendImagePathsArray:(NSMutableArray *)imagePaths withPathsFromScreenDescriptor:(IRScreenDescriptor *)irScreenDescriptor
++ (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+ withPathsFromScreenDescriptor:(IRScreenDescriptor *)irScreenDescriptor
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    [irScreenDescriptor.viewControllerDescriptor extendImagePathsArray:imagePaths];
+    [irScreenDescriptor.viewControllerDescriptor extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
     for (IRViewDescriptor *viewDescriptor in irScreenDescriptor.rootViewDescriptor.subviewsArray) {
-        [viewDescriptor extendImagePathsArray:imagePaths];
+        [viewDescriptor extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
-//+ (NSArray *) allJSFilesPaths
-//{
-////    NSMutableArray *allJSFilesPaths = [NSMutableArray array];
-////    IRAppDescriptor *appDescriptor = [IRDataController sharedInstance].appDescriptor;
-////    NSArray *screenArrays = appDescriptor.screensArray;
-////    NSString *jsControllerPath;
-////    NSString *trimmedJsControllerPath;
-////    NSArray *jsControllerPathsArray;
-////    for (IRScreenDescriptor *anScreenDescriptor in screenArrays) {
-////        jsControllerPath = anScreenDescriptor.viewControllerDescriptor.controller;
-////        if ([jsControllerPath length] > 0) {
-////            jsControllerPathsArray = [IRBaseDescriptor componentsArrayFromString:jsControllerPath];
-////            for (NSString *anJsPluginPath in jsControllerPathsArray) {
-////                trimmedJsControllerPath = [anJsPluginPath stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-////                [allJSFilesPaths addObject:trimmedJsControllerPath];
-////            }
-////        }
-////    }
-//    return [IRBaseDescriptor allJSFilesPaths:[IRDataController sharedInstance].appDescriptor];
-//}
 + (NSArray *) allJSFilesPaths:(IRAppDescriptor *)appDescriptor
 {
     NSMutableArray *allJSFilesPaths = [NSMutableArray array];
@@ -1287,6 +1261,7 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
 
 }

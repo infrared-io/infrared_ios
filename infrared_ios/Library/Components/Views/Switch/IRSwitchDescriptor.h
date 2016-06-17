@@ -20,4 +20,7 @@
 
 @property(nonatomic/*,getter=isOn*/) BOOL on;
 
+- (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor;
+
 @end

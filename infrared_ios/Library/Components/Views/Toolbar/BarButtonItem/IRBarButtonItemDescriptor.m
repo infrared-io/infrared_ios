@@ -95,11 +95,12 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-    if (self.image && [IRUtil isFileForDownload:self.image]) {
+    if (self.image && [IRUtil isFileForDownload:self.image appDescriptor:appDescriptor]) {
         [imagePaths addObject:self.image];
     }
-    [self.customView extendImagePathsArray:imagePaths];
+    [self.customView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
 }
 
 @end

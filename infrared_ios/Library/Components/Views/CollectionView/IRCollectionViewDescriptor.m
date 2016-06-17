@@ -10,6 +10,7 @@
 #import "IRView.h"
 #import "IRCollectionView.h"
 #import "IRCollectionViewBuilder.h"
+
 #endif
 
 
@@ -149,16 +150,18 @@
 }
 
 - (void) extendImagePathsArray:(NSMutableArray *)imagePaths
+                 appDescriptor:(IRAppDescriptor *)appDescriptor
 {
     // TODO: check should 'backgroundView' be added
+    [self.backgroundView extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
     for (IRBaseDescriptor *anDescriptor in self.sectionHeadersArray) {
-        [anDescriptor extendImagePathsArray:imagePaths];
+        [anDescriptor extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
     }
     for (IRBaseDescriptor *anDescriptor in self.sectionFootersArray) {
-        [anDescriptor extendImagePathsArray:imagePaths];
+        [anDescriptor extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
     }
     for (IRBaseDescriptor *anDescriptor in self.cellsArray) {
-        [anDescriptor extendImagePathsArray:imagePaths];
+        [anDescriptor extendImagePathsArray:imagePaths appDescriptor:appDescriptor];
     }
 }
 
