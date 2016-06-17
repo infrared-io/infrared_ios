@@ -95,12 +95,27 @@ pod "Infrared"
 
 ###Code in AppDelegate
 
+If whole app should be as Infrared app (rootViewController automatically set with `mainScreenId` as indicated in app.json) use following method:
+
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 
     [[Infrared sharedInstance] buildInfraredAppFromPath:@"app.json"];
+
+    return YES;
+}
+```
+
+If Infrared View Controllers are just part of whole iOS app user following method:
+
+```objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+
+    [[Infrared sharedInstance] buildInfraredAppFromPath:@"app.json" setRootViewController:NO];
 
     return YES;
 }
