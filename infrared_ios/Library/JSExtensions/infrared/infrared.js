@@ -92,16 +92,16 @@ var Global = this;
 
 var infraredClass = function () {
 
-    this.pluginsMap = {};
+    this.controllersMap = {};
 
-    this.pluginName = null;
-    this.nameForFollowingPlugin = function (pluginName) {
-        this.pluginName = pluginName;
+    this.controllerName = null;
+    this.nameForFollowingController = function (controllerName) {
+        this.controllerName = controllerName;
     };
-    this.plugin = function (dictionary) {
-        if (this.pluginName && this.pluginName.length>0) {
-            this.pluginsMap[this.pluginName] = dictionary;
-            this.pluginName = null;
+    this.controller = function (dictionary) {
+        if (this.controllerName && this.controllerName.length>0) {
+            this.controllersMap[this.controllerName] = dictionary;
+            this.controllerName = null;
         }
     };
 
@@ -133,22 +133,22 @@ var infraredClass = function () {
         this.watchJSCallbackToObjC(prop, action, newValue, oldValue);
     };
 
-    this.extendVCWithPluginName = function (viewController, pluginNameList) {
-        var pluginName;
-        var plugin;
-        if (pluginNameList && viewController) {
-            for (var i = 0; i < pluginNameList.length; i++) {
-                pluginName = pluginNameList[i];
-                plugin = this.pluginsMap[pluginName];
-                if (plugin != null) {
-                    extend(viewController, plugin, true);
+    this.extendVCWithControllerName = function (viewController, controllerNameList) {
+        var controllerName;
+        var controller;
+        if (controllerNameList && viewController) {
+            for (var i = 0; i < controllerNameList.length; i++) {
+                controllerName = controllerNameList[i];
+                controller = this.controllersMap[controllerName];
+                if (controller != null) {
+                    extend(viewController, controller, true);
                 }
             }
         }
     };
 
-    this.extendVCWithPlugin = function (viewController, plugin) {
-        extend(viewController, plugin, true);
+    this.extendVCWithController = function (viewController, controller) {
+        extend(viewController, controller, true);
     };
 
     // INFO:

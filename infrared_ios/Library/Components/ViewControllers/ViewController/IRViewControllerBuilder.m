@@ -296,7 +296,7 @@
 //                                                        "setZeroTimeout( function() { "
 //#endif
                                                             "if (typeof %@ !== 'undefined' && %@ != null) { "
-                                                            "%@.extendVCWithPluginName(%@, %@);"
+                                                            "%@.extendVCWithControllerName(%@, %@);"
                                                             " }"
 //#if ENABLE_SAFARI_DEBUGGING == 1
 //                                                        " } );"

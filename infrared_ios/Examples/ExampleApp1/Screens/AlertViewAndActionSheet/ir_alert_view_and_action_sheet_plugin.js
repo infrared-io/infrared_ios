@@ -1,5 +1,5 @@
 
-IR.plugin({
+IR.controller({
     "showMyAlertView" : function () {
         this.showAlertView(
             'Alert View', 'Some question or message',

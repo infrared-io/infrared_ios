@@ -1,5 +1,5 @@
 
-IR.plugin({
+IR.controller({
     "defaultButtonTapped" : function () {
         this.showAlertView(
             'Default Button', 'Tapped',

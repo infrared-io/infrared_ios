@@ -1,5 +1,5 @@
 
-IR.plugin({
+IR.controller({
     "firstLabelData" : {
         "text" : 'IR-Label',
         //get text() {

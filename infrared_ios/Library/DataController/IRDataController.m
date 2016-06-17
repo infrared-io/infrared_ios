@@ -246,7 +246,7 @@ static IRDataController *sharedDataController = nil;
     for (NSString *anPluginPath in jsControllerPathsArray) {
         anEscapedPluginPath = [anPluginPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         jsPluginNameFromPath = [IRUtil scriptTagFileNameFromPath:anEscapedPluginPath];
-        scriptTags = [scriptTags stringByAppendingFormat:@"<script>IR.nameForFollowingPlugin('%@');</script>", jsPluginNameFromPath];
+        scriptTags = [scriptTags stringByAppendingFormat:@"<script>IR.nameForFollowingController('%@');</script>", jsPluginNameFromPath];
         scriptTags = [scriptTags stringByAppendingFormat:@"<script src='%@'></script>", jsPluginNameFromPath];
     }
     NSString *baseUrlString = [NSString stringWithFormat:@"%@/", fullBaseUrlPath];

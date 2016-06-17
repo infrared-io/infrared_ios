@@ -1,6 +1,6 @@
 
 
-IR.plugin({
+IR.controller({
     "tableViewRowSelected" : function (tableView, indexPath, data) {
         if (data.screenId && data.screenId.length > 0) {
             this.pushViewControllerWithScreenIdAnimated(data.screenId, true);

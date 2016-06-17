@@ -1,5 +1,5 @@
 
-IR.plugin({
+IR.controller({
     "updateSectionOne" : function () {
         this.tableData[0].sectionHeader.title = 'Section header 1+';
         this.tableData[0].sectionFooter.title = 'Section footer 1+';
