@@ -443,6 +443,8 @@ static Infrared *sharedInfraRed = nil;
         [self buildViewControllerAndSetRootViewControllerScreenDescriptor:mainScreenDescriptor
                                                                      data:nil];
     }
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:IR_CONTEXT_READY_NOTIFICATION object:nil];
 }
 - (void) initI18NData
 {
