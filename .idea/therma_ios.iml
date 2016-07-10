@@ -9,8 +9,8 @@
     </content>
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/infrared_iosTests/Infrared_iosTests.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_iosTests/en.lproj/InfoPlist.strings" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_iosTests/infrared_iosTests-Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_iosTests/en.lproj/InfoPlist.strings" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/precaching/main.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/precaching/IRPrecache.h" isTestSource="false" />
@@ -27,30 +27,29 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_SideMenu/RESideMenuExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_SideMenu/IRSideMenuDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_SideMenu/IRSideMenu.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardAutoResize/IRKeyboardAutoResizeData.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardAutoResize/IRKeyboardAutoResizeData.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardManager/IRKeyboardManagerSubDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardManager/IRKeyboardManagerSubDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarControllerSubDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarItemDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarItemDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_TabBarController/IRTabBarControllerSubDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardAutoResize/IRKeyboardAutoResizeData.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardAutoResize/IRKeyboardAutoResizeData.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/UIViewControllerExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_NavigationController/IRNavigationControllerSubDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_NavigationController/IRNavigationControllerSubDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardManager/IRKeyboardManagerSubDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/_KeyboardManager/IRKeyboardManagerSubDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/ViewController/IRViewControllerDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/TabBarController/IRTabBarController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/TabBarController/IRTabBarController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/TabBarController/UITabBarControllerExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/NavigationController/IRNavigationController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/NavigationController/IRNavigationController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/NavigationController/IRNavigationController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/ViewControllers/NavigationController/UINavigationControllerExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/IRComponentInfoProtocol.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/I18N/IRI18NDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/I18N/IRI18NDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Label/IRLabelDescriptor.m" isTestSource="false" />
@@ -60,7 +59,6 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Label/UILabelExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Label/IRLabelBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Label/IRLabel.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBar.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItemBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItemDescriptor.m" isTestSource="false" />
@@ -71,12 +69,15 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/NavigationBar/NavigationItem/IRNavigationItem.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarBuilder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBar.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/NavigationBar/UINavigationBarExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBarBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/NavigationBar/IRNavigationBar.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/UITableViewExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/_Observer/IRTableViewObserver.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/_Observer/IRTableViewObserver.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableViewDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableViewBuilder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableViewDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCellBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCellDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCell.m" isTestSource="false" />
@@ -84,25 +85,21 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCell.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCellBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewCell/IRTableViewCellDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableView.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewHeaderOrFooter/IRTableViewHeaderOrFooter.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewHeaderOrFooter/IRTableViewHeaderOrFooterDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewHeaderOrFooter/IRTableViewHeaderOrFooter.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewHeaderOrFooter/IRTableViewHeaderOrFooterDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewHeaderOrFooter/IRTableViewHeaderOrFooter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewHeaderOrFooter/IRTableViewHeaderOrFooter.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/TableViewHeaderOrFooter/IRTableViewHeaderOrFooterDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableViewBuilder.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableViewDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/_Observer/IRTableViewObserver.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/_Observer/IRTableViewObserver.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/AlertView/IRAlertView.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/AlertView/IRAlertView.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepper.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepperDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepper.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepperBuilder.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepperDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepperBuilder.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/UIStepperExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/UITableViewExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TableView/IRTableView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/IRSliderDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/IRSliderBuilder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/IRSlider.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/IRSlider.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/UISliderExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/IRSliderDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/IRSliderBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ActionSheet/IRActionSheet.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ActionSheet/IRActionSheet.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Button/UIButtonExport.h" isTestSource="false" />
@@ -112,22 +109,13 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Button/IRButtonDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/RotationGestureRecognizer/IRRotationGestureRecognizer.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/RotationGestureRecognizer/IRRotationGestureRecognizerDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/RotationGestureRecognizer/IRRotationGestureRecognizerDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/RotationGestureRecognizer/UIRotationGestureRecognizerExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/RotationGestureRecognizer/IRRotationGestureRecognizer.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/SwipeGestureRecognizer/IRSwipeGestureRecognizerDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/SwipeGestureRecognizer/IRSwipeGestureRecognizer.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/SwipeGestureRecognizer/IRSwipeGestureRecognizerDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/SwipeGestureRecognizer/IRSwipeGestureRecognizer.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/SwipeGestureRecognizer/UISwipeGestureRecognizerExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/TapGestureRecognizer/IRTapGestureRecognizer.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/TapGestureRecognizer/IRTapGestureRecognizer.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/TapGestureRecognizer/IRTapGestureRecognizerDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/TapGestureRecognizer/UITapGestureRecognizerExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/TapGestureRecognizer/IRTapGestureRecognizerDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PinchGestureRecognizer/IRPinchGestureRecognizer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PinchGestureRecognizer/IRPinchGestureRecognizer.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PinchGestureRecognizer/IRPinchGestureRecognizerDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PinchGestureRecognizer/UIPinchGestureRecognizerExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PinchGestureRecognizer/IRPinchGestureRecognizerDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/IRBaseBuilder+GestureRecognizer.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/UIGestureRecognizerExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/IRGestureRecognizerDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/LongPressGestureRecognizer/UILongPressGestureRecognizerExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/LongPressGestureRecognizer/IRLongPressGestureRecognizerDescriptor.h" isTestSource="false" />
@@ -140,26 +128,27 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PanGestureRecognizer/IRPanGestureRecognizerDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PanGestureRecognizer/IRPanGestureRecognizer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PanGestureRecognizer/IRPanGestureRecognizerDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PinchGestureRecognizer/UIPinchGestureRecognizerExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PinchGestureRecognizer/IRPinchGestureRecognizer.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PinchGestureRecognizer/IRPinchGestureRecognizer.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PinchGestureRecognizer/IRPinchGestureRecognizerDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/PinchGestureRecognizer/IRPinchGestureRecognizerDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/RotationGestureRecognizer/IRRotationGestureRecognizer.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/RotationGestureRecognizer/IRRotationGestureRecognizerDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/RotationGestureRecognizer/IRRotationGestureRecognizerDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/RotationGestureRecognizer/UIRotationGestureRecognizerExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/RotationGestureRecognizer/IRRotationGestureRecognizer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/IRGestureRecognizerDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/ScreenEdgePanGestureRecognizer/IRScreenEdgePanGestureRecognizer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/SwipeGestureRecognizer/IRSwipeGestureRecognizerDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/SwipeGestureRecognizer/IRSwipeGestureRecognizer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/SwipeGestureRecognizer/IRSwipeGestureRecognizerDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/SwipeGestureRecognizer/IRSwipeGestureRecognizer.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/SwipeGestureRecognizer/UISwipeGestureRecognizerExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/ScreenEdgePanGestureRecognizer/IRScreenEdgePanGestureRecognizerDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/ScreenEdgePanGestureRecognizer/IRScreenEdgePanGestureRecognizerDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/ScreenEdgePanGestureRecognizer/IRScreenEdgePanGestureRecognizer.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/ScreenEdgePanGestureRecognizer/UIScreenEdgePanGestureRecognizerExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/ScreenEdgePanGestureRecognizer/IRScreenEdgePanGestureRecognizerDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/ScreenEdgePanGestureRecognizer/IRScreenEdgePanGestureRecognizerDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/UIGestureRecognizerExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/IRViewBuilder.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/IRView.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/IRViewBuilder.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/IRView.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/IRViewDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/UIViewExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/IRViewDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionViewDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/ScreenEdgePanGestureRecognizer/IRScreenEdgePanGestureRecognizer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/TapGestureRecognizer/IRTapGestureRecognizer.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/TapGestureRecognizer/UITapGestureRecognizerExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/TapGestureRecognizer/IRTapGestureRecognizerDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/TapGestureRecognizer/IRTapGestureRecognizer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_GestureRecognizers/TapGestureRecognizer/IRTapGestureRecognizerDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/UICollectionViewExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionReusableView/IRCollectionReusableView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionReusableView/IRCollectionReusableViewDescriptor.h" isTestSource="false" />
@@ -171,14 +160,15 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionViewBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionViewDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionView.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/IRCollectionViewCell.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/IRCollectionViewCellBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/UICollectionViewCellExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/IRCollectionViewCell.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/IRCollectionViewCellDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/IRCollectionViewCellBuilder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/IRCollectionViewCell.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/CollectionViewCell/IRCollectionViewCellDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionViewDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/IRCollectionViewBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/_Observer/IRCollectionViewObserver.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/CollectionView/_Observer/IRCollectionViewObserver.m" isTestSource="false" />
@@ -189,16 +179,11 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ScrollView/IRScrollView.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ScrollView/UIScrollViewExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ScrollView/IRScrollViewDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextViewDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextViewBuilder.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextView.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextView.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextViewBuilder.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextViewDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/UITextViewExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Toolbar/IRToolbarDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Toolbar/IRToolbarBuilder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/AlertView/IRAlertView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/AlertView/IRAlertView.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Toolbar/IRToolbar.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Toolbar/IRToolbarBuilder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Toolbar/IRToolbarDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItem.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItemDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Toolbar/BarButtonItem/IRBarButtonItem.h" isTestSource="false" />
@@ -213,25 +198,23 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorView.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewBuilder.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/UIActivityIndicatorViewExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/UIActivityIndicatorViewExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ActivityIndicatorView/IRActivityIndicatorViewBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_UIControlSupport/UIControlIRExtension.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_UIControlSupport/IRBaseBuilder+UIControl.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_UIControlSupport/IRViewAndControlDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_UIControlSupport/IRBaseBuilder+UIControl.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_UIControlSupport/IRControlExportProtocol.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_UIControlSupport/IRBaseBuilder+UIControl.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_UIControlSupport/IRBaseBuilder+UIControl.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_UIControlSupport/IRViewAndControlDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_UIControlSupport/IRViewAndControlDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/_Observer/IRWebViewObserver.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/_Observer/IRWebViewObserver.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/UIWebViewExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebView.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewBuilder.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewBuilder.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/IRViewBuilder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/IRView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/IRViewBuilder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/IRView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/IRViewDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/UIViewExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/View/IRViewDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Switch/IRSwitch.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Switch/IRSwitchBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Switch/IRSwitch.h" isTestSource="false" />
@@ -248,13 +231,22 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextField/IRTextFieldDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextField/IRTextField.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextField/UITextFieldExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/_Observer/IRWebViewObserver.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/_Observer/IRWebViewObserver.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/UIWebViewExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewBuilder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewBuilder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebViewDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/WebView/IRWebView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItem.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItemBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItemDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItem.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_BarItem/UIBarItemExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItemBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItemDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItem.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_BarItem/IRBarItemBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/IRMapViewBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/IRAnnotationViewDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/_Base/IRBaseAnnotationViewDescriptor.h" isTestSource="false" />
@@ -265,14 +257,14 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/_Base/Data/IRBaseAnnotation.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/IRAnnotationViewDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/MKPinAnnotationViewExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewBuilder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/Data/IRPinAnnotation.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/Data/IRPinAnnotation.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationView.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewBuilder.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/PinAnnotation/IRPinAnnotationViewBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/Data/IRCalloutAnnotation.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/Data/IRCalloutAnnotation.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/MapView/Annotation/CalloutAnnotation/IRCalloutAnnotationViewDescriptor.h" isTestSource="false" />
@@ -299,27 +291,27 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/PageControl/IRPageControl.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegmentedControlBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegmentedControlDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegment.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegment.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegmentedControlDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegment.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegmentedControl.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/UISegmentedControlExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegmentedControlBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SegmentedControl/IRSegmentedControl.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SearchBar/IRSearchBarBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SearchBar/UISearchBarExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SearchBar/IRSearchBarBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SearchBar/IRSearchBarDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SearchBar/IRSearchBarBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SearchBar/IRSearchBar.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SearchBar/IRSearchBar.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/SearchBar/IRSearchBarDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/IRSliderDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/IRSliderBuilder.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/IRSlider.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/IRSlider.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/UISliderExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/IRSliderDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Slider/IRSliderBuilder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepperDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepper.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepperBuilder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepperDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/IRStepperBuilder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/Stepper/UIStepperExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ImageView/IRImageViewDescriptor.h" isTestSource="false" />
@@ -335,15 +327,15 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/IRBaseBuilder+AutoLayout.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/IRTableViewBuilder+AutoLayout.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintWithVFDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintICSPriorityDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintMetricsDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintWithItemDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintWithItemDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintICSPriorityDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintICSPriorityDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintMetricsDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintWithVFDescriptor.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/Descriptors/IRLayoutConstraintMetricsDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/_AutoLayout/IRLayoutConstraint.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/RefreshControl/IRRefreshControlDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/RefreshControl/IRRefreshControlBuilder.m" isTestSource="false" />
@@ -354,24 +346,31 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/RefreshControl/IRRefreshControlDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressView.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressViewDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ProgressView/UIProgressViewExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressViewBuilder.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressViewBuilder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ProgressView/UIProgressViewExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressViewDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/ProgressView/IRProgressViewBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePicker.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/DatePicker/UIDatePickerExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePicker.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerBuilder.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/DatePicker/UIDatePickerExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/DatePicker/IRDatePickerDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextViewBuilder.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextViewBuilder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextViewDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/IRTextViewDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/TextView/UITextViewExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerViewDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerView.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/PickerView/UIPickerViewExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerViewBuilder.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerViewDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/PickerView/UIPickerViewExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerViewDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/PickerView/IRPickerViewBuilder.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/PickerView/_Observer/IRPickerViewObserver.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/Views/PickerView/_Observer/IRPickerViewObserver.h" isTestSource="false" />
@@ -385,18 +384,22 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/App/IRAppDescriptor.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/App/IRAppDescriptor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/IRBaseDescriptor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Components/IRComponentInfoProtocol.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/NSDateExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/NSDataExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/NSObjectExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/NSIndexPathExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/UIColorExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/NSURLExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/NSIndexPathExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/CLLocationManagerExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/MKUserLocationExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/UIImageExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/UIApplicationExport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/NSURLExport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExports/UIFontExport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Infrared.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataController/IRDataController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataController/IRIdsAndComponentsForScreen.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataController/IRDataController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataController/IRIdsAndComponentsForScreen.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/SDKCategories/FoundationCategories/NSInvocation+IRJSContextSwizzle.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/SDKCategories/FoundationCategories/NSInvocation+IRJSContextSwizzle.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/SDKCategories/UIKitCategories/UITextField+Infrared.m" isTestSource="false" />
@@ -413,71 +416,68 @@
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Utils/IRJSContextUtil.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Utils/IRFileLoadingUtil.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Utils/IRSimpleCache.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataController/IRDataController.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataController/IRIdsAndComponentsForScreen.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataController/IRDataController.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataController/IRIdsAndComponentsForScreen.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataBinding/IRBaseBuilder+DataBinding.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Infrared.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataBinding/IRDataBindingDescriptor.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataBinding/IRBaseBuilder+DataBinding.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataBinding/IRBaseBuilder+DataBinding.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/DataBinding/IRDataBindingDescriptor.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Infrared.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/IRLibrary/IRBaseLibrary.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/IRLibrary/IRUtilLibrary.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/IRLibrary/IRUtilLibrary.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/IRLibrary/IRBaseLibrary.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/JRSwizzle/JRSwizzle.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/JRSwizzle/JRSwizzle.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/Main.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/mztools.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/zip.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/unzip.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/crypt.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/mztools.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/ioapi.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/zip.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/unzip.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/crypt.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/ioapi.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/minizip/mztools.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/_ExternalLibraries/ZipArchive/Main.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExtensions/WatchJS/infrared_watch.js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExtensions/MD5/infrared_md5.min.js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExtensions/infrared/zeroTimeout.js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExtensions/infrared/zeroTimeoutWorker.js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/JSExtensions/infrared/infrared.js" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/IRLibrary/IRUtilLibrary.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/IRLibrary/IRUtilLibrary.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/IRLibrary/IRBaseLibrary.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/IRLibrary/IRBaseLibrary.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/UpdateScreen/update.json" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/UpdateScreen/ViewController/IRUpdateVC.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/UpdateScreen/ViewController/IRUpdateVC.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/Infrared.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/UpdateScreen/i18n/update_en.json" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/UpdateScreen/i18n/update_fr.json" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/UpdateScreen/i18n/update_de.json" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/UpdateScreen/ViewController/IRUpdateVC.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/UpdateScreen/ViewController/IRUpdateVC.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/UpdateScreen/update_screen.json" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/UpdateScreen/update.json" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Library/IRGlobal.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/infrared_ios-Prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/JSLibrary/globalData.js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/i18n/example1_en.json" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/i18n/example1_fr.json" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/i18n/example1_de.json" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/GestureRecognizers/ir_gesture_recognizers.json" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/GestureRecognizers/ir_gesture_recognizers_plugin.js" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/LabelButtonImage/ir_label_button_image_plugin.js" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/LabelButtonImage/ir_label_button_image.json" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen_plugin.js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Starting/ir_starting_screen.json" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/AlertViewAndActionSheet/ir_alert_view_and_action_sheet_plugin.js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/AlertViewAndActionSheet/ir_alert_view_and_action_sheet.json" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views.json" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/TableView/ir_table_view.json" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/TableView/ir_table_view_plugin.js" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/PickerView/ir_picker_view_plugin.js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/PickerView/ir_picker_view.json" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/PickerView/ir_picker_view_plugin.js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/CollectionView/ir_collection_view_plugin.js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/CollectionView/ir_collection_view.json" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/WebView/ir_web_view_plugin.js" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/WebView/ir_web_view.json" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views_plugin.js" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/Combination of Views/ir_combination_of_views.json" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/LabelButtonImage/ir_label_button_image_plugin.js" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/LabelButtonImage/ir_label_button_image.json" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/GestureRecognizers/ir_gesture_recognizers.json" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Screens/GestureRecognizers/ir_gesture_recognizers_plugin.js" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Images/245-paperairplane@2x.png" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Images/249-piechart@2x.png" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Images/295-shield@2x.png" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Images/245-paperairplane@2x.png" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/Images/DSCF4010.JPG" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/Examples/ExampleApp1/ir_app.json" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/infrared_ios/IRAppDelegate.m" isTestSource="false" />
@@ -488,38 +488,41 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSFileHandle+RACSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIRefreshControl+RACCommandSupport.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSequence.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UISwitch+RACSignalSupport.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIRefreshControl+RACCommandSupport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTargetQueueScheduler.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriptionScheduler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACPassthroughSubscriber.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriber.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEvent.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACKVOWrapper.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTargetQueueScheduler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriber.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEvent.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACCompoundDisposable.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACBlockTrampoline.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACKVOWrapper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACQueueScheduler.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACBlockTrampoline.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEmptySequence.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIAlertView+RACSignalSupport.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACDeallocating.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UITextView+RACSignalSupport.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIControl+RACSignalSupportPrivate.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIAlertView+RACSignalSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UITextView+RACSignalSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIControl+RACSignalSupportPrivate.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UICollectionReusableView+RACSignalSupport.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACErrorSignal.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UISegmentedControl+RACSignalSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UICollectionReusableView+RACSignalSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACErrorSignal.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UISegmentedControl+RACSignalSupport.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACMulticastConnection+Private.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UISegmentedControl+RACSignalSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACCompoundDisposable.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACDisposable.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIDatePicker+RACSignalSupport.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/ReactiveCocoa.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACDisposable.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIDatePicker+RACSignalSupport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignal.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACDynamicSequence.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACGroupedSignal.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACUnit.m" isTestSource="false" />
@@ -528,27 +531,29 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSString+RACSequenceAdditions.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSerialDisposable.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIStepper+RACSignalSupport.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACBehaviorSubject.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACArraySequence.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACCompoundDisposableProvider.d" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACScopedDisposable.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriptionScheduler.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACQueueScheduler.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/ReactiveCocoa.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSURLConnection+RACSupport.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACScopedDisposable.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACDeallocating.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACBehaviorSubject.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSURLConnection+RACSupport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSString+RACSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSString+RACKeyPathUtilities.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UISlider+RACSignalSupport.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTuple.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACBehaviorSubject.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSString+RACKeyPathUtilities.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSInvocation+RACTypeParsing.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACReturnSignal.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UISlider+RACSignalSupport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEagerSequence.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSInvocation+RACTypeParsing.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSData+RACSupport.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACReturnSignal.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIButton+RACCommandSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSInvocation+RACTypeParsing.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSData+RACSupport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACReturnSignal.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACScheduler+Private.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIGestureRecognizer+RACSignalSupport.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACChannel.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UITextField+RACSignalSupport.m" isTestSource="false" />
@@ -558,28 +563,28 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTestScheduler.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSString+RACSequenceAdditions.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriptingAssignmentTrampoline.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACDelegateProxy.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEmptySignal.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTestScheduler.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACStream.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACDeallocating.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTuple.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACReplaySubject.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSSet+RACSequenceAdditions.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignal.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACStream.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIRefreshControl+RACCommandSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACValueTransformer.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACReplaySubject.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEmptySignal.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEmptySignal.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTupleSequence.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACScheduler+Private.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACQueueScheduler.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIControl+RACSignalSupport.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACQueueScheduler+Subclass.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTupleSequence.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIControl+RACSignalSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACDynamicSequence.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACDelegateProxy.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignal+Operations.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACStream.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignal+Operations.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSURLConnection+RACSupport.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACScopedDisposable.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACStream.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSURLConnection+RACSupport.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UISwitch+RACSignalSupport.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc/RACEXTKeyPathCoding.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc/RACmetamacros.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc/RACEXTRuntimeExtensions.h" isTestSource="false" />
@@ -587,73 +592,68 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc/RACEXTRuntimeExtensions.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UISwitch+RACSignalSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACKVOTrampoline.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UITextView+RACSignalSupport.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACSelectorSignal.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSDictionary+RACSequenceAdditions.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACKVOTrampoline.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACSelectorSignal.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSDictionary+RACSequenceAdditions.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSString+RACSupport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignalSequence.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACPassthroughSubscriber.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACKVOChannel.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignalSequence.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACPassthroughSubscriber.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIActionSheet+RACSignalSupport.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEmptySignal.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIActionSheet+RACSignalSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubject.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubject.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACScheduler.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACValueTransformer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACChannel.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACScheduler.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACUnarySequence.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACStringSequence.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignal.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACStringSequence.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignal.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACUnarySequence.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACBacktrace.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACMulticastConnection.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACImmediateScheduler.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriber.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACMulticastConnection.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSOrderedSet+RACSequenceAdditions.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACImmediateScheduler.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACPassthroughSubscriber.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTargetQueueScheduler.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSOrderedSet+RACSequenceAdditions.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSSet+RACSequenceAdditions.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriber.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSEnumerator+RACSequenceAdditions.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriptingAssignmentTrampoline.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACArraySequence.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignal+Operations.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSArray+RACSequenceAdditions.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSEnumerator+RACSequenceAdditions.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACArraySequence.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UITableViewCell+RACSignalSupport.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSArray+RACSequenceAdditions.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UITableViewCell+RACSignalSupport.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACQueueScheduler.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignalProvider.d" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACUnit.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACStringSequence.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTuple.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACStream+Private.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEagerSequence.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACQueueScheduler+Subclass.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACBacktrace.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriptionScheduler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACStringSequence.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriber+Private.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACPropertySubscribing.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACDynamicSignal.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTargetQueueScheduler.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACCommand.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACValueTransformer.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignalSequence.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACCommand.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACDynamicSignal.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSNotificationCenter+RACSupport.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACCommand.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIStepper+RACSignalSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACDescription.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSNotificationCenter+RACSupport.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignalSequence.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIButton+RACCommandSupport.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEagerSequence.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACDescription.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSNotificationCenter+RACSupport.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACKVOChannel.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSString+RACSupport.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACKVOChannel.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACPropertySubscribing.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEmptySequence.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACPropertySubscribing.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIBarButtonItem+RACCommandSupport.m" isTestSource="false" />
@@ -663,17 +663,22 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/SSKeychain/Sources/SSKeychain.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SSKeychain/Sources/SSKeychainQuery.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SSKeychain/Support/en.lproj" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/RESideMenu/RESideMenu-prefix.pch" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/RESideMenu/RESideMenu.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/RESideMenu/RESideMenu-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/RESideMenu/RESideMenu/RECommonFunctions.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/RESideMenu/RESideMenu/RESideMenu.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/RESideMenu/RESideMenu/RESideMenu.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/RESideMenu/RESideMenu/RECommonFunctions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/RESideMenu/RESideMenu/UIViewController+RESideMenu.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/RESideMenu/RESideMenu/UIViewController+RESideMenu.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/MBProgressHUD/MBProgressHUD.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/MBProgressHUD/MBProgressHUD.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-infrared_ios_lib/Pods-infrared_ios_lib.debug.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-infrared_ios_lib/Pods-infrared_ios_lib.release.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/ReactiveCocoa/ReactiveCocoa-prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/ReactiveCocoa/ReactiveCocoa.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/ReactiveCocoa/ReactiveCocoa-dummy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SSKeychain/SSKeychain.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SSKeychain/SSKeychain-prefix.pch" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SSKeychain/SSKeychain-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/RESideMenu/RESideMenu-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/RESideMenu/RESideMenu.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/RESideMenu/RESideMenu-dummy.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/MBProgressHUD/MBProgressHUD-dummy.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/MBProgressHUD/MBProgressHUD.xcconfig" isTestSource="false" />
@@ -687,14 +692,9 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-infrared_ios/Pods-infrared_ios.release.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-infrared_ios/Pods-infrared_ios.debug.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-infrared_ios/Pods-infrared_ios-dummy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/RESideMenu/RESideMenu/RECommonFunctions.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/RESideMenu/RESideMenu/RESideMenu.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/RESideMenu/RESideMenu/RESideMenu.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/RESideMenu/RESideMenu/RECommonFunctions.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/RESideMenu/RESideMenu/UIViewController+RESideMenu.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/RESideMenu/RESideMenu/UIViewController+RESideMenu.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/MBProgressHUD/MBProgressHUD.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/MBProgressHUD/MBProgressHUD.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SSKeychain/SSKeychain.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SSKeychain/SSKeychain-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SSKeychain/SSKeychain-dummy.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/IQKeyboardReturnKeyHandler.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/KeyboardManager.h" isTestSource="false" />
@@ -706,20 +706,20 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/IQToolbar/IQToolbar.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/IQToolbar/IQTitleBarButtonItem.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/IQToolbar/IQBarButtonItem.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Constants/IQKeyboardManagerConstants.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Constants/IQKeyboardManagerConstantsInternal.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Constants/IQKeyboardManagerConstants.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/IQKeyboardReturnKeyHandler.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQUITextFieldView+Additions.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQUIView+Hierarchy.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQUIWindow+Hierarchy.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQUIScrollView+Additions.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQUIView+Hierarchy.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQNSArray+Sort.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQUIViewController+Additions.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQUITextFieldView+Additions.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQUIScrollView+Additions.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQNSArray+Sort.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQUIViewController+Additions.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQUIWindow+Hierarchy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQNSArray+Sort.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/Categories/IQUIView+Hierarchy.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/IQKeyboardManager.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/IQKeyboardManager/IQKeyBoardManager/IQTextView/IQTextView.h" isTestSource="false" />

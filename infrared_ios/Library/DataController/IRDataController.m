@@ -275,6 +275,11 @@ static IRDataController *sharedDataController = nil;
 {
     return self.jsContext;
 }
+
+- (UIWebView *) globalWebView
+{
+    return self.webView;
+}
 #endif
 
 // --------------------------------------------------------------------------------------------------------------------

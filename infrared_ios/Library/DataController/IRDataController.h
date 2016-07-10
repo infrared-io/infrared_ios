@@ -66,6 +66,7 @@
 #if TARGET_OS_IPHONE
 - (void) initJSContext:(IRAppDescriptor *)appDescriptor;
 - (JSContext *) globalJSContext;
+- (UIWebView *) globalWebView;
 #endif
 
 - (NSString *) getLocalStorageItemsAsJsonStringForAppName:(NSString *)appName;

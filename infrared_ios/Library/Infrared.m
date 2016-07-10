@@ -439,11 +439,30 @@ static Infrared *sharedInfraRed = nil;
 
     // 13) build main view-controller
     if (self.setRootViewController) {
+        if ([self.delegate conformsToProtocol:@protocol(InfraredDelegate)]
+            && [self.delegate respondsToSelector:@selector(willSetRootViewController)])
+        {
+            [self.delegate willSetRootViewController];
+        }
+
         IRScreenDescriptor *mainScreenDescriptor = [[IRDataController sharedInstance].appDescriptor mainScreenDescriptor];
         [self buildViewControllerAndSetRootViewControllerScreenDescriptor:mainScreenDescriptor
                                                                      data:nil];
+
+        if ([self.delegate conformsToProtocol:@protocol(InfraredDelegate)]
+            && [self.delegate respondsToSelector:@selector(didSetRootViewController)])
+        {
+            [self.delegate didSetRootViewController];
+        }
     }
 
+    // 14) add web-view to UI to improve jsContext
+    UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
+    UIWebView *webView = [[IRDataController sharedInstance] globalWebView];
+    webView.frame = CGRectMake(0, 0, 1, 1);
+    [currentWindow addSubview:webView];
+
+    // 15) post-notification that informs about IR context being ready
     [[NSNotificationCenter defaultCenter] postNotificationName:IR_CONTEXT_READY_NOTIFICATION object:nil];
 }
 - (void) initI18NData

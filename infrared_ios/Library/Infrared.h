@@ -12,7 +12,21 @@
 @class IRScreenDescriptor;
 
 
+@protocol InfraredDelegate <NSObject>
+
+@optional
+- (void) willSetRootViewController;
+- (void) didSetRootViewController;
+
+@end
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
 @interface Infrared : NSObject <UIAlertViewDelegate>
+
+@property (nonatomic, assign) <InfraredDelegate> delegate;
 
 + (Infrared *)sharedInstance;
 
