@@ -219,6 +219,8 @@ static IRDataController *sharedDataController = nil;
     // -- create WebView
     if (self.webView == nil) {
         self.webView = [[UIWebView alloc] init];
+        self.webView.opaque = NO;
+        self.webView.backgroundColor = [UIColor clearColor];
         self.webView.delegate = self;
     }
     // -- clean previous jsContext
@@ -263,7 +265,7 @@ static IRDataController *sharedDataController = nil;
 #endif
                                                            "<script src='infrared_watch.js'></script>"
                                                            "%@"
-                                                           "</head><body>"
+                                                           "</head><body style=\"background-color: transparent;\">"
                                                            "</body></html>", scriptTags]
                          baseURL:baseUrl];
 
