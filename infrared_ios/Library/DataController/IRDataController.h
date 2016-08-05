@@ -28,6 +28,10 @@
 
 @property (nonatomic, strong) IRAppDescriptor *appDescriptor;
 
+@property (nonatomic, strong) NSString *irServerAccountKey;
+@property (nonatomic, strong) NSString *irServerProjectKey;
+@property (nonatomic, strong) NSDictionary *customHTTPHeaderAttributesDictionary;
+
 @property (nonatomic, strong) NSDictionary *i18n;
 
 @property (nonatomic, strong) NSMutableArray *librariesArray;

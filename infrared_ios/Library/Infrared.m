@@ -119,6 +119,17 @@ static Infrared *sharedInfraRed = nil;
 
 #pragma mark - Public methods
 
+- (void) setCustomHTTPHeaderAttributes:(NSDictionary *)customHTTPHeaderAttributes
+{
+    [IRDataController sharedInstance].customHTTPHeaderAttributesDictionary = customHTTPHeaderAttributes;
+}
+- (void) setUpIRServerWithAccountKey:(NSString *)accountKey
+                          projectKey:(NSString *)projectKey
+{
+    [IRDataController sharedInstance].irServerAccountKey = accountKey;
+    [IRDataController sharedInstance].irServerProjectKey = projectKey;
+}
+// --------------------------------------------------------------------------------------------------------------------
 - (void) buildInfraredAppFromPath:(NSString *)path
         extraComponentDescriptors:(NSArray *)descriptorClassedArray
                  precacheFileName:(NSString *)precacheFileName

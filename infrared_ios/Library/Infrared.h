@@ -30,6 +30,10 @@
 
 + (Infrared *)sharedInstance;
 
+- (void) setCustomHTTPHeaderAttributes:(NSDictionary *)customHTTPHeaderAttributes;
+- (void) setUpIRServerWithAccountKey:(NSString *)accountKey
+                        projectKey:(NSString *)projectKey;
+
 - (void) buildInfraredAppFromPath:(NSString *)path
         extraComponentDescriptors:(NSArray *)descriptorClassedArray
                  precacheFileName:(NSString *)precacheFileName;

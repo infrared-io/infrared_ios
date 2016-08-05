@@ -298,13 +298,53 @@
     NSData *fileData = nil;
     NSURL *aURL;
     aURL = [IRUtil ulrForPath:path];
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
     NSHTTPURLResponse *response;
     NSError *error;
     if (aURL) {
-        request = [NSURLRequest requestWithURL:aURL
-                                   cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                               timeoutInterval:20];
+//        request = [NSURLRequest requestWithURL:aURL
+//                                   cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+//                               timeoutInterval:20];
+        request = [[NSMutableURLRequest alloc] init] ;
+        [request setURL:aURL];
+        [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+        [request setTimeoutInterval:20];
+
+        if ([[aURL host] rangeOfString:@"infrared.io"].location != NSNotFound) {
+            NSString *model = [[UIDevice currentDevice] model];
+            NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
+            CGFloat scale = [[UIScreen mainScreen] scale];
+            CGRect screenRect = [[UIScreen mainScreen] bounds];
+            NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+            NSString *countryCode = [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode];
+            NSString *irServerAccountKey = [IRDataController sharedInstance].irServerAccountKey;
+            NSString *irServerProjectKey = [IRDataController sharedInstance].irServerProjectKey;
+
+            [request addValue:model forHTTPHeaderField:@"model"];
+            [request addValue:systemVersion forHTTPHeaderField:@"systemVersion"];
+            [request addValue:[NSString stringWithFormat:@"%1.2f", scale] forHTTPHeaderField:@"scale"];
+            [request addValue:[NSString stringWithFormat:@"%1.2f", screenRect.size.width] forHTTPHeaderField:@"width"];
+            [request addValue:[NSString stringWithFormat:@"%1.2f", screenRect.size.height] forHTTPHeaderField:@"height"];
+            [request addValue:language forHTTPHeaderField:@"language"];
+            [request addValue:countryCode forHTTPHeaderField:@"country"];
+
+            if (irServerAccountKey.length > 0) {
+                [request addValue:irServerAccountKey forHTTPHeaderField:@"irServerAccountKey"];
+            }
+            if (irServerProjectKey.length > 0) {
+                [request addValue:irServerProjectKey forHTTPHeaderField:@"irServerProjectKey"];
+            }
+        }
+
+        NSDictionary *httpHeaders = [IRDataController sharedInstance].customHTTPHeaderAttributesDictionary;
+        NSString *httpHeaderValue;
+        for (NSString *httpHeaderName in httpHeaders) {
+            httpHeaderValue = httpHeaders[httpHeaderName];
+            if (httpHeaderValue.length > 0) {
+                [request addValue:httpHeaderValue forHTTPHeaderField:httpHeaderName];
+            }
+        }
+
         fileData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         if (error) {
             NSLog(@"IRUtil-dataFromPath: path=\"%@\" error=%@", path, [error localizedDescription]);

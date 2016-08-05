@@ -16,9 +16,10 @@
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 
     NSString *appJsonPath = @"ir_app.json";
-    [[Infrared sharedInstance] buildInfraredAppFromPath:appJsonPath];
+    Infrared *infrared = [Infrared sharedInstance];
+    [infrared buildInfraredAppFromPath:appJsonPath];
 //    NSString *appJsonPath = @"https://dl.dropboxusercontent.com/u/133728/ExampleApp1/ir_app.json";
-//    [[Infrared sharedInstance] buildInfraredAppFromPath:appJsonPath precacheFileName:@"IRPrecache_infrared_4.zip"];
+//    [infrared buildInfraredAppFromPath:appJsonPath precacheFileName:@"IRPrecache_infrared_4.zip"];
 
     return YES;
 }
