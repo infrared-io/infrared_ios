@@ -57,7 +57,6 @@
 
 @interface Infrared ()
 
-@property (nonatomic, strong) NSString *appJsonPath;
 @property (nonatomic) BOOL setRootViewController;
 
 @property (nonatomic, strong) NSString *previousAppName;
@@ -113,6 +112,7 @@ static Infrared *sharedInfraRed = nil;
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRWebViewDescriptor class]];
 
         self.infraredContextReadyBlock = nil;
+        self.updateJsonTransitionInProgress = NO;
     }
 
     return self;
@@ -652,6 +652,13 @@ static Infrared *sharedInfraRed = nil;
     [self updateCurrentInfraredAppWithUpdateJSONPath:[[IRDataController sharedInstance] defaultUpdateJSONPath]];
 }
 - (void) updateCurrentInfraredAppWithUpdateJSONPath:(NSString *)updateUIPath
+                                 handleContextReady:(InfraredContextReadyBlock)block
+{
+    [self cleanAndBuildInfraredAppFromPath:self.appJsonPath
+                        withUpdateJSONPath:updateUIPath
+                        handleContextReady:block];
+}
+- (void) updateCurrentInfraredAppWithUpdateJSONPath:(NSString *)updateUIPath
 {
     [self cleanAndBuildInfraredAppFromPath:self.appJsonPath
                         withUpdateJSONPath:updateUIPath];
@@ -667,6 +674,8 @@ static Infrared *sharedInfraRed = nil;
                        handleContextReady:(InfraredContextReadyBlock)block
 {
     @try {
+        self.updateJsonTransitionInProgress = YES;
+
         [IRDataController sharedInstance].updateJSONPath = updateUIPath;
 
         if (block) {
@@ -674,7 +683,10 @@ static Infrared *sharedInfraRed = nil;
         } else {
             [self showAppUpdateUI:^{
                 NSLog(@"cleanCacheAndRebuildAppWithPath - when context ready (2)");
-                [self cleanCacheAndRebuildAppWithPath:path];
+                [self cleanCacheAndRebuildAppWithPath:path
+                      handleContextReady:^{
+                          self.updateJsonTransitionInProgress = NO;
+                      }];
             }];
         }
     }
@@ -689,7 +701,10 @@ static Infrared *sharedInfraRed = nil;
                         withUpdateJSONPath:updateUIPath
                         handleContextReady:^{
                             NSLog(@"cleanCacheAndRebuildAppWithPath - when context ready (1)");
-                            [self cleanCacheAndRebuildAppWithPath:path];
+                            [self cleanCacheAndRebuildAppWithPath:path
+                                               handleContextReady:^{
+                                                   self.updateJsonTransitionInProgress = NO;
+                                               }];
                         }];
 }
 
@@ -792,6 +807,8 @@ static Infrared *sharedInfraRed = nil;
 
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
+
+#pragma mark - Private methods
 
 - (void) showAppUpdateUI:(InfraredContextReadyBlock)block
 {

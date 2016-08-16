@@ -192,6 +192,10 @@ static IRUtilLibrary *sharedIRLibrary = nil;
         }
     }
 
+    if ( ! aWindow) {
+        aWindow = [windows firstObject];
+    }
+
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:aWindow];
     hud.removeFromSuperViewOnHide = YES;
 

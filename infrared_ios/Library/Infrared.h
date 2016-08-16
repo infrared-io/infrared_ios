@@ -30,6 +30,9 @@ typedef void (^InfraredContextReadyBlock)();
 
 @property (nonatomic, assign) <InfraredDelegate> delegate;
 
+@property (nonatomic, strong) NSString *appJsonPath;
+@property (nonatomic) BOOL updateJsonTransitionInProgress;
+
 + (Infrared *)sharedInstance;
 
 - (void) setCustomHTTPHeaderAttributes:(NSDictionary *)customHTTPHeaderAttributes;
@@ -53,9 +56,14 @@ typedef void (^InfraredContextReadyBlock)();
 - (void) buildInfraredAppFromPath2ndPhase;
 
 - (void) updateCurrentInfraredApp;
+- (void) updateCurrentInfraredAppWithUpdateJSONPath:(NSString *)updateUIPath
+                                 handleContextReady:(InfraredContextReadyBlock)block;
 - (void) updateCurrentInfraredAppWithUpdateJSONPath:(NSString *)updateUIPath;
 
 - (void) cleanAndBuildInfraredAppFromPath:(NSString *)path;
+- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path
+                       withUpdateJSONPath:(NSString *)updateUIPath
+                       handleContextReady:(InfraredContextReadyBlock)block;
 - (void) cleanAndBuildInfraredAppFromPath:(NSString *)path withUpdateJSONPath:(NSString *)updateUIPath;
 
 - (void) deleteCacheFolderForAppWithApp:(NSString *)app
@@ -70,5 +78,8 @@ typedef void (^InfraredContextReadyBlock)();
 - (IRViewController *) mainScreenViewController;
 
 - (JSContext *)contextForLibraryClass:(Class)libraryClass;
+
+- (void) cleanCacheAndRebuildAppWithPath:(NSString *)path
+                      handleContextReady:(InfraredContextReadyBlock)block;
 
 @end
