@@ -11,6 +11,8 @@
 @class IRBaseDescriptor;
 @class IRScreenDescriptor;
 
+typedef void (^InfraredContextReadyBlock)();
+
 
 @protocol InfraredDelegate <NSObject>
 

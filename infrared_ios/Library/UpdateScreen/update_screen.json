@@ -19,25 +19,40 @@
         "backgroundColor": "#000000",
         "subviews": [
           {
-            "id": "activity_indicator",
-            "type": "activityIndicatorView",
-            "backgroundColor": "#000000",
-            "activityIndicatorViewStyle": "UIActivityIndicatorViewStyleWhiteLarge",
-            "animating": true
+            "id": "update_icon",
+            "type": "imageView",
+            "image": "ir_logo.png"
+          },
+          {
+            "id": "update_progress",
+            "type": "progressView",
+            "backgroundColor": "#ffffff00",
+            "trackTintColor": "#333333",
+            "progressTintColor": "#ff0000",
+            "progress": "0.05"
           },
           {
             "id": "update_label",
             "type": "label",
-            "backgroundColor": "#000000",
-            "text": "IR.i18n.update",
+            "backgroundColor": "#00000000",
+            "text": "Loading ...",
             "textAlignment": "NSTextAlignmentCenter",
             "textColor": "#ffffff",
-            "font": "HelveticaNeue, 24"
+            "font": "HelveticaNeue, 18"
           }
         ],
         "constraints": [
           {
-            "withItem": "activity_indicator",
+            "withItem": "update_icon",
+            "withItemAttribute": "NSLayoutAttributeCenterX",
+            "relatedBy": "NSLayoutRelationEqual",
+            "toItem": "content_wrapper",
+            "toItemAttribute": "NSLayoutAttributeCenterX",
+            "multiplier": "1",
+            "constant": "0"
+          },
+          {
+            "withItem": "update_progress",
             "withItemAttribute": "NSLayoutAttributeCenterX",
             "relatedBy": "NSLayoutRelationEqual",
             "toItem": "content_wrapper",
@@ -55,7 +70,13 @@
             "constant": "0"
           },
           {
-            "visualFormat": "V:|-0-[activity_indicator]-(>=1)-[update_label]-0-|"
+            "visualFormat": "H:[update_progress(==200)]"
+          },
+          {
+            "visualFormat": "H:[update_icon(==100)]"
+          },
+          {
+            "visualFormat": "V:|-0-[update_icon(==116)]-(>=1)-[update_progress]-8-[update_label]-0-|"
           }
         ]
       }
@@ -65,7 +86,7 @@
         "visualFormat": "H:|-0-[content_wrapper]-0-|"
       },
       {
-        "visualFormat": "V:[content_wrapper(==75)]"
+        "visualFormat": "V:[content_wrapper(==200)]"
       },
       {
         "withItem": "content_wrapper",

@@ -62,6 +62,8 @@
 
 @property (nonatomic, strong) NSString *previousAppName;
 
+@property (nonatomic) InfraredContextReadyBlock infraredContextReadyBlock;
+
 @end
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -109,6 +111,8 @@ static Infrared *sharedInfraRed = nil;
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRBarButtonItemDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRViewDescriptor class]];
         [[IRDataController sharedInstance] registerComponentDescriptor:[IRWebViewDescriptor class]];
+
+        self.infraredContextReadyBlock = nil;
     }
 
     return self;
@@ -128,6 +132,31 @@ static Infrared *sharedInfraRed = nil;
 {
     [IRDataController sharedInstance].irServerAccountKey = accountKey;
     [IRDataController sharedInstance].irServerProjectKey = projectKey;
+}
+- (void) buildInfraredAppWithAccountKey:(NSString *)accountKey
+                             projectKey:(NSString *)projectKey
+              extraComponentDescriptors:(NSArray *)descriptorClassedArray
+                  setRootViewController:(BOOL)setRootViewController
+                     handleContextReady:(InfraredContextReadyBlock)block
+{
+    [self setUpIRServerWithAccountKey:accountKey
+                           projectKey:projectKey];
+
+    [self registerExtraComponentDescriptors:descriptorClassedArray];
+
+    self.infraredContextReadyBlock = block;
+
+    NSString *path = @"https://dev.infrared.io/appJson";
+    [self buildInfraredAppFromPath:path setRootViewController:setRootViewController];
+}
+- (void) buildInfraredAppWithAccountKey:(NSString *)accountKey
+                             projectKey:(NSString *)projectKey
+              extraComponentDescriptors:(NSArray *)descriptorClassedArray
+{
+    [self buildInfraredAppWithAccountKey:accountKey projectKey:projectKey
+               extraComponentDescriptors:descriptorClassedArray
+                   setRootViewController:YES
+                      handleContextReady:nil];
 }
 // --------------------------------------------------------------------------------------------------------------------
 - (void) buildInfraredAppFromPath:(NSString *)path
@@ -450,7 +479,8 @@ static Infrared *sharedInfraRed = nil;
 
     // 13) build main view-controller
     if (self.setRootViewController) {
-        if ([self.delegate conformsToProtocol:@protocol(InfraredDelegate)]
+        if (/* ! self.infraredContextReadyBlock
+            && */[self.delegate conformsToProtocol:@protocol(InfraredDelegate)]
             && [self.delegate respondsToSelector:@selector(willSetRootViewController)])
         {
             [self.delegate willSetRootViewController];
@@ -460,7 +490,8 @@ static Infrared *sharedInfraRed = nil;
         [self buildViewControllerAndSetRootViewControllerScreenDescriptor:mainScreenDescriptor
                                                                      data:nil];
 
-        if ([self.delegate conformsToProtocol:@protocol(InfraredDelegate)]
+        if (/* ! self.infraredContextReadyBlock
+            && */[self.delegate conformsToProtocol:@protocol(InfraredDelegate)]
             && [self.delegate respondsToSelector:@selector(didSetRootViewController)])
         {
             [self.delegate didSetRootViewController];
@@ -475,6 +506,11 @@ static Infrared *sharedInfraRed = nil;
 
     // 15) post-notification that informs about IR context being ready
     [[NSNotificationCenter defaultCenter] postNotificationName:IR_CONTEXT_READY_NOTIFICATION object:nil];
+
+    if (self.infraredContextReadyBlock) {
+        self.infraredContextReadyBlock();
+    }
+
 }
 - (void) initI18NData
 {
@@ -626,22 +662,35 @@ static Infrared *sharedInfraRed = nil;
     [self cleanAndBuildInfraredAppFromPath:path
                         withUpdateJSONPath:[[IRDataController sharedInstance] defaultUpdateJSONPath]];
 }
-- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path withUpdateJSONPath:(NSString *)updateUIPath
+- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path
+                       withUpdateJSONPath:(NSString *)updateUIPath
+                       handleContextReady:(InfraredContextReadyBlock)block
 {
     @try {
         [IRDataController sharedInstance].updateJSONPath = updateUIPath;
 
-        [self showAppUpdateUI];
-
-        NSLog(@"cleanCacheAndRebuildAppWithPath - pre-delay");
-//        [self cleanCacheAndRebuildAppWithPath:path];
-        [self performSelector:@selector(cleanCacheAndRebuildAppWithPath:)
-                   withObject:path
-                   afterDelay:0.5/*0.02*/];
+        if (block) {
+            [self showAppUpdateUI:block];
+        } else {
+            [self showAppUpdateUI:^{
+                NSLog(@"cleanCacheAndRebuildAppWithPath - when context ready (2)");
+                [self cleanCacheAndRebuildAppWithPath:path];
+            }];
+        }
     }
     @catch (NSException *exception) {
         NSLog(@"Exception occurred: %@, %@", exception, [exception userInfo]);
     }
+}
+- (void) cleanAndBuildInfraredAppFromPath:(NSString *)path
+                       withUpdateJSONPath:(NSString *)updateUIPath
+{
+    [self cleanAndBuildInfraredAppFromPath:path
+                        withUpdateJSONPath:updateUIPath
+                        handleContextReady:^{
+                            NSLog(@"cleanCacheAndRebuildAppWithPath - when context ready (1)");
+                            [self cleanCacheAndRebuildAppWithPath:path];
+                        }];
 }
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -664,13 +713,11 @@ static Infrared *sharedInfraRed = nil;
 - (void) buildViewControllerAndSetRootViewControllerScreenDescriptor:(IRScreenDescriptor *)screenDescriptor
                                                                 data:(id)data
 {
-    IRViewController *rootViewController;
-    id<UIApplicationDelegate> appDelegate;
     if (screenDescriptor) {
-        rootViewController = [IRViewControllerBuilder buildAndWrapViewControllerFromScreenDescriptor:screenDescriptor
-                                                                                                data:data];
-        appDelegate = [UIApplication sharedApplication].delegate;
         @try {
+            IRViewController *rootViewController = [IRViewControllerBuilder buildAndWrapViewControllerFromScreenDescriptor:screenDescriptor
+                                                                                                                      data:data];
+            id<UIApplicationDelegate> appDelegate = [UIApplication sharedApplication].delegate;
             IRViewController *oldViewController = (IRViewController *) appDelegate.window.rootViewController;
 
             // -- set new root view controller
@@ -746,25 +793,48 @@ static Infrared *sharedInfraRed = nil;
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
+- (void) showAppUpdateUI:(InfraredContextReadyBlock)block
+{
+    [self cleanCacheAndRebuildAppWithPath:[IRDataController sharedInstance].updateJSONPath
+                       handleContextReady:block];
+}
 - (void) showAppUpdateUI
 {
-    [self cleanCacheAndRebuildAppWithPath:[IRDataController sharedInstance].updateJSONPath];
+    [self showAppUpdateUI:nil];
+}
+- (void) cleanCacheAndRebuildAppWithPath:(NSString *)path
+         handleContextReady:(InfraredContextReadyBlock)block
+{
+    [self cleanCacheAndRebuildAppWithPath:path
+                            appDescriptor:[IRDataController sharedInstance].appDescriptor
+                            handleContextReady:block];
 }
 - (void) cleanCacheAndRebuildAppWithPath:(NSString *)path
 {
-    [self cleanCacheAndRebuildAppWithPath:path appDescriptor:[IRDataController sharedInstance].appDescriptor];
+    [self cleanCacheAndRebuildAppWithPath:path handleContextReady:nil];
+}
+- (void) cleanCacheAndRebuildAppWithPath:(NSString *)path
+                           appDescriptor:(IRAppDescriptor *)appDescriptor
+                      handleContextReady:(InfraredContextReadyBlock)block
+{
+    self.infraredContextReadyBlock = block;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+//        // -- clear cached data
+//        [[IRDataController sharedInstance] cleanData];
+        // -- clear user-defaults
+        [IRUtil cleanAppAndVersionInUserDefaults];
+        // -- clean cacheFolder
+        [self deleteCacheFolderForAppWithApp:appDescriptor.app version:appDescriptor.version];
+        // -- start app building process
+        [self buildInfraredAppFromPath:path];
+    });
 }
 - (void) cleanCacheAndRebuildAppWithPath:(NSString *)path
                            appDescriptor:(IRAppDescriptor *)appDescriptor
 {
-//    // -- clear cached data
-//    [[IRDataController sharedInstance] cleanData];
-    // -- clear user-defaults
-    [IRUtil cleanAppAndVersionInUserDefaults];
-    // -- clean cacheFolder
-    [self deleteCacheFolderForAppWithApp:appDescriptor.app version:appDescriptor.version];
-    // -- start app building process
-    [self buildInfraredAppFromPath:path];
+    [self cleanCacheAndRebuildAppWithPath:path
+                            appDescriptor:appDescriptor
+                       handleContextReady:nil];
 }
 
 // --------------------------------------------------------------------------------------------------------------------

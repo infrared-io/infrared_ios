@@ -320,19 +320,25 @@
             NSString *irServerAccountKey = [IRDataController sharedInstance].irServerAccountKey;
             NSString *irServerProjectKey = [IRDataController sharedInstance].irServerProjectKey;
 
-            [request addValue:model forHTTPHeaderField:@"model"];
-            [request addValue:systemVersion forHTTPHeaderField:@"systemVersion"];
-            [request addValue:[NSString stringWithFormat:@"%1.2f", scale] forHTTPHeaderField:@"scale"];
-            [request addValue:[NSString stringWithFormat:@"%1.2f", screenRect.size.width] forHTTPHeaderField:@"width"];
-            [request addValue:[NSString stringWithFormat:@"%1.2f", screenRect.size.height] forHTTPHeaderField:@"height"];
-            [request addValue:language forHTTPHeaderField:@"language"];
-            [request addValue:countryCode forHTTPHeaderField:@"country"];
+            [request addValue:model forHTTPHeaderField:@"IRServer_Model"];
+            [request addValue:systemVersion forHTTPHeaderField:@"IRServer_SystemVersion"];
+            [request addValue:[NSString stringWithFormat:@"%1.2f", scale] forHTTPHeaderField:@"IRServer_Scale"];
+            [request addValue:[NSString stringWithFormat:@"%1.2f", screenRect.size.width] forHTTPHeaderField:@"IRServer_Width"];
+            [request addValue:[NSString stringWithFormat:@"%1.2f", screenRect.size.height] forHTTPHeaderField:@"IRServer_Height"];
+            [request addValue:language forHTTPHeaderField:@"IRServer_Language"];
+            [request addValue:countryCode forHTTPHeaderField:@"IRServer_Country"];
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // TODO: 
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             if (irServerAccountKey.length > 0) {
-                [request addValue:irServerAccountKey forHTTPHeaderField:@"irServerAccountKey"];
+                [request addValue:irServerAccountKey forHTTPHeaderField:@"IRServer_AccountKey"];
             }
             if (irServerProjectKey.length > 0) {
-                [request addValue:irServerProjectKey forHTTPHeaderField:@"irServerProjectKey"];
+                [request addValue:irServerProjectKey forHTTPHeaderField:@"IRServer_ProjectKey"];
             }
         }
 
@@ -345,7 +351,10 @@
             }
         }
 
-        fileData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//        fileData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        fileData = [IRUtil sendSynchronousRequest:request
+                                returningResponse:&response
+                                            error:&error];
         if (error) {
             NSLog(@"IRUtil-dataFromPath: path=\"%@\" error=%@", path, [error localizedDescription]);
             fileData = nil;
@@ -567,6 +576,41 @@
         key = [NSString stringWithFormat:@"%@_%p", NSStringFromClass([object class]), object];
     }
     return key;
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+
+#pragma mark - Private
+
++ (NSData *)sendSynchronousRequest:(NSURLRequest *)request
+                 returningResponse:(__autoreleasing NSURLResponse **)responsePtr
+                             error:(__autoreleasing NSError **)errorPtr
+{
+    dispatch_semaphore_t    sem;
+    __block NSData *        result;
+
+    result = nil;
+
+    sem = dispatch_semaphore_create(0);
+
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                         if (errorPtr != NULL) {
+                                             *errorPtr = error;
+                                         }
+                                         if (responsePtr != NULL) {
+                                             *responsePtr = response;
+                                         }
+                                         if (error == nil) {
+                                             result = data;
+                                         }
+                                         dispatch_semaphore_signal(sem);
+                                     }] resume];
+
+    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+
+    return result;
 }
 
 @end

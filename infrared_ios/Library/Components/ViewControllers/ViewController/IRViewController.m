@@ -493,16 +493,17 @@
 }
 - (void) cleanAndBuildInfraredAppFromPath:(NSString *)path
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [[Infrared sharedInstance] cleanAndBuildInfraredAppFromPath:path];
-    });
+//    });
 }
 - (void) cleanAndBuildInfraredAppFromPath:(NSString *)path
                        withUpdateJSONPath:(NSString *)updateUIPath
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+//    dispatch_async(dispatch_get_main_queue(), ^{
         [[Infrared sharedInstance] cleanAndBuildInfraredAppFromPath:path withUpdateJSONPath:updateUIPath];
-    });
+//    });
 }
 // --------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
