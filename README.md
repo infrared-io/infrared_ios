@@ -6,7 +6,7 @@
 
 ## Introduction  
 
-Infrared is library for iOS development which allows control of app's UI, Interaction and resource.  
+Infrared is library for iOS development which allows control of app's UI, Interaction and resources.  
 How is this achieved:  
 * UI:   
 instead of defining it in ObjC code and Storyboard, Infrared uses JSON description files  
